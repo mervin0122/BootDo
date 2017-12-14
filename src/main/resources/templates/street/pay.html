@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+    <title>j5shop商城</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="/street/css/public.css" type="text/css" rel="stylesheet"/>
+    <link href="/street/css/order_1.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="/street/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/street/js/slide.js"></script>
+    <script src="/js/plugins/layer/layer.min.js"></script>
+</head>
+<script>
+    $(function(){
+        $('.nav ul li').hover(function(){
+            $(this).children(".details").show();
+        },function(){
+            $(this).children(".details").hide();
+        });
+        $('#my').hover(function(){
+            $(this).find("div").show();
+        },function(){
+            $(this).find("div").hide();
+        });
+    });
+</script>
+<body>
+<div th:replace="street/layout/mallHeader"></div>
+
+<div class="wt1080">
+    <!--------------标题----------->
+    <div class="my_order1">
+        <h1>提交订单</h1>
+        <div class="place">
+            <ul>
+                <li class="current"><span>1</span><p>我的购物车</p></li>
+                <li class="current"><span>2</span><p>提交订单</p></li>
+                <li class="current"><span>3</span><p>选择支付方式</p></li>
+            </ul>
+            <span class="heng"></span>
+        </div>
+    </div>
+    <!-----------订单提交-------------->
+    <div class="finish">
+        <div class="rr">
+            <span class="one">订单提交成功，请尽快付款！</span>
+            <span class="two">剩余时间<font>00:20:03</font></span>
+        </div>
+        <div class="dd">
+            <p style="width: 900px;">familiar 华蜜丽 婴儿不锈钢水瓶 500毫升 等2件商品。。。 保税区直发 杭州保税1号仓发货</p>
+            <p th:text="${str}">收货信息：四川省成都市武侯区大石西路130号，张新，手机：159****3994</p>
+            <a href="#">我的订单&gt;&gt;</a>
+        </div>
+    </div>
+    <!----------------支付信息------------------->
+    <div class="pay">
+        <div class="roo">支付信息<span></span></div>
+        <div class="kk">
+            <div class="tt">
+                <input th:hidden="true" th:value="${user.userId}" id="userid"/>
+                <input th:hidden="true" th:value="${order.id}" id="orderid"/>
+                <input th:hidden="true" th:value="${order.totalprice}" id="totalprice"/>
+                <input th:hidden="true" th:value="${user.balance}" id="balance"/>
+                支付金额：<span th:text="'￥'+${order.totalprice}">￥424.00</span>
+                商城余额：<span th:text="'￥'+${user.balance}">￥424.00</span>
+                <a href="#">关于实名认证？</a>
+            </div>
+            <div class="pp">
+                <img src="/street/image/balance.jpg">
+                <input type="buttom" onclick="balancePay()" value="余额去支付">
+            </div>
+            <div class="pp">
+                <img src="/street/image/pay.jpg">
+                <input type="buttom" value="用支付宝去支付">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var orderid = $("#orderid").val();
+    var totalprice = $("#totalprice").val();
+    var balance = $("#balance").val();
+    function balancePay(){
+        var data = {};
+        data.orderid=orderid;
+        data.totalprice=totalprice;
+        data.balance=balance;
+        $.ajax({
+            type: "post",
+            url: '/person/street/balancePay',
+            data: data,
+            dataType: "json",
+            success:function(res) {
+                console.log(res);
+                if(res.code==0){
+                    layer.msg(res.msg);
+                    window.location.href = "/person/street/index";
+                }else {
+                    layer.msg(res.msg);
+                }
+            }
+        });
+    }
+
+</script>
+<div th:replace="street/layout/mallFooter"></div>
+</body>
+</html>

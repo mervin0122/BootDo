@@ -1,0 +1,88 @@
+<!------------顶部---------------->
+<div class="top">
+	<div class="wt1080">
+		<div class="fl" id="one1">
+
+		</div>
+		<div class="fr">
+			<ul id="two1">
+				<li style="position: relative;" id="my">
+					<a href="#">我的洋店 <img src="/street/image/sanjiao.png"></a>
+					<div class="personal">
+						<dl>
+							<dt><a th:href="@{'/person/street/my'}">我的信息</a></dt>
+							<dt><a th:href="@{'/person/street/order'}">我的订单</a></dt>
+							<dt><a th:href="@{'/person/street/jfgoods'}">积分商品</a></dt>
+							<dd><a th:href="@{'/person/street/coupon'}">我的优惠卷</a></dd>
+							<dd><a th:href="@{'/person/street/jifen'}">我的积分</a></dd>
+						</dl>
+					</div>
+				</li>
+				<li><span class="phone"><a th:href="@{'/street/article'}">手机洋店</a></span></li>
+				<li><span><a th:href="@{'/street/article'}">关于洋店</a></span></li>
+				<li><span><a th:href="@{'/street/article'}">帮助中心</a></span></li>
+				<li><span class="phone2">028-6133 8882</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!--------------logo搜索------------->
+<div class="wt1080 header">
+	<div class="logo fl"><a href="/street/index"><img src="/street/image/logo.png"></a></div>
+	<div class="search fl">
+		<div>
+			<form action="/street/search" method="post"
+				  id="sysuser-save-form">
+				<input name="keyword" type="text" value="唐嫣" class="a_search fl" placeholder="请输入关键字">
+				<input class="b_search fl" type="submit" value=""/>
+				<div class="clear"></div>
+			</form>
+		</div>
+		<p>
+			<a href="#" class="current">法拉利</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="#">唐嫣</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="#">劳斯莱斯</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="#">刘亦菲</a>
+		</p>
+	</div>
+	<a id="three1" class="my_shop fr">我的购物车<span id="four">0</span></a>
+	<div class="clear"></div>
+</div>
+<!--------------导航------------------>
+<div class="nav">
+	<div class="wt1080">
+		<ul>
+			<li>
+				<a href="/street/index" class="current"><span>首页</span></a>
+			</li>
+			<li><a target="_blank" href="/street/jfindex"><span>积分商城</span></a></li>
+			<li><a target="_blank" href="/street/category"><span>商品分类</span></a></li>
+			<li><a  target="_blank" href="/login"><span>后台管理</span></a></li>
+			<li><a target="_blank" href="/diaShop/index"><span>珠宝商城</span></a></li>
+			<li><a target="_blank" href="/cms/web/index"><span>内容管理</span></a></li>
+			<li><a target="_blank" href="/blog"><span>博客前端</span></a></li>
+		</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
+<script type="text/javascript">
+	init();
+    function init() {
+        $.get("/street/session", function(data){
+            if (data.code == 0) {
+                var a = '<a href="/street/index">洋店首页&emsp;</a>|<a href="/person/street/my"><span>' + data.username + '</span>' +
+					'</a>&emsp;或&emsp;<a href="/street/logout">退出</a>';
+                $("#one1").append(a);
+                var b = '<li><span class="shop">购物车 &emsp;<a href="/person/street/cartList">' + data.cartCount + '</a>件</span></li>';
+                $("#two1").append(b);
+                $("#three1").attr("href",'/person/street/cartList');
+                $("#four").html(data.cartCount);
+            } else {
+                var a = '<a href="/street/index">洋店首页</a>&emsp;|&emsp;请&emsp;' +
+					'<a href="/street/login" style="color: #ff9900">登陆' +
+				'</a>&emsp;或&emsp;<a href="/street/reg">立即注册</a>';
+                $("#one1").append(a);
+            }
+        });
+    }
+</script>

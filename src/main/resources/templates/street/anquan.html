@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+    <title>j5shop商城</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="/street/css/public.css" type="text/css" rel="stylesheet"/>
+    <link href="/street/css/anquan.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="/street/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/street/js/slide.js"></script>
+</head>
+<script>
+    $(function(){
+        $('.nav ul li').hover(function(){
+            $(this).children(".details").show();
+        },function(){
+            $(this).children(".details").hide();
+        });
+        $('#my').hover(function(){
+            $(this).find("div").show();
+        },function(){
+            $(this).find("div").hide();
+        });
+    });
+</script>
+<body>
+<div th:replace="street/layout/mallHeader"></div>
+
+<!-----------------内容------------------>
+<div class="wt1080 middle">
+    <div class="fl">
+        <div style="padding: 0 24px;"><h1>用户名称</h1></div>
+        <ul>
+            <li class="current"><a href="my_order.html">我的订单</a></li>
+            <li><a href="youhuijuan.html">我的优惠卷</a></li>
+            <li><a href="jifen.html">我的积分</a></li>
+            <li><a href="anquan.html">账户安全</a></li>
+            <li><a href="shoucang.html">我收藏的商品</a></li>
+            <li><a href="address.html">管理收货地址</a></li>
+        </ul>
+    </div>
+    <div class="fr">
+        <ul>
+            <li>
+                <span class="a lock">登陆密码</span>
+                <span class="b">登陆洋店网账户时需要输入的密码</span>
+                <span class="c"><a href="#">重置</a></span>
+            </li>
+            <li>
+                <span class="a">手机绑定</span>
+                <span class="b">一个手机号仅限绑定一个洋店网帐号</span>
+                <span class="c"><a href="#">绑定</a></span>
+            </li>
+            <li>
+                <span class="a">邮箱绑定</span>
+                <span class="b">邮箱绑定后，以便于更多好的管理和查看账户信息</span>
+                <span class="c"><a href="#">重置</a></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!---------------------热销------------------>
+<div class="hot wt1080">
+    <div class="title">热销推荐</div>
+    <div class="content">
+        <ul>
+            <li>
+                <div class="pic"><a href="#"><img src="/street/image/p11.png"></a></div>
+                <p class="c_t"><a href="#">Regen/丽珍 纯棉超细纤维美白皮肤面膜贴 10片</a></p>
+                <p class="price">￥89.00</p>
+                <a href="#" class="goumai">立即购买</a>
+            </li>
+            <li>
+                <div class="pic"><a href="#"><img src="/street/image/p11.png"></a></div>
+                <p class="c_t"><a href="#">Regen/丽珍 纯棉超细纤维美白皮肤面膜贴 10片</a></p>
+                <p class="price">￥89.00</p>
+                <a href="#" class="goumai">立即购买</a>
+            </li>
+            <li>
+                <div class="pic"><a href="#"><img src="/street/image/p11.png"></a></div>
+                <p class="c_t"><a href="#">Regen/丽珍 纯棉超细纤维美白皮肤面膜贴 10片</a></p>
+                <p class="price">￥89.00</p>
+                <a href="#" class="goumai">立即购买</a>
+            </li>
+            <li>
+                <div class="pic"><a href="#"><img src="/street/image/p11.png"></a></div>
+                <p class="c_t"><a href="#">Regen/丽珍 纯棉超细纤维美白皮肤面膜贴 10片</a></p>
+                <p class="price">￥89.00</p>
+                <a href="#" class="goumai">立即购买</a>
+            </li>
+            <li>
+                <div class="pic"><a href="#"><img src="/street/image/p11.png"></a></div>
+                <p class="c_t"><a href="#">Regen/丽珍 纯棉超细纤维美白皮肤面膜贴 10片</a></p>
+                <p class="price">￥89.00</p>
+                <a href="#" class="goumai">立即购买</a>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<div th:replace="street/layout/mallFooter"></div></div>
+</body>
+</html>

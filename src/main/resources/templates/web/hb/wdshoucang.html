@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ZSCAT电子交易平台</title>
+<link href="../css/public.css" rel="stylesheet" type="text/css" />
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<link href="../css/hbcss.css" rel="stylesheet" type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+</head>
+
+<body>
+<!--top 开始-->
+<!--#include virtual="/include/top.html"-->
+<!--top 结束-->
+<div class="content">
+    <!--和包导航 开始-->
+	<!--#include virtual="/include/hb_top.html"-->    
+    <!--和包导航 结束-->
+    
+    <div class="hb_mbx">
+    	<a href="#">我的和包</a> > 我的收藏
+    </div>
+    <div class="clear"></div>
+    
+    <div class="hb_cont">   
+        <!--左侧 开始-->
+        <!--#include virtual="/include/hb_left.html"-->    
+        <!--左侧 结束-->
+        <!--右侧 开始-->
+        <div class="hb_cont_r">
+        	<div class="hb_r_top">
+            	<p class="hb_r_top_tit">我的收藏</p>
+                <ul class="hb_r_top_nr">
+                	<li>
+                    	<span>交易提醒：</span>
+                        <a href="#">待付款（0）</a>
+                        <a href="#">待确认收货（0）</a>
+                        <a href="#">待评价（0）</a>
+                    </li>
+                    <li>
+                    	<span>消息提醒：</span>
+                        <a href="#" class="a0085d0">降价提醒（4）</a>
+                        <a href="#" class="a0085d0">新品上架（5）</a>
+                        <a href="#" class="a0085d0">服务提醒（7）</a>
+                        <a href="#" class="a0085d0">物流提醒（8）</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nb_hdm_tit mt10 overflow">
+            	<ul class="left">
+                	<li class="hover" id="hbwt1" onclick="setTab('hbwt',1,2)"><p>商品收藏</p></li>
+                    <li id="hbwt2" onclick="setTab('hbwt',2,2)"><p>店铺收藏</p></li>
+                </ul>
+                <div class="nb_r_tit_r">
+                	<input name="" type="text" class="nb_input" onblur="if(this.value == '') this.value = this.defaultValue" onfocus="if(this.value == this.defaultValue) this.value = ''"/>
+                    <a href="#" class="nb_icon">查询</a>
+                    <a href="#" class="nb_icon">导出</a>
+                </div>
+            </div>
+            
+            <div id="con_hbwt_1">
+            	<table cellpadding="0" cellspacing="0" border="0" class="nb_table2">
+                	<tr class="bf9f9f9">
+                        <td class="nbzhbg" colspan="5" style=" text-align:left;">
+                        	<input name="" type="checkbox" value="" class="left mt10" />
+                            <strong class="left mt5 ml5">全部</strong>
+                            <a href="#" class="left mt5 ml15"><img src="../images/icon_plsc.gif" width="64" height="21" /></a>
+                            <a href="#" class="left mt5 ml10"><img src="../images/icon_pljrgwc.gif" width="104" height="21" /></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="265">商品信息</th>
+                        <th>单价</th>
+                        <th>
+                        	<select name="">
+                        	  <option>收藏时间</option>
+                        	</select>
+                      	</th>
+                        <th>
+                        	<select name="">
+                        	  <option>商品类型</option>
+                        	</select>
+                      	</th>
+                        <th class="nbzhbg">操作</th>
+                    </tr>
+                    <tr>
+                        <td class="nbzhbg">
+                        	<input name="" type="checkbox" value="" class="left mt25 ml5" />
+                        	<div class="left ml5 mt5"><a href="#"><img src="../images/pc_sm.gif" height="52" width="52"></a></div>
+                            <div class="right mt5" style="width:160px; text-align:left;">
+                                <p><a href="#">MIUI/小米 小米手机3</a></p>
+                                <p class="cl808080">品牌：小米   型号：小米3   颜色：土豪金</p>
+                            </div>
+                        </td>
+                        <td class="nbzhbg">3455</td>
+                        <td class="nbzhbg">2014-01-22 15:26:23</td>
+                        <td class="nbzhbg">手机</td>
+                        <td class="nbzhbg">
+                        	<a href="#">删除</a>
+                            |
+                            <a href="#">查看</a>
+                            |
+                            <a href="#">加入购物车</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nbzhbg">
+                        	<input name="" type="checkbox" value="" class="left mt25 ml5" />
+                        	<div class="left ml5 mt5"><a href="#"><img src="../images/pc_sm.gif" height="52" width="52"></a></div>
+                            <div class="right mt5" style="width:160px; text-align:left;">
+                                <p><a href="#">MIUI/小米 小米手机3</a></p>
+                                <p class="cl808080">品牌：小米   型号：小米3   颜色：土豪金</p>
+                            </div>
+                        </td>
+                        <td class="nbzhbg">3455</td>
+                        <td class="nbzhbg">2014-01-22 15:26:23</td>
+                        <td class="nbzhbg">手机</td>
+                        <td class="nbzhbg">
+                        	<a href="#">删除</a>
+                            |
+                            <a href="#">查看</a>
+                            |
+                            <a href="#">加入购物车</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nbzhbg">
+                        	<input name="" type="checkbox" value="" class="left mt25 ml5" />
+                        	<div class="left ml5 mt5"><a href="#"><img src="../images/pc_sm.gif" height="52" width="52"></a></div>
+                            <div class="right mt5" style="width:160px; text-align:left;">
+                                <p><a href="#">MIUI/小米 小米手机3</a></p>
+                                <p class="cl808080">品牌：小米   型号：小米3   颜色：土豪金</p>
+                            </div>
+                        </td>
+                        <td class="nbzhbg">3455</td>
+                        <td class="nbzhbg">2014-01-22 15:26:23</td>
+                        <td class="nbzhbg">手机</td>
+                        <td class="nbzhbg">
+                        	<a href="#">删除</a>
+                            |
+                            <a href="#">查看</a>
+                            |
+                            <a href="#">加入购物车</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nbzhbg">
+                        	<input name="" type="checkbox" value="" class="left mt25 ml5" />
+                        	<div class="left ml5 mt5"><a href="#"><img src="../images/pc_sm.gif" height="52" width="52"></a></div>
+                            <div class="right mt5" style="width:160px; text-align:left;">
+                                <p><a href="#">MIUI/小米 小米手机3</a></p>
+                                <p class="cl808080">品牌：小米   型号：小米3   颜色：土豪金</p>
+                            </div>
+                        </td>
+                        <td class="nbzhbg">3455</td>
+                        <td class="nbzhbg">2014-01-22 15:26:23</td>
+                        <td class="nbzhbg">手机</td>
+                        <td class="nbzhbg">
+                        	<a href="#">删除</a>
+                            |
+                            <a href="#">查看</a>
+                            |
+                            <a href="#">加入购物车</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nbzhbg">
+                        	<input name="" type="checkbox" value="" class="left mt25 ml5" />
+                        	<div class="left ml5 mt5"><a href="#"><img src="../images/pc_sm.gif" height="52" width="52"></a></div>
+                            <div class="right mt5" style="width:160px; text-align:left;">
+                                <p><a href="#">MIUI/小米 小米手机3</a></p>
+                                <p class="cl808080">品牌：小米   型号：小米3   颜色：土豪金</p>
+                            </div>
+                        </td>
+                        <td class="nbzhbg">3455</td>
+                        <td class="nbzhbg">2014-01-22 15:26:23</td>
+                        <td class="nbzhbg">手机</td>
+                        <td class="nbzhbg">
+                        	<a href="#">删除</a>
+                            |
+                            <a href="#">查看</a>
+                            |
+                            <a href="#">加入购物车</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nbzhbg">
+                        	<input name="" type="checkbox" value="" class="left mt25 ml5" />
+                        	<div class="left ml5 mt5"><a href="#"><img src="../images/pc_sm.gif" height="52" width="52"></a></div>
+                            <div class="right mt5" style="width:160px; text-align:left;">
+                                <p><a href="#">MIUI/小米 小米手机3</a></p>
+                                <p class="cl808080">品牌：小米   型号：小米3   颜色：土豪金</p>
+                            </div>
+                        </td>
+                        <td class="nbzhbg">3455</td>
+                        <td class="nbzhbg">2014-01-22 15:26:23</td>
+                        <td class="nbzhbg">手机</td>
+                        <td class="nbzhbg">
+                        	<a href="#">删除</a>
+                            |
+                            <a href="#">查看</a>
+                            |
+                            <a href="#">加入购物车</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nbzhbg">
+                        	<input name="" type="checkbox" value="" class="left mt25 ml5" />
+                        	<div class="left ml5 mt5"><a href="#"><img src="../images/pc_sm.gif" height="52" width="52"></a></div>
+                            <div class="right mt5" style="width:160px; text-align:left;">
+                                <p><a href="#">MIUI/小米 小米手机3</a></p>
+                                <p class="cl808080">品牌：小米   型号：小米3   颜色：土豪金</p>
+                            </div>
+                        </td>
+                        <td class="nbzhbg">3455</td>
+                        <td class="nbzhbg">2014-01-22 15:26:23</td>
+                        <td class="nbzhbg">手机</td>
+                        <td class="nbzhbg">
+                        	<a href="#">删除</a>
+                            |
+                            <a href="#">查看</a>
+                            |
+                            <a href="#">加入购物车</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nbzhbg">
+                        	<input name="" type="checkbox" value="" class="left mt25 ml5" />
+                        	<div class="left ml5 mt5"><a href="#"><img src="../images/pc_sm.gif" height="52" width="52"></a></div>
+                            <div class="right mt5" style="width:160px; text-align:left;">
+                                <p><a href="#">MIUI/小米 小米手机3</a></p>
+                                <p class="cl808080">品牌：小米   型号：小米3   颜色：土豪金</p>
+                            </div>
+                        </td>
+                        <td class="nbzhbg">3455</td>
+                        <td class="nbzhbg">2014-01-22 15:26:23</td>
+                        <td class="nbzhbg">手机</td>
+                        <td class="nbzhbg">
+                        	<a href="#">删除</a>
+                            |
+                            <a href="#">查看</a>
+                            |
+                            <a href="#">加入购物车</a>
+                        </td>
+                    </tr>
+                </table>
+                <div class="nb_page mt10">
+                    <a href="#"><img src="../images/nb_syy.gif" width="68" height="27" alt="上一页" /></a>
+                    <a href="#" class="nvadq">1</a>
+                    <a href="#">2</a>
+                    <a href="#"><img src="../images/nb_xxy.gif" width="68" height="27" alt="下一页" /></a>
+                </div>
+            </div>
+            
+            <div id="con_hbwt_2" class="none">
+            	
+                <div class="lb_sjdp">
+                    <div class="lb_sjdp_left" style="width:170px;min-height:300px;_height:300px;">
+                        <div class="lb_dplogo" align="center"><a href="../dp/index.html"><img src="../images/lb_sjpic.gif" /></a></div>
+                        <div class="mt15"><span class="lb_dptit">小米五洲联鑫专卖店</span> <span><a href="#"><img src="../images/wwbig.gif" /></a></span></div>
+                        <p class="mt5">主营产品：手机、手机卡</p>
+                    	<p>联系电话：010-88810010</p>
+                    	<p class="text_c mt20"><a href="#"><img src="../images/icon_qxsc.gif" width="89" height="21" alt="取消收藏" /></a></p>
+                    </div>
+                    <div class="lb_sjdp_right" style="width:634px;">
+                        
+                        
+                        <div class="sc_sjdp_cont">
+                            <div class="productimg"><a href="#"><img src="../images/lb_right_pic.gif" /></a></div>
+                            <div class=" mt10"><b>￥2199.00</b>  <s>￥3299.0</s></div>
+                            <p class="productTitle">Lenovo/联想 联想 K900金</p>
+                            <!--<p>已售出<span class="dpyscsl fontb">647</span>笔　　　评价 <span class="dppjsl fontb">6872</span></p>-->
+                            <div class="jrdbsc">
+                                <a href="#">加入购物车</a>
+                                <a href="#">收藏</a>
+                                <a class="lb_icon_db" href="###"></a>
+                            
+                            </div>
+                        </div>
+                        <div class="sc_sjdp_cont">
+                            <div class="productimg"><a href="#"><img src="../images/lb_right_pic.gif" /></a></div>
+                            <div class=" mt10"><b>￥2199.00</b>  <s>￥3299.0</s></div>
+                            <p class="productTitle">Lenovo/联想 联想 K900金</p>
+                            <!--<p>已售出<span class="dpyscsl fontb">647</span>笔　　　评价 <span class="dppjsl fontb">6872</span></p>-->
+                            <div class="jrdbsc">
+                                <a href="#">加入购物车</a>
+                                <a href="#">收藏</a>
+                                <a class="lb_icon_db" href="#"></a>
+                            
+                            </div>
+                        </div>
+                        <a href="../dp/index.html" class="shopDropBtn">查看更多产品<i></i></a>
+                    </div>
+                </div>
+                
+                <div class="lb_sjdp">
+                    <div class="lb_sjdp_left" style="width:170px;min-height:300px;_height:300px;">
+                        <div class="lb_dplogo" align="center"><a href="../dp/index.html"><img src="../images/lb_sjpic.gif" /></a></div>
+                        <div class="mt15"><span class="lb_dptit">小米五洲联鑫专卖店</span> <span><a href="#"><img src="../images/wwbig.gif" /></a></span></div>
+                        <p class="mt5">主营产品：手机、手机卡</p>
+                    	<p>联系电话：010-88810010</p>
+                    	<p class="text_c mt20"><a href="#"><img src="../images/icon_qxsc.gif" width="89" height="21" alt="取消收藏" /></a></p>
+                    </div>
+                    <div class="lb_sjdp_right" style="width:634px;">
+                        
+                        
+                        <div class="sc_sjdp_cont">
+                            <div class="productimg"><a href="#"><img src="../images/lb_right_pic.gif" /></a></div>
+                            <div class=" mt10"><b>￥2199.00</b>  <s>￥3299.0</s></div>
+                            <p class="productTitle">Lenovo/联想 联想 K900金</p>
+                            <!--<p>已售出<span class="dpyscsl fontb">647</span>笔　　　评价 <span class="dppjsl fontb">6872</span></p>-->
+                            <div class="jrdbsc">
+                                <a href="#">加入购物车</a>
+                                <a href="#">收藏</a>
+                                <a class="lb_icon_db" href="###"></a>
+                            
+                            </div>
+                        </div>
+                        <div class="sc_sjdp_cont">
+                            <div class="productimg"><a href="#"><img src="../images/lb_right_pic.gif" /></a></div>
+                            <div class=" mt10"><b>￥2199.00</b>  <s>￥3299.0</s></div>
+                            <p class="productTitle">Lenovo/联想 联想 K900金</p>
+                            <!--<p>已售出<span class="dpyscsl fontb">647</span>笔　　　评价 <span class="dppjsl fontb">6872</span></p>-->
+                            <div class="jrdbsc">
+                                <a href="#">加入购物车</a>
+                                <a href="#">收藏</a>
+                                <a class="lb_icon_db" href="#"></a>
+                            
+                            </div>
+                        </div>
+                        <div class="sc_sjdp_cont">
+                            <div class="productimg"><a href="#"><img src="../images/lb_right_pic.gif" /></a></div>
+                            <div class=" mt10"><b>￥2199.00</b>  <s>￥3299.0</s></div>
+                            <p class="productTitle">Lenovo/联想 联想 K900金</p>
+                            <!--<p>已售出<span class="dpyscsl fontb">647</span>笔　　　评价 <span class="dppjsl fontb">6872</span></p>-->
+                            <div class="jrdbsc">
+                                <a href="#">加入购物车</a>
+                                <a href="#">收藏</a>
+                                <a class="lb_icon_db" href="#"></a>
+                            
+                            </div>
+                        </div>
+                        <a href="../dp/index.html" class="shopDropBtn">查看更多产品<i></i></a>
+                    </div>
+                </div>
+                
+                <div class="lb_sjdp">
+                    <div class="lb_sjdp_left" style="width:170px;min-height:300px;_height:300px;">
+                        <div class="lb_dplogo" align="center"><a href="../dp/index.html"><img src="../images/lb_sjpic.gif" /></a></div>
+                        <div class="mt15"><span class="lb_dptit">小米五洲联鑫专卖店</span> <span><a href="#"><img src="../images/wwbig.gif" /></a></span></div>
+                        <p class="mt5">主营产品：手机、手机卡</p>
+                    	<p>联系电话：010-88810010</p>
+                    	<p class="text_c mt20"><a href="#"><img src="../images/icon_qxsc.gif" width="89" height="21" alt="取消收藏" /></a></p>
+                    </div>
+                    <div class="lb_sjdp_right" style="width:634px;">
+                        
+                        
+                        <div class="sc_sjdp_cont">
+                            <div class="productimg"><a href="#"><img src="../images/lb_right_pic.gif" /></a></div>
+                            <div class=" mt10"><b>￥2199.00</b>  <s>￥3299.0</s></div>
+                            <p class="productTitle">Lenovo/联想 联想 K900金</p>
+                            <!--<p>已售出<span class="dpyscsl fontb">647</span>笔　　　评价 <span class="dppjsl fontb">6872</span></p>-->
+                            <div class="jrdbsc">
+                                <a href="#">加入购物车</a>
+                                <a href="#">收藏</a>
+                                <a class="lb_icon_db" href="###"></a>
+                            
+                            </div>
+                        </div>
+                        <div class="sc_sjdp_cont">
+                            <div class="productimg"><a href="#"><img src="../images/lb_right_pic.gif" /></a></div>
+                            <div class=" mt10"><b>￥2199.00</b>  <s>￥3299.0</s></div>
+                            <p class="productTitle">Lenovo/联想 联想 K900金</p>
+                            <!--<p>已售出<span class="dpyscsl fontb">647</span>笔　　　评价 <span class="dppjsl fontb">6872</span></p>-->
+                            <div class="jrdbsc">
+                                <a href="#">加入购物车</a>
+                                <a href="#">收藏</a>
+                                <a class="lb_icon_db" href="#"></a>
+                            
+                            </div>
+                        </div>
+                        <a href="../dp/index.html" class="shopDropBtn">查看更多产品<i></i></a>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        <!--右侧 结束-->
+    </div>
+    
+    <!--pay_helpcent 开始-->
+    <!--#include virtual="/include/helpcent2.html"--> 
+    <!--pay_helpcent 开始-->
+    
+    <!--foot 开始-->
+    <!--#include virtual="/include/foot.html"-->   
+    <!--foot 结束-->
+    
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>产品展示</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0,user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  
+  <link rel="alternate icon" type="/cms/img/HENGWANG.png" href="/cms/img/HENGWANG.png">
+  <link rel="stylesheet" href="/cms/css/amazeui.css"/>
+  <link rel="stylesheet" href="/cms/css/style.css"/>
+</head>
+<body>
+
+<div th:replace="cms/layout/mallHeader"></div>
+<div class="toppic">
+	 <div class="am-container-1">
+	 <div class="toppic-title left">
+			<i class="am-icon-dropbox toppic-title-i"></i>
+			<span class="toppic-title-span">产品展示</span>
+			<p>Product Show</p>
+		</div>
+		<div class="right toppic-progress">
+			<span><a href="index.html" class="w-white">首页</a></span>
+			<i class=" am-icon-arrow-circle-right w-white"></i>
+			<span><a href="product-show.html" class="w-white">产品展示</a></span>
+		</div>
+	</div>
+</div>
+
+<div >
+	<ul class=" product-show-ul">
+	    <li th:each="goods:${articles}">
+	    	<div class="product-content">
+			    	<div class="left am-u-sm-12 am-u-md-6 am-u-lg-6 product-content-left">
+			    		<div class="product-show-title">
+			    			<h3 th:text="${goods.title}">响应式商城模板</h3>
+			    			<span>网站建设</span>
+			    		</div>
+			    	
+			    	<div class="product-show-content">
+			    		<div class="product-add">
+			    			<span>查看地址：</span>
+			    			<div><a th:href="@{'/cms/web/productDetail/'+${goods.id}}" th:text="${htmlid}">http://www.hwshop.com</a></div>
+			    			<i class="am-icon-dribbble"></i>
+			    		</div>
+			    		<div class="product-intro">
+			    			<span>详情介绍：</span>
+			    			<div><p th:text="${goods.remark}">一款响应式商城模板，是专门针对中小物流企业的实际业务需求量身定做的物流管理系统，具有界面简洁、流程灵活、操作方便、易于实施的特点。 该产品基于领先的云计算技术，用户无需在本地安装软件、无需购买专门的服务器硬件、无需专业的IT人员进行维护， 只要打开浏览器，登录网站，即可使用在线物流软件。</p></div>
+			    		  <i class="am-icon-tasks"></i>
+			    		</div>
+			    	</div>
+			    	</div>
+			    	<div class="right am-u-sm-12 am-u-md-6 am-u-lg-6 product-content-right">
+			    		<img class="product-img" width="276px" height="276px" th:src="@{${goods.img}}" />
+			    	</div>	
+			    	<div class="clear"></div>
+	    	</div>
+	    </li>	
+
+	    <div class="clear"></div>
+	</ul>
+</div>
+
+  
+   
+		
+</div>
+
+<div th:replace="cms/layout/mallFooter"></div>
+
+</body>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets//cms/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="/cms/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="/cms/js/amazeui.min.js"></script>
+
+</html>

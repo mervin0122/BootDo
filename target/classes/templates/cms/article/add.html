@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">
+								<label class="col-sm-3 control-label">标题：</label>
+								<div class="col-sm-8">
+									<input id="title" name="title" class="form-control" type="text">
+								</div>
+							</div>
+
+														<div class="form-group">
+								<label class="col-sm-3 control-label">url：</label>
+								<div class="col-sm-8">
+									<input id="htmlid" name="htmlid" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">图片：</label>
+								<div class="col-sm-8">
+									<input id="img" name="img" class="form-control" type="hidden" />
+									<input id="img1" name="img1" class="form-control" type="hidden" />
+									<input id="img2" name="img2" class="form-control" type="hidden" />
+									<img width="155px" height="120px" id="img4"  /><img id="img5"  width="155px" height="120px"/><img width="155px" height="120px" id="img6"  />
+									<button type="button" class="layui-btn" id="file">
+										<i class="fa fa-cloud"></i>上传图片
+									</button>
+									<button type="button" class="layui-btn" id="file1">
+										<i class="fa fa-cloud"></i>上传图片
+									</button>
+									<button type="button" class="layui-btn" id="file2">
+										<i class="fa fa-cloud"></i>上传图片
+									</button>
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-3 control-label">关键字：</label>
+								<div class="col-sm-8">
+									<input id="keywords" name="keywords" class="form-control" type="text">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label">权重：</label>
+								<div class="col-sm-8">
+									<input id="weight" name="weight" class="form-control" type="text">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label">类型：</label>
+								<div class="col-sm-8">
+									<select data-placeholder="选择类型" name="typeid" id="typeid"
+											class="form-control chosen-select" tabindex="2"
+											style="width: 100%">
+										<option value="">选择类型</option>
+										<option th:value="${type1.id}" th:each="type1:${typeList}" th:text="${type1.name}">选择品牌</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">板块：</label>
+								<div class="col-sm-8">
+									<select data-placeholder="选择板块" name="model" id="model"
+											class="form-control chosen-select" tabindex="2"
+											style="width: 100%">
+										<option value="">选择板块</option>
+										<option th:value="${model.name}" th:each="model:${modelList}" th:text="${model.value}">选择品牌</option>
+									</select>
+								</div>
+							</div>
+
+
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label">站点：</label>
+								<div class="col-sm-8">
+									<select data-placeholder="选择站点" name="siteid" id="siteid"
+											class="form-control chosen-select" tabindex="2"
+											style="width: 100%">
+										<option value="">选择站点</option>
+										<option th:value="${site.id}" th:each="site:${siteList}" th:text="${site.name}">选择品牌</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<input id="content" name="content" type="hidden"> <label
+									class="col-sm-1 control-label">内容：</label>
+								<div class="col-sm-11">
+									<div class="ibox-content no-padding">
+										<div id="content_sn"  class="summernote"></div>
+									</div>
+								</div>
+							</div>
+
+
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/cms/article/add.js">
+	</script>
+	<script>
+        layui.use('upload', function() {
+            var upload = layui.upload;
+            //执行实例
+            var uploadInst = upload.render({
+                elem : '#file', //绑定元素
+                url : '/common/sysFile/upload', //上传接口
+                size : 1000,
+                accept : 'file',
+                done : function(r) {
+                    var fileName = r.url;
+                    $("#img").val(fileName);
+                    $("#img4").attr("src",fileName);
+                },
+                error : function(r) {
+                    layer.msg(r.msg);
+                }
+            });
+            var uploadInst = upload.render({
+                elem : '#file1', //绑定元素
+                url : '/common/sysFile/upload', //上传接口
+                size : 1000,
+                accept : 'file',
+                done : function(r) {
+                    var fileName = r.url;
+                    $("#img1").val(fileName);
+                    $("#img5").attr("src",fileName);
+                },
+                error : function(r) {
+                    layer.msg(r.msg);
+                }
+            });
+            var uploadInst = upload.render({
+                elem : '#file2', //绑定元素
+                url : '/common/sysFile/upload', //上传接口
+                size : 1000,
+                accept : 'file3',
+                done : function(r) {
+                    var fileName = r.url;
+                    $("#img2").val(fileName);
+                    $("#img6").attr("src",fileName);
+                },
+                error : function(r) {
+                    layer.msg(r.msg);
+                }
+            });
+        });
+	</script>
+</body>
+</html>

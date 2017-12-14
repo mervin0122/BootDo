@@ -1,0 +1,46 @@
+<link href="/street/css/youhuijuan.css" type="text/css" rel="stylesheet"/>
+<!-------------兑换码------------>
+<div class="m_r_t">输入兑换码：<input name="" type="text" class="yanzhengma"><input type="submit" value="兑换" class="duihuan"></div>
+<!-------------使用优惠卷------------>
+<div class="m_r_m">
+    <!-----------优惠卷头部--------->
+    <div class="gg">
+        <ul>
+            <li class="current"><a href="#">可使用优惠卷</a></li>
+            <li><a href="#">已使用优惠卷</a></li>
+            <li><a href="#">已失效优惠卷</a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <!-----------优惠卷列表--------->
+    <div class="y_list">
+        <ul>
+            <li th:each="coupon:${couponList}">
+                <div class="jj">
+                    <span class="banyuan"></span>
+                    <span class="guoqi"></span>
+                    <p class="one" th:text="${coupon.amount}">￥30</p>
+                    <p th:text="${coupon.couponName}">【消费满199元可用】</p>
+                    <p style="margin-top: 10px;" th:text="${coupon.beginTime}+'--'+${coupon.couponEndTime}">2016-01-12 -- 2016-01-19</p>
+                </div>
+                <div class="kk">
+                    <p>劵 编 号：3849985300</p>
+                    <p>品类限制：全品类（特例商品除外）</p>
+                </div>
+            </li>
+
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-----------------优惠卷说明--------------->
+<div class="details">
+    <h1>优惠卷说明</h1>
+    <div style="margin-top: 10px;">
+        <p>优惠卷仅限购买实物类的商品使用，同时极少数特殊商品无法使用，请以商品页为准</p>
+        <p>优惠卷仅限在有效期内使用，过期则无法使用，请珍惜您的每张优惠卷哦</p>
+        <p>每笔订单仅限使用一张优惠卷，优惠卷不可合并</p>
+        <p>如有待支付订单，则限首次下单使用的优惠卷将暂时不能使用；如已成功支付，则限首次下单使用的优惠卷将自动失效</p>
+        <p>若使用优惠卷的订单发生退货行为，如果是直接抵扣类现金劵，则根据商品金额比例退还相应的现金券，如果是满额扣减类优惠卷，则优惠卷不予返回</p>
+    </div>
+</div>

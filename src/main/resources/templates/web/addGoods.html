@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org"      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>上传商品</title>
+    <link href="/web/css/public.css" rel="stylesheet" type="text/css"/>
+    <link href="/web/css/css.css" rel="stylesheet" type="text/css"/>
+    <link href="/web/css/hbcss.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="/web/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/web/js/public.js"></script>
+    <script type="text/javascript" src="/js/jquery.validation.min.js"></script>
+    <script type="text/javascript" src="/ajaxfileupload/ajaxfileupload.js"></script>
+</head>
+
+<body>
+<!--top 开始-->
+<!--top 开始-->
+<div th:replace="web/include/top"></div>
+<!--top 结束-->
+<!--top 结束-->
+<div class="content">
+    <!--和包导航 开始-->
+    <!--#include virtual="/include/hb_top.html"-->
+
+    <div th:replace="web/include/hb_top"></div>
+    <!--top 结束-->
+    <!--和包导航 结束-->
+
+    <div class="hb_mbx">
+        <a href="#">我的和包</a> > 新商品添加
+    </div>
+    <div class="clear"></div>
+
+    <div class="hb_cont">
+        <!--左侧 开始-->
+        <div th:replace="web/include/hb_left"></div>
+        <form action="/person/web/addGoods" id="submitApply" method="post" enctype="multipart/form-data">
+        <!--右侧 开始-->
+        <div class="hb_cont_r">
+            <div class="hb_r_top">
+                <p class="hb_r_top_tit">新商品添加</p>
+                <div class="nb_r_cont">
+                    <p class="nb_r_cont_tit">基本信息</p>
+                    <div class="nb_r_cont_nra">
+                        <p><em class="cf40">*</em><span class="c999">商品名称：</span><input name="title" type="text"
+                                                                                        class="wid235"/></p>
+                    </div>
+                    <div class="nb_r_cont_nra">
+                        <p><em class="cf40">*</em><span class="c999">商品上传：</span>
+                        </p>
+                        <p class="pl15 pt10">
+                            <input type="hidden"  name="img" id="img"/>
+                            <a href="javascript:void(0);" >
+                                <input type="file" id="file" name="file"
+                                       onChange="ajaxFileUploads('file','img');"/></a>
+                            <span class="img"></span>
+                        </p>
+                    </div>
+
+                    <div class="nb_r_cont_nra">
+                        <p><em class="cf40">　*</em><span class="c999">市场价：</span>
+                            <input name="prices" type="text"
+                                                                                        class="wid235"/></p>
+                    </div>
+
+                    <div class="nb_r_cont_nra">
+                            <em class="cf40" style="margin-left:140px;"></em><span class="c999"> 　　品牌：</span>
+                            <select name="brandid">
+                                @var comList4 = goods.getBrands(50);
+                                @for(brand in comList4.list!){
+                                <option value="${brand.id!}">${brand.name!}</option>
+                                @}
+                            </select></p>
+                        <p class="red"></p>
+                    </div>
+                    <div class="nb_r_cont_nra">
+                        <em class="cf40" style="margin-left:140px;"></em><span class="c999"> 　　类别：</span>
+                        <select name="typeid">
+                            @var comList5 = goods.getProductType(50);
+                            @for(brand5 in comList5.list!){
+                            <option value="${brand5.id!}">${brand5.name!}</option>
+                            @}
+                        </select></p>
+                        <p class="red"></p>
+                    </div>
+                    <div class="nb_r_cont_nra">
+                        <em class="cf40" style="margin-left:140px;"></em><span class="c999"> 　　分类：</span>
+                        <select name="classid">
+                            @var comList6 = goods.getProductClass(50);
+                            @for(brand6 in comList6.list!){
+                            <option value="${brand6.id!}">${brand6.name!}</option>
+                            @}
+                        </select></p>
+                        <p class="red"></p>
+                    </div>
+                    <div class="nb_r_cont_nr">
+                        <p><em class="cf40">*</em><span class="c999">标签：</span></p>
+                        <p class="nb_r_cont_nrp"><input name="tag" type="text" class="wid575"/></p>
+                    </div>
+
+                    <div class="nb_r_cont_nra">
+                        <p>
+                        <div class="left"><span class="c999 ml5"> 描述：</span></div>
+                        <div class="left"><textarea name="remark" style="height:130px; width:458px;"></textarea>
+                        </div>
+                        </p>
+                    </div>
+                    <div class="nb_r_cont_nr">
+                        <a href="#" id="submitBtn" class="link ml150 mb20">
+                            <span class="word_left"></span>
+                            <span class="word_cen">保存</span>
+                            <span class="word_right"></span>
+                        </a>
+                        <a href="#" class="link ml10">
+                            <span class="word_left"></span>
+                            <span class="word_cen">重置</span>
+                            <span class="word_right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <!--右侧 结束-->
+    </div>
+
+    <!--pay_helpcent 开始-->
+    <!--#include virtual="/include/helpcent2.html"-->
+    <div th:replace="web/include/helpcent2"></div>
+    <!--pay_helpcent 开始-->
+
+    <!--foot 开始-->
+    <!--#include virtual="/include/foot.html"-->
+    <div th:replace="web/include/foot"></div>
+    <!--foot 结束-->
+    <script type="application/javascript">
+        //表单提交
+        $("#submitBtn").click(function(){
+            //店铺分类的校验
+            $("#submitBtn").attr("disabled",true);
+            $.ajax({
+                type: "post",
+                url: '/person/addGoods',
+                data: $("#submitApply").serialize(),
+                dataType: "json",
+                contentType : "application/x-www-form-urlencoded; charset=utf-8",
+                async:false,
+                success:function(data) {
+                    if (data.code=='1'){
+                        window.location.href="/front/store/"+data.id;
+                        return true;
+                    }else{
+                        window.location.href="/front/tlogin";
+                        return true;
+                    }
+
+
+                }
+            });
+        });
+
+        //上传图片
+        function ajaxFileUploads(myBlogImage,img){
+            $.ajaxFileUpload({
+                //处理文件上传操作的服务器端地址(可以传参数,已亲测可用)
+                url: '${ctxPath!}/front/fileUpload1',
+                secureuri:false,                      //是否启用安全提交,默认为false
+                fileElementId:myBlogImage,           //文件选择框的id属性
+                dataType:'json',                       //服务器返回的格式,可以是json或xml等
+                fileSize:5120000,
+                success:function(data, status){        //服务器响应成功时的处理函数
+                    $("."+img).html(data.responseText);
+                    $("#"+img).val(data.responseText);
+
+                },
+                error:function(data, status, e){ //服务器响应失败时的处理函数
+                    console.log(e);
+                    $("."+img).html(data.responseText);
+                    $("#"+img).val(data.responseText);
+
+                }
+            });
+        }
+        //]]>
+
+    </script>
+</div>
+</body>
+</html>

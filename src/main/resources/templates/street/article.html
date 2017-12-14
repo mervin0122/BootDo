@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+    <title>j5shop商城</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="/street/css/public.css" type="text/css" rel="stylesheet"/>
+    <link href="/street/css/article.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="/street/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/street/js/slide.js"></script>
+</head>
+<script>
+    $(function(){
+        $('.nav ul li').hover(function(){
+            $(this).children(".details").show();
+        },function(){
+            $(this).children(".details").hide();
+        });
+        $('#my').hover(function(){
+            $(this).find("div").show();
+        },function(){
+            $(this).find("div").hide();
+        });
+    });
+</script>
+<body>
+<div th:replace="street/layout/mallHeader"></div>
+
+<!-----------------内容------------------>
+<div class="wt1080 middle">
+    <div class="fl">
+        <div style="padding: 0 24px;"><h1>帮助中心</h1></div>
+        <ul>
+            <li>
+                <dl>
+                    <dt>新手指南</dt>
+                    <dd class="current"><a href="#">购物流程</a></dd>
+                    <dd><a href="#">支付方式</a></dd>
+                    <dd><a href="#">通关关税</a></dd>
+                    <dd><a href="#">常见问题</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>售后服务</dt>
+                    <dd><a href="#">退货政策</a></dd>
+                    <dd><a href="#">退货流程</a></dd>
+                    <dd><a href="#">退款说明</a></dd>
+                    <dd><a href="#">联系客服</a></dd>
+                </dl>
+            </li>
+
+            <li>
+                <dl>
+                    <dt>物流配送</dt>
+                    <dd><a href="#">配送方式</a></dd>
+                    <dd><a href="#">运费标准</a></dd>
+                    <dd><a href="#">物流跟踪</a></dd>
+                </dl>
+            </li>
+
+            <li>
+                <dl>
+                    <dt>关于我们</dt>
+                    <dd><a href="#">网站简介</a></dd>
+                    <dd><a href="#">联系我们</a></dd>
+                    <dd><a href="#">招商合作</a></dd>
+                    <dd><a href="#">销售联盟</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="fr">
+        <div class="m_f_t">当前位置：<span class="place">帮助中心>><span th:text="${article.title}"></span></span></div>
+        <div class="con">
+            <p th:text="${article.content}">1、洋店订单什么时候发货？</p>
+        </div>
+
+    </div>
+</div>
+
+<!---------------------热销------------------>
+<div class="hot wt1080">
+    <div class="title">热销推荐</div>
+    <div class="content">
+        <ul>
+            <li th:each="com:${commList}">
+                <div class="pic"><a th:href="@{'/street/goodsDetail/'+${com.id}}">
+                    <img th:src="@{${com.img}}"></a></div>
+                <p class="c_t"><a th:href="@{'/street/goodsDetail/'+${com.id}}" th:text="${com.title}">Regen/丽珍 纯棉超细纤维美白皮肤面膜贴 10片</a></p>
+                <p class="price" th:text="'￥'+${com.prices}">￥89.00</p>
+                <a href="#" class="goumai">立即购买</a>
+            </li>
+
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!---------------------保障------------------->
+<div class="baozhang">
+    <div class="wt1080">
+        <ul>
+            <li>
+                <img src="/street/image/c1.png">
+                <p>全球正品货源</p>
+            </li>
+            <li>
+                <img src="/street/image/c2.png">
+                <p>一件代发</p>
+            </li>
+            <li>
+                <img src="/street/image/c3.png">
+                <p>全球直邮</p>
+            </li>
+            <li>
+                <img src="/street/image/c5.png">
+                <p>售后无忧</p>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<div th:replace="street/layout/mallFooter"></div>
+</body>
+</html>

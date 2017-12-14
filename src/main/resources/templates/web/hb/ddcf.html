@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ZSCAT电子交易平台</title>
+<link href="../css/public.css" rel="stylesheet" type="text/css" />
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<link href="../css/hbcss.css" rel="stylesheet" type="text/css" />
+<link href="../css/ddjs.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".cf_zkzcd1").click(function(){
+		$(".cf_sszcd1").show();
+		$(".cf_zcd1").show();
+		$(".cf_zkzcd1").hide();
+	});
+	$(".cf_sszcd1").click(function(){
+		$(".cf_sszcd1").hide();
+		$(".cf_zcd1").hide();
+		$(".cf_zkzcd1").show();
+	});
+	$(".cf_zkzcd2").click(function(){
+		$(".cf_sszcd2").show();
+		$(".cf_zcd2").show();
+		$(".cf_zkzcd2").hide();
+	});
+	$(".cf_sszcd2").click(function(){
+		$(".cf_sszcd2").hide();
+		$(".cf_zcd2").hide();
+		$(".cf_zkzcd2").show();
+	});
+})
+</script>
+</head>
+
+<body>
+<!--top 开始-->
+
+<!--top 结束-->
+<div class="content">
+    <!--和包导航 开始-->
+	<!--#include virtual="/include/hb_top.html"-->    
+    <!--和包导航 结束-->
+    
+    <div class="hb_mbx">
+    	<a href="#">我的和包</a> > 订单拆分
+    </div>
+    <div class="clear"></div>
+    
+    <div class="hb_cont">   
+        <!--左侧 开始-->
+        <!--#include virtual="/include/hb_left.html"-->    
+        <!--左侧 结束-->
+        <!--右侧 开始-->
+        <div class="hb_cont_r">
+        	<div class="hb_r_top">
+            	<p class="hb_r_top_tit">订单拆分</p>
+                <ul class="hb_r_top_nr">
+                	<li>
+                    	<span>交易提醒：</span>
+                        <a href="#">待付款（0）</a>
+                        <a href="#">待确认收货（0）</a>
+                        <a href="#">待评价（0）</a>
+                  </li>
+                    <li>
+                    	<span>消息提醒：</span>
+                        <a href="#" class="a0085d0">降价提醒（4）</a>
+                        <a href="#" class="a0085d0">新品上架（5）</a>
+                        <a href="#" class="a0085d0">服务提醒（7）</a>
+                        <a href="#" class="a0085d0">物流提醒（8）</a>
+                    </li>
+              </ul>
+          </div>
+            
+            <div class="nb_r_tit mt15">
+            	<div class="nb_r_xld">
+                	<p class="nb_r_xld_l">订单拆分</p>
+                    <p class="nb_r_xld_r"></p>
+                    <div class="nb_r_xldyc">
+                    	<p class="nb_r_xldycgb"><a href="###"><img src="../images/nb_r_xldyc_gb.gif" width="22" height="22" alt="关闭" /></a></p>
+                        <ul>
+                        	<li>
+                            	<span>不限：</span>
+                                <a href="###" class="a0085d0">全部类型</a>
+                            </li>
+                            <li>
+                            	<span>类型：</span>
+                                <a href="###" class="a0085d0">手机</a>
+                                <a href="###" class="a0085d0">号卡</a>
+                                <a href="###" class="a0085d0">配件</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nb_r_tit_r">
+                	<input name="" type="text" class="nb_input"  onblur="if(this.value == '') this.value = this.defaultValue" onfocus="if(this.value == this.defaultValue) this.value = ''" style="width:230px;" value="订单编号、支付单号" />
+                    <a href="#" class="nb_icon">查询</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="hb_r_table">
+            <table width="838" border="0" cellspacing="0" cellpadding="0" class="order_tabtit text_c">
+                    	<thead>
+                        	<tr>
+                                <th colspan="2" class="brfff">品牌</th>
+                                <th width="80" class="brfff">型号</th>
+                                <th width="74" class="brfff">颜色</th>
+                                <th width="89" class="brfff">原订单数量</th>
+                                <th width="99" class="brfff">可拆分数量</th><th width="88" class="brfff">
+                                	拆分数量</th>
+                                <th width="84" class="brfff"><select name="select">
+                                  <option>全部状态</option>
+                                  <option>待付款</option>
+                                  <option>已付款</option>
+                                  <option>已发货</option>
+                                  <option>已收货</option>
+                                  <option>退单</option>
+                                  <option>撤单</option>
+                                  <option>坏单</option>
+                                </select></th>
+                                <th width="69" class="brfff">拆分时间</th>
+                                <th width="87" class="brfff">操作</th>
+                            </tr>
+                            <tr class="bf9f9f9">
+                            <td colspan="10" height="40">
+                            	<div class="ml15 left"><img src="../images/jia_bg.jpg" width="19" height="18" /> 订单编号：<span><a href="#" class="c005bab">123123123123123123</a></span><span class="ml100"><a href="#" class="c005bab">中国移动</a></span> <img src="../images/pc_fx.gif" style="vertical-align:middle;" /> <img src="../images/tb_dh.gif" class="ml100" style="vertical-align:middle;" /> <span style="color:#666;">15055492600</span></div>
+                                <div class=" right mr10"><a href="#" class="cf_zkzcd1"><img src="../images/xq_jia.gif" width="15" height="15" style="vertical-align:middle;" /> 展开子菜单</a> <a href="#" class="cf_sszcd1 none"><img src="../images/xq_jian.gif" width="15" height="15" style="vertical-align:middle;" /> 收缩子菜单</a></div>
+                            </td>
+                            </tr>
+                            <tr>
+                            	<td height="71" colspan="2" align="center"><div class=" ml5 mt5" >
+                                	<p><a href="#"> 小米</a>                                </p>
+                            	</div></td>
+                              <td><a href="#">小米3</a></td>
+                              <td>黑色</td>
+                              <td>
+                              	<p>￥3345</p>
+                                <p class="cl808080">（含运费10元）</p>
+                              </td>
+                              <td><div class="cl808080">2014-01-22 <br />
+                                15:26:23</div></td>
+							  <td>
+                              	<div class="tab_zja">
+                              	  <div class="tab_jia"><span class="tab_jian"><img src="../images/tab_jian.gif" /></span></div>
+                              	  <div class="tab_inpsb">
+                              	    <input name="text" type="text" />
+                           	      </div>
+                              	  <div class="tab_jian"><span class="tab_jia"><img src="../images/tab_jia.gif" /></span></div>
+                           	    </div>
+                              	<p class="cl808080">&nbsp;</p>
+                              </td>
+                              <td><p class="cl808080">已拆分</p>
+                              </td>
+                              <td><div class="cl808080">2014-01-22 <br />
+                              15:26:23</div></td>
+                              <td><p class=""><a href="#" onclick="showtelts('cover','dc_pop1')">下单</a> | <a href="#">退单</a></p></td>
+                            </tr>
+                            
+                            <tr class="bfff3e8 none cf_zcd1">
+                            	<td height="61" align="left"><span class="ml15 right"><img src="../images/jian_bg.jpg" width="19" height="18" /></span></td>
+                            	<td align="center"><a href="#">小米</a></td>
+                              <td><a href="#">小米3</a></td>
+                              <td>黑色</td>
+                              <td>
+                              	<p>￥3345</p>
+                                <p class="cl808080">（含运费10元）</p>
+                              </td>
+                              <td><div class="cl808080">2014-01-22 <br />
+                                15:26:23</div></td>
+                              <td><div class="tab_zja">
+                                <div class="tab_jia"><span class="tab_jian"><img src="../images/tab_jian.gif" /></span></div>
+                                <div class="tab_inpsb">
+                                  <input name="text2" type="text" />
+                                </div>
+                                <div class="tab_jian"><span class="tab_jia"><img src="../images/tab_jia.gif" /></span></div>
+                              </div>                                <p class="cl808080">&nbsp;</p></td>
+							  <td><p class="cl808080">已拆分</p>
+                              </td>
+							  <td><div class="cl808080">2014-01-22 <br />
+						      15:26:23</div></td>
+                              <td><div class=" ml5 mt5" >
+                                <a href="#" >撤消</a><a href="#"></a> | <a href="#" onclick="showtelts('cover','dc_pop1')">下单</a
+                              ></div>                                </td>
+                            </tr>
+                            <tr class="bf9f9f9">
+                            <td colspan="10" height="32">
+                            	<div class="ml15 left"><img src="../images/jia_bg.jpg" width="19" height="18" /> 订单编号：<span><a href="#" class="c005bab">123123123123123123</a></span><span class="ml100"><a href="#" class="c005bab">中国移动</a></span> <img src="../images/pc_fx.gif" style="vertical-align:middle;" /> <img src="../images/tb_dh.gif" class="ml100" style="vertical-align:middle;" /> <span style="color:#666;">15055492600</span></div>
+                                <div class=" right mr10"><a href="#" class="cf_zkzcd2"><img src="../images/xq_jia.gif" width="15" height="15" style="vertical-align:middle;" /> 展开子菜单</a> <a href="#" class="cf_sszcd2 none"><img src="../images/xq_jian.gif" width="15" height="15" style="vertical-align:middle;" /> 收缩子菜单</a></div>
+                            </td>
+                            </tr>
+                            <tr>
+                            	<td height="58" colspan="2" align="center"><div class=" ml5 mt5" >
+                                	<p><a href="#">小米</a>                                </p>
+                            	</div></td>
+                              <td><a href="#">小米3</a></td>
+                              <td>黑色</td>
+                              <td rowspan="2">
+                              	<p>￥3345</p>
+                                <p class="cl808080">（含运费10元）</p>
+                              </td>
+                              <td rowspan="2"><div class="cl808080">2014-01-22 <br />
+                                15:26:23</div></td>
+                              <td rowspan="2"><div class="tab_zja">
+                                <div class="tab_jia"><span class="tab_jian"><img src="../images/tab_jian.gif" /></span></div>
+                                <div class="tab_inpsb">
+                                  <input name="text6" type="text" />
+                                </div>
+                                <div class="tab_jian"><span class="tab_jia"><img src="../images/tab_jia.gif" /></span></div>
+                              </div>                                <p class="cl808080">&nbsp;</p></td>
+							  <td rowspan="2"><p class="cl808080">已拆分</p>
+                              </td>
+							  <td rowspan="2"><div class="cl808080">2014-01-22 <br />
+						      15:26:23</div></td>
+                              <td rowspan="2"><p class=""><a href="#" onclick="showtelts('cover','dc_pop1')">下单</a> | <a href="#">退单</a></p></td>
+                            </tr>
+                            <tr>
+                              <td height="52" colspan="2" align="center"><div class=" ml5 mt5" >
+                                <p><a href="#"> 小米</a>                                </p>
+                              </div></td>
+                              <td><a href="#">小米3</a></td>
+                              <td>黑色</td>
+                            </tr>
+                            <tr class="bfff3e8 none cf_zcd2">
+                            <td colspan="10" height="32">
+                            	<div class="ml15 left"> 订单编号：<span><a href="#" class="c005bab">123123123123123123</a></span><span class="ml100"><a href="#" class="c005bab">中国移动</a></span> <img src="../images/pc_fx.gif" style="vertical-align:middle;" /> <img src="../images/tb_dh.gif" class="ml100" style="vertical-align:middle;" /> <span style="color:#666;">15055492600</span></div>
+                            </td>
+                            </tr>
+                            <tr class="bfff3e8 none cf_zcd2">
+                              <td height="51" align="left" class="bfff3e8 none cf_zcd1"><a href="#"><span class="ml15 right"><img src="../images/jian_bg.jpg" width="19" height="18" /></span></a></td>
+                              <td width="86" align="center" class="bfff3e8 none cf_zcd1"><a href="#">小米</a></td>
+                           	  <td><a href="#">小米3</a></td>
+                              <td>黑色</td>
+                              <td rowspan="2">
+                              	<p>￥6690</p>
+                                <p class="cl808080">（含运费10元）</p>
+                              </td>
+                              <td rowspan="2"><div class="cl808080">2014-01-22 <br />
+                                15:26:23</div></td>
+							  <td rowspan="2">
+                              	<div class="tab_zja">
+                              	  <div class="tab_jia"><span class="tab_jian"><img src="../images/tab_jian.gif" /></span></div>
+                              	  <div class="tab_inpsb">
+                              	    <input name="text3" type="text" />
+                           	      </div>
+                              	  <div class="tab_jian"><span class="tab_jia"><img src="../images/tab_jia.gif" /></span></div>
+                           	    </div>
+                              	<p class="cl808080">&nbsp;</p>
+                              </td>
+                              <td rowspan="2"><p class="cl808080">已拆分</p>
+                              </td>
+                              <td rowspan="2"><div class="cl808080">2014-01-22 <br />
+                              15:26:23</div></td>
+                              <td rowspan="2"><div class=" ml5 mt5" > <a href="#" >撤消</a><a href="#"></a> | <a href="#" onclick="showtelts('cover','dc_pop1')">下单</a
+                              ></div>                                <p class="">&nbsp;</p></td>
+                            </tr>
+                            <tr class="bfff3e8 none cf_zcd2">
+                              <td height="37" align="left" class="bfff3e8 none cf_zcd1"><span class="ml15 right"><img src="../images/jian_bg.jpg" width="19" height="18" /></span></td>
+                              <td align="center" class="bfff3e8 none cf_zcd1"><a href="#">小米</a></td>
+                           	  <td><a href="#">小米3</a></td>
+                              <td>黑色</td>
+                            </tr>
+                            <tr class="bf9f9f9">
+                            <td colspan="10" height="39">
+                            	<div class="ml15 left"><img src="../images/jia_bg.jpg" width="19" height="18" /> 订单编号：<span><a href="#" class="c005bab">123123123123123123</a></span><span class="ml100"><a href="#" class="c005bab">中国移动</a></span> <img src="../images/pc_fx.gif" style="vertical-align:middle;" /> <img src="../images/tb_dh.gif" class="ml100" style="vertical-align:middle;" /> <span style="color:#666;">15055492600</span></div>
+                                <div class=" right mr10"><a href="#"><img src="../images/xq_jia.gif" width="15" height="15" style="vertical-align:middle;" /> 展开子菜单</a></div>
+                            </td>
+                          </tr>
+                            <tr>
+                            	<td height="70" colspan="2" align="center"><div class=" ml5 mt5" >
+                                	<p><a href="#">小米</a>                                </p>
+                            	</div></td>
+                              <td><a href="#">小米3</a></td>
+                              <td>黑色</td>
+                              <td>
+                              	<p>￥3345</p>
+                                <p class="cl808080">（含运费10元）</p>
+                              </td>
+                              <td><div class="cl808080">2014-01-22 <br />
+                                15:26:23</div></td>
+							  <td>
+                              	<div class="tab_zja">
+                              	  <div class="tab_jia"><span class="tab_jian"><img src="../images/tab_jian.gif" /></span></div>
+                              	  <div class="tab_inpsb">
+                              	    <input name="text4" type="text" />
+                           	      </div>
+                              	  <div class="tab_jian"><span class="tab_jia"><img src="../images/tab_jia.gif" /></span></div>
+                           	    </div>
+                              	<p class="cl808080">&nbsp;</p>
+                              </td>
+                              <td><p class="cl808080">已拆分</p>
+                                <p class=""></p>                                <p class="">&nbsp;</p>
+                              </td>
+                              <td><div class="cl808080">2014-01-22 <br />
+                              15:26:23</div></td>
+                              <td><p class=""><a href="#" onclick="showtelts('cover','dc_pop1')">下单</a> | <a href="#">退单</a></p></td>
+                            </tr>
+                        </thead>
+                        </table>
+          </div>
+            <div class="nb_page mt10">
+            	<a href="#"><img src="../images/nb_syy.gif" width="68" height="27" alt="上一页" /></a>
+                <a href="#" class="nvadq">1</a>
+                <a href="#">2</a>
+                <a href="#"><img src="../images/nb_xxy.gif" width="68" height="27" alt="下一页" /></a>
+            </div>
+        </div>
+        <!--右侧 结束-->
+    </div>
+    
+    <!--pay_helpcent 开始-->
+    <!--#include virtual="/include/helpcent2.html"--> 
+    <!--pay_helpcent 开始-->
+    
+    <!--foot 开始-->
+    <!--#include virtual="/include/foot.html"-->   
+    <!--foot 结束-->
+    
+</div>
+
+<div id="cover"></div>
+<div class="dc_pop" id="dc_pop1">
+	<div class="dc_pop_tit">
+    	地址输入_订单拆分
+        <a href="###" class="dc_pop_close" onclick="hidetelts('cover','dc_pop2')"><img src="../images/dc_pop_close.gif" width="12" height="14" alt="关闭" /></a>
+    </div>
+    <div class="dc_pop_cont1">
+    	<p class="overflow">
+        	<strong class="cf40 font14 left line34">*输入工号</strong>
+            <input name="" type="text" class="left ddlrinp ml10" />
+            <img src="../images/ddlr_dh.gif" width="12" height="12" class="left mt10 ml10 ddlr_dh" />
+            <a href="###" class="ml10 left ddlr_yz"><img src="../images/ddlr_yz.gif" width="63" height="32" alt="验证" /></a>
+        </p>
+        
+        <div class="pay_ddjs_shrxx mt10">
+                    <div class="pay_ddjs_step1" style="width:750px;">
+                    <div class="step-title">
+                        <strong class=" font14">收货人信息</strong>
+                        <span class="step-action"><a  id="xgdd" href="#none">[修改]</a></span>
+                        <span class="step-action" style="display:none;" id="bcshrxx"><a href="#none">保存收货人信息</a></span>
+                    </div>
+                    <div class="step-content">
+                    
+                        <div class="sbox-wrap">
+                            <p>张伟  &nbsp; 15801111111 &nbsp;  &nbsp; 
+            <br>安徽 合肥市 蜀山区 五里墩街道 合作化南路166号</p>
+                        </div>
+                    
+                    </div>
+                    <div class="sbox" style="display:none;">
+                        <div class="ddjs_address item-selected">
+                            <input type="radio" name="address" checked="checked"  />
+                            <label><b>张伟</b>&nbsp; 安徽 合肥市 蜀山区 五里墩街道 合作化南路166号 &nbsp; 15801111111 &nbsp;</label>
+                            <span class="item-action hide" style="display: none;">				
+                                <a href="###">编辑</a> &nbsp; 
+                                          <a href="###">删除</a>&nbsp;						
+                                     </span>	
+                        </div>
+                        <div class="ddjs_address">
+                            <input type="radio" name="address"  />
+                            <label><b>张伟</b>&nbsp; 安徽 合肥市 蜀山区 五里墩街道 合作化南路166号 &nbsp; 15801111111 &nbsp;</label>
+                            <span class="item-action hide" style="display: none;">				
+                                <a href="###">编辑</a> &nbsp; 
+                                          <a href="###">删除</a>&nbsp;						
+                                     </span>	
+                        </div>
+                        <div class="ddjs_address1">
+                            <label id="newddd"><input type="radio"  name="address" />使用新地址</label>
+                        </div>
+                        <div class="pay_newadd" style="display:none;">
+                            <div class="newadd_list" style="_width:740px;">
+                                <span class="label"><em>*</em>收货人：</span>
+                                <div class="field">
+                                    <input type="text"  maxlength="20"  class="textbox">
+                                </div>
+                            </div>
+                            <div class="newadd_list select-address" style="_width:740px;">
+                                <span class="label"><em>*</em>所在地址：</span>
+                                <div class="field">
+                                    <span><select><option value="">请选择：</option><option value="1">北京*</option><option value="2">上海*</option></select></span>
+                                    <span><select><option value="">请选择：</option></select></span>
+                                    <span><select><option value="">请选择：</option></select></span>
+                                    <span class="form-tip">&nbsp;&nbsp;标"*"的为支持货到付款的地区,<a id="codHelpUrl" href="#" target="_blank" style="color:#005EA7">查看货到付款地区</a></span>
+                                    </div>
+                                </div>
+                                <div class="newadd_list full-address" style="_width:740px;">
+                                <span class="label"><em>*</em>详细地址：</span>
+                                <div class="field">
+                                    <input type="text"  maxlength="50"  class="textbox">
+                                </div>
+                            </div>
+                            <div class="newadd_list" style="_width:740px;">
+                                <span class="label"><em>*</em>手机号码：</span>
+                                <div class="field">
+                                    <div class="add_phone">
+                                    <input type="text"  maxlength="20"  class="textbox"><em>或</em><span style="color:#666;">固定电话：</span><input type="text"  maxlength="20"  class="textbox">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="newadd_list" style="_width:740px;">
+                                <span class="label">邮箱：</span>
+                                <div class="field">
+                                    <input type="text"  maxlength="20"  class="textbox">
+                                    <span class="form-tip">用来接收订单提醒邮件，便于您及时了解订单状态</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-btn group">
+                        <a class="btn-submit" href="../hb/ddjs.html"><span>保存收货人信息</span></a>
+                    </div>
+                            </div>
+                        </div>
+                        
+                    
+                    </div>
+                    <div class="clear"></div>
+               </div>
+        <div class="mt10" style="padding:15px;">
+            <p class="overflow">
+                <span class="fontb font14 left">备注:</span>
+                <span class="right c999">0/200</span>
+            </p>
+            <p><textarea name="" cols="" rows="" style="width:100%;height:100px;"></textarea></p>
+            <p class="mt10 text_c"><a href="###" onclick="hidetelts('cover','dc_pop2')"><img src="../images/tjdd_but.gif" width="137" height="37" alt="提交订单" /></a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

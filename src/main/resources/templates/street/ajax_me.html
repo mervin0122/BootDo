@@ -1,0 +1,13 @@
+<link href="/street/css/anquan.css" type="text/css" rel="stylesheet"/>
+<div class="m_f_t">
+    <span>我的个人信息</span>
+</div>
+        <ul>
+            <li>
+                <span class="a lock" th:text="'昵称：'+${user.username}"></span>
+                <span class="b" th:text="'积分：'+${user.jifen}"></span>
+            </li>
+            <li>
+                <span class="a" th:text="'余额：'+${user.balance}"></span>
+            </li>
+        </ul>

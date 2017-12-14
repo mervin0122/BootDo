@@ -1,0 +1,14 @@
+ngrok -config ngrok.cfg -subdomain j2shop 80
+
+
+http://j2shop.tunnel.qydev.com/street/index
+http://j2shop.tunnel.qydev.com/login
+
+http://j2shop.tunnel.qydev.com/disShop/index
+http://j2shop.tunnel.qydev.com/web/index
+
+http://j2shop.tunnel.qydev.com/web/cms/index
+http://j2shop.tunnel.qydev.com/blog/index
+
+
+http://j2shop.tunnel.qydev.com/taobao/index

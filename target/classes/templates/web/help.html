@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org"      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ZSCAT电子交易平台</title>
+<link href="/web/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/css.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/web/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="/web/js/public.js"></script>
+</head>
+
+<body>
+<!--top 开始-->
+<div th:replace="web/include/top"></div>
+
+<div class="box">
+	<!--head 开始-->
+	<p class="pos_r" id="sy_img1">
+    	<a href="#"><img src="images/sy_img1.jpg" width="1190" height="80" alt="" /></a>
+        <span class="sy_imggb"><img src="images/icon_close.jpg" width="15" height="16" alt="关闭" /></span>
+    </p>
+    <div>
+    	<p class="left mt20 ml10"><a href="#"><img src="images/logo.png" width="270" height="60" alt="中国移动" /></a></p>
+        <div class="left">
+            <div class="head_ssbox">
+                <input name="" type="text" class="head_ss" />
+                <a href="#" class="head_ssan"></a>
+                <div class="head_sslx">
+                	<ul>
+                    	<li>
+                        	<span class="left">iphone4</span>
+                            <span class="right">约123456个商品</span>
+                        </li>
+                        <li>
+                        	<span class="left">iphone5</span>
+                            <span class="right">约654321个商品</span>
+                        </li>
+                        <li>
+                        	<span class="left">iphone4s</span>
+                            <span class="right">约123456个商品</span>
+                        </li>
+                        <li>
+                        	<span class="left">iphone5s</span>
+                            <span class="right">约654321个商品</span>
+                        </li>
+                    </ul>
+                    <p class="head_sslxgb">关闭</p>
+                </div>
+            </div>
+            <p class="left mt20 ml10 line25"><a href="#">高级<br />搜索</a></p>
+            <div class="clear"></div>
+            <p class="ml100 mt5 line18">
+            	<a href="#">LG</a>
+                <a href="#">Flex</a>
+                <a href="#">魅族mx2</a>
+                <a href="#">红辣椒SIII</a>
+                <a href="#">I9300</a>
+                <a href="#">0元购机</a>
+                <a href="#">捷波朗</a>
+            </p>
+        </div>
+        <p class="right mr20 mt10" style="_display:inline;"><img src="images/head_ewm.jpg" width="90" height="90" alt="" /></p>
+        <div class="clear"></div>
+    </div>
+    <div class="nav">
+    	<div class="nav_1">全部商品分类</div>
+        <div class="nav_all" style="display:none;">
+        	<div class="nav_all_li">
+                <p class="nav_tit">·手机品牌</p>
+                <p class="nav_nr">
+                    <a href="#">中国移动</a>
+                    <a href="#">苹果</a>
+                    <a href="#">三星</a>
+                    <a href="#">华为</a>
+                    <s></s>
+                </p>
+                <div class="nav_r" style="border-top:1px solid #f40;">
+                	<ul>
+                    	<li>
+                        	<a href="#" class="nav_r_tit">国产品牌</a>
+                            |
+                            <a href="#">中国移动</a>
+                            |
+                            <a href="#">天语</a>
+                            |
+                            <a href="#">万事通</a>
+                            |
+                            <a href="#">百立丰</a>
+                            |
+                            <a href="#">魅族</a>
+                            |
+                            <a href="#">TCL</a>
+                            |
+                            <a href="#">海信</a>
+                            |
+                            <a href="#">德赛</a>
+                            |
+                            <a href="#">波导</a>
+                            |
+                            <a href="#">酷诺</a>
+                            |
+                            <a href="#">新邮通</a>
+                            |
+                            <a href="#">金立</a>
+                            |
+                            <a href="#">夏新</a>
+                            |
+                            <a href="#">华森酷比</a>
+                            |
+                            <a href="#">宇龙酷派</a>
+                            |
+                            <a href="#">联想</a>
+                            |
+                            <a href="#">天迈</a>
+                            |
+                            <a href="#">海尔</a>
+                            |
+                            <a href="#">康佳</a>
+                            |
+                            <a href="#">中兴</a>
+                            |
+                            <a href="#">华为</a>
+                            |
+                            <a href="#">大唐电信</a>
+                            |
+                            <a href="#">小米</a>
+                        </li>
+                        <li class="navlast">
+                        	<a href="#" class="nav_r_tit">国际品牌</a>
+                            |
+                            <a href="#">三星</a>
+                            |
+                            <a href="#">苹果</a>
+                            |
+                            <a href="#">飞利浦</a>
+                            |
+                            <a href="#">HTC</a>
+                            |
+                            <a href="#">宏基</a>
+                            |
+                            <a href="#">诺基亚</a>
+                            |
+                            <a href="#">摩托罗拉</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="nav_all_li">
+                <p class="nav_tit">·价格区间</p>
+                <p class="nav_nr">
+                    <a href="#">1-499</a>
+                    <a href="#">500-999</a>
+                    <a href="#">1000-1999</a>
+                    <s></s>
+                </p>
+                <div class="nav_r">
+                	<ul>
+                        <li class="navlast">
+                        	<a href="#" class="nav_r_tit">价格区间</a>
+                            |
+                            <a href="#">全部</a>
+                            |
+                            <a href="#">0-199元</a>
+                            |
+                            <a href="#">200-499元</a>
+                            |
+                            <a href="#">500-999元</a>
+                            |
+                            <a href="#">1000-1999元</a>
+                            |
+                            <a href="#">2000-2999元</a>
+                            |
+                            <a href="#">3000-3999元</a>
+                            |
+                            <a href="#">4000元以上</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="nav_all_li">
+                <p class="nav_tit">·手机店铺</p>
+                <p class="nav_nr">
+                    <a href="#">中国移动通信集团终端有...</a>
+                    <s></s>
+                </p>
+                <div class="nav_r">
+                	<ul>
+                        <li class="navlast">
+                        	<a href="#" class="nav_r_tit">手机店铺</a>
+                            |
+                            <a href="#">北京百纳威尔科技有限公司</a>
+                            |
+                            <a href="#">天音通信有限公司安徽分公司</a>
+                            |
+                            <a href="#">德赛电子</a>
+                            |
+                            <a href="#">合肥松联通讯器材有限公司</a>
+                            |
+                            <a href="#">中邮普泰</a>
+                            |
+                            <a href="#">深圳爱施德</a>
+                            |
+                            <a href="#">安徽鸿讯</a>
+                            |
+                            <a href="#">中国移动通信集团终端有限公司安徽分公司</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="nav_all_li">
+                <p class="nav_tit">·屏幕尺寸</p>
+                <p class="nav_nr">
+                    <a href="#">3.5寸</a>
+                    <a href="#">4.0-4.5寸</a>
+                    <a href="#">4.7-5.5寸</a>
+                    <s></s>
+                </p>
+                <div class="nav_r">
+                	<ul>
+                        <li class="navlast">
+                        	<a href="#" class="nav_r_tit">屏幕尺寸</a>
+                            |
+                            <a href="#">5.6英寸及以上</a>
+                            |
+                            <a href="#">5.5-5.0英寸</a>
+                            |
+                            <a href="#">4.9-4.1英寸</a>
+                            |
+                            <a href="#">4.0-3.1英寸</a>
+                            |
+                            <a href="#">3.0英寸及以下</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="nav_all_li">
+                <p class="nav_tit">·手机配件</p>
+                <p class="nav_nr">
+                    <a href="#">存储卡</a>
+                    <a href="#">手机</a>
+                    <a href="#">电池</a>
+                    <a href="#">保护套</a>
+                    <s></s>
+                </p>
+                <div class="nav_r">
+                	<ul>
+                        <li class="navlast">
+                        	<a href="#" class="nav_r_tit">手机配件</a>
+                            |
+                            <a href="#">电池</a>
+                            |
+                            <a href="#">蓝牙耳机</a>
+                            |
+                            <a href="#">充电器</a>
+                            |
+                            <a href="#">数据线</a>
+                            |
+                            <a href="#">手机耳机</a>
+                            |
+                            <a href="#">贴膜</a>
+                            |
+                            <a href="#">存储卡</a>
+                            |
+                            <a href="#">保护套</a>
+                            |
+                            <a href="#">iPhone配件</a>
+                            |
+                            <a href="#">便携/无线音箱</a>
+                            |
+                            <a href="#">手机饰品</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="nav_all_li">
+                <p class="nav_tit">·号卡中心</p>
+                <p class="nav_nr">
+                    <a href="#">SIM卡</a>
+                    <a href="#">充值卡</a>
+                    <a href="#">家园卡</a>
+                    <s></s>
+                </p>
+                <div class="nav_r">
+                	<ul>
+                        <li class="navlast">
+                        	<a href="#" class="nav_r_tit">号卡中心</a>
+                            |
+                            <a href="#">SIM卡</a>
+                            |
+                            <a href="#">充值卡</a>
+                            |
+                            <a href="#">家园卡</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        <ul class="nav_2">
+        	<li class="navhover"><a href="#">首页</a></li>
+            <li><a href="#">买手机</a></li>
+            <li><a href="hk_liebiao.html">选号卡</a></li>
+            <li><a href="#">品牌馆</a></li>
+        </ul>
+    	<div class="clear"></div>
+    </div>
+    
+    <!--head 结束-->
+    
+    <!--cont 开始-->
+    <div class="cont mt10">
+		<div class="cont_left">
+        	<div class="cont_left_tit">帮助中心</div>
+        	<dl>
+            	<dt>新手指南</dt>
+                <dd><b>- <a href="#">买家流程</a></b></dd>
+                <dd>- <a href="#">卖家流程</a></dd>
+            </dl>
+            <dl>
+            	<dt>支付方式</dt>
+                <dd>- <a href="#">什么手机支付</a></dd>
+                <dd>- <a href="#">手机支付流程</a></dd>
+            </dl>
+            <dl>
+            	<dt>物流配送</dt>
+                <dd>- <a href="#">快递说明</a></dd>
+                <dd>- <a href="#">配送范围</a></dd>
+            </dl>
+            <dl>
+            	<dt>售后服务</dt>
+                <dd>- <a href="#">退换货原则</a></dd>
+                <dd>- <a href="#">退换货流程</a></dd>
+            </dl>
+            <dl>
+            	<dt>交易纠纷</dt>
+                <dd>- <a href="#">关于申告</a></dd>
+                <dd>- <a href="#">投诉建议</a></dd>
+            </dl>
+            
+        </div>   
+      <div class="cont_right">
+        	<div class="cont_right_tit">买家流程</div>
+            <div class="cont_right_cont mt20">
+            <a href="#"><img src="images/help_login.gif" height="40" /></a><span class="ml15">必须登录才能浏览商品哦</a>
+            </div>
+        	<div class="cont_right_contjt">
+            <img src="images/help_jt.gif" height="23" />
+            </div>
+            <div class="cont_right_cont">
+            <a href="#"><img src="images/help_llsp.gif" height="40" /></a><span class="ml15">浏览想购买的商品</a>
+            </div>
+            <div class="cont_right_contjt">
+            <img src="images/help_jt.gif" height="23" />
+            </div>
+            <div class="cont_right_cont">
+            <a href="#"><img src="images/help_jrgwc.gif" height="40" /></a><span class="ml15">将商品加入购物车</a>
+            </div>
+            <div class="cont_right_contjt">
+            <img src="images/help_jt.gif" height="23" />
+            </div>
+            <div class="cont_right_cont">
+            <a href="#"><img src="images/help_qrdd.gif" height="40" /></a><span class="ml15">确认收货地址、收货人、购买商品信息</a>
+            </div>
+        	<div class="cont_right_contjt">
+            <img src="images/help_jt.gif" height="23" />
+            </div>
+            <div class="cont_right_cont">
+            <a href="#"><img src="images/help_zf.gif" height="40" /></a><span class="ml15">待卖家确认订单后，付款给卖家</a>
+            </div>
+        	<div class="cont_right_contjt">
+            <img src="images/help_jt.gif" height="23" />
+            </div>
+            <div class="cont_right_cont">
+            <a href="#"><img src="images/help_qrsh.gif" height="40" /></a><span class="ml15">待收货后，确认收货</a>
+            </div>
+            <div class="cont_right_tishi">
+            	<div class="cont_right_tishi_tit">温馨提示</div>
+                <p>1. 卖家确认订单后，如果3天内不支付，订单会自动失效。</p>
+                <p>2. 买家收货后需手动确认收货，如不手动确认收货10天后系统自动确认收货。</p>
+            </div>
+        </div>     
+    </div>
+    <div class="clear"></div>
+    <!--cont 结束-->
+    
+    <!--helpcent 开始-->
+    <div class="helpcent">
+    	<ul>
+        	<li>
+            	<p class="hejpcent_tit">新手指南</p>
+                <p><a href="#">买家流程</a></p>
+				<p><a href="#">卖家流程</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">支付方式</p>
+                <p><a href="#">什么是手机支付</a></p>
+				<p><a href="#">手机支付流程</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">物流配送</p>
+                <p><a href="#">EMS</a></p>
+				<p><a href="#">配送范围</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">售后服务</p>
+                <p><a href="#">退换货原则</a></p>
+				<p><a href="#">退换货流程</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">交易纠纷</p>
+                <p><a href="#">关于申告</a></p>
+				<p><a href="#">投诉与建议</a></p>
+            </li>
+            <li class="helpcent_zh">
+            	<p class="hejpcent_tit">商城手机客户端</p>
+                <p class="overflow mt10">
+                	<span class="left"><img src="images/head_ewm.jpg" width="90" height="90" alt="" /></span>
+                    <span class="left ml15 mt50">
+                    	一掌"潮机"乾坤<br />
+                        瞬查"先机"动向
+                    </span>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <!--helpcent 开始-->
+    
+    <!--foot 开始-->
+    <div class="footbox">
+        <a href="help.html">法律声明</a>
+        <span class="foot_bah">皖ICP备05007322号</span>
+        |
+        中国移动版权所有
+    </div>
+    <!--foot 结束-->
+</div>
+</body>
+</html>

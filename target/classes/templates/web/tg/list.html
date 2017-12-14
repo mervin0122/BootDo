@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ZSCAT电子交易平台</title>
+<link href="../css/public.css" rel="stylesheet" type="text/css" />
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".filterlist li p a").click(function(){
+		$(this).addClass("now").siblings().removeClass("now"); 	
+	});
+})
+$(function(){
+	$(".item").toggle(
+	  function () {
+		$(this).removeClass("item_alter");
+	  },
+	  function () {
+		$(this).addClass("item_alter");
+	  }
+	);
+});
+$(function(){
+	$(".toggle").toggle(
+	  function () {
+		$("#filter").addClass("closed");
+		$(".filterlist").hide();
+	  },
+	  function () {
+		$("#filter").removeClass("closed");
+		$(".filterlist").show();
+	  }
+	);
+});
+$(function(){
+	$(window).scroll(function(){
+		if($("#bar").offset().top < $(document).scrollTop()){
+			$(".inner_bar").addClass("fixed_bar");
+		}else{
+			$(".inner_bar").removeClass("fixed_bar");
+		}
+	})
+})
+</script>
+</head>
+
+<body>
+<!--top 开始-->
+<div class="topbox">
+	<div class="box">
+    	 <div class="top_l">
+        	<p class="left">
+                安徽移动终端电子交易平台， 
+                <span class="c0085d0">Sylvia_fs</span>
+                欢迎您！ 
+                <a href="#">[退出]</a>
+            </p>
+            <div class="top_xx left ml10">
+            	消息(<strong class="red">0</strong>)
+                <ul class="top_ycc1">
+                	<li>降价提醒(<strong class="red">0</strong>)</li>
+                    <li>新品上架(<strong class="red">0</strong>)</li>
+                    <li>服务提醒(<strong class="red">0</strong>)</li>
+                    <li>物流提醒(<strong class="red">0</strong>)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="top_r">
+            <p class="right">
+                <a href="#">购物车</a>
+                <a href="#">联系客服</a>
+                <a href="#">收藏本站</a>
+            </p>
+            <div class="top_hb right">
+            	我的和包
+                <ul class="top_ycc">
+                	<li>已买到的商品</li>
+                    <li>我的优惠券</li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!--top 结束-->
+<div class="head_box">
+    <div class="box">
+        <!--head 开始-->
+        <p class="pos_r" id="sy_img1">
+            <a href="#"><img src="../images/tgsy_img.jpg" width="1190" height="80" alt="" /></a>
+            <span class="sy_imggb"><img src="../images/icon_close.jpg" width="15" height="16" alt="关闭" /></span>
+        </p>
+        <div>
+            <p class="left mt20 ml10"><a href="#"><img src="../images/logo.png" width="270" height="60" alt="中国移动" /></a></p>
+            <div class="left">
+                <div class="head_ssbox">
+                    <a href="#" class="head_ssan"></a>
+                    <input name="" type="text" class="head_ss" />
+                    <div class="head_sslx">
+                        <ul>
+                            <li>
+                                <span class="left">iphone4</span>
+                                <span class="right">约123456个商品</span>
+                            </li>
+                            <li>
+                                <span class="left">iphone5</span>
+                                <span class="right">约654321个商品</span>
+                            </li>
+                            <li>
+                                <span class="left">iphone4s</span>
+                                <span class="right">约123456个商品</span>
+                            </li>
+                            <li>
+                                <span class="left">iphone5s</span>
+                                <span class="right">约654321个商品</span>
+                            </li>
+                        </ul>
+                        <p class="head_sslxgb">关闭</p>
+                    </div>
+                    <div class="clear"></div>
+                    <p class="head_rmss">
+                        热门搜索：
+                        <a href="#">LG</a>
+                        <a href="#">Flex</a>
+                        <a href="#">魅族mx2</a>
+                        <a href="#">红辣椒SIII</a>
+                        <a href="#">I9300</a>
+                        <a href="#">0元购机</a>
+                        <a href="#">捷波朗</a>
+                    </p>
+                </div>
+                
+            </div>
+            <div class="head_tan">
+            	<div class="head_wdhb">
+                	<s></s>
+                	<div class="head_wdhb_ycc">
+                    	<p class="wdhb_ycc_1">
+                        	<span class="left">Sylvia_fs</span>
+                            <a href="/hb/wdhsd.html" class="right">去我的和包首页 ></a>
+                        </p>
+                        <div class="wdhb_ycc_2">
+                        	<ul class="wdhb_ycc_2_l">
+                            	<li><a href="#">等待处理订单</a><strong>（10）</strong></li>
+                                <li><a href="#">咨询回复</a>（0）</li>
+                                <li><a href="#">降价商品</a>（0）</li>
+                                <li><a href="#">优惠券</a>（0）</li>
+                            </ul>
+                            <ul class="wdhb_ycc_2_r">
+                            	<li><a href="#">我的订单 ></a></li>
+                                <li><a href="#">我的收藏 ></a></li>
+                                <li><a href="#">我的积分 ></a></li>
+                                <li><a href="#">为我推荐 ></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="head_qgwcjs">
+                	<s></s>
+                	<div class="gwcqp"><span>3</span></div>
+                    <div class="sygwc_none">购物车中还没有商品，赶紧选购吧！</div>
+                    <div class="sygwc_ysp">
+                    	<ul>
+                        	<li>
+                            	<p class="sygwc_ysp_1"><img src="../images/sygwc_img.jpg" width="60" height="60" /></p>
+                                <p class="sygwc_ysp_2"><a href="#">苹果（APPLE）iPhone5s 32G版 3G手机 深空灰色）</a></p>
+                                <div class="sygwc_ysp_3">
+                                	<p class="sygwc_ysp_3jq"><strong>￥5798.00</strong> x1</p>
+                                    <p class="mt20"><a href="#" class="a0085d0">删除</a></p>
+                                </div>
+                            </li>
+                            <li>
+                            	<p class="sygwc_ysp_1"><img src="images/sygwc_img.jpg" width="60" height="60" /></p>
+                                <p class="sygwc_ysp_2"><a href="#">苹果（APPLE）iPhone5s 32G版 3G手机 深空灰色）</a></p>
+                                <div class="sygwc_ysp_3">
+                                	<p class="sygwc_ysp_3jq"><strong>￥5798.00</strong> x1</p>
+                                    <p class="mt20"><a href="#" class="a0085d0">删除</a></p>
+                                </div>
+                            </li>
+                            <li>
+                            	<p class="sygwc_ysp_1"><img src="images/sygwc_img.jpg" width="60" height="60" /></p>
+                                <p class="sygwc_ysp_2"><a href="#">苹果（APPLE）iPhone5s 32G版 3G手机 深空灰色）</a></p>
+                                <div class="sygwc_ysp_3">
+                                	<p class="sygwc_ysp_3jq"><strong>￥5798.00</strong> x1</p>
+                                    <p class="mt20"><a href="#" class="a0085d0">删除</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="sygwc_tj">共<strong class="cf40 fontwryh">3</strong>件商品 共计：<strong class="cf40 font16 fontwryh">￥12096.00</strong><a href="#" class="sy_icon1 ml10">去结算</a></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="nav">
+            <div id="nav_1" class="nav_1">
+            	<p class="nav_1_wz">全部商品分类</p>
+                <div class="nav_all" id="nav_all">
+                    <div class="nav_all_li">
+                        <p class="nav_tit">·手机品牌</p>
+                        <p class="nav_nr">
+                            <a href="#">中国移动</a>
+                            <a href="#">苹果</a>
+                            <a href="#">三星</a>
+                            <a href="#">华为</a>
+                            <s></s>
+                        </p>
+                        <div class="nav_r" style="border-top:1px solid #f40;">
+                            <ul>
+                                <li>
+                                    <a href="#" class="nav_r_tit">国产品牌</a>
+                                    |
+                                    <a href="#">中国移动</a>
+                                    |
+                                    <a href="#">天语</a>
+                                    |
+                                    <a href="#">万事通</a>
+                                    |
+                                    <a href="#">百立丰</a>
+                                    |
+                                    <a href="#">魅族</a>
+                                    |
+                                    <a href="#">TCL</a>
+                                    |
+                                    <a href="#">海信</a>
+                                    |
+                                    <a href="#">德赛</a>
+                                    |
+                                    <a href="#">波导</a>
+                                    |
+                                    <a href="#">酷诺</a>
+                                    |
+                                    <a href="#">新邮通</a>
+                                    |
+                                    <a href="#">金立</a>
+                                    |
+                                    <a href="#">夏新</a>
+                                    |
+                                    <a href="#">华森酷比</a>
+                                    |
+                                    <a href="#">宇龙酷派</a>
+                                    |
+                                    <a href="#">联想</a>
+                                    |
+                                    <a href="#">天迈</a>
+                                    |
+                                    <a href="#">海尔</a>
+                                    |
+                                    <a href="#">康佳</a>
+                                    |
+                                    <a href="#">中兴</a>
+                                    |
+                                    <a href="#">华为</a>
+                                    |
+                                    <a href="#">大唐电信</a>
+                                    |
+                                    <a href="#">小米</a>
+                                </li>
+                                <li class="navlast">
+                                    <a href="#" class="nav_r_tit">国际品牌</a>
+                                    |
+                                    <a href="#">三星</a>
+                                    |
+                                    <a href="#">苹果</a>
+                                    |
+                                    <a href="#">飞利浦</a>
+                                    |
+                                    <a href="#">HTC</a>
+                                    |
+                                    <a href="#">宏基</a>
+                                    |
+                                    <a href="#">诺基亚</a>
+                                    |
+                                    <a href="#">摩托罗拉</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="nav_all_li">
+                        <p class="nav_tit">·价格区间</p>
+                        <p class="nav_nr">
+                            <a href="#">1-499</a>
+                            <a href="#">500-999</a>
+                            <a href="#">1000-1999</a>
+                            <s></s>
+                        </p>
+                        <div class="nav_r">
+                            <ul>
+                                <li class="navlast">
+                                    <a href="#" class="nav_r_tit">价格区间</a>
+                                    |
+                                    <a href="#">全部</a>
+                                    |
+                                    <a href="#">0-199元</a>
+                                    |
+                                    <a href="#">200-499元</a>
+                                    |
+                                    <a href="#">500-999元</a>
+                                    |
+                                    <a href="#">1000-1999元</a>
+                                    |
+                                    <a href="#">2000-2999元</a>
+                                    |
+                                    <a href="#">3000-3999元</a>
+                                    |
+                                    <a href="#">4000元以上</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="nav_all_li">
+                        <p class="nav_tit">·手机店铺</p>
+                        <p class="nav_nr">
+                            <a href="#">中国移动通信集团终端有...</a>
+                            <s></s>
+                        </p>
+                        <div class="nav_r">
+                            <ul>
+                                <li class="navlast">
+                                    <a href="#" class="nav_r_tit">手机店铺</a>
+                                    |
+                                    <a href="#">北京百纳威尔科技有限公司</a>
+                                    |
+                                    <a href="#">天音通信有限公司安徽分公司</a>
+                                    |
+                                    <a href="#">德赛电子</a>
+                                    |
+                                    <a href="#">合肥松联通讯器材有限公司</a>
+                                    |
+                                    <a href="#">中邮普泰</a>
+                                    |
+                                    <a href="#">深圳爱施德</a>
+                                    |
+                                    <a href="#">安徽鸿讯</a>
+                                    |
+                                    <a href="#">中国移动通信集团终端有限公司安徽分公司</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="nav_all_li">
+                        <p class="nav_tit">·屏幕尺寸</p>
+                        <p class="nav_nr">
+                            <a href="#">3.5寸</a>
+                            <a href="#">4.0-4.5寸</a>
+                            <a href="#">4.7-5.5寸</a>
+                            <s></s>
+                        </p>
+                        <div class="nav_r">
+                            <ul>
+                                <li class="navlast">
+                                    <a href="#" class="nav_r_tit">屏幕尺寸</a>
+                                    |
+                                    <a href="#">5.6英寸及以上</a>
+                                    |
+                                    <a href="#">5.5-5.0英寸</a>
+                                    |
+                                    <a href="#">4.9-4.1英寸</a>
+                                    |
+                                    <a href="#">4.0-3.1英寸</a>
+                                    |
+                                    <a href="#">3.0英寸及以下</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="nav_all_li">
+                        <p class="nav_tit">·手机配件</p>
+                        <p class="nav_nr">
+                            <a href="#">存储卡</a>
+                            <a href="#">手机</a>
+                            <a href="#">电池</a>
+                            <a href="#">保护套</a>
+                            <s></s>
+                        </p>
+                        <div class="nav_r">
+                            <ul>
+                                <li class="navlast">
+                                    <a href="#" class="nav_r_tit">手机配件</a>
+                                    |
+                                    <a href="#">电池</a>
+                                    |
+                                    <a href="#">蓝牙耳机</a>
+                                    |
+                                    <a href="#">充电器</a>
+                                    |
+                                    <a href="#">数据线</a>
+                                    |
+                                    <a href="#">手机耳机</a>
+                                    |
+                                    <a href="#">贴膜</a>
+                                    |
+                                    <a href="#">存储卡</a>
+                                    |
+                                    <a href="#">保护套</a>
+                                    |
+                                    <a href="#">iPhone配件</a>
+                                    |
+                                    <a href="#">便携/无线音箱</a>
+                                    |
+                                    <a href="#">手机饰品</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="nav_all_li">
+                        <p class="nav_tit">·号卡中心</p>
+                        <p class="nav_nr">
+                            <a href="#">SIM卡</a>
+                            <a href="#">充值卡</a>
+                            <a href="#">家园卡</a>
+                            <s></s>
+                        </p>
+                        <div class="nav_r">
+                            <ul>
+                                <li class="navlast">
+                                    <a href="#" class="nav_r_tit">号卡中心</a>
+                                    |
+                                    <a href="#">SIM卡</a>
+                                    |
+                                    <a href="#">充值卡</a>
+                                    |
+                                    <a href="#">家园卡</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+           
+            <ul class="nav_2">
+                <li class="navhover"><a href="index.html">首页</a></li>
+                <li><a href="../liebiao.html">买手机</a></li>
+                <li><a href="../hk_liebiao.html">选号卡</a></li>
+                <li><a href="../list.html">旗舰店</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+    <!--head 结束-->
+    
+    <!--cont 开始-->
+        <div class="box">
+        	<div class="mt15 clear"></div>
+        	<div id="bar">
+                <div class="filter inner_bar">
+                    <div id="filter">
+                        <div class="actionbar">
+                            <p><a class="tgicon" href="#"> 团购筛选 </a><a class="toggle" href="#"> 收缩 </a></p>
+                        </div>
+                        <div class="filterlist">
+                            <ul>
+                                <li>
+                                    <p>
+                                        <label> 分类： </label>
+                                        <a class="now" title="全部" href="###">全部</a>
+                                        <a title="日用百货" href="###">日用百货</a>
+                                        <a title="服装家纺" href="###">服装家纺</a>
+                                        <a title="汽车用品" href="###">汽车用品</a>
+                                        <a title="食品保健" href="###">食品保健</a>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <label> 城市： </label>
+                                        <a class="now" title="全部" href="###">全部</a>
+                                        <a title="全国" href="###">全国</a>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <label> 排序： </label>
+                                        <a class="now" title="默认" href="###">默认</a>
+                                        <a class="item item_alter" title="价格" href="###"><span>价格</span></a>
+                                        <a class="item item_alter" title="折扣" href="###"><span>折扣</span></a>
+                                        <a class="item item_alter" title="热门" href="###"><span>热门</span></a>
+                                        <a class="item item_alter" title="剩余时间" href="###"><span>剩余时间</span></a>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        	</div>
+        
+        	<div class="tg_ban"><img src="../images/tg_banner.jpg" /></div>
+            <div class="tg_list">
+            	<div class="tg_cont">
+                	<div class="tg_cont_cor">1</div>
+                    <div class="tg_cont_l"><img src="../images/tg-img1.jpg" /></div>
+                    <div class="tg_cont_r">
+                    	<div class="tg_r_tit">三星 S6818</div>
+                    	<div class="tg_r_sj">时尚小巧 简单易用 高性价比</div>
+                        <div class="tg_r_pri">
+                        	<div class="left"><span class="font12 fontb">团购价：</span><span class="font14 fontb">￥</span><span class="font24 fontb">399</span></span></div>
+                        	<div class="right mr20 mt5"><a href="xiangqing.html"><img src="../images/tg_go.gif" /></a></div>
+                        </div>
+                        <div class="tg_r_xq">
+                        	<div class="tg_r_xq_ckj"><p class="font18 fontb">市场价</p><p  class="font14"><s>￥2850</s></p></div>
+                        	<div class="tg_r_xq_zk"><p class="font18 fontb">折扣</p><p class="cf40 fontb font14">9.3折</p></div>
+                        	<div class="tg_r_xq_js"><p class="font18 fontb">节省</p><p class="cf40 fontb font14">￥200</p></div>
+                        
+                        <div class="clear"></div>
+                        </div>
+                        <div class="tg_r_xl">限量500台，还剩<span class="cf40">383</span>台</div>
+                        <div class="tg_r_ts">团购商品，每人最低购买3台，最高限购10台，10人以上购买团购生效，否则视自动失效，数量有限，售完为止！</div>
+                        <div class="tg_r_time"><img src="../images/tg_djs.gif" /><span class="c666 ml5">剩余时间：</span><span class="cf40">357天2小时30分0秒</span></div>
+                    </div>
+                </div>
+                <div class="tg_cont">
+                	<div class="tg_cont_cor">2</div>
+                    <div class="tg_cont_l"><img src="../images/tg-img1.jpg" /></div>
+                    <div class="tg_cont_r">
+                    	<div class="tg_r_tit">三星 S6818</div>
+                    	<div class="tg_r_sj">时尚小巧 简单易用 高性价比</div>
+                        <div class="tg_r_pri">
+                        	<div class="left"><span class="font12 fontb">团购价：</span><span class="font14 fontb">￥</span><span class="font24 fontb">399</span></span></div>
+                        	<div class="right mr20 mt5"><a href="xiangqing.html"><img src="../images/tg_go.gif" /></a></div>
+                        </div>
+                        <div class="tg_r_xq">
+                        	<div class="tg_r_xq_ckj"><p class="font18 fontb">市场价</p><p  class="font14"><s>￥2850</s></p></div>
+                        	<div class="tg_r_xq_zk"><p class="font18 fontb">折扣</p><p class="cf40 fontb font14">9.3折</p></div>
+                        	<div class="tg_r_xq_js"><p class="font18 fontb">节省</p><p class="cf40 fontb font14">￥200</p></div>
+                        
+                        <div class="clear"></div>
+                        </div>
+                        <div class="tg_r_xl">限量500台，还剩<span class="cf40">383</span>台</div>
+                        <div class="tg_r_ts">团购商品，每人最低购买3台，最高限购10台，10人以上购买团购生效，否则视自动失效，数量有限，售完为止！</div>
+                        <div class="tg_r_time"><img src="../images/tg_djs.gif" /><span class="c666 ml5">剩余时间：</span><span class="cf40">357天2小时30分0秒</span></div>
+                    </div>
+                </div>
+                <div class="tg_cont">
+                	<div class="tg_cont_cor">3</div>
+                    <div class="tg_cont_l"><img src="../images/tg-img1.jpg" /></div>
+                    <div class="tg_cont_r">
+                    	<div class="tg_r_tit">三星 S6818</div>
+                    	<div class="tg_r_sj">时尚小巧 简单易用 高性价比</div>
+                        <div class="tg_r_pri">
+                        	<div class="left"><span class="font12 fontb">团购价：</span><span class="font14 fontb">￥</span><span class="font24 fontb">399</span></span></div>
+                        	<div class="right mr20 mt5"><a href="xiangqing.html"><img src="../images/tg_go.gif" /></a></div>
+                        </div>
+                        <div class="tg_r_xq">
+                        	<div class="tg_r_xq_ckj"><p class="font18 fontb">市场价</p><p  class="font14"><s>￥2850</s></p></div>
+                        	<div class="tg_r_xq_zk"><p class="font18 fontb">折扣</p><p class="cf40 fontb font14">9.3折</p></div>
+                        	<div class="tg_r_xq_js"><p class="font18 fontb">节省</p><p class="cf40 fontb font14">￥200</p></div>
+                        	<div class="clear"></div>
+                        </div>
+                        <div class="tg_r_xl">限量500台，还剩<span class="cf40">383</span>台</div>
+                        <div class="tg_r_ts">团购商品，每人最低购买3台，最高限购10台，10人以上购买团购生效，否则视自动失效，数量有限，售完为止！</div>
+                        <div class="tg_r_time"><img src="../images/tg_djs.gif" /><span class="c666 ml5">剩余时间：</span><span class="cf40">357天2小时30分0秒</span></div>
+                    </div>
+                </div>
+                <div class="tg_cont">
+                	<div class="tg_cont_cor">4</div>
+                    <div class="tg_cont_l"><img src="../images/tg-img1.jpg" /></div>
+                    <div class="tg_cont_r">
+                    	<div class="tg_r_tit">三星 S6818</div>
+                    	<div class="tg_r_sj">时尚小巧 简单易用 高性价比</div>
+                        <div class="tg_r_pri">
+                        	<div class="left"><span class="font12 fontb">团购价：</span><span class="font14 fontb">￥</span><span class="font24 fontb">399</span></span></div>
+                        	<div class="right mr20 mt5"><a href="xiangqing.html"><img src="../images/tg_go.gif" /></a></div>
+                        </div>
+                        <div class="tg_r_xq">
+                        	<div class="tg_r_xq_ckj"><p class="font18 fontb">市场价</p><p  class="font14"><s>￥2850</s></p></div>
+                        	<div class="tg_r_xq_zk"><p class="font18 fontb">折扣</p><p class="cf40 fontb font14">9.3折</p></div>
+                        	<div class="tg_r_xq_js"><p class="font18 fontb">节省</p><p class="cf40 fontb font14">￥200</p></div>
+                        	
+                        <div class="clear"></div>
+                        </div>
+                        <div class="tg_r_xl">限量500台，还剩<span class="cf40">383</span>台</div>
+                        <div class="tg_r_ts">团购商品，每人最低购买3台，最高限购10台，10人以上购买团购生效，否则视自动失效，数量有限，售完为止！</div>
+                        <div class="tg_r_time"><img src="../images/tg_djs.gif" /><span class="c666 ml5">剩余时间：</span><span class="cf40">357天2小时30分0秒</span></div>
+                    </div>
+                </div>
+            </div>
+    	<div class="clear"></div>
+    <!--cont 结束-->
+    
+    <!--helpcent 开始-->
+    <div class="helpcent">
+    	<ul>
+        	<li>
+            	<p class="hejpcent_tit">新手指南</p>
+                <p><a href="#">买家流程</a></p>
+				<p><a href="#">卖家流程</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">支付方式</p>
+                <p><a href="#">什么是手机支付</a></p>
+				<p><a href="#">手机支付流程</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">物流配送</p>
+                <p><a href="#">EMS</a></p>
+				<p><a href="#">配送范围</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">售后服务</p>
+                <p><a href="#">退换货原则</a></p>
+				<p><a href="#">退换货流程</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">交易纠纷</p>
+                <p><a href="#">关于申告</a></p>
+				<p><a href="#">投诉与建议</a></p>
+            </li>
+            <li class="helpcent_zh">
+            	<p class="hejpcent_tit">商城手机客户端</p>
+                <p class="overflow mt10">
+                	<span class="left"><img src="../images/head_ewm.jpg" width="90" height="90" alt="" /></span>
+                    <span class="left ml15 mt50">
+                    	一掌"潮机"乾坤<br />
+                        瞬查"先机"动向
+                    </span>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <!--helpcent 开始-->
+    
+    <!--foot 开始-->
+    <div class="footbox">
+        <a href="help.html">法律声明</a>
+        <span class="foot_bah">皖ICP备05007322号</span>
+        |
+        中国移动版权所有
+    </div>
+    <!--foot 结束-->
+</div>
+</body>
+</html>

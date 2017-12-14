@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+    <title>j5shop商城</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="/street/css/login.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<!---------------头部----------------->
+<div class="wt1080 top">
+    <div class="logo"><a href="#"><img src="/street/image/logo.png"></a></div>
+    <div class="rr">
+        <ul>
+            <li>
+                <img src="/street/image/bg3.png">
+                <p>全球正品货源</p>
+            </li>
+            <li>
+                <img src="/street/image/bg5.png">
+                <p>一件代发</p>
+            </li>
+            <li>
+                <img src="/street/image/bg4.png">
+                <p>全球直邮</p>
+            </li>
+            <li>
+                <img src="/street/image/bg6.png">
+                <p>售后无忧</p>
+            </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+<!----------------------中间------------------------->
+<div class="red">
+    <form id="signupForm">
+        <div class="wt1080 login">
+            <div class="login_pic"><img src="/street/image/login.jpg"></div>
+            <div class="l_k">
+                <div class="l_k_t">
+                    <span class="one">登陆洋店</span>
+                    <span class='two'>还没有洋店帐号？<a href="/street/login">10秒注册</a></span>
+                </div>
+                <!-----------登录框----------->
+                <div class="l_k_d">
+                    <input type="text" id="username" name="username" value="admin"  class="admin" placeholder="邮箱/手机/用户名">
+                    <input type="password" id="password" name="password"  class="pass" value="admin" placeholder="密码">
+                </div>
+                <div class="mem">
+                    <span><input type="checkbox" >自动登陆</span>
+                    <a href="#">忘记密码？</a>
+                </div>
+                <button class="s_login">登录</button>
+                <span class="xie"></span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </form>
+</div>
+<!-------------------底部------------------------>
+<div class="foot wt1080">
+    <ul>
+        <li><a href="#">网站简介</a></li>
+        <li><a href="#">联系我们</a></li>
+        <li><a href="#">招商合作</a></li>
+        <li><a href="#">销售联盟</a></li>
+    </ul>
+    <p>Copyright © 2016 洋店网.版权所有.备案号：京ICP证35124521号.技术支持：西部网络</p>
+</div>
+<!-- 全局js -->
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+
+
+
+<!-- jQuery Validation plugin javascript-->
+<script src="/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="/js/plugins/validate/messages_zh.min.js"></script>
+<script src="/js/plugins/layer/layer.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        validateRule();
+        //$("#signupForm").validate();
+    });
+    $.validator.setDefaults({
+        submitHandler : function() {
+            login();
+        }
+    });
+
+    function login() {
+        console.log($('#signupForm').serialize());
+        $.ajax({
+            type : "POST",
+            url : "/street/login",
+            data : $('#signupForm').serialize(),
+            success : function(r) {
+                if (r.code == 0) {
+                    location.href = '/street/index';
+                } else {
+                    layer.msg(r.msg);
+                }
+            }
+        });
+    }
+
+    function validateRule() {
+        $("#signupForm").validate({
+            rules : {
+                username : {
+                    required : true
+                },
+                password : {
+                    required : true
+                }
+            },
+            messages : {
+                username : {
+                    required :  "请输入您的用户名",
+                },
+                password : {
+                    required : "请输入您的密码",
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

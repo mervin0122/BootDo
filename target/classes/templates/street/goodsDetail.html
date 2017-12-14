@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+    <title>j5shop商城</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="/street/css/public.css" type="text/css" rel="stylesheet"/>
+    <link href="/street/css/show.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="/street/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/street/js/slide.js"></script>
+    <script src="/js/plugins/layer/layer.min.js"></script>
+</head>
+<script>
+    $(function(){
+        $('.nav ul li').hover(function(){
+            $(this).children(".details").show();
+        },function(){
+            $(this).children(".details").hide();
+        });
+        $('#my').hover(function(){
+            $(this).find("div").show();
+        },function(){
+            $(this).find("div").hide();
+        });
+    });
+</script>
+<body>
+<div th:replace="street/layout/mallHeader"></div>
+<!---------------------导航完--------------------->
+
+<script type="text/javascript" src="/street/js/jquery.imagezoom.min.js"></script>
+<script type="text/javascript" src="/street/js/owl.carousel.min.js"></script>
+<div class="wt1080">
+    <!----------------位置--------------------->
+    <div class="place">
+        当前位置：<span class="check" th:text="${goods.title}"></span>
+        <input th:hidden="true" th:value="${goods.id}" id="goodsid"/>
+    </div>
+    <!-------------商品详细----------------->
+    <div class="property">
+        <div class="left">
+            <div class="left_top">
+                <img th:src="@{${goods.img}}" width="700px" height="700px" class="jqzoom" >
+                <a href="#" class="search"></a>
+            </div>
+            <div class="pics">
+                <div id="scroll" class="owl-carousel">
+                    <a href="#" class="item current" th:each="g:${imgs}">
+                        <img th:src="@{${g}}"/>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function() {
+                $(".jqzoom").imagezoom();
+
+                $('#scroll').owlCarousel({
+                    items: 4,
+                    autoPlay: false,
+                    navigation: true,
+                    navigationText: ["",""],
+                    scrollPerPage: true
+                });
+            });
+        </script>
+        <div class="right">
+            <a href="#" class="title" th:text="${goods.title}"></a>
+            <div class="aa">
+                <span class="a" >促销价</span>
+                <span class="b" th:text="${goods.prices}">￥445.00</span>
+                <span class="c">6.5折</span>
+                <span class="c">包邮</span>
+                <span class="d" th:text="${goods.prices}">国内参考价 ￥988.00</span>
+            </div>
+            <table>
+                <tr>
+                    <td class="one">运费</td>
+                    <td>免运费</td>
+                </tr>
+                <tr>
+                    <td class="one">关税</td>
+                    <td>本商品实用税率为10%，若订单关税<50元则免征</td>
+                </tr>
+                <tr>
+                    <td class="one">数量</td>
+                    <td>
+                        <div class="change">
+                            <span class="zuo">-</span>
+                            <input name="count" id="count" type="text" th:value="1">
+                            <span class="you">+</span>
+                        </div>
+                        <span class="tishi">库存充足</span>
+                    </td>
+                </tr>
+            </table>
+            <div  th:if="${goods.is_favorite==1}" id="qucollect"
+                  class="flex-grow-0 flex-y-center bar-bottom-btn" th:onclick="'qucollect('+${goods.id}+')'">
+                <div>
+                    <image src="/img/icon-favorite-active.png" width="15px" height="15px"></image>
+                    <text>已收藏</text>
+                </div>
+            </div>
+            <div  class="flex-grow-0 flex-y-center bar-bottom-btn" th:if="${goods.is_favorite==2}"
+                  th:onclick="'collect('+${goods.id}+')'" id="collect">
+                <div>
+                    <image src="/img/icon-favorite.png" width="15px" height="15px"></image>
+                    <text>收藏</text>
+                </div>
+            </div>
+            <div   id="qucollect1"
+                  class="flex-grow-0 flex-y-center bar-bottom-btn" >
+                <div>
+                    <image src="/img/icon-favorite-active.png" width="15px" height="15px"></image>
+                    <text>已收藏</text>
+                </div>
+            </div>
+            <div  class="flex-grow-0 flex-y-center bar-bottom-btn"
+                   id="collect1">
+                <div>
+                    <image src="/img/icon-favorite.png" width="15px" height="15px"></image>
+                    <text>收藏</text>
+                </div>
+            </div>
+            <!-----------------购买按钮--------------->
+            <div class="shopping">
+                <a href="#" onclick="addCart(2)" class="buy">立即购买</a>
+                <a href="#" onclick="addCart(1)" class="shop_car">加入购物车</a>
+                <div class="clear"></div>
+            </div>
+            <!-----------保障---------------->
+            <div class="b_baozhang">
+                <ul>
+                    <li>
+                        <img src="/street/image/u1.png">
+                        <p>全球正品货源</p>
+                    </li>
+                    <li>
+                        <img src="/street/image/u2.png">
+                        <p>一件代发</p>
+                    </li>
+                    <li>
+                        <img src="/street/image/u3.png">
+                        <p>全球直邮</p>
+                    </li>
+                    <li>
+                        <img src="/street/image/u4.png">
+                        <p>售后无忧</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <!-----------------下半部分------------------->
+    <div class="details">
+        <div class="details_left">
+            <div class="d_l_t">
+                <div class="d_l_t_t">
+                    <a href="" class="current">商品详情</a>
+                    <a href="">买家口碑(1600)</a>
+                </div>
+                <!-----------详细内容---------->
+                <div class="d_l_t_d" th:utext="${goods.remark}">
+
+                </div>
+                <!----------评价---------->
+            </div>
+            <div class="pingjia">
+                <div class="pingjia_t">
+                    <span>买家口碑</span><span th:text="${goods.title}"></span>
+                </div>
+                <!----------评价----------->
+                <div class="pingjia_d">
+                    <div class="pingjia_d_t">
+                        <span class="current"><img src="/street/image/d1.png">全部评价（5884）</span>
+                        <span><img src="/street/image/d2.png">好评（5750）</span>
+                        <span><img src="/street/image/d2.png">好评（48）</span>
+                        <span><img src="/street/image/d2.png">差评（86）</span>
+                        <span><img src="/street/image/d2.png">晒单（227）</span>
+                    </div>
+                    <!----------留言----------->
+                    <div class="pingjia_d_l">
+                        <ul>
+                            <li th:each="reply:${replyList}">
+                                <p class="title"><span th:text="${reply.username}">月夜花香</span><span th:text="${reply.createdate}"></span></p>
+                                <p class="pic"><img src="/street/image/p10.jpeg"></p>
+                                <p class="mess" th:text="${reply.content}">已经开始喝第二阶段的奶粉了，会继续支持德贝。</p>
+                                <p class="admin">管理员：亲爱的用户，已返现到您的会员账户，感谢你对德贝的支持，我们会继续坚持给您带来最极致的服务。</p>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <!---------------分页--------------->
+                    <div class="page"><a href="#">上一页</a><a href="#">1</a><a href="#">2</a><a href="#">下一页</a></div>
+                </div>
+            </div>
+            <!---------------------常见问题------------------->
+            <div class="problem">
+                <h1>常见问题</h1>
+                <div class="problem_c">
+                    <div class="problem_c_t">
+                        <div class="title">
+                            <span>Q</span>
+                            <font>商品来自哪里？</font>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="answer">
+                            <span>A</span>
+                            <font>我们的专业招商团队，确保所有的品牌均为海外优质品牌，主要是由海外品牌入住商或品牌代理经销商等品牌入驻商提供，让你轻松享受到国外优质原装进口商品。</font>
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="title">
+                            <span>Q</span>
+                            <font>我还要额外缴纳关税么？</font>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="answer">
+                            <span>A</span>
+                            <font>依据《中华人民共和国进境物品归类表》，以商品实际销售价格作为完税价格（征税基数），参照行邮税税率征收进境物品进口税，应征税在50元以下（含50元），海关予以免征。</font>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <!------------------->
+                    <p>联系在线客服，或拨打客户电话：028-6133 8882。<p>
+                    <p>客户工作时间：周一到周日9：00-22：00，法定假日除外。<p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="details_right">
+            <div class="d_r_t">相似推荐</div>
+            <div class="d_r_d">
+                <ul>
+                    <li th:each="typeGoods:${typeList}">
+                        <a th:href="@{'/street/goodsDetail/'+${typeGoods.id}}">
+                            <img th:src="@{${typeGoods.img}}"></a>
+                        <p><a th:href="@{'/street/goodsDetail/'+${typeGoods.id}}" th:text="${typeGoods.title}">德国爱他美Aptamil奶粉...</a></p>
+                        <p><span>￥<font th:text="${typeGoods.prices}">359.00</font></span> 5.2折包邮</p>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+
+</div>
+
+<div th:replace="street/layout/mallFooter"></div>
+<script type="text/javascript">
+    $("#collect1").hide();
+    $("#qucollect1").hide();
+    function addCart(type){
+        var count=$("#count").val();
+        var goodsid=$("#goodsid").val();
+        $.ajax({
+            type: "post",
+            url: '/person/street/addCart',
+            data: {
+                goodsid:goodsid,
+                count:count},
+            dataType: "json",
+            success:function(data) {
+                if(data.code==0){
+                    if(type==1){
+                        layer.msg("加入购车成功!",2, 8);
+                    }else{
+                        window.location.href = "/person/street/likBuy/"+goodsid;
+                    }
+                }else {
+                    window.location.href = "/street/login"
+                }
+            }
+        });
+    }
+// 收藏
+    function collect(goodsid){
+        $.ajax({
+            type: "post",
+            url: '/person/street/favorite-add',
+            data: {
+                goodsid:goodsid,
+                type:1},
+            dataType: "json",
+            success:function(data) {
+                    if(data.code==0){
+                        $("#collect").hide();
+                        $("#qucollect").show();
+                        layer.msg("收藏成功!");
+                    }else{
+                        layer.msg(data.msg);
+                    }
+                }
+        });
+    }
+    // 取消收藏
+    function qucollect(goodsid){
+        $.ajax({
+            type: "post",
+            url: '/person/street/favorite-add',
+            data: {
+                goodsid:goodsid,
+                type:1},
+            dataType: "json",
+            success:function(data) {
+                if(data.code==0){
+                    $("#collect").show();
+                    $("#qucollect").hide();
+                    layer.msg("取消收藏成功!");
+                }else{
+                    layer.msg(data.msg);
+                }
+            }
+        });
+    }
+    function addRePly(){
+        var content=$("#say_some").val();
+        var goodsid=$("#goodsid").val();
+        $.ajax({
+            type: "post",
+            url: '/person/street/addRePly',
+            data: {content:content,goodsid:goodsid},
+            dataType: "json",
+            success:function(data) {
+                if(data.success){
+                    layer.msg("评论成功!",{icon:2});
+
+                }else{
+                    layer.msg("评论失败!",{icon:2});
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

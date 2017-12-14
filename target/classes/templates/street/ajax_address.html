@@ -1,0 +1,20 @@
+<link href="/street/css/address.css" type="text/css" rel="stylesheet"/>
+        <div class="m_f_t">
+            <a href="#">+新增地址</a>
+            <span>你已创建<font th:text="${#lists.size(addressList)}">1</font>个收货地址，最多可以创建<font>10</font>个</span>
+        </div>
+        <!------------地址列表---------------->
+        <div class="m_f_list">
+            <ul>
+
+                <li th:each="uj:${addressList}">
+                    <p class="a" th:text="${uj.name}">张新</p>
+                    <p class="b" th:text="${uj.mobile}">159****3994</p>
+                    <p class="c" th:text="${uj.detail}">四川省大石西路130号</p>
+                    <p class="d">510524********1905</p>
+                    <a href="#" class="a_a">编辑</a>
+                    <a href="#" class="a_b">删除</a>
+                    <a href="#" class="a_c">设为默认</a>
+                </li>
+            </ul>
+        </div>

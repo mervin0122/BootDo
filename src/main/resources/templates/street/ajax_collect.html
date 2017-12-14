@@ -1,0 +1,18 @@
+<link href="/street/css/shoucang.css" type="text/css" rel="stylesheet"/>
+<div class="m_f_t">
+    <span>我的收藏</span>
+</div>
+        <ul>
+            <li th:each="com:${collectList}">
+                <div class="pic"><a th:href="@{'/street/goodsDetail/'+${com.id}}">
+                    <img th:src="@{${com.img}}"></a></div>
+                <p style="margin-bottom: 10px;">
+                    <a th:href="@{'/street/goodsDetail/'+${com.id}}" th:text="${com.title}">原装【贝段 900克*2</a></p>
+                <p><span class="one"><span style="font-size: 22px;" th:text="'￥'+${com.prices}">336.00</span>
+                </span><span class="two" th:text="'￥'+${com.prices}">￥336.00</span></p>
+                <div class="qianggou"><a th:onclick="'addCart('+${com.id}+')'" href="#">立即抢购</a></div>
+            </li>
+
+        </ul>
+        <div class="clear"></div>
+

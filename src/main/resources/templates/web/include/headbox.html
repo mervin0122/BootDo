@@ -1,0 +1,117 @@
+<div class="head_box">
+    <div class="box">
+        <!--head 开始-->
+        <p class="pos_r"  id="sy_img1">
+            <a href="#"><img src="/web/images/sy_img1.jpg" width="1190" height="80" alt="" /></a>
+            <span class="sy_imggb"><img src="/web/images/icon_close.jpg" width="15" height="16" alt="关闭" /></span>
+        </p>
+        <div>
+            <p class="left mt20 ml10"><a href="#"><img src="/web/images/logo.png" width="270" height="60" alt="ZSCAT电子交易平台" /></a></p>
+            <div class="left">
+                <div class="head_ssbox1">
+                    <a href="#" class="head_ssan"></a>
+                    <input name="" type="text" class="head_ss" style="width:473px;" />
+                    <div class="head_sslx" style="width:482px;">
+                        <ul>
+                            <li>
+                                <span class="left">iphone4</span>
+                                <span class="right">约123456个商品</span>
+                            </li>
+                            <li>
+                                <span class="left">iphone5</span>
+                                <span class="right">约654321个商品</span>
+                            </li>
+                            <li>
+                                <span class="left">iphone4s</span>
+                                <span class="right">约123456个商品</span>
+                            </li>
+                            <li>
+                                <span class="left">iphone5s</span>
+                                <span class="right">约654321个商品</span>
+                            </li>
+                        </ul>
+                        <p class="head_sslxgb">关闭</p>
+                    </div>
+                    <div class="clear"></div>
+                    <p class="head_rmss">
+                        热门搜索：
+                        <a href="#">LG</a>
+                        <a href="#">Flex</a>
+                        <a href="#">魅族mx2</a>
+                        <a href="#">红辣椒SIII</a>
+                        <a href="#">I9300</a>
+                        <a href="#">0元购机</a>
+                        <a href="#">捷波朗</a>
+                    </p>
+                </div>
+
+            </div>
+            <div class="head_tan" style="width:130px;">
+                <div class="head_wdhb">
+                    <s></s>
+                    <div class="head_wdhb_ycc">
+                        <p class="wdhb_ycc_1">
+                            <span class="left">Sylvia_fs</span>
+                            <a href="/hb/wdhsd.html" class="right">去我的和包首页 ></a>
+                        </p>
+                        <div class="wdhb_ycc_2">
+                            <ul class="wdhb_ycc_2_l">
+                                <li><a href="#">等待处理订单</a><strong>（10）</strong></li>
+                                <li><a href="#">咨询回复</a>（0）</li>
+                                <li><a href="#">降价商品</a>（0）</li>
+                                <li><a href="#">优惠券</a>（0）</li>
+                            </ul>
+                            <ul class="wdhb_ycc_2_r">
+                                <li><a href="#">我的订单 ></a></li>
+                                <li><a href="#">我的收藏 ></a></li>
+                                <li><a href="#">我的积分 ></a></li>
+                                <li><a href="#">为我推荐 ></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="nav">
+            <div class="nav_1 sy_nav_1">
+                <p class="nav_1_wz">全部商品分类</p>
+
+
+                <div class="nav_all">
+
+                    <div class="nav_all_li" th:each="gc:${goodsClassList}">
+                        <p class="nav_tit" th:text="${gc.name}"></p>
+                        <!--<p class="nav_nr">
+                            <a th:each="gc1:${gc.childs}" th:href="@{'/web/goodsListBygcId/'+${gc1.id}}"
+                               th:text="${gc1.name}"></a>
+                            <s></s>
+                        </p>-->
+                        <div class="nav_r" style="border-top:1px solid #f40;">
+                            <ul>
+                                <li>
+                                    <a th:each="gc2:${gc.childs}" class="nav_r_tit" th:href="@{'/web/goodsListBygcId/'+${gc.id}}"
+                                       th:text="${gc2.name}"></a> |
+                                    <a href="#">其他</a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <ul class="nav_2">
+                <li class="navhover"><a href="index.html">首页</a></li>
+                <li><a href="liebiao.html">买手机</a></li>
+                <li><a href="hk_liebiao.html">选号卡</a></li>
+                <li><a href="list.html">旗舰店</a></li>
+                <li><a href="tg/list.html">团购</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!--head 结束-->

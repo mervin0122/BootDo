@@ -1,0 +1,20 @@
+
+        <link href="/street/css/address.css" type="text/css" rel="stylesheet"/>
+        <div class="m_f_t">
+            <span>我的积分商品</span>
+        </div>
+        <!------------地址列表---------------->
+        <div class="m_f_list">
+            <ul>
+
+                <li th:each="uj:${ujList}">
+                    <p class="a" >
+                        <a th:href="@{'/street/jfDetail/'+${uj.goodsid}}">
+                        <img width="166px" height="166px"
+                             th:src="@{${uj.img}}" ></a></p>
+                    <p class="b" th:text="${uj.goodsname}"></p>
+                    <p class="c" th:text="${uj.price}+'积分'"></p>
+
+                </li>
+            </ul>
+        </div>

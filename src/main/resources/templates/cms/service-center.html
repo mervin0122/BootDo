@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>服务中心</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0,user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  
+  <link rel="alternate icon" type="/cms/img/hengwang-1.png" href="/cms/img/hengwang-1.png">
+  <link rel="stylesheet" href="/cms/css/amazeui.css"/>
+  <link rel="stylesheet" href="/cms/css/style.css"/>
+</head>
+<body>
+<div th:replace="cms/layout/mallHeader"></div>
+<div class="toppic">
+	 <div class="am-container-1">
+	 <div class="toppic-title left">
+			<i class="am-icon-hand-paper-o toppic-title-i"></i>
+			<span class="toppic-title-span">服务中心</span>
+			<p>Service Center</p>
+		</div>
+		<div class="right toppic-progress">
+			<span><a href="index.html" class="w-white">首页</a></span>
+			<i class=" am-icon-arrow-circle-right w-white"></i>
+			<span><a href="service-center.html" class="w-white">服务中心</a></span>
+		</div>
+	</div>
+</div>
+
+<div class=" am-container-1">
+	<div class="service-center">
+	    <ul class="service-ul">
+	    	<li class="am-u-lg-12 am-u-md-12 am-u-sm-12" th:each="goods:${articles}">
+	    		<div class="am-u-lg-8 am-u-md-8 am-u-sm-12 service-content">
+	    			<h4 class="w-blue" th:text="${goods.title}">Android应用程序开发</h4>
+	    			<p th:utext="${goods.content}">据统计，2013年，Android全球市场份额达到了78.6%，而中国市场也达到了78%。在移动操作市场，Android已经成为不可动摇的王者。
+                                针对目前Android平台日益严重的碎片化问题，我们提供了多种解决方案，针对不同的系统版本，设备型号和设备分辨率，我们提供了全面
+                                的兼容性测试。同时，我们为客户的App提供了多平台发布服务，包括Google play，亚马逊应用商店，91，应用汇，机锋网等等多个平台，
+                                努力让更多的用户可以下载到。</p>
+	    		</div>
+	    		<div class="am-u-lg-4 am-u-md-4 am-u-sm-12 service-img">
+	    		   <img th:src="@{${goods.img}}" />
+	    		</div>
+	    	</li>
+	    </ul>
+	</div>
+</div>
+
+
+
+
+
+<div th:replace="cms/layout/mallFooter"></div>
+</body>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets//cms/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="/cms/js/jquery.min.js"></script>
+<script src="/cms/js/amazeui.min.js"></script>
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+</html>

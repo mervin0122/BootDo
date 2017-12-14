@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.cms.dao.CommentDao">
+
+	<select id="get" resultType="com.bootdo.cms.domain.CommentDO">
+		select `id`,`auditDate`,`content`,`createDate`,`delFlag`,`email`,`ip`,`name`,`url`,`article_id`,`auditer_id`,`headPath` from cms_comment where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.cms.domain.CommentDO">
+		select `id`,`auditDate`,`content`,`createDate`,`delFlag`,`email`,`ip`,`name`,`url`,`article_id`,`auditer_id`,`headPath` from cms_comment
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="auditdate != null and auditdate != ''"> and auditDate = #{auditdate} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="createdate != null and createdate != ''"> and createDate = #{createdate} </if>
+		  		  <if test="delflag != null and delflag != ''"> and delFlag = #{delflag} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="ip != null and ip != ''"> and ip = #{ip} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="url != null and url != ''"> and url = #{url} </if>
+		  		  <if test="articleId != null and articleId != ''"> and article_id = #{articleId} </if>
+		  		  <if test="auditerId != null and auditerId != ''"> and auditer_id = #{auditerId} </if>
+		  		  <if test="headpath != null and headpath != ''"> and headPath = #{headpath} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from cms_comment
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="auditdate != null and auditdate != ''"> and auditDate = #{auditdate} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="createdate != null and createdate != ''"> and createDate = #{createdate} </if>
+		  		  <if test="delflag != null and delflag != ''"> and delFlag = #{delflag} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="ip != null and ip != ''"> and ip = #{ip} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="url != null and url != ''"> and url = #{url} </if>
+		  		  <if test="articleId != null and articleId != ''"> and article_id = #{articleId} </if>
+		  		  <if test="auditerId != null and auditerId != ''"> and auditer_id = #{auditerId} </if>
+		  		  <if test="headpath != null and headpath != ''"> and headPath = #{headpath} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.cms.domain.CommentDO" useGeneratedKeys="true" keyProperty="id">
+		insert into cms_comment
+		(
+			`auditDate`, 
+			`content`, 
+			`createDate`, 
+			`delFlag`, 
+			`email`, 
+			`ip`, 
+			`name`, 
+			`url`, 
+			`article_id`, 
+			`auditer_id`, 
+			`headPath`
+		)
+		values
+		(
+			#{auditdate}, 
+			#{content}, 
+			#{createdate}, 
+			#{delflag}, 
+			#{email}, 
+			#{ip}, 
+			#{name}, 
+			#{url}, 
+			#{articleId}, 
+			#{auditerId}, 
+			#{headpath}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.cms.domain.CommentDO">
+		update cms_comment 
+		<set>
+			<if test="auditdate != null">`auditDate` = #{auditdate}, </if>
+			<if test="content != null">`content` = #{content}, </if>
+			<if test="createdate != null">`createDate` = #{createdate}, </if>
+			<if test="delflag != null">`delFlag` = #{delflag}, </if>
+			<if test="email != null">`email` = #{email}, </if>
+			<if test="ip != null">`ip` = #{ip}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="url != null">`url` = #{url}, </if>
+			<if test="articleId != null">`article_id` = #{articleId}, </if>
+			<if test="auditerId != null">`auditer_id` = #{auditerId}, </if>
+			<if test="headpath != null">`headPath` = #{headpath}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from cms_comment where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from cms_comment where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

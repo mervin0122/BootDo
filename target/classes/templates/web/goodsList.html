@@ -1,0 +1,727 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>安徽B2B</title>
+<link href="/web/css/public.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/css.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/web/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="/web/js/public.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".lb_icon_db").toggle(
+	  function () {
+		$(this).addClass("ldhover");
+	  },
+	  function () {
+		$(this).removeClass("ldhover");
+	  }
+	);
+});
+$(function(){
+	$(".lb_xt li").mouseover(function(){
+		$(this).addClass("xthover"); 	
+	});
+	$(".lb_xt li").mouseout(function(){
+		$(this).removeClass("xthover"); 	
+	});
+})
+$(function(){
+	$(".onhoverpic").click(function(){
+		$(".lb_dt").show();
+		$(".lb_xt").hide();
+	});
+	$(".onhoverpics1").click(function(){
+		$(".lb_dt").hide();
+		$(".lb_xt").show();
+	});
+})
+$(function(){
+	$(".lx_pp_fl li").mouseover(function(){
+		$(this).addClass("lxhover").siblings().removeClass("lxhover"); 	
+	});
+})
+$(function(){
+	$(".lx_ppgd_an").click(function(){
+		$(".lx_ppgd").show();
+		$(".lx_ppsq").hide();
+	});
+	$(".lx_ppsq_an").click(function(){
+		$(".lx_ppgd").hide();
+		$(".lx_ppsq").show();
+	});
+})
+</script>
+<script type="text/javascript">
+$(function(){
+    var sItemLen = $('.lb_left').length;
+    $('.lb_pp_cont li').click(function(){
+		$('.lb_pp_cont li a').removeClass('onhover');
+        $(this).find('a').addClass('onhover');
+		$(".lb_xz_nr").eq(0).show();
+		$('.lb_xz_nr:eq(0) b').text($(this).attr('brand'));
+    });
+	$('.lb_price_cont1 a').click(function(){
+		$('.lb_price_cont1 a').removeClass('hov');
+        $(this).addClass('hov');
+		$(".lb_xz_nr").eq(1).show();
+		$('.lb_xz_nr:eq(1) b').text($(this).text());
+	});
+	$('.lb_price_cont2 a').click(function(){
+		$('.lb_price_cont2 a').removeClass('hov');
+        $(this).addClass('hov');
+		$(".lb_xz_nr").eq(2).show();
+		$('.lb_xz_nr:eq(2) b').text($(this).text());
+	});
+	$('.lb_price_cont3 a').click(function(){
+		$('.lb_price_cont3 a').removeClass('hov');
+        $(this).addClass('hov');
+		$(".lb_xz_nr").eq(3).show();
+		$('.lb_xz_nr:eq(3) b').text($(this).text());
+	});
+	$('.lb_price_cont4 a').click(function(){
+		$('.lb_price_cont4 a').removeClass('hov');
+        $(this).addClass('hov');
+		$(".lb_xz_nr").eq(4).show();
+		$('.lb_xz_nr:eq(4) b').text($(this).text());
+	});
+	$('.lb_price_cont5 a').click(function(){
+		$('.lb_price_cont5 a').removeClass('hov');
+        $(this).addClass('hov');
+		$(".lb_xz_nr").eq(5).show();
+		$('.lb_xz_nr:eq(5) b').text($(this).text());
+	});
+	$('.lb_price_cont6 a').click(function(){
+		$('.lb_price_cont6 a').removeClass('hov');
+        $(this).addClass('hov');
+		$(".lb_xz_nr").eq(6).show();
+		$('.lb_xz_nr:eq(6) b').text($(this).text());
+	});
+	$('.lb_xz_nr i').click(function(){
+		$(this).parent().hide();
+	});
+})
+</script>
+</head>
+
+<body>
+<!--top 开始-->
+<div th:replace="web/include/top"></div>
+<!--top 结束-->
+<div th:replace="web/include/headbox"></div>
+    <!--head 结束-->
+    
+    <!--cont 开始-->
+<div class="box">
+    <div class="cont">
+    	<div class="lb_left" style="width:960px;">
+    		<div class="lx_ssbox">
+            	<div class="lx_ssbox_tit">商品筛选</div>
+                <div class="lx_ssbox_cont">
+                	<dl>
+                    	<dt>已选条件：</dt>
+                        <dd>
+                        	<div class="lb_xz_nr none"><span>品牌：<b></b></span><i></i></div>
+                            <div class="lb_xz_nr none"><span>网络：<b></b></span><i></i></div>
+                            <div class="lb_xz_nr none"><span>价格：<b></b></span><i></i></div>
+                            <div class="lb_xz_nr none"><span>店铺：<b></b></span><i></i></div>
+                            <div class="lb_xz_nr none"><span>屏幕尺寸：<b></b></span><i></i></div>
+                            <div class="lb_xz_nr none"><span>系统：<b></b></span><i></i></div>
+                            <div class="lb_xz_nr none"><span>机身颜色：<b></b></span><i></i></div>
+                        </dd>
+                    </dl>
+                	<dl class="lx_ppsq">
+                    	<dt>品牌：</dt>
+                        <dd>
+                        	<div class="lb_pp_cont">
+                                <ul>
+                                    <li brand="oppo"><a href="###"><img src="/web/images/oppo.gif" /></a></li>
+                                    <li brand="apple"><a href="###"><img src="/web/images/apple.gif" /></a></li>
+                                    <li brand="三星"><a href="###"><img src="/web/images/samsung.gif" /></a></li>
+                                    <li brand="小米"><a href="###"><img src="/web/images/xiaomi.gif" /></a></li>
+                                    <li brand="华为"><a href="###"><img src="/web/images/huawei.gif" /></a></li>
+                                    <li brand="魅族"><a href="###"><img src="/web/images/meizu.gif" /></a></li>
+                                    <li brand="诺基亚"><a href="###"><img src="/web/images/nokia.gif" /></a></li>
+                                    <li brand="索尼"><a href="###"><img src="/web/images/sony.gif" /></a></li>
+                                    <li brand="联想"><a href="###"><img src="/web/images/lennovo.gif" /></a></li>
+                                    <li brand="中兴"><a href="###"><img src="/web/images/zhongxing.gif" /></a></li>
+                                    <li brand="酷派"><a href="###"><img src="/web/images/kupai.gif" /></a></li>
+                                    <li brand="步步高"><a href="###"><img src="/web/images/bbg.gif" /></a></li>
+                                    <li brand="金立"><a href="###"><img src="/web/images/jinli.gif" /></a></li>
+                                    <li brand="什么东西"><a href="###"><img src="/web/images/xy.gif" /></a></li>
+                                </ul>
+                            </div>
+                      		<div class=" lx_ss_gengd">
+                                <a href="###" class="lx_ss_xjt lx_ppgd_an">更多</a>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="lx_ppgd">
+                    	<dt>品牌：</dt>
+                        <dd>
+                        	<ul class="lx_pp_fl">
+                            	<li class="lxhover">所有品牌</li>
+                                <li>A</li>
+                                <li>B</li>
+                                <li>C</li>
+                                <li>D</li>
+                                <li>E</li>
+                                <li>F</li>
+                                <li>G</li>
+                                <li>H</li>
+                                <li>I</li>
+                                <li>J</li>
+                                <li>K</li>
+                                <li>L</li>
+                                <li>M</li>
+                                <li>N</li>
+                                <li>O</li>
+                                <li>P</li>
+                                <li>Q</li>
+                                <li>R</li>
+                                <li>S</li>
+                                <li>T</li>
+                                <li>U</li>
+                                <li>V</li>
+                                <li>W</li>
+                                <li>X</li>
+                                <li>Y</li>
+                                <li>Z</li>
+                            </ul>
+                        	<div class="clear mt10"></div>
+                        	<div class="lx_ss_ppgd">
+                                <div class="lb_pp_cont">
+                                    <ul>
+                                        <li brand="oppo"><a href="###"><img src="/web/images/oppo.gif" /></a></li>
+                                        <li brand="apple"><a href="###"><img src="/web/images/apple.gif" /></a></li>
+                                        <li brand="三星"><a href="###"><img src="/web/images/samsung.gif" /></a></li>
+                                        <li brand="小米"><a href="###"><img src="/web/images/xiaomi.gif" /></a></li>
+                                        <li brand="华为"><a href="###"><img src="/web/images/huawei.gif" /></a></li>
+                                        <li brand="魅族"><a href="###"><img src="/web/images/meizu.gif" /></a></li>
+                                        <li brand="诺基亚"><a href="###"><img src="/web/images/nokia.gif" /></a></li>
+                                        <li brand="索尼"><a href="###"><img src="/web/images/sony.gif" /></a></li>
+                                        <li brand="联想"><a href="###"><img src="/web/images/lennovo.gif" /></a></li>
+                                        <li brand="中兴"><a href="###"><img src="/web/images/zhongxing.gif" /></a></li>
+                                        <li brand="酷派"><a href="###"><img src="/web/images/kupai.gif" /></a></li>
+                                        <li brand="步步高"><a href="###"><img src="/web/images/bbg.gif" /></a></li>
+                                        <li brand="金立"><a href="###"><img src="/web/images/jinli.gif" /></a></li>
+                                        <li brand="什么东西"><a href="###"><img src="/web/images/xy.gif" /></a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="oppo"><a href="###"><img src="/web/images/oppo.gif" /></a></li>
+                                        <li brand="apple"><a href="###"><img src="/web/images/apple.gif" /></a></li>
+                                        <li brand="三星"><a href="###"><img src="/web/images/samsung.gif" /></a></li>
+                                        <li brand="小米"><a href="###"><img src="/web/images/xiaomi.gif" /></a></li>
+                                        <li brand="华为"><a href="###"><img src="/web/images/huawei.gif" /></a></li>
+                                        <li brand="魅族"><a href="###"><img src="/web/images/meizu.gif" /></a></li>
+                                        <li brand="诺基亚"><a href="###"><img src="/web/images/nokia.gif" /></a></li>
+                                        <li brand="索尼"><a href="###"><img src="/web/images/sony.gif" /></a></li>
+                                        <li brand="联想"><a href="###"><img src="/web/images/lennovo.gif" /></a></li>
+                                        <li brand="中兴"><a href="###"><img src="/web/images/zhongxing.gif" /></a></li>
+                                        <li brand="酷派"><a href="###"><img src="/web/images/kupai.gif" /></a></li>
+                                        <li brand="步步高"><a href="###"><img src="/web/images/bbg.gif" /></a></li>
+                                        <li brand="金立"><a href="###"><img src="/web/images/jinli.gif" /></a></li>
+                                        <li brand="什么东西"><a href="###"><img src="/web/images/xy.gif" /></a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="oppo"><a href="###"><img src="/web/images/oppo.gif" /></a></li>
+                                        <li brand="apple"><a href="###"><img src="/web/images/apple.gif" /></a></li>
+                                        <li brand="三星"><a href="###"><img src="/web/images/samsung.gif" /></a></li>
+                                        <li brand="小米"><a href="###"><img src="/web/images/xiaomi.gif" /></a></li>
+                                        <li brand="华为"><a href="###"><img src="/web/images/huawei.gif" /></a></li>
+                                        <li brand="魅族"><a href="###"><img src="/web/images/meizu.gif" /></a></li>
+                                        <li brand="诺基亚"><a href="###"><img src="/web/images/nokia.gif" /></a></li>
+                                        <li brand="索尼"><a href="###"><img src="/web/images/sony.gif" /></a></li>
+                                        <li brand="联想"><a href="###"><img src="/web/images/lennovo.gif" /></a></li>
+                                        <li brand="中兴"><a href="###"><img src="/web/images/zhongxing.gif" /></a></li>
+                                        <li brand="酷派"><a href="###"><img src="/web/images/kupai.gif" /></a></li>
+                                        <li brand="步步高"><a href="###"><img src="/web/images/bbg.gif" /></a></li>
+                                        <li brand="金立"><a href="###"><img src="/web/images/jinli.gif" /></a></li>
+                                        <li brand="什么东西"><a href="###"><img src="/web/images/xy.gif" /></a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                        <li brand="飞利浦"><a href="###">飞利浦</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                      		<div class=" lx_ss_gengd">
+                                <a href="###" class="lx_ss_sjt lx_ppsq_an">收起</a>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl>
+                    	<dt>网络：</dt>
+                        <dd class="lx_ss_a lb_price_cont1">
+                        	<a href="###">移动4G（TD-LTE ）</a>
+                            <a href="###">移动3G（TD-SCDMA）</a>
+                            <a href="###">移动2G（GSM）</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                    	<dt>价格：</dt>
+                        <dd class="lx_ss_a lb_price_cont2">
+                        	<p class="left">
+                                <a href="###">5000以上</a>
+                                <a href="###">4000-4999</a>
+                                <a href="###">2000-2999</a>
+                                <a href="###">1500-1999</a>
+                                <a href="###">1000-1499</a>
+                                <a href="###">500-999</a>
+                                <a href="###">1-499</a>
+                            </p>
+                            <p class="right mr10">
+                            	<span class="">自定义：<input type="text" /> - <input type="text" /></span>
+                        		<a href="javascript:;"><img src="/web/images/lb_qd.gif" /></a>
+                            </p>
+                        </dd>
+                    </dl>
+                    <dl>
+                    	<dt>店铺：</dt>
+                        <dd class="lx_ss_a lb_price_cont3">
+                        	<a href="###">终端公司</a>
+                            <a href="###">安徽鸿讯</a>
+                            <a href="###">爱施德</a>
+                            <a href="###">松联电子</a>
+                            <a href="###">德赛电子</a>
+                            <a href="###">天音通信</a>
+                            <a href="###">中邮普泰</a>
+                            <a href="###">北京百纳</a>
+                        </dd>
+                    </dl>
+                    <dl class="lx_ss_gd">
+                    	<dt>屏幕尺寸：</dt>
+                        <dd class="lx_ss_a lb_price_cont4">
+                        	<a href="###">5.6英寸及以上</a>
+                            <a href="###">5.5-5.0英寸</a>
+                            <a href="###">4.9-4.1英寸</a>
+                            <a href="###">4.0-3.1英寸</a>
+                            <a href="###">3.0英寸及以下</a>
+                        </dd>
+                    </dl>
+                    <dl class="lx_ss_gd">
+                    	<dt>系统：</dt>
+                        <dd class="lx_ss_a lb_price_cont5">
+                        	<a href="###">安卓（Android）</a>
+                            <a href="###">微软（WindowsPhone）</a>
+                            <a href="###">苹果（IOS）</a>
+                            <a href="###">其它</a>
+                        </dd>
+                    </dl>
+                    <dl class="lx_ss_gd">
+                    	<dt>机身颜色：</dt>
+                        <dd class="lx_ss_a lb_price_cont6">
+                        	<a href="###">白色</a>
+                            <a href="###">黑色</a>
+                            <a href="###">灰色</a>
+                            <a href="###">金色</a>
+                            <a href="###">银色</a>
+                            <a href="###">红色</a>
+                            <a href="###">蓝色</a>
+                            <a href="###">粉色</a>
+                            <a href="###">黄色</a>
+                            <a href="###">绿色</a>
+                            <a href="###">橙色</a>
+                            <a href="###">紫色</a>
+                            <a href="###">其它</a>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="lx_ssmorebox">
+                <div class="lx_ssmore"><p class="lx_ssmore1">更多选项（屏幕尺寸，系统，机身颜色）</p><p class="lx_ssmore2">收起</p></div>
+            </div>
+        	<div class="clear"></div>
+            <div class="lb_fiter overflow">
+                <span>默认排序</span>
+                <ul>
+                    <li class="onhovertime">上架时间</li>
+                    <li class="onhover">销量</li>
+                    <li class="onhover1">价格</li>
+                    <li class="onhoverpic">大图</li>
+                    <li class="onhoverpics1">小图</li>
+                </ul>
+                <p>
+                    <span>共<b th:text="${#lists.size(pageUtils.rows)}">88</b></font>个商品</span>
+                    <span><b>2</b>/50</span>
+                    <span><a href="#"><img src="/web/images/lb_left.gif" /></a><a href="#"><img src="/web/images/lb_right.gif" /></a></span>
+                </p>
+            </div>
+        	<div class="clear"></div>
+            
+            <div class="lb_dt">
+            	<ul>
+                    <li th:each="goods:${pageUtils.rows}" th:if="${pageUtils.rows}">
+                    	<p class="text_c"><a th:href="@{'/web/goodsDetail/'+${goods.id}}">
+                            <img th:src="@{${goods.img}}" width="222" height="222" /></a></p>
+                        <p class="pl25 mt20">
+                        	<span class="font18 fontwryh cf40" th:text="'￥'+${goods.prices}">￥2199.00</span>
+                            <del class="ml10 c999" th:text="${goods.prices}">￥3299.0</del>
+                        </p>
+                        <p class="pl25"><a th:href="@{'/web/goodsDetail/'+${goods.id}}" th:text="${goods.title}">Lenovo/联想</a></p>
+                        <p class="pl25"><a th:href="@{'/web/store/'+${goods.storeid}}" th:text="${goods.storename}"
+                                           class="c999 text_line">联想手机官方旗舰店</a></p>
+                        <p class="pl25">
+                        	<span>已售出<strong class="c8fc320" th:text="${goods.sellhit}">647</strong>笔</span>
+                            <span>评价 <strong class="c0085d0" th:text="${goods.replyhit}">6872</strong></span>
+                        </p>
+                        <p class="text_c mt5">
+                        	<a href="#"><img src="/web/images/lb_icon_jrgwc.gif"  width="80" height="21"
+                                             th:onclick="'addCart('+${goods.id}+')'" alt="加入购物车" style="*vertical-align:bottom;" /></a>
+                            <a href="#"><img src="/web/images/lb_icon_sc.gif" width="43" height="21" alt="收藏" style="*vertical-align:bottom;" /></a>
+                            <a href="#" class="lb_icon_db"></a>
+                        </p>
+                    </li>
+
+                </ul>
+                <div class="pagebox">
+                	<a href="#" class="page_syy"></a>
+                    <a href="/web/goodsList?offset=1" class="page_ym fyhover">1</a>
+                    <a href="/web/goodsList?offset=2" class="page_ym">2</a>
+                    <a href="/web/goodsList?offset=3" class="page_ym">3</a>
+                    <a href="/web/goodsList?offset=4" class="page_ym">4</a>
+                    <a href="/web/goodsList?offset=5" class="page_ym">5</a>
+                    <a href="/web/goodsList?offset=6" class="page_ym">6</a>
+                    <a href="#" class="page_xyy"></a>
+                    <a href="#" class="page_wy"></a>
+                    <span>到第</span>
+                    <input name="" type="text" class="page_inp" />
+                    <span>页</span>
+                    <a href="#"><img src="/web/images/lb_qd.gif" width="44" height="20" alt="确定" style="vertical-align:middle;" /></a>
+                </div>
+            </div>
+            
+             <div class="lb_xt">
+             	<ul>
+                	<li>
+                    	<p class="lb_xt1"><a href="#"><img src="/web/images/lb_imgxt.jpg" width="100" height="100" /></a></p>
+                        <div class="lb_xt2">
+                        	<p><a href="#">小米手机红米(灰色)移动版<span class="cf40">1.5G四核处理器，1G RAM+ 4G内存，4.7英大屏幕，双卡双待</span></a></p>
+                            <p class="overflow mt10">
+                            	<a href="#" class="left c0085d0">评论（668）</a>
+                                <span class="left ml5"><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /></span>
+                            </p>
+                        </div>
+                        <div class="lb_xt3">
+                        	<p>
+                                <span class="font18 fontwryh cf40">￥2199.00</span>
+                                <del class="ml10 c999">￥3299.0</del>
+                            </p>
+                            <p><a href="#" class="c999 text_line">联想手机官方旗舰店</a></p>
+                        </div>
+                        <p class="lb_xt4">
+                        	<a href="pay/index.html"><img src="/web/images/lb_icon_jrgwc.gif" width="80" height="21" alt="加入购物车" /></a>
+                            <a href="#"><img src="/web/images/lb_icon_sc.gif" width="43" height="21" alt="收藏" /></a>
+                            <a href="###" class="lb_icon_db"></a>
+                        </p>
+                    </li>
+                    <li>
+                    	<p class="lb_xt1"><a href="#"><img src="/web/images/lb_imgxt.jpg" width="100" height="100" /></a></p>
+                        <div class="lb_xt2">
+                        	<p><a href="#">小米手机红米(灰色)移动版<span class="cf40">1.5G四核处理器，1G RAM+ 4G内存，4.7英大屏幕，双卡双待</span></a></p>
+                            <p class="overflow mt10">
+                            	<a href="#" class="left c0085d0">评论（668）</a>
+                                <span class="left ml5"><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /></span>
+                            </p>
+                        </div>
+                        <div class="lb_xt3">
+                        	<p>
+                                <span class="font18 fontwryh cf40">￥2199.00</span>
+                                <del class="ml10 c999">￥3299.0</del>
+                            </p>
+                            <p><a href="#" class="c999 text_line">联想手机官方旗舰店</a></p>
+                        </div>
+                        <p class="lb_xt4">
+                        	<a href="pay/index.html"><img src="/web/images/lb_icon_jrgwc.gif" width="80" height="21" alt="加入购物车" /></a>
+                            <a href="#"><img src="/web/images/lb_icon_sc.gif" width="43" height="21" alt="收藏" /></a>
+                            <a href="###" class="lb_icon_db"></a>
+                        </p>
+                    </li>
+                    <li>
+                    	<p class="lb_xt1"><a href="#"><img src="/web/images/lb_imgxt.jpg" width="100" height="100" /></a></p>
+                        <div class="lb_xt2">
+                        	<p><a href="#">小米手机红米(灰色)移动版<span class="cf40">1.5G四核处理器，1G RAM+ 4G内存，4.7英大屏幕，双卡双待</span></a></p>
+                            <p class="overflow mt10">
+                            	<a href="#" class="left c0085d0">评论（668）</a>
+                                <span class="left ml5"><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /><img src="/web/images/xq_xingxing.gif" width="16" height="14" /></span>
+                            </p>
+                        </div>
+                        <div class="lb_xt3">
+                        	<p>
+                                <span class="font18 fontwryh cf40">￥2199.00</span>
+                                <del class="ml10 c999">￥3299.0</del>
+                            </p>
+                            <p><a href="#" class="c999 text_line">联想手机官方旗舰店</a></p>
+                        </div>
+                        <p class="lb_xt4">
+                        	<a href="pay/index.html"><img src="/web/images/lb_icon_jrgwc.gif" width="80" height="21" alt="加入购物车" /></a>
+                            <a href="#"><img src="/web/images/lb_icon_sc.gif" width="43" height="21" alt="收藏" /></a>
+                            <a href="###" class="lb_icon_db"></a>
+                        </p>
+                    </li>
+                    <li>
+                    	<p class="lb_xt1"><a href="#"><img src="/web/images/lb_imgxt.jpg" width="100" height="100" /></a></p>
+                        <div class="lb_xt2">
+                        	<p><a href="#">小米手机红米(灰色)移动版<span class="cf40">1.5G四核处理器，1G RAM+ 4G内存，4.7英大屏幕，双卡双待</span></a></p>
+                            <p class="overflow mt10">
+                            	<a href="#" class="left c0085d0">评论（668）</a>
+                                <span class="left ml5"><img src="/web/images/xq_xingxing.gif" width="16" height="14" />
+                                    <img src="/web/images/xq_xingxing.gif" width="16" height="14" />
+                                    <img src="/web/images/xq_xingxing.gif" width="16" height="14" />
+                                    <img src="/web/images/xq_xingxing.gif" width="16" height="14" />
+                                    <img src="/web/images/xq_xingxing.gif" width="16" height="14" /></span>
+                            </p>
+                        </div>
+                        <div class="lb_xt3">
+                        	<p>
+                                <span class="font18 fontwryh cf40">￥2199.00</span>
+                                <del class="ml10 c999">￥3299.0</del>
+                            </p>
+                            <p><a href="#" class="c999 text_line">联想手机官方旗舰店</a></p>
+                        </div>
+                        <p class="lb_xt4">
+                        	<a href="pay/index.html"><img src="/web/images/lb_icon_jrgwc.gif" width="80" height="21" alt="加入购物车" /></a>
+                            <a href="#"><img src="/web/images/lb_icon_sc.gif" width="43" height="21" alt="收藏" /></a>
+                            <a href="###" class="lb_icon_db"></a>
+                        </p>
+                    </li>
+                </ul>
+                <div class="pagebox">
+                	<a href="#" class="page_syy"></a>
+                    <a href="#" class="page_ym fyhover">1</a>
+                    <a href="#" class="page_ym">2</a>
+                    <a href="#" class="page_ym">3</a>
+                    <a href="#" class="page_ym">4</a>
+                    <a href="#" class="page_ym">5</a>
+                    <a href="#" class="page_ym">6</a>
+                    <a href="#" class="page_xyy"></a>
+                    <a href="#" class="page_wy"></a>
+                    <span>到第</span>
+                    <input name="" type="text" class="page_inp" />
+                    <span>页</span>
+                    <a href="#"><img src="/web/images/lb_qd.gif" width="44" height="20" alt="确定" style="vertical-align:middle;" /></a>
+                </div>
+             </div>
+             
+             
+           
+        	<div class="lb_fddb">
+            	<div class="lb_fddb_tit">
+                	<ul>
+                    	<li class="hover" id="fddb1" onclick="setTab('fddb',1,2)">对比栏</li>
+                        <li id="fddb2" onclick="setTab('fddb',2,2)">最近浏览</li>
+                    </ul>
+                    <a href="###">关闭</a>
+                </div>
+                <div class="lb_fddb_nr">
+                	<ul class="lb_fddb_nr1" id="con_fddb_1">
+                    	<li>
+                        	<p class="lb_fddb_nr1_l"><a href="#"><img src="/web/images/lb_fddb.jpg" width="50" height="50" /></a></p>
+                            <div class="lb_fddb_nr1_r">
+                            	<p class="lb_fddb_nr1_r_1"><a href="#">努比亚（nubia）小牛2 Z5S mini 3G手机（前黑后白）</a></p>
+                                <p>
+                                	<span class="font18 fontwryh cf40 left">￥2199.00</span>
+                                    <a href="#" class="a0085d0 right">删除</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                        	<p class="lb_fddb_nr1_l"><a href="#"><img src="/web/images/lb_fddb.jpg" width="50" height="50" /></a></p>
+                            <div class="lb_fddb_nr1_r">
+                            	<p class="lb_fddb_nr1_r_1"><a href="#">努比亚（nubia）小牛2 Z5S mini 3G手机（前黑后白）</a></p>
+                                <p>
+                                	<span class="font18 fontwryh cf40 left">￥2199.00</span>
+                                    <a href="#" class="a0085d0 right">删除</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                        	<p class="lb_fddb_nr1_l"><a href="#"><img src="/web/images/lb_fddb.jpg" width="50" height="50" /></a></p>
+                            <div class="lb_fddb_nr1_r">
+                            	<p class="lb_fddb_nr1_r_1"><a href="#">努比亚（nubia）小牛2 Z5S mini 3G手机（前黑后白）</a></p>
+                                <p>
+                                	<span class="font18 fontwryh cf40 left">￥2199.00</span>
+                                    <a href="#" class="a0085d0 right">删除</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                        	<p class="lb_fddb_nr1_l"><span>4</span></p>
+                            <div class="lb_fddb_nr1_r c999">您还可以继续添加</div>
+                        </li>
+                        <li class="lb_fddb_an">
+                        	<p><a href="duibi.html"><img src="/web/images/lb_icon_db.gif" width="69" height="25" alt="对比" /></a></p>
+                            <p><a href="#" class="a0085d0">清空对比栏</a></p>
+                        </li>
+                    </ul>
+                    <ul class="lb_fddb_nr2" id="con_fddb_2">
+                    	<li>
+                        	<p class="lb_fddb_nr2_l"><a href="#"><img src="/web/images/lb_fddb.jpg" width="50" height="50" /></a></p>
+                            <div class="lb_fddb_nr2_r">
+                            	<p class="lb_fddb_nr1_r_1"><a href="#">努比亚（nubia）小牛2 Z5S mini 3G手机（前黑后白）</a></p>
+                                <p>
+                                	<span class="font18 fontwryh cf40 left">￥2199.00</span>
+                                    <a href="#" class="a0085d0 right">删除</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                        	<p class="lb_fddb_nr2_l"><a href="#"><img src="/web/images/lb_fddb.jpg" width="50" height="50" /></a></p>
+                            <div class="lb_fddb_nr2_r">
+                            	<p class="lb_fddb_nr1_r_1"><a href="#">努比亚（nubia）小牛2 Z5S mini 3G手机（前黑后白）</a></p>
+                                <p>
+                                	<span class="font18 fontwryh cf40 left">￥2199.00</span>
+                                    <a href="#" class="a0085d0 right">删除</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                        	<p class="lb_fddb_nr2_l"><a href="#"><img src="/web/images/lb_fddb.jpg" width="50" height="50" /></a></p>
+                            <div class="lb_fddb_nr2_r">
+                            	<p class="lb_fddb_nr1_r_1"><a href="#">努比亚（nubia）小牛2 Z5S mini 3G手机（前黑后白）</a></p>
+                                <p>
+                                	<span class="font18 fontwryh cf40 left">￥2199.00</span>
+                                    <a href="#" class="a0085d0 right">删除</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li style="border:0;">
+                        	<p class="lb_fddb_nr2_l"><span>4</span></p>
+                            <div class="lb_fddb_nr2_r c999">暂无更多浏览</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           	
+        </div>
+        
+        <div class="lb_right">
+        	<div class="lb_right_tit">热卖推荐</div>
+            <div class="lb_right_cont" th:each="com:${commList}">
+            	<p class="text_c mt15"><a th:href="@{'/web/goodsDetail/'+${com.id}}">
+                    <img th:src="@{${com.img}}" width="158px" height="158px" /></a></p>
+                <p class="text_c mt10" th:text="${com.title}">8核震撼首发！卓普 9520 双卡双待智能手机</p>
+                <p class="text_c"><b th:text="'￥'+${com.prices}">￥2199.00</b>  <s>￥3299.00</s></p>
+                <p class="text_c dpyscsl">已售出<span class="" th:text="'￥'+${com.sellhit}">647</span>笔</p>
+            </div>
+
+        </div>
+        
+        <div class="lb_right">
+        	<div class="lb_right_tit">周销量排行榜</div>
+            <ul class="lb_top">
+            	<li th:each="sell,stat:${sellList}">
+                	<p class="left wid20"><img th:src="'/web/images/lb_top'+${stat.count}+'.gif'" width="20" height="20" alt="1" /></p>
+                    <p class="left wid50"><a th:href="@{'/web/goodsDetail/'+${sell.id}}">
+                        <img th:src="@{${sell.img}}" width="50" height="50" /></a></p>
+                    <div class="right wid120">
+                    	<p class="lb_top_sj"><a th:href="@{'/web/goodsDetail/'+${sell.id}}" th:text="${sell.title}">苹果</a></p>
+                        <p><span class="fontwryh cf40" th:text="'￥'+${sell.prices}">￥2199.00</span></p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        
+    </div>
+    <div class="clear"></div>
+    <!--cont 结束-->
+    
+    <!--helpcent 开始-->
+    <div class="helpcent">
+    	<ul>
+        	<li>
+            	<p class="hejpcent_tit">新手指南</p>
+                <p><a href="#">买家流程</a></p>
+				<p><a href="#">卖家流程</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">支付方式</p>
+                <p><a href="#">什么是手机支付</a></p>
+				<p><a href="#">手机支付流程</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">物流配送</p>
+                <p><a href="#">EMS</a></p>
+				<p><a href="#">配送范围</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">售后服务</p>
+                <p><a href="#">退换货原则</a></p>
+				<p><a href="#">退换货流程</a></p>
+            </li>
+            <li>
+            	<p class="hejpcent_tit">交易纠纷</p>
+                <p><a href="#">关于申告</a></p>
+				<p><a href="#">投诉与建议</a></p>
+            </li>
+            <li class="helpcent_zh">
+            	<p class="hejpcent_tit">商城手机客户端</p>
+                <p>一扫微信二维码，购机优惠抢先瞧</p>
+                <p class="overflow mt10">
+                	<span class="left"><img src="/web/images/head_ewm.jpg" width="90" height="90" alt="" /></span>
+                    <span class="left ml15 mt50">
+                    	一掌"潮机"乾坤<br />
+                        瞬查"先机"动向
+                    </span>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <!--helpcent 开始-->
+    
+    <!--foot 开始-->
+    <div class="footbox">
+        <a href="help.html">法律声明</a>
+        <span class="foot_bah">皖ICP备05007322号</span>
+        |
+        中国移动版权所有
+    </div>
+    <!--foot 结束-->
+</div>
+<script type="application/javascript">
+    function addCart(goodsid){
+        console.log(goodsid);
+        var count=1;
+        $.ajax({
+            type: "post",
+            url: '/person/street/addCart',
+            data: {
+                goodsid:goodsid,
+                count:count},
+            dataType: "json",
+            success:function(data) {
+                if(data.code==0){
+                    window.location.href = "/person/street/likBuy/"+goodsid;
+                }else if(data.success=='login'){
+                    window.location.href = "/street/login"
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

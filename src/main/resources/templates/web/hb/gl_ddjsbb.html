@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ZSCAT电子交易平台</title>
+<link href="../css/public.css" rel="stylesheet" type="text/css" />
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<link href="../css/hbcss.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#nb_zjpj").toggle(
+	  function () {
+		$("#nb_xpj").show();
+	  },
+	  function () {
+		$("#nb_xpj").hide();
+	  }
+	)
+});
+
+//滑动星星评分
+function rate(obj,oEvent){
+var imgSrc = '../images/yw_pjxx01.gif';
+var imgSrc_2 = '../images/yw_pjxx.gif';
+if(obj.rateFlag) return;
+var e = oEvent || window.event;
+var target = e.target || e.srcElement; 
+var imgArray = obj.getElementsByTagName("img");
+for(var i=0;i<imgArray.length;i++){
+   imgArray[i]._num = i;
+   imgArray[i].onmouseover=function(){
+    if(obj.rateFlag) return;
+    var n=this._num+1;
+	/*switch(n)
+   {
+	   case 1:
+		 document.getElementById("result").innerHTML="较差"
+		 break
+	 case 2:
+		 document.getElementById("result").innerHTML="&nbsp;&nbsp;差"
+		 break	
+	 case 3:
+		 document.getElementById("result").innerHTML="还行"
+		 break	
+	 case 4:
+		 document.getElementById("result").innerHTML="推荐"
+		 break	
+	 case 5:
+		 document.getElementById("result").innerHTML="力荐"
+		 break	
+		 
+	   default:
+		 return;
+   }*/
+	var inputid=this.parentNode.previousSibling
+	inputid.value=this._num+1;
+   }
+}
+if(target.tagName=="IMG"){
+   for(var j=0;j<imgArray.length;j++){
+    
+    if(j<=target._num){
+     imgArray[j].src=imgSrc_2;
+    } else {
+     imgArray[j].src=imgSrc;
+    }
+	target.parentNode.onmouseout=function(){
+	var imgnum=parseInt(target.parentNode.previousSibling.value);
+		for(n=0;n<imgArray.length;n++){
+			imgArray[n].src=imgSrc;
+		}
+		for(n=0;n<imgnum;n++){
+			imgArray[n].src=imgSrc_2;
+		}
+		
+	}
+   }
+} else {
+	 return false;
+}
+}
+</script>
+</head>
+
+<body>
+<!--top 开始-->
+<!--#include virtual="/include/top.html"-->
+<!--top 结束-->
+<div class="content">
+    <!--和包导航 开始-->
+	<!--#include virtual="/include/hb_top.html"-->    
+    <!--和包导航 结束-->
+    
+    <div class="hb_mbx">
+    	<a href="#">我的和包</a> > 日常订单监控</div>
+    <div class="clear"></div>
+    
+    <div class="hb_cont">   
+        <!--左侧 开始-->
+        <!--#include virtual="/include/gl_left.html"-->   
+        <!--左侧 结束-->
+        <!--右侧 开始-->
+        <div class="hb_cont_r">
+          <div class="hb_r_top">
+            <p class="hb_r_top_tit">日常订单监控</p>
+            <ul class="hb_r_top_nr">
+              <li> <span>交易提醒：</span> <a href="#">待付款（0）</a> <a href="#">待确认收货（0）</a> <a href="#">待评价（0）</a> </li>
+              <li> <span>消息提醒：</span> <a href="#" class="a0085d0">降价提醒（4）</a> <a href="#" class="a0085d0">新品上架（5）</a> <a href="#" class="a0085d0">服务提醒（7）</a> <a href="#" class="a0085d0">物流提醒（8）</a> </li>
+            </ul>
+          </div>
+          <div class="nb_hdm_tit mt10">
+            	<ul>
+                	<li  class="hover" id="nbh1" onclick="setTab('nbh',1,2)">
+                	  <p>按地市统计</p>
+                	</li>
+                    <li id="nbh2" onclick="setTab('nbh',2,2)">
+                      <p>按日期统计</p>
+                    </li>
+                </ul>
+				
+				
+                <div class="nb_r_tit_r">
+                  <input name="Input" type="text" class="nb_input" value="补货单号、营业厅名称、品牌、型号"  onblur="if(this.value == '') this.value = this.defaultValue" onfocus="if(this.value == this.defaultValue) this.value = ''"/>
+                <a href="#" class="nb_icon">查询</a> <a href="#" class="nb_icon">导出</a> </div>
+          </div>
+            
+            <div id="con_nbh_1" >
+              <table cellpadding="0" cellspacing="0" border="0" class="nb_table mt10">
+                <tr>
+                  <th width="88"> <select name="">
+                      <option>地市</option>
+                      <option>合肥</option>
+                    </select>                  </th>
+                  <th width="84">待付款（元）</th>
+                  <th width="84">已付款（元）</th>
+                  <th width="65">已发货</th>
+                  <th width="74">已收货</th>
+                  <th width="71">退单</th>
+                  <th width="76">撤单</th>
+                  <th width="67">坏单</th>
+                  <th width="70">行汇总</th>
+                  <th width="156"> <select name="">
+                      <option>全部时间</option>
+                    </select>                  </th>
+                </tr>
+                <tr>
+                  <td>合肥</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td>2013-12-26 17：01</td>
+                </tr>
+                <tr class="tabbj">
+                  <td class="bf9f9f9">合肥</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td class="bf9f9f9">2013-12-26 17：01</td>
+                </tr>
+                <tr>
+                  <td>合肥</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td>2013-12-26 17：01</td>
+                </tr>
+                <tr class="tabbj">
+                  <td class="bf9f9f9">合肥</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td class="bf9f9f9">2013-12-26 17：01</td>
+                </tr>
+                <tr>
+                  <td>合肥</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td>2013-12-26 17：01</td>
+                </tr>
+                <tr class="tabbj">
+                  <td class="bf9f9f9">合肥</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td class="bf9f9f9">2013-12-26 17：01</td>
+                </tr>
+                <tr >
+                  <td>合肥</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td>2013-12-26 17：01</td>
+                </tr>
+                <tr class="tabbj">
+                  <td class="bf9f9f9">合肥</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td class="bf9f9f9">2013-12-26 17：01</td>
+                </tr>
+                <tr >
+                  <td>合肥</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td>2013-12-26 17：01</td>
+                </tr>
+                <tr class="tabbj">
+                  <td class="bf9f9f9">合肥</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td class="bf9f9f9">2013-12-26 17：01</td>
+                </tr>
+              </table>
+            </div>
+            
+            <div id="con_nbh_2" class="none">
+              <table cellpadding="0" cellspacing="0" border="0" class="nb_table mt10">
+                <tr>
+                  <th width="156"> <select name="select">
+                      <option>全部时间</option>
+                    </select>                  </th>
+                  <th width="84">待付款（元）</th>
+                  <th width="84">已付款（元）</th>
+                  <th width="65">已发货</th>
+                  <th width="74">已收货</th>
+                  <th width="71">退单</th>
+                  <th width="76">撤单</th>
+                  <th width="67">坏单</th>
+                  <th width="70">行汇总</th>
+                  <th width="88"> <select name="">
+                      <option>地市</option>
+                      <option>合肥</option>
+                    </select>                  </th>
+                </tr>
+                <tr>
+                  <td>2013-12-26 17：01</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td>合肥</td>
+                </tr>
+                <tr class="tabbj">
+                  <td class="bf9f9f9">2013-12-26 17：01</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td class="bf9f9f9">合肥</td>
+                </tr>
+                <tr>
+                  <td>2013-12-26 17：01</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td>合肥</td>
+                </tr>
+                <tr class="tabbj">
+                  <td class="bf9f9f9">2013-12-26 17：01</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td class="bf9f9f9">合肥</td>
+                </tr>
+                <tr>
+                  <td>2013-12-26 17：01</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td>合肥</td>
+                </tr>
+                <tr class="tabbj">
+                  <td class="bf9f9f9">2013-12-26 17：01</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td class="bf9f9f9">合肥</td>
+                </tr>
+                <tr >
+                  <td>2013-12-26 17：01</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td>合肥</td>
+                </tr>
+                <tr class="tabbj">
+                  <td class="bf9f9f9">2013-12-26 17：01</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td class="bf9f9f9">合肥</td>
+                </tr>
+                <tr >
+                  <td>2013-12-26 17：01</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td>合肥</td>
+                </tr>
+                <tr class="tabbj">
+                  <td class="bf9f9f9">2013-12-26 17：01</td>
+                  <td>50</td>
+                  <td>25</td>
+                  <td>143</td>
+                  <td>342</td>
+                  <td>0</td>
+                  <td>47</td>
+                  <td>102</td>
+                  <td>1023</td>
+                  <td class="bf9f9f9">合肥</td>
+                </tr>
+              </table>
+            </div>
+            
+         
+        </div>
+        <!--右侧 结束-->
+    </div>
+    
+    <!--pay_helpcent 开始-->
+    <!--#include virtual="/include/helpcent2.html"--> 
+    <!--pay_helpcent 开始-->
+    
+    <!--foot 开始-->
+    <!--#include virtual="/include/foot.html"-->   
+    <!--foot 结束-->
+    
+</div>
+</body>
+</html>

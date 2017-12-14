@@ -1,0 +1,577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org"      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ZSCAT电子交易平台</title>
+<link href="../css/public.css" rel="stylesheet" type="text/css" />
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<link href="../css/hbcss.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+</head>
+
+<body>
+<!--top 开始-->
+<!--#include virtual="/include/top.html"-->
+<!--top 结束-->
+<div class="content">
+    <!--和包导航 开始-->
+	<!--#include virtual="/include/hb_top.html"-->    
+    <!--和包导航 结束-->
+    
+    <div class="hb_mbx">
+    	<a href="#">我的和包</a> > 店铺首页配置
+    </div>
+    <div class="clear"></div>
+    
+    <div class="hb_cont">   
+        <!--左侧 开始-->
+        <!--#include virtual="/include/hb_leftmj.html"-->    
+        <!--左侧 结束-->
+        <!--右侧 开始-->
+      <div class="hb_cont_r">
+        	<div class="hb_r_top">
+            	<p class="hb_r_top_tit">店铺首页配置</p>
+                <ul class="hb_r_top_nr">
+                	<li>
+                    	<span>交易提醒：</span>
+                        <a href="#">待付款（0）</a>
+                        <a href="#">待确认收货（0）</a>
+                        <a href="#">待评价（0）</a>
+                    </li>
+                    <li>
+                    	<span>消息提醒：</span>
+                        <a href="#" class="a0085d0">降价提醒（4）</a>
+                        <a href="#" class="a0085d0">新品上架（5）</a>
+                        <a href="#" class="a0085d0">服务提醒（7）</a>
+                        <a href="#" class="a0085d0">物流提醒（8）</a>
+                    </li>
+                </ul>
+            </div>
+            
+          <div class="nb_hdm_tit mt10">
+            <ul>
+              <li class="hover" id="hbwt1" onclick="setTab('hbwt',1,7)">
+                <p>关键字配置</p>
+              </li>
+              <li id="hbwt2" onclick="setTab('hbwt',2,7)">
+                <p>图片配置</p>
+              </li>
+              <li id="hbwt3" onclick="setTab('hbwt',3,7)">
+                <p>店铺公告</p>
+              </li>
+              <li id="hbwt4" onclick="setTab('hbwt',4,7)">
+                <p>店长推荐</p>
+              </li>
+               <li id="hbwt5" onclick="setTab('hbwt',5,7)">
+                <p>劲爆特价</p>
+              </li>
+               <li id="hbwt6" onclick="setTab('hbwt',6,7)">
+                <p>新品推荐</p>
+              </li>
+               <li id="hbwt7" onclick="setTab('hbwt',7,7)">
+                <p>特卖专区</p>
+              </li>
+            </ul>
+          </div>
+            
+          <div id="con_hbwt_1" class="dp_gjz mt10 ml10">
+            <span class="pl10 fontb font14 mt10">本店搜索：</span><br/>
+            <span class="ml50 block mt10">
+            <input name="textfield" type="text" class="wid50" id="textfield" />
+           
+            <input name="textfield2" type="text" class="wid50" id="textfield2" /> 
+            <input name="textfield3" type="text" class="wid50" id="textfield3" /> 
+            <input name="textfield4" type="text" class="wid50" id="textfield4" /> 
+            <input name="textfield5" type="text" class="wid50" id="textfield5" /> 
+            <input name="textfield6" type="text" class="wid50" id="textfield6" />
+            </span> 
+             
+                <p class="mt30 text_c">
+                <a class="ml10" href="###" ><img src="../images/tc_fb.gif" alt="完成"></a>
+            </p>
+          </div>
+            
+        <div id="con_hbwt_2" class="mt10 ml10 none">
+          <div class="peizhi">
+                    <ul class="ulqh">
+                        <li class="hover" id="two1" onclick="setTab('two',1,2)">LOG图片配置</li>
+                        <li id="two2" onclick="setTab('two',2,2)">宣传图片配置</li>  
+                    </ul>
+               
+		  </div>
+               
+               <div class="clear"></div>
+                
+                   <div class="dp_tppz logotp mt10 none" id="con_two_1">
+                     <table cellpadding="0" cellspacing="0" border="0" class="nb_table2">
+                       <tr class="tabbj">
+                         <td height="34" colspan="6" style=" padding:5px 10px 0 0; "><div class="left ml10">
+                           <input type="checkbox" style="margin-top:5px; vertical-align:-3px;" />
+                           <b>全部</b></div>
+                           <div style="text-align:right; margin-left:10px;vertical-align:middle; float:left;"><a href="mj_ggtj.html" target="_blank"><img src="../images/ggtj.gif" /></a> <a href="#"><img src="../images/plsx.gif" /></a>
+                           <a href="#"><img src="../images/icon_plxx.gif" /></a>
+                           <a href="#"><img src="../images/plsc.gif" /></a>
+                           
+                           
+                         </div></td>
+                       </tr>
+                     </table>
+                     <table cellpadding="0" cellspacing="0" border="0" class="nb_table2 ">
+                       <tr>
+                         <th width="33%">广告标题</th>
+                         <th width="18%">添加时间</th>
+                         <th width="17%">更新时间</th>
+                         <th width="10%"> <select name="select2">
+                           <option>状态</option>
+                           <option>启用</option>
+                           <option>停用</option>
+                         </select>
+                         </th>
+                         <th width="22%">操作</th>
+                       </tr>
+                       <tr>
+                         <td><input name="input12" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                           公告B2B优惠公告</td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td>上线</td>
+                         <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                       </tr>
+                       <tr class="tabbj">
+                         <td><input name="input12" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                           公告B2B优惠公告</td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td>停用</td>
+                         <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                       </tr>
+                       <tr>
+                         <td><input name="input12" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                           公告B2B优惠公告</td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td>停用</td>
+                         <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                       </tr>
+                       <tr class="tabbj">
+                         <td><input name="input12" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                         公告B2B优惠公告</td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td>启用</td>
+                         <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                       </tr>
+                       <tr>
+                         <td><input name="input12" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                         公告B2B优惠公告</td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td>启用</td>
+                         <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                       </tr>
+                       <tr class="tabbj">
+                         <td><input name="input12" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                         公告B2B优惠公告</td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                         <td>启用</td>
+                         <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                       </tr>
+                     </table>
+                     <div class="nb_page mt10"> <a href="#"><img src="../images/nb_syy.gif" width="68" height="27" alt="上一页" /></a> <a href="#" class="nvadq">1</a> <a href="#">2</a> <a href="#"><img src="../images/nb_xxy.gif" width="68" height="27" alt="下一页" /></a></div>
+                     
+                     
+                      <p class="mt30 text_c"> <a class="ml10" href="#" ><img src="../images/tc_fb.gif" alt="完成" /></a> </p>
+                   </div>
+                   
+                   
+          <div class="dp_tppz logotp mt10" id="con_two_2">
+            <table cellpadding="0" cellspacing="0" border="0" class="nb_table2">
+              <tr class="tabbj">
+                <td height="34" colspan="6" style=" padding:5px 10px 0 0; "><div class="left ml10">
+                  <input type="checkbox" style="margin-top:5px; vertical-align:-3px;" />
+                  <b>全部</b></div>
+                  <div style="text-align:right; margin-left:10px;vertical-align:middle; float:left;"><a href="mj_ggtj.html" target="_blank" title="广告添加"><img src="../images/ggtj.gif" /></a> <a href="#" title="批量上线"><img src="../images/plsx.gif" /></a> <a href="#" title="批量下线"><img src="../images/icon_plxx.gif" /></a> <a href="#" title="批量删除"><img src="../images/plsc.gif" /></a> </div></td>
+              </tr>
+            </table>
+            <table cellpadding="0" cellspacing="0" border="0" class="nb_table2">
+              <tr>
+                <th width="33%">广告标题</th>
+                <th width="18%">添加时间</th>
+                <th width="17%">更新时间</th>
+                <th width="10%"> <select name="select3">
+                  <option>状态</option>
+                  <option>启用</option>
+                  <option>停用</option>
+                </select>
+                </th>
+                <th width="22%">操作</th>
+              </tr>
+              <tr>
+                <td><input name="input13" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                  公告B2B宣传图片配置</td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td>上线</td>
+                <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+              </tr>
+              <tr class="tabbj">
+                <td><input name="input13" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                公告B2B宣传图片配置</td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td>停用</td>
+                <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+              </tr>
+              <tr>
+                <td><input name="input13" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                公告B2B宣传图片配置</td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td>停用</td>
+                <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+              </tr>
+              <tr class="tabbj">
+                <td><input name="input13" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                公告B2B宣传图片配置</td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td>启用</td>
+                <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+              </tr>
+              <tr>
+                <td><input name="input13" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                公告B2B宣传图片配置</td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td>启用</td>
+                <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+              </tr>
+              <tr class="tabbj">
+                <td><input name="input13" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                公告B2B宣传图片配置</td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                <td>启用</td>
+                <td><a href="ghsrkxq.html" class="a0085d0">查看</a> | <a href="ghsckxq.html" class="a0085d0">下线 </a>| <a href="ghsckxq.html" class="a0085d0">修改</a> | <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+              </tr>
+            </table>
+            <div class="nb_page mt10"> <a href="#"><img src="../images/nb_syy.gif" width="68" height="27" alt="上一页" /></a> <a href="#" class="nvadq">1</a> <a href="#">2</a> <a href="#"><img src="../images/nb_xxy.gif" width="68" height="27" alt="下一页" /></a></div>
+            
+              <p class="mt30 text_c"> <a class="ml10" href="#" ><img src="../images/tc_fb.gif" alt="完成" /></a> </p>
+          </div>
+                 
+            
+            
+            
+            
+        </div>
+           
+            <div id="con_hbwt_3" class="dp_dpgg  mt10 ml10 none">
+              <p><span class="pl10 fontb font14 mt10 block left">系统公告/促销信息列表</span></p>
+              <div class="nb_r_tit_r mt10 mb10 mr10">
+                <input name="input" type="text" class="nb_input"  onblur="if(this.value == '') this.value = this.defaultValue" onfocus="if(this.value == this.defaultValue) this.value = ''"/>
+                <a href="#" class="nb_icon">查询</a> <a href="#" class="nb_icon">导出</a> </div>
+              <p>&nbsp;              </p>
+              <div class="clear"> </div>
+              <table cellpadding="0" cellspacing="0" border="0" class="nb_table2">
+                <tr class="tabbj">
+                  <td height="34" colspan="6" style=" padding:5px 10px 0 0; "><div class="left ml10">
+                    <input type="checkbox" style="margin-top:5px; vertical-align:-3px;" />
+                    <b>全部</b></div>
+                    <div style="text-align:right; margin-left:10px;vertical-align:middle; float:left;"><a href="#"><img src="../images/shhe_cion_03.jpg" /></a> <a href="#"><img src="../images/shhe_cion_05.jpg" /></a></div></td>
+                </tr>
+              </table>
+              <table cellpadding="0" cellspacing="0" border="0" class="nb_table2">
+                <tr>
+                  <th width="11%">类型</th>
+                  <th width="12%">标题</th>
+                  <th width="36%">公告内容</th>
+                  <th width="9%"> <select name="select">
+                    <option>状态</option>
+                    <option>启用</option>
+                    <option>停用</option>
+                  </select>
+                  </th>
+                  <th width="16%">发布时间</th>
+                  <th width="16%">操作</th>
+                </tr>
+                <tr>
+                  <td><input name="input3" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                  公告</td>
+                  <td>B2B优惠公告</td>
+                  <td>s1001</td>
+                  <td>启用</td>
+                  <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                  <td><a href="ghsrkxq.html" class="a0085d0">停用</a> | <a href="ghsckxq.html" class="a0085d0">编辑 </a>| <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                </tr>
+                <tr class="tabbj">
+                  <td><input name="input4" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                  公告</td>
+                  <td>B2B优惠公告</td>
+                  <td>s1001</td>
+                  <td>停用</td>
+                  <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                  <td><a href="ghsrkxq.html" class="a0085d0">停用</a> | <a href="ghsckxq.html" class="a0085d0">编辑 </a>| <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                </tr>
+                <tr>
+                  <td><input name="input5" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                  公告</td>
+                  <td>B2B优惠公告</td>
+                  <td>s1001</td>
+                  <td>停用</td>
+                  <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                  <td><a href="ghsrkxq.html" class="a0085d0">停用</a> | <a href="ghsckxq.html" class="a0085d0">编辑 </a>| <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                </tr>
+                <tr class="tabbj">
+                  <td><input name="input6" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                  公告</td>
+                  <td>222222222</td>
+                  <td>s1001</td>
+                  <td>启用</td>
+                  <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                  <td><a href="ghsrkxq.html" class="a0085d0">停用</a> | <a href="ghsckxq.html" class="a0085d0">编辑 </a>| <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                </tr>
+                <tr>
+                  <td><input name="input7" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                  公告</td>
+                  <td>222222222</td>
+                  <td>s1001</td>
+                  <td>启用</td>
+                  <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                  <td><a href="ghsrkxq.html" class="a0085d0">停用</a> | <a href="ghsckxq.html" class="a0085d0">编辑 </a>| <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                </tr>
+                <tr class="tabbj">
+                  <td><input name="input8" type="checkbox" value="" style="display:block; float:left; margin-left:10px;" />
+                  公告</td>
+                  <td>222222222</td>
+                  <td>s1001</td>
+                  <td>启用</td>
+                  <td><span class="cl808080">2014-01-22 15:26:23</span></td>
+                  <td><a href="ghsrkxq.html" class="a0085d0">停用</a> | <a href="ghsckxq.html" class="a0085d0">编辑 </a>| <a href="ghsckxq.html" class="a0085d0">删除</a></td>
+                </tr>
+              </table>
+              <div class="nb_page mt10"> <a href="#"><img src="../images/nb_syy.gif" width="68" height="27" alt="上一页" /></a> <a href="#" class="nvadq">1</a> <a href="#">2</a> <a href="#"><img src="../images/nb_xxy.gif" width="68" height="27" alt="下一页" /></a> </div>
+              <p class="mt30 text_c"> <a class="ml10" href="#" ><img src="../images/tc_fb.gif" alt="完成" /></a> </p>
+            </div>
+            <div id="con_hbwt_4" class="dp_dztj mt10 ml10 none">
+              <p><span class="pl10 fontb font14 mt10 block left">店长推荐</span></p>
+              <div class="nb_r_tit_r mt10 mb10 mr10">
+                <input name="input2" type="text" class="nb_input"  onblur="if(this.value == '') this.value = this.defaultValue" onfocus="if(this.value == this.defaultValue) this.value = ''"/>
+                <a href="#" class="nb_icon">查询</a> <a href="#" class="nb_icon">导出</a></div>
+              <p>&nbsp; </p>
+              <div class="clear"> </div>
+              
+           	
+              	<ul class="mt10 ">
+                	<li class="line ">
+                    	<span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                        <p>T610</p>
+                        <a href="#" class=" ml60 mt5">选择手机 </a>
+                    </li>
+                    <li class="line lineleft">
+                    
+                    <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                        <p>T610</p>
+                        <a href="#" class=" ml60 mt5">选择手机 </a>
+                    
+                    
+                    </li>
+                    <li class="line lineleft">
+                    <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                        <p>T610</p>
+                        <a href="#" class=" ml60 mt5">选择手机 </a>
+                    
+                    
+                    
+                    </li>
+                    <li class="line lineleft">
+                    
+                    <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                        <p>T610</p>
+                        <a href="#" class=" ml60 mt5">选择手机 </a>
+                    
+                    </li>
+                    <li class="line">
+                    
+                    <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                        <p>T610</p>
+                        <a href="#" class=" ml60 mt5">选择手机 </a>
+                    
+                    </li>
+                    <li class="line lineleft">
+                    
+                    <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                        <p>T610</p>
+                        <a href="#" class=" ml60 mt5">选择手机 </a>
+                    
+                    
+                    </li>
+                    <li class="line lineleft">
+                    
+                    <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                        <p>T610</p>
+                        <a href="#" class=" ml60 mt5">选择手机 </a>
+                    
+                    </li>
+                    <li class="line lineleft">
+                    
+                    
+                    <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                        <p>T610</p>
+                        <a href="#" class=" ml60 mt5">选择手机 </a>
+                    
+                    </li>
+
+                
+                
+                </ul>
+         
+              
+              
+              
+              
+              
+              
+          
+              
+              <div class="clear"> </div>
+              
+              <div class="nb_page mt10"> <a href="#"><img src="../images/nb_syy.gif" width="68" height="27" alt="上一页" /></a> <a href="#" class="nvadq">1</a> <a href="#">2</a> <a href="#"><img src="../images/nb_xxy.gif" width="68" height="27" alt="下一页" /></a></div>
+              <p class="mt30 text_c"> <a  href="#" class="dp_anliu ml260"><img src="../images/tc_yl.gif" alt="预览" /></a> <a href="#" class="dp_anliu ml50"><img src="../images/tc_fb.gif" alt="发布" /></a></p>
+              <div class="clear"> </div>
+            </div>
+        <div id="con_hbwt_5" class="dp_dztj mt10 ml10 none">
+              <p><span class="pl10 fontb font14 mt10 block left">劲爆特价</span></p>
+              <div class="nb_r_tit_r mt10 mb10 mr10">
+                <input name="input9" type="text" class="nb_input"  onblur="if(this.value == '') this.value = this.defaultValue" onfocus="if(this.value == this.defaultValue) this.value = ''"/>
+                <a href="#" class="nb_icon">查询</a> <a href="#" class="nb_icon">导出</a></div>
+              <p>&nbsp; </p>
+              <div class="clear"> </div>
+              <ul class="mt10 ">
+                <li class="line "> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a> </li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a> </li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a> </li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a> </li>
+                <li class="line"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a> </li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a> </li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a> </li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a> </li>
+              </ul>
+              <div class="clear"> </div>
+          <div class="nb_page mt10"> <a href="#"><img src="../images/nb_syy.gif" width="68" height="27" alt="上一页" /></a> <a href="#" class="nvadq">1</a> <a href="#">2</a> <a href="#"><img src="../images/nb_xxy.gif" width="68" height="27" alt="下一页" /></a></div>
+              <p class="mt30 text_c"> <a  href="#" class="dp_anliu ml260"><img src="../images/tc_yl.gif" alt="预览" /></a> <a href="#" class="dp_anliu ml50"><img src="../images/tc_fb.gif" alt="发布" /></a></p>
+              <div class="clear"> </div>
+          </div>
+        <div id="con_hbwt_6" class="dp_dztj mt10 ml10  none">
+              <p><span class="pl10 fontb font14 mt10 block left">新品推荐</span></p>
+              <div class="nb_r_tit_r mt10 mb10 mr10">
+                <input name="input10" type="text" class="nb_input"  onblur="if(this.value == '') this.value = this.defaultValue" onfocus="if(this.value == this.defaultValue) this.value = ''"/>
+                <a href="#" class="nb_icon">查询</a> <a href="#" class="nb_icon">导出</a></div>
+              <p>&nbsp; </p>
+              <div class="clear"> </div>
+              <ul class="mt10 ">
+                <li class="line "> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+              </ul>
+              <div class="clear"> </div>
+          <div class="nb_page mt10"> <a href="#"><img src="../images/nb_syy.gif" width="68" height="27" alt="上一页" /></a> <a href="#" class="nvadq">1</a> <a href="#">2</a> <a href="#"><img src="../images/nb_xxy.gif" width="68" height="27" alt="下一页" /></a></div>
+              <p class="mt30 text_c"> <a  href="#" class="dp_anliu ml260"><img src="../images/tc_yl.gif" alt="预览" /></a> <a href="#" class="dp_anliu ml50"><img src="../images/tc_fb.gif" alt="发布" /></a></p>
+              <div class="clear"></div>
+        </div>
+        <div id="con_hbwt_7" class="dp_dztj mt10 ml10 none">
+              <p><span class="pl10 fontb font14 mt10 block left">特价专区</span></p>
+              <div class="nb_r_tit_r mt10 mb10 mr10">
+                <input name="input11" type="text" class="nb_input"  onblur="if(this.value == '') this.value = this.defaultValue" onfocus="if(this.value == this.defaultValue) this.value = ''"/>
+                <a href="#" class="nb_icon">查询</a> <a href="#" class="nb_icon">导出</a></div>
+              <p>&nbsp; </p>
+              <div class="clear"> </div>
+              <ul class="mt10 ">
+                <li class="line "> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+                <li class="line lineleft"> <span><img src="../images/sy_jbtj1.jpg" width="160" height="160" /></span>
+                  <p>T610</p>
+                  <a href="#" class=" ml60 mt5">选择手机 </a></li>
+              </ul>
+              <div class="clear"> </div>
+              <div class="nb_page mt10"> <a href="#"><img src="../images/nb_syy.gif" width="68" height="27" alt="上一页" /></a> <a href="#" class="nvadq">1</a> <a href="#">2</a> <a href="#"><img src="../images/nb_xxy.gif" width="68" height="27" alt="下一页" /></a></div>
+          <div class="clear"></div>
+              <p class="mt30 text_c">
+              
+              <a  href="#" class="dp_anliu ml260"><img src="../images/tc_yl.gif" alt="预览" /></a>
+              
+               <a href="#" class="dp_anliu ml50"><img src="../images/tc_fb.gif" alt="发布" /></a></p>
+              <div class="clear"></div>
+          </div>
+        </div>
+        <!--右侧 结束-->
+    </div>
+
+    <div th:replace="web/include/helpcent2"></div>
+    <!--pay_helpcent 开始-->
+
+    <!--foot 开始-->
+    <!--#include virtual="/include/foot.html"-->
+    <div th:replace="web/include/foot"></div>
+    
+</div>
+</body>
+</html>

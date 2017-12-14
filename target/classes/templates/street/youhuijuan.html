@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+    <title>j5shop商城</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="/street/css/public.css" type="text/css" rel="stylesheet"/>
+    <link href="/street/css/youhuijuan.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="/street/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/street/js/slide.js"></script>
+</head>
+<script>
+    $(function(){
+        $('.nav ul li').hover(function(){
+            $(this).children(".details").show();
+        },function(){
+            $(this).children(".details").hide();
+        });
+        $('#my').hover(function(){
+            $(this).find("div").show();
+        },function(){
+            $(this).find("div").hide();
+        });
+    });
+</script>
+<body>
+<div th:replace="street/layout/mallHeader"></div>
+<!--------------内容--------------->
+<div class="wt1080 middle">
+    <!----------左边------------>
+    <div class="fl">
+        <div style="padding: 0 24px;"><h1>用户名称</h1></div>
+        <ul>
+            <li class="current"><a href="my_order.html">我的订单</a></li>
+            <li><a href="youhuijuan.html">我的优惠卷</a></li>
+            <li><a href="jifen.html">我的积分</a></li>
+            <li><a href="ajax_me.html">账户安全</a></li>
+            <li><a href="shoucang.html">我收藏的商品</a></li>
+            <li><a href="ajax_address.html">管理收货地址</a></li>
+        </ul>
+    </div>
+    <!----------右边------------>
+    <div class="fr">
+        <!-------------兑换码------------>
+        <div class="m_r_t">输入兑换码：<input name="" type="text" class="yanzhengma"><input type="submit" value="兑换" class="duihuan"></div>
+        <!-------------使用优惠卷------------>
+        <div class="m_r_m">
+            <!-----------优惠卷头部--------->
+            <div class="gg">
+                <ul>
+                    <li class="current"><a href="#">可使用优惠卷</a></li>
+                    <li><a href="#">已使用优惠卷</a></li>
+                    <li><a href="#">已失效优惠卷</a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <!-----------优惠卷列表--------->
+            <div class="y_list">
+                <ul>
+                    <li>
+                        <div class="jj">
+                            <span class="banyuan"></span>
+                            <span class="guoqi"></span>
+                            <p class="one">￥30</p>
+                            <p>【消费满199元可用】</p>
+                            <p style="margin-top: 10px;">2016-01-12 -- 2016-01-19</p>
+                        </div>
+                        <div class="kk">
+                            <p>劵 编 号：3849985300</p>
+                            <p>品类限制：全品类（特例商品除外）</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="jj">
+                            <span class="banyuan"></span>
+                            <span class="guoqi"></span>
+                            <p class="one">￥30</p>
+                            <p>【消费满199元可用】</p>
+                            <p style="margin-top: 10px;">2016-01-12 -- 2016-01-19</p>
+                        </div>
+                        <div class="kk">
+                            <p>劵 编 号：3849985300</p>
+                            <p>品类限制：全品类（特例商品除外）</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="jj">
+                            <span class="banyuan"></span>
+                            <span class="guoqi"></span>
+                            <p class="one">￥30</p>
+                            <p>【消费满199元可用】</p>
+                            <p style="margin-top: 10px;">2016-01-12 -- 2016-01-19</p>
+                        </div>
+                        <div class="kk">
+                            <p>劵 编 号：3849985300</p>
+                            <p>品类限制：全品类（特例商品除外）</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-----------------优惠卷说明--------------->
+        <div class="details">
+            <h1>优惠卷说明</h1>
+            <div style="margin-top: 10px;">
+                <p>优惠卷仅限购买实物类的商品使用，同时极少数特殊商品无法使用，请以商品页为准</p>
+                <p>优惠卷仅限在有效期内使用，过期则无法使用，请珍惜您的每张优惠卷哦</p>
+                <p>每笔订单仅限使用一张优惠卷，优惠卷不可合并</p>
+                <p>如有待支付订单，则限首次下单使用的优惠卷将暂时不能使用；如已成功支付，则限首次下单使用的优惠卷将自动失效</p>
+                <p>若使用优惠卷的订单发生退货行为，如果是直接抵扣类现金劵，则根据商品金额比例退还相应的现金券，如果是满额扣减类优惠卷，则优惠卷不予返回</p>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!---------------------热销------------------>
+<div class="hot wt1080">
+    <div class="title">热销推荐</div>
+    <div class="content">
+        <ul>
+            <li>
+                <div class="pic"><a href="#"><img src="/street/image/p11.png"></a></div>
+                <p class="c_t"><a href="#">Regen/丽珍 纯棉超细纤维美白皮肤面膜贴 10片</a></p>
+                <p class="price">￥89.00</p>
+                <a href="#" class="goumai">立即购买</a>
+            </li>
+            <li>
+                <div class="pic"><a href="#"><img src="/street/image/p11.png"></a></div>
+                <p class="c_t"><a href="#">Regen/丽珍 纯棉超细纤维美白皮肤面膜贴 10片</a></p>
+                <p class="price">￥89.00</p>
+                <a href="#" class="goumai">立即购买</a>
+            </li>
+            <li>
+                <div class="pic"><a href="#"><img src="/street/image/p11.png"></a></div>
+                <p class="c_t"><a href="#">Regen/丽珍 纯棉超细纤维美白皮肤面膜贴 10片</a></p>
+                <p class="price">￥89.00</p>
+                <a href="#" class="goumai">立即购买</a>
+            </li>
+            <li>
+                <div class="pic"><a href="#"><img src="/street/image/p11.png"></a></div>
+                <p class="c_t"><a href="#">Regen/丽珍 纯棉超细纤维美白皮肤面膜贴 10片</a></p>
+                <p class="price">￥89.00</p>
+                <a href="#" class="goumai">立即购买</a>
+            </li>
+            <li>
+                <div class="pic"><a href="#"><img src="/street/image/p11.png"></a></div>
+                <p class="c_t"><a href="#">Regen/丽珍 纯棉超细纤维美白皮肤面膜贴 10片</a></p>
+                <p class="price">￥89.00</p>
+                <a href="#" class="goumai">立即购买</a>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<div th:replace="street/layout/mallFooter"></div>
+</body>
+</html>

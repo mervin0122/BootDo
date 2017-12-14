@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ZSCAT电子交易平台</title>
+<link href="../css/public.css" rel="stylesheet" type="text/css" />
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<link href="../css/hbcss.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#nb_zjpj").toggle(
+	  function () {
+		$("#nb_xpj").show();
+	  },
+	  function () {
+		$("#nb_xpj").hide();
+	  }
+	)
+});
+
+//滑动星星评分
+function rate(obj,oEvent){
+var imgSrc = '../images/yw_pjxx01.gif';
+var imgSrc_2 = '../images/yw_pjxx.gif';
+if(obj.rateFlag) return;
+var e = oEvent || window.event;
+var target = e.target || e.srcElement; 
+var imgArray = obj.getElementsByTagName("img");
+for(var i=0;i<imgArray.length;i++){
+   imgArray[i]._num = i;
+   imgArray[i].onmouseover=function(){
+    if(obj.rateFlag) return;
+    var n=this._num+1;
+	/*switch(n)
+   {
+	   case 1:
+		 document.getElementById("result").innerHTML="较差"
+		 break
+	 case 2:
+		 document.getElementById("result").innerHTML="&nbsp;&nbsp;差"
+		 break	
+	 case 3:
+		 document.getElementById("result").innerHTML="还行"
+		 break	
+	 case 4:
+		 document.getElementById("result").innerHTML="推荐"
+		 break	
+	 case 5:
+		 document.getElementById("result").innerHTML="力荐"
+		 break	
+		 
+	   default:
+		 return;
+   }*/
+	var inputid=this.parentNode.previousSibling
+	inputid.value=this._num+1;
+   }
+}
+if(target.tagName=="IMG"){
+   for(var j=0;j<imgArray.length;j++){
+    
+    if(j<=target._num){
+     imgArray[j].src=imgSrc_2;
+    } else {
+     imgArray[j].src=imgSrc;
+    }
+	target.parentNode.onmouseout=function(){
+	var imgnum=parseInt(target.parentNode.previousSibling.value);
+		for(n=0;n<imgArray.length;n++){
+			imgArray[n].src=imgSrc;
+		}
+		for(n=0;n<imgnum;n++){
+			imgArray[n].src=imgSrc_2;
+		}
+		
+	}
+   }
+} else {
+	 return false;
+}
+}
+</script>
+</head>
+
+<body>
+<!--top 开始-->
+<!--#include virtual="/include/top.html"-->
+<!--top 结束-->
+<div class="content">
+    <!--和包导航 开始-->
+	<!--#include virtual="/include/hb_top.html"-->    
+    <!--和包导航 结束-->
+    
+    <div class="hb_mbx">
+    	<a href="#">我的和包</a> > 诉求回复
+    </div>
+    <div class="clear"></div>
+    
+    <div class="hb_cont">   
+        <!--左侧 开始-->
+        <!--#include virtual="/include/hb_left.html"-->    
+        <!--左侧 结束-->
+        <!--右侧 开始-->
+        <div class="hb_cont_r">
+        	<div class="hb_r_top">
+            	<p class="hb_r_top_tit">诉求回复</p>
+                <ul class="hb_r_top_nr">
+                	<li>
+                    	<span>您的评价将是其他网友重要的购买参考，并影响商品评分。</span></li>
+                </ul>
+            </div>
+        	<div class="nb_r_tit mt15">
+        	  <div class="nb_r_xld">
+        	    <p class="nb_r_xld_l">诉求回复</p>
+        	    <p class="nb_r_xld_r2"></p>
+        	    <div class="nb_r_xldyc">
+        	      <p class="nb_r_xldycgb"><a href="#"><img src="../images/nb_r_xldyc_gb.gif" width="22" height="22" alt="关闭" /></a></p>
+        	      <ul>
+        	        <li> <span>不限：</span> <a href="#" class="a0085d0">全部类型</a> </li>
+        	        <li> <span>类型：</span> <a href="#" class="a0085d0">手机</a> <a href="#" class="a0085d0">号卡</a> <a href="#" class="a0085d0">配件</a> </li>
+      	        </ul>
+      	      </div>
+      	    </div>
+        	  <div class="clear"></div>
+      	  </div>
+        	<div id="con_nbh_2" ></div>
+            
+            <div id="con_nbh_3">
+              <div class="nb_r_cont">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="nb_table3">
+                  <tr>
+                    <td width="17%" height="55" align="right">投诉标题：</td>
+                    <td width="83%" class="pl10">测试测试测试测试测试测试</td>
+                  </tr>
+                  <tr>
+                    <td height="49" align="right">诉求分类：</td>
+                    <td width="83%">终端配送</td>
+                  </tr>
+                  <tr>
+                    <td height="56" align="right">投诉内容：</td>
+                    <td class="pl10">测试测试测试测试测试测试</td>
+                  </tr>
+                  <tr>
+                    <td height="54" align="right">订单号：</td>
+                    <td class="pl10">1111111888888888</td>
+                  </tr>
+                  <tr>
+                    <td height="49" align="right">IMEI号：</td>
+                    <td class="pl10">12333333111</td>
+                  </tr>
+                  <tr>
+                    <td height="57" align="right">诉求人：</td>
+                    <td class="pl10">未回复</td>
+                  </tr>
+                  <tr>
+                    <td height="58" align="right">诉求时间：</td>
+                    <td class="pl10">2013-12-13 11：00</td>
+                  </tr>
+                  <tr>
+                    <td height="59" align="right">联系人：</td>
+                    <td><span class="pl10">测试测试测试测试测试测试</span></td>
+                  </tr>
+                  <tr>
+                    <td height="59" align="right">联系电话：</td>
+                    <td><span class="pl10">13855143840</span></td>
+                  </tr>
+                  <tr>
+                    <td height="71" align="right">管理员回复：</td>
+                    <td><table width="98%" border="0" align="center" cellpadding="0" cellspacing="2">
+                      <tr>
+                        <td align="center" bgcolor="#FAF2AB">序号</td>
+                        <td align="center" bgcolor="#FAF2AB">回复内容</td>
+                        <td align="center" bgcolor="#FAF2AB">回复时间</td>
+                      </tr>
+                      <tr>
+                        <td align="center">1</td>
+                        <td align="center">sdafsafd</td>
+                        <td align="center">2013-12-13 11：00</td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </table>
+                <div style="text-align:right; height:40px; padding-top:10px;"> <a href="javascript:;" onclick="window.close()" class="xx_close db" title="关闭"><img src="../images/fhsyj.gif" width="77" height="22" /></a> </div>
+              </div>
+          </div>
+            
+        </div>
+        <!--右侧 结束-->
+    </div>
+    
+    <!--pay_helpcent 开始-->
+    <!--#include virtual="/include/helpcent2.html"--> 
+    <!--pay_helpcent 开始-->
+    
+    <!--foot 开始-->
+    <!--#include virtual="/include/foot.html"-->   
+    <!--foot 结束-->
+    
+</div>
+
+<div id="cover"></div>
+    <!--tanchu -->
+   <div class="hb_tc645" id="wsh_pop">
+    	<div class="hb_tc_tit">
+        	<span>管理员回复</span>
+        	<a href="###" class="right mt10" onclick="hidetelts('cover','wsh_pop');"><img src="../images/tc_gb.gif" height="27" width="27" alt="关闭" /></a>
+        </div>
+    	<div class="hb_tc_nr1">
+    	  <div class="nb_r_cont_nr">
+                      <p class=" mt15">
+                      <div class="left"><em class="cf40">*</em><span class="c999">回复内容：</span></div>
+                      <div class="left"><textarea style="width:400px; height:100px;"></textarea></div></p>
+          </div>
+            <div class="clear"></div>
+            <p class="mt30 text_c">
+                <a class="ml10" href="###" onclick="hidetelts('cover','wsh_pop');"><img src="../images/tc_tdqd.gif" alt="完成"></a>
+            </p>
+        
+   </div>
+</div>
+<!--tanchu -->
+
+
+
+
+
+
+</body>
+</html>

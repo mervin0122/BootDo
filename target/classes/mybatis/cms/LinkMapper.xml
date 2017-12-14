@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.cms.dao.LinkDao">
+
+	<select id="get" resultType="com.bootdo.cms.domain.LinkDO">
+		select `id`,`color`,`href`,`image`,`title`,`weight`,`weightDate`,`CATEGORY_ID` from cms_link where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.cms.domain.LinkDO">
+		select `id`,`color`,`href`,`image`,`title`,`weight`,`weightDate`,`CATEGORY_ID` from cms_link
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="color != null and color != ''"> and color = #{color} </if>
+		  		  <if test="href != null and href != ''"> and href = #{href} </if>
+		  		  <if test="image != null and image != ''"> and image = #{image} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="weight != null and weight != ''"> and weight = #{weight} </if>
+		  		  <if test="weightdate != null and weightdate != ''"> and weightDate = #{weightdate} </if>
+		  		  <if test="categoryId != null and categoryId != ''"> and CATEGORY_ID = #{categoryId} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from cms_link
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="color != null and color != ''"> and color = #{color} </if>
+		  		  <if test="href != null and href != ''"> and href = #{href} </if>
+		  		  <if test="image != null and image != ''"> and image = #{image} </if>
+		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="weight != null and weight != ''"> and weight = #{weight} </if>
+		  		  <if test="weightdate != null and weightdate != ''"> and weightDate = #{weightdate} </if>
+		  		  <if test="categoryId != null and categoryId != ''"> and CATEGORY_ID = #{categoryId} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.cms.domain.LinkDO" useGeneratedKeys="true" keyProperty="id">
+		insert into cms_link
+		(
+			`color`, 
+			`href`, 
+			`image`, 
+			`title`, 
+			`weight`, 
+			`weightDate`, 
+			`CATEGORY_ID`
+		)
+		values
+		(
+			#{color}, 
+			#{href}, 
+			#{image}, 
+			#{title}, 
+			#{weight}, 
+			#{weightdate}, 
+			#{categoryId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.cms.domain.LinkDO">
+		update cms_link 
+		<set>
+			<if test="color != null">`color` = #{color}, </if>
+			<if test="href != null">`href` = #{href}, </if>
+			<if test="image != null">`image` = #{image}, </if>
+			<if test="title != null">`title` = #{title}, </if>
+			<if test="weight != null">`weight` = #{weight}, </if>
+			<if test="weightdate != null">`weightDate` = #{weightdate}, </if>
+			<if test="categoryId != null">`CATEGORY_ID` = #{categoryId}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from cms_link where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from cms_link where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

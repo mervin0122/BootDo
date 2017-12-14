@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org"      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>购物车</title>
+    <link href="/web/css/public.css" rel="stylesheet" type="text/css"/>
+    <link href="/web/css/css.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="/web/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/web/js/public.js"></script>
+</head>
+
+<body>
+<div th:replace="web/include/top"></div>
+
+<div class="content">
+    <!--head 开始-->
+    <div class="overflow mb20">
+        <p class="left mt20 ml5"><a href="#"><img src="/web/images/logo.png" width="270" height="60"
+                                                  alt="中国移动"/></a></p>
+        <p class="right mr55 mt20"><img src="/web/images/lc3.gif" width="390" height="60" alt=""/></p>
+    </div>
+    <!--head 结束-->
+    <!--订单成功开始-->
+    <div class="pay_add_tit1">我的购物车</div>
+    <div class="pay_ddxxtab">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="jhd_tabgwc">
+            <thead>
+            <tr>
+                <th width="55"><input type="checkbox"/> 全选</th>
+                <th width="295" class="brfff">商品</th>
+                <th width="155" class="brfff">商品信息</th>
+                <th width="120" class="brfff">单价</th>
+                <th width="120" class="brfff">数量</th>
+                <th width="120">小计</th>
+                <th width="120" class="brfff">操作</th>
+            </tr>
+            <tr height="36">
+                <td colspan="7"><input type="checkbox" class=" ml25"/> 店铺：中国移动XXXXXXXX <a href="#"><img
+                        src="../images/fx.gif"/></a></td>
+            </tr>
+            </thead>
+        </table>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="jhd_tabgwc"
+               style="border:1px solid #d2eaff;">
+            <tr class="sjx jgx">
+                <td width="55"><input class="ml25" type="checkbox"/></td>
+                <td width="295" height="160">
+                    <div class="left ml20" style="width:95px;"><a href="#"><img src="../images/pic2.gif" height="82"
+                                                                                width="82"/></a></div>
+                    <div class="right" style="width:190px;">
+                        <p><a href="#">浙江 合约购机 APPLE/苹果 iphone5s 移动4G 最高...</a></p>
+                    </div>
+                </td>
+                <td width="155" class="pl15"><p>品牌：iphone</p>
+                    <p>型号：5s
+                    <p>颜色：土豪金</p></td>
+                <td width="120" align="center"><b>5488.00</b></td>
+                <td width="120" align="center">
+                    <div class="sl">
+                        <a href="#"><img width="15" height="15" style="vertical-align:middle;"
+                                         src="../images/p_xx_jian.gif"></a>
+                        <span><input type="text" value="1"></span>
+                        <a href="#"><img width="15" height="15" style="vertical-align:middle;"
+                                         src="../images/p_xx_jia.gif"></a>
+                    </div>
+                </td>
+                <td width="120" align="center" class="clf55a08">5488.00</td>
+                <td width="120" align="center"><p><a href="#">收藏</a></p>
+                    <p><a href="#">删除</a></p>
+                    <p><a href="#">结算</a></p></td>
+            </tr>
+            <tr class="sjx jgx">
+                <td><input class="ml25" type="checkbox"/></td>
+                <td height="160">
+                    <div class="left ml20" style="width:95px;"><a href="#"><img src="../images/pic2.gif" height="82"
+                                                                                width="82"/></a></div>
+                    <div class="right" style="width:190px;">
+                        <p><a href="#">浙江 合约购机 APPLE/苹果 iphone5s 移动4G 最高...</a></p>
+                    </div>
+                </td>
+                <td width="155" class="pl15"><p>品牌：iphone</p>
+                    <p>型号：5s
+                    <p>颜色：土豪金</p></td>
+                <td align="center"><b>5488.00</b></td>
+                <td width="120" align="center">
+                    <div class="sl">
+                        <a href="#"><img width="15" height="15" style="vertical-align:middle;"
+                                         src="../images/p_xx_jian.gif"></a>
+                        <span><input type="text" value="1"></span>
+                        <a href="#"><img width="15" height="15" style="vertical-align:middle;"
+                                         src="../images/p_xx_jia.gif"></a>
+                    </div>
+                </td>
+                <td align="center" class="clf55a08">5488.00</td>
+                <td align="center"><p><a href="#">收藏</a></p>
+                    <p><a href="#">删除</a></p>
+                    <p><a href="#">结算</a></p></td>
+            </tr>
+            </thead></table>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="jhd_tabgwc" style="border:none;">
+            <thead>
+            <tr height="36">
+                <td colspan="7"><input type="checkbox" class=" ml25"/> 店铺：中国移动XXXXXXXX <a href="#"><img
+                        src="../images/fx.gif"/></a></td>
+            </tr>
+            </thead>
+        </table>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="jhd_tabgwc"
+               style="border:1px solid #d2eaff;">
+            <tr class="sjx jgx">
+                <td width="55"><input class="ml25" type="checkbox"/></td>
+                <td width="295" height="160">
+                    <div class="left ml20" style="width:95px;"><a href="#"><img src="../images/pic2.gif" height="82"
+                                                                                width="82"/></a></div>
+                    <div class="right" style="width:190px;">
+                        <p><a href="#">浙江 合约购机 APPLE/苹果 iphone5s 移动4G 最高...</a></p>
+                    </div>
+                </td>
+                <td width="155" class="pl15"><p>品牌：iphone</p>
+                    <p>型号：5s
+                    <p>颜色：土豪金</p></td>
+                <td width="120" align="center"><b>5488.00</b></td>
+                <td width="120" align="center">
+                    <div class="sl">
+                        <a href="#"><img width="15" height="15" style="vertical-align:middle;"
+                                         src="../images/p_xx_jian.gif"></a>
+                        <span><input type="text" value="1"></span>
+                        <a href="#"><img width="15" height="15" style="vertical-align:middle;"
+                                         src="../images/p_xx_jia.gif"></a>
+                    </div>
+                </td>
+                <td width="120" align="center" class="clf55a08">5488.00</td>
+                <td width="120" align="center"><p><a href="#">收藏</a></p>
+                    <p><a href="#">删除</a></p>
+                    <p><a href="#">结算</a></p></td>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="gwc_js">
+        <div class="gwc_js_fl">
+            <input type="checkbox" class="ml25"/> <font color="#373737">全选</font> <span class="ml15"><a
+                href="#">删除选中商品</a></span> <span class="ml15"><a href="#">清空购物车</a></span>
+        </div>
+        <div class="gwc_js_fr">
+            <div class="left">
+                <p>已选商品0件</p>
+                <p>应付总额（不含运费）：<span>￥3488.00</span></p>
+            </div>
+            <div class="right mr10 ml10"><a href="#"><img src="../images/jxgw.gif"/></a> <a href="ddjs.html"><img
+                    src="../images/qjs.gif"/></a></div>
+        </div>
+    </div>
+    <div class="pay_wntj">
+        <div class="wntj_tit">
+            <div class="left">和为您推荐</div>
+            <div class="paraTab">
+                <ul id="paraTab" class="clearfix">
+                    <li onclick="nTabs(this,0,'active','')" class="active"><span>1</span></li>
+                    <li onclick="nTabs(this,1,'active','')"><span>2</span></li>
+                    <li onclick="nTabs(this,2,'active','')"><span>3</span></li>
+                </ul>
+            </div>
+        </div>
+        <div id="paraTab_Content0">
+            <div class="hwntj_list">
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+
+            </div>
+
+        </div>
+        <div id="paraTab_Content1" style="display:none;">
+
+            <div class="hwntj_list">
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果1 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+            </div>
+
+        </div>
+        <div id="paraTab_Content2" style="display:none;">
+
+            <div class="hwntj_list">
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果2 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+                <div class="wntj_cont">
+                    <p class="text_c mt25"><a href="#"><img src="../images/pic3.gif" height="168" width="136"/></a></p>
+                    <p class="text_c">苹果 ipad mini Retina屏 wifi版 7.9英寸平板电脑 16G</p>
+                    <p class="text_c"><span class="fontb font16">￥2888</span> <a href="#"><img
+                            src="../images/jrgwc.gif"/></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--订单成功结束-->
+    <div class="clear"></div>
+    <!--pay_helpcent 开始-->
+    <div th:replace="web/include/helpcent2"></div>
+    <!--pay_helpcent 开始-->
+
+    <!--foot 开始-->
+    <!--#include virtual="/include/foot.html"-->
+    <div th:replace="web/include/foot"></div>
+    <!--foot 结束-->
+</div>
+<div id="cover"></div>
+<!--tanchu-->
+<div class="wsh_pop1" id="wsh_pop">
+    <div class="wsh_pop1_tit">
+        <span class="left">提示</span>
+        <a onclick="hidetelts('cover','wsh_pop');" class="right mt10" href="###"><img width="14" height="14" alt="关闭"
+                                                                                      src="../images/close.gif"></a>
+    </div>
+    <div class="wsh_pop1_nr">
+        <div class="wsh_pop_dh">
+            <p>请您在新打开的网上银行页面进行支付,支付完成后请不要关闭窗口！</p>
+        </div>
+        <p class="mt30 text_c">
+            <a onclick="hidetelts('cover','wsh_pop');" href="###"><img width="83" height="27" alt="完成"
+                                                                       src="../images/wczf.gif"></a>
+            <a class="ml10" onclick="hidetelts('cover','wsh_pop');" href="###"><img width="83" height="27" alt="完成"
+                                                                                    src="../images/wwc.gif"></a>
+        </p>
+    </div>
+</div>
+<!--tanchu-->
+</body>
+</html>

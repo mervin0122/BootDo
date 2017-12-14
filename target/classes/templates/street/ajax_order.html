@@ -1,0 +1,48 @@
+<!--------------列表----------->
+<div class="list" th:each="order:${tOrderList}">
+    <div class="ttt">
+        <span class="one">杭州保税3号仓发货</span>
+        <span th:text="'订单号：'+${order.ordersn}">订单号：2016011814591011037844014</span>
+        <span th:text="'下单时间：'+${order.createdate}">下单时间：2016-01-18</span>
+    </div>
+    <div class="ddd">
+        <!--------------列表第一部分------------>
+        <div class="first">
+            <ul>
+                <li class="ff" th:each="goods:${order.goodsList}">
+                    <div class="ff_one">
+                        <div class="pic"><img width="75px" height="75px" th:src="@{${goods.img}}"></div>
+                        <div class="miaoshu"><a th:href="@{'/street/goodsDetail/'+${goods.goodsid}}" th:text="${goods.goodsname}">Nutrilon </a></div>
+                    </div>
+                    <div class="ff_two">
+                        <p class="none" th:text="${goods.price}">528.00</p>
+                        <p th:text="${goods.price}">349.00</p>
+                    </div>
+                    <div class="ff_three">1</div>
+                </li>
+            </ul>
+        </div>
+        <!----------------总计---------------->
+        <div class="box" style="height: 240px;">
+            <div style="margin-top: 100px;">
+                <p th:text="${order.totalprice}">424.00</p>
+                <p style="color: #888888">（含运/税费：0.00）</p>
+            </div>
+        </div>
+        <!-------------订单状态-------------->
+        <div class="box" style="height: 240px;">
+            <div style="margin-top: 100px;">
+                <p><a href="javascript:;">订单关闭</a></p>
+                <p><a th:href="@{'/person/street/orderDetail/'+${order.id}}">订单详情</a></p>
+            </div>
+        </div>
+        <!-------------操作-------------->
+        <div class="box" style="height: 240px;border-right: none;">
+            <div style="margin-top: 100px;" th:if="${order.status eq 9}">
+                <p><a th:href="@{'/person/street/pay/'+${order.id}}" class="liji">立即付款</a></p>
+                <p><a href="#" th:onclick="'javascript:cancelOrder('+${order.id}+')'">取消订单</a></p>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+    <title>j5shop商城</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="/street/css/public.css" type="text/css" rel="stylesheet"/>
+    <link href="/street/css/index.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="/street/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/street/js/slide.js"></script>
+</head>
+<body>
+<script>
+    $(function(){
+        $('.nav ul li').hover(function(){
+            $(this).children(".details").show();
+        },function(){
+            $(this).children(".details").hide();
+        });
+        $('#my').hover(function(){
+            $(this).find("div").show();
+        },function(){
+            $(this).find("div").hide();
+        });
+    });
+</script>
+
+<div th:replace="street/layout/mallHeader"></div>
+<!----------------轮播图-------------------->
+<div class="index_banner minWidth" id="focus">
+    <ul>
+        <li th:each="banner:${bannerList}" th:style="'background:url(' + ${banner.img} + ') no-repeat center;height: 452px;'">
+            <a th:href="${banner.url}" title="" target="_blank"></a></li>
+    </ul>
+</div>
+<div class="clear"></div>
+<!--------------中间部分------------->
+<div class="wt1080 middle">
+    <div class="fl">
+        <ul>
+            <li>
+                <img src="/street/image/bg3.png">
+                <p>全球正品货源</p>
+            </li>
+            <li>
+                <img src="/street/image/bg4.png">
+                <p>全球直邮</p>
+            </li>
+            <li>
+                <img src="/street/image/bg5.png">
+                <p>一件代发</p>
+            </li>
+            <li>
+                <img src="/street/image/bg6.png">
+                <p>售后无忧</p>
+            </li>
+        </ul>
+    </div>
+    <div class="fr">
+        <p class="one">在线客服：
+            <a href="#"><img src="/street/image/tubiao2.png"></a>&nbsp;&nbsp;
+            <a href="#"><img src="/street/image/tubiao2.png"></a>&nbsp;&nbsp;
+            <a href="#"><img src="/street/image/tubiao2.png"></a>&nbsp;&nbsp;
+            <span>（时间：9：00-24：00）</span>
+        </p>
+        <p class="two">联系电话：<i>028-6133 8882</i></p>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!---------------商品介绍一大块----------------->
+<div class="product">
+    <div class="wt1080">
+        <!------------上部分----------->
+        <div class="up">
+            <div class="crazy fl">今日疯抢</div>
+            <a href="#"><img src="/street/image/guanggao.png" class="fr"></a>
+            <div class="clear"></div>
+        </div>
+        <!------------下部分----------->
+        <div class="down">
+            <div class="fl">
+                <ul>
+                    <li th:each="com:${commList}">
+                        <div class="pic"><a th:href="@{'/street/goodsDetail/'+${com.id}}" title="美国/Kirkland">
+                            <img th:src="@{${com.img}}"></a></div>
+                        <p><a th:href="@{'/street/goodsDetail/'+${com.id}}" th:text="${com.title}"></a></p>
+                        <div>
+                            <span class="one" th:text="'￥'+${com.prices}">￥88.00</span>
+                            <span class="two" th:text="'网购￥'+${com.prices}">网购￥96.00</span>
+                            <div class="clear"></div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="fr">
+                <div class="f_one">
+                    <span>全球快讯</span>
+                    <a th:href="@{'/street/article'}">更多&gt;&gt;</a>
+                </div>
+                <div class="f_two">
+                    <ul>
+                        <li th:each="article:${tArticleList}"><a th:href="@{'/street/articleDetail/'+${article.id}}"
+                                                                 th:text="${article.title}">
+                            <span style="color: #ff5e21">【特惠公告】</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <!--------------商品开始---------------->
+    <!------------------1楼-------------->
+    <div class="floor wt1080" style="border-top:2px solid #1d84a7;" th:each="floor,iterStat:${floorList}">
+        <div th:class="${'floor_'+iterStat.index}"></div>
+        <!---------------左边---------------->
+        <div class="left">
+            <div th:if="${iterStat.index} eq 0" class="start" style="background: #1d84a7;background-image: url(/street/image/f_0.png);background-position: 50% 40%;background-repeat: no-repeat;" th:text="${floor.name}">母婴专区</div>
+            <div th:if="${iterStat.index} eq 1" class="start" style="background: #a50332;background-image: url(/street/image/f_1.png);background-position: 50% 40%;background-repeat: no-repeat;" th:text="${floor.name}">美妆护肤</div>
+            <div th:if="${iterStat.index} eq 2" class="start" style="background: #217575;background-image: url(/street/image/f_2.png);background-position: 50% 40%;background-repeat: no-repeat;" th:text="${floor.name}">美妆护肤</div>
+            <div th:if="${iterStat.index} eq 3" class="start" style="background: #ee6018;background-image: url(/street/image/f_3.png);background-position: 50% 40%;background-repeat: no-repeat;" th:text="${floor.name}">美妆护肤</div>
+            <div th:if="${iterStat.index} eq 4" class="start" style="background: #0f7f29;background-image: url(/street/image/f_4.png);background-position: 50% 40%;background-repeat: no-repeat;" th:text="${floor.name}">美妆护肤</div>
+                <div  class="second" style="background: #48aacd;">
+                <ul>
+                    <li th:each="gcs:${floor.goodsClassList}">
+                        <a th:href="@{'/street/goodsByClass/'+${gcs.id}}" th:text="${gcs.name}">奶粉</a>
+                    </li>
+
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!--------------中间---------------->
+        <div class="zhongbu">
+            <ul>
+                <li th:each="goods:${floor.goodsList}">
+                    <h1 th:text="${goods.title}">为每一个诞生做好准备</h1>
+                    <p th:text="${goods.typename}">纸尿裤中心</p>
+                    <div class="pic"><a th:href="@{'/street/goodsDetail/'+${goods.id}}" target="_blank">
+                        <img width="180px" height="143px" th:src="@{${goods.img}}"></a></div>
+                </li>
+
+            </ul>
+            <span class="heng"></span>
+            <span class="shu"></span>
+        </div>
+        <!--------------------右边部分-------------------------->
+        <div class="right">
+            <h1 th:text="${floor.parentIds}">最新热卖</h1>
+            <ul>
+                <li th:each="goods:${floor.goodsList1}">
+                    <dl>
+                        <dt><a th:href="@{'/street/goodsDetail/'+${goods.id}}" target="_blank">
+                            <img width="45px" height="45px" th:src="@{${goods.img}}"></a></dt>
+                        <dd class="xiangxi"><a th:href="@{'/street/goodsDetail/'+${goods.id}}" th:text="${goods.title}">sudocrem 屁屁霜/屁屁乐125g</a></dd>
+                        <dd><span class="fl" th:text="'￥'+${goods.prices}">￥48.00</span><span class="fr" th:text="'￥'+${goods.prices}">￥68.00</span></dd>
+                    </dl>
+                    <div class="clear"></div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+<div th:replace="street/layout/mallFooter"></div>
+</body>
+</html>

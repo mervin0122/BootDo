@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ZSCAT电子交易平台</title>
+<link href="../css/public.css" rel="stylesheet" type="text/css" />
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<link href="../css/hbcss.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#nb_zjpj").toggle(
+	  function () {
+		$("#nb_xpj").show();
+	  },
+	  function () {
+		$("#nb_xpj").hide();
+	  }
+	)
+});
+
+//滑动星星评分
+function rate(obj,oEvent){
+var imgSrc = '../images/yw_pjxx01.gif';
+var imgSrc_2 = '../images/yw_pjxx.gif';
+if(obj.rateFlag) return;
+var e = oEvent || window.event;
+var target = e.target || e.srcElement; 
+var imgArray = obj.getElementsByTagName("img");
+for(var i=0;i<imgArray.length;i++){
+   imgArray[i]._num = i;
+   imgArray[i].onmouseover=function(){
+    if(obj.rateFlag) return;
+    var n=this._num+1;
+	/*switch(n)
+   {
+	   case 1:
+		 document.getElementById("result").innerHTML="较差"
+		 break
+	 case 2:
+		 document.getElementById("result").innerHTML="&nbsp;&nbsp;差"
+		 break	
+	 case 3:
+		 document.getElementById("result").innerHTML="还行"
+		 break	
+	 case 4:
+		 document.getElementById("result").innerHTML="推荐"
+		 break	
+	 case 5:
+		 document.getElementById("result").innerHTML="力荐"
+		 break	
+		 
+	   default:
+		 return;
+   }*/
+	var inputid=this.parentNode.previousSibling
+	inputid.value=this._num+1;
+   }
+}
+if(target.tagName=="IMG"){
+   for(var j=0;j<imgArray.length;j++){
+    
+    if(j<=target._num){
+     imgArray[j].src=imgSrc_2;
+    } else {
+     imgArray[j].src=imgSrc;
+    }
+	target.parentNode.onmouseout=function(){
+	var imgnum=parseInt(target.parentNode.previousSibling.value);
+		for(n=0;n<imgArray.length;n++){
+			imgArray[n].src=imgSrc;
+		}
+		for(n=0;n<imgnum;n++){
+			imgArray[n].src=imgSrc_2;
+		}
+		
+	}
+   }
+} else {
+	 return false;
+}
+}
+</script>
+</head>
+
+<body>
+<!--top 开始-->
+<!--#include virtual="/include/top.html"-->
+<!--top 结束-->
+<div class="content">
+    <!--和包导航 开始-->
+	<!--#include virtual="/include/hb_top.html"-->    
+    <!--和包导航 结束-->
+    
+    <div class="hb_mbx">
+    	<a href="#">我的和包</a> > 商品评价
+    </div>
+    <div class="clear"></div>
+    
+    <div class="hb_cont">   
+        <!--左侧 开始-->
+        <!--#include virtual="/include/hb_left.html"-->    
+        <!--左侧 结束-->
+        <!--右侧 开始-->
+        <div class="hb_cont_r">
+        	<div class="hb_r_top">
+            	<p class="hb_r_top_tit">商品评价</p>
+                <ul class="hb_r_top_nr">
+                	<li>
+                    	<span>您的评价将是其他网友重要的购买参考，并影响商品评分。</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nb_hdm_tit mt10">
+            	<ul>
+                	<li id="nbh1" onclick="setTab('nbh',1,3)"><p>待评价商品</p></li>
+                    <li id="nbh2" onclick="setTab('nbh',2,3)"><p>已评价商品</p></li>
+                    <li class="hover" id="nbh3" onclick="setTab('nbh',3,3)"><p>我的评价记录</p></li>
+                </ul>
+            </div>
+            
+            <div id="con_nbh_1" class="none">
+            	<table cellpadding="0" cellspacing="0" border="0" class="nb_table2">
+                    <tr>
+                        <th width="220">商品信息</th>
+                        <th>&nbsp;</th>
+                        <th>购买时间</th>
+                        <th class="nbzhbg" width="150">评价</th>
+                    </tr>
+                    <tr class="bf9f9f9">
+                        <td>订单编号：<a href="#">123123123123123123</a></td>
+                        <td><a href="#">中国移动<img src="../images/pc_fx.gif" /></a></td>
+                        <td>&nbsp;</td>
+                        <td class="nbzhbg">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#"><img src="../images/pc_sm.gif" height="52" width="52" style="vertical-align:middle;" /></a>
+                            <a href="#">MIUI/小米 小米手机3</a>
+                        </td>
+                        <td>这个商品质量好~</td>
+                        <td>2014-01-22 </td>
+                        <td class="nbzhbg">
+                            <p><a href="###" class="nb_zjpj">发表评价</a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nb_xpj" colspan="4">
+                            <div class="nb_sppj_bj">
+                                <p class="nb_sppj_t"></p>
+                                <div class="overflow pt10">
+                                    <span class="nb_sppj_l"><em class="red">*</em>心得：</span>
+                                    <p class="nb_sppj_xx">
+                                    	<span onmouseover="rate(this,event)"><img src="../images/yw_pjxx01.gif" title="较差" /><img src="../images/yw_pjxx01.gif" title="差" /><img src="../images/yw_pjxx01.gif" title="还行" /><img src="../images/yw_pjxx01.gif" title="推荐" /><img src="../images/yw_pjxx01.gif" title="力荐" /></span>
+                                    </p>
+                                    <span class="nb_sppj_l"><em class="red">*</em>买家服务：</span>
+                                    <p class="nb_sppj_xx">
+                                    	<span onmouseover="rate(this,event)"><img src="../images/yw_pjxx01.gif" title="较差" /><img src="../images/yw_pjxx01.gif" title="差" /><img src="../images/yw_pjxx01.gif" title="还行" /><img src="../images/yw_pjxx01.gif" title="推荐" /><img src="../images/yw_pjxx01.gif" title="力荐" /></span>
+                                    </p>
+                                    <span class="nb_sppj_l"><em class="red">*</em>物流发货：</span>
+                                    <p class="nb_sppj_xx">
+                                    	<span onmouseover="rate(this,event)"><img src="../images/yw_pjxx01.gif" title="较差" /><img src="../images/yw_pjxx01.gif" title="差" /><img src="../images/yw_pjxx01.gif" title="还行" /><img src="../images/yw_pjxx01.gif" title="推荐" /><img src="../images/yw_pjxx01.gif" title="力荐" /></span>
+                                    </p>
+                                    <span class="nb_sppj_l"><em class="red">*</em>配送人员：</span>
+                                    <p class="nb_sppj_xx">
+                                    	<span onmouseover="rate(this,event)"><img src="../images/yw_pjxx01.gif" title="较差" /><img src="../images/yw_pjxx01.gif" title="差" /><img src="../images/yw_pjxx01.gif" title="还行" /><img src="../images/yw_pjxx01.gif" title="推荐" /><img src="../images/yw_pjxx01.gif" title="力荐" /></span>
+                                    </p>
+                                </div>
+                                <div class="overflow pt10">
+                                    <p class="nb_sppj_l left" style="line-height:33px;"><em class="red">*</em>标签：</p>
+                                    <div class="nb_sppj_bq">
+                                    	<ul>
+                                        	<li>外观漂亮</li>
+                                            <li>质量不错</li>
+                                            <li>效果不错</li>
+                                            <li>没噪音</li>
+                                            <li>外观漂亮</li>
+                                            <li>外观漂亮</li>
+                                            <li>外观漂亮</li>
+                                            <li>外观漂亮</li>
+                                            <li>外观漂亮</li>
+                                            <li>外观漂亮</li>
+                                            <li>自定义</li>
+                                        </ul>
+                                        <p>给商品打个标签呗！</p>
+                                    </div>
+                                </div>
+                                <div class="overflow pt10">
+                                    <span class="nb_sppj_l"><em class="red">*</em>心得：</span>
+                                    <span><textarea name="" cols="" rows="" class="nb_sppj_srk"></textarea></span>
+                                </div>
+                                <div class="overflow mt15">
+                                    <span class="nb_sppj_l"></span>
+                                    <span><a href="#"><img src="../images/icon_tj.gif" width="63" height="27" alt="提交" /></a></span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+            	</table>
+            </div>
+            
+            <div id="con_nbh_2" class="none">
+            	<table cellpadding="0" cellspacing="0" border="0" class="nb_table2">
+                    <tr>
+                        <th width="220">商品信息</th>
+                        <th width="250">&nbsp;</th>
+                        <th width="220">购买时间</th>
+                        <th class="nbzhbg" width="150">评价</th>
+                    </tr>
+                    <tr class="bf9f9f9">
+                        <td>订单编号：<a href="#">123123123123123123</a></td>
+                        <td><a href="#">中国移动<img src="../images/pc_fx.gif" /></a></td>
+                        <td>&nbsp;</td>
+                        <td class="nbzhbg">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#"><img src="../images/pc_sm.gif" height="52" width="52" style="vertical-align:middle;" /></a>
+                            <a href="#">MIUI/小米 小米手机3</a>
+                        </td>
+                        <td>这个商品质量好~</td>
+                        <td>2014-01-22 </td>
+                        <td class="nbzhbg">
+                            <p><a href="###">查看评价</a></p>
+                            <p><a href="###" class="nb_zjpj" id="nb_zjpj">追加评价</a></p>
+                        </td>
+                    </tr>
+                    <tr id="nb_xpj" class="none">
+                        <td class="nb_xpj" colspan="4">
+                            <div class="nb_sppj_bj">
+                                <p class="nb_sppj_t"></p>
+                                <div class="overflow pt10">
+                                    <span class="nb_sppj_l"><em class="red">*</em>心得：</span>
+                                    <span class="c666">商品是否给力，快分享你的购买心得吧~</span>
+                                </div>
+                                <div class="overflow pt10">
+                                    <span class="nb_sppj_l"><em class="red">*</em>追加评价：</span>
+                                    <span><textarea name="" cols="" rows="" class="nb_sppj_srk"></textarea></span>
+                                </div>
+                                <div class="overflow mt15">
+                                    <span class="nb_sppj_l"></span>
+                                    <span><a href="#"><img src="../images/icon_tj.gif" width="63" height="27" alt="提交" /></a></span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bf9f9f9">
+                        <td>订单编号：<a href="#">123123123123123123</a></td>
+                        <td><a href="#">中国移动<img src="../images/pc_fx.gif" /></a></td>
+                        <td>&nbsp;</td>
+                        <td class="nbzhbg">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#"><img src="../images/pc_sm.gif" height="52" width="52" style="vertical-align:middle;" /></a>
+                            <a href="#">MIUI/小米 小米手机3</a>
+                        </td>
+                        <td>这个商品质量好~</td>
+                        <td>2014-01-22 </td>
+                        <td class="nbzhbg">
+                            <p><a href="###">查看评价</a></p>
+                            <p><a href="###" class="nb_zjpj">追加评价</a></p>
+                        </td>
+                    </tr>
+            	</table>
+            </div>
+            
+            <div id="con_nbh_3">
+            	<table cellpadding="0" cellspacing="0" border="0" class="nb_table2">
+                    <tr>
+                        <th width="220">商品信息</th>
+                        <th>评价内容</th>
+                        <th>评价时间</th>
+                        <th class="nbzhbg" width="150">操作</th>
+                    </tr>
+                    <tr class="bf9f9f9">
+                        <td>补货单编号：<a href="#">123123123123123123</a></td>
+                        <td><a href="#">中国移动<img src="../images/pc_fx.gif" /></a></td>
+                        <td>&nbsp;</td>
+                        <td class="nbzhbg">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#"><img src="../images/pc_sm.gif" height="52" width="52" style="vertical-align:middle;" /></a>
+                            <a href="#">MIUI/小米 小米手机3</a>
+                        </td>
+                        <td>这个商品质量好~</td>
+                        <td>2014-01-22 </td>
+                        <td class="nbzhbg"><a href="#">删除</a></td>
+                    </tr>
+                    <tr class="bf9f9f9">
+                        <td>补货单编号：<a href="#">123123123123123123</a></td>
+                        <td><a href="#">中国移动<img src="../images/pc_fx.gif" /></a></td>
+                        <td>&nbsp;</td>
+                        <td class="nbzhbg">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#"><img src="../images/pc_sm.gif" height="52" width="52" style="vertical-align:middle;" /></a>
+                            <a href="#">MIUI/小米 小米手机3</a>
+                        </td>
+                        <td>这个商品质量好~</td>
+                        <td>2014-01-22 </td>
+                        <td class="nbzhbg"><a href="#">删除</a></td>
+                    </tr>
+                    <tr class="bf9f9f9">
+                        <td>补货单编号：<a href="#">123123123123123123</a></td>
+                        <td><a href="#">中国移动<img src="../images/pc_fx.gif" /></a></td>
+                        <td>&nbsp;</td>
+                        <td class="nbzhbg">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#"><img src="../images/pc_sm.gif" height="52" width="52" style="vertical-align:middle;" /></a>
+                            <a href="#">MIUI/小米 小米手机3</a>
+                        </td>
+                        <td>这个商品质量好~</td>
+                        <td>2014-01-22 </td>
+                        <td class="nbzhbg"><a href="#">删除</a></td>
+                    </tr>
+                    <tr class="bf9f9f9">
+                        <td>补货单编号：<a href="#">123123123123123123</a></td>
+                        <td><a href="#">中国移动<img src="../images/pc_fx.gif" /></a></td>
+                        <td>&nbsp;</td>
+                        <td class="nbzhbg">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#"><img src="../images/pc_sm.gif" height="52" width="52" style="vertical-align:middle;" /></a>
+                            <a href="#">MIUI/小米 小米手机3</a>
+                        </td>
+                        <td>这个商品质量好~</td>
+                        <td>2014-01-22 </td>
+                        <td class="nbzhbg"><a href="#">删除</a></td>
+                    </tr>
+                    <tr class="bf9f9f9">
+                        <td>补货单编号：<a href="#">123123123123123123</a></td>
+                        <td><a href="#">中国移动<img src="../images/pc_fx.gif" /></a></td>
+                        <td>&nbsp;</td>
+                        <td class="nbzhbg">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#"><img src="../images/pc_sm.gif" height="52" width="52" style="vertical-align:middle;" /></a>
+                            <a href="#">MIUI/小米 小米手机3</a>
+                        </td>
+                        <td>这个商品质量好~</td>
+                        <td>2014-01-22 </td>
+                        <td class="nbzhbg"><a href="#">删除</a></td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+        <!--右侧 结束-->
+    </div>
+    
+    <!--pay_helpcent 开始-->
+    <!--#include virtual="/include/helpcent2.html"--> 
+    <!--pay_helpcent 开始-->
+    
+    <!--foot 开始-->
+    <!--#include virtual="/include/foot.html"-->   
+    <!--foot 结束-->
+    
+</div>
+</body>
+</html>

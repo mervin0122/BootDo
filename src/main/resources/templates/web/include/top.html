@@ -1,0 +1,73 @@
+<div class="topbox">
+	<div class="box">
+    	 <div class="top_l">
+
+             <p class="left" id="Login">
+                 <a th:href="@{/web/index}" target="_blank">zscat电子交易平台，</a>
+                 <span class="c0085d0" id="username"></span>
+                 欢迎您！
+                 <a th:href="@{/web/tlogout}">[退出]</a>
+             </p>
+             <p class="left" id="notLogin">
+             <a th:href="@{/web/login}" target="_top" class="h">亲，请登录</a>
+             <a th:href="@{/web/reg}"
+                target="_top">免费注册</a>
+             </p>
+
+            <!--<div class="top_xx left ml10">
+            	消息(<strong class="red">0</strong>)
+                <ul class="top_ycc1">
+                	<li>降价提醒(<strong class="red">0</strong>)</li>
+                    <li>新品上架(<strong class="red">0</strong>)</li>
+                    <li>服务提醒(<strong class="red">0</strong>)</li>
+                    <li>物流提醒(<strong class="red">0</strong>)</li>
+                </ul>
+            </div>-->
+        </div>
+        <div class="top_r">
+            <a href="#" class="right ml5">收藏本站</a>
+            <div class="top_gwc ml5">
+                联系客服
+                <div class="zxkf_hover">
+                    <span><a target="_blank" href="http://space.feixin.10086.cn/callme/transfer?k=AFEZZ27CVqwPUv1SFe0PCg%3d%3d&amp;s=fetion&amp;t=3&amp;v=1"><img border="0" src="http://space.feixin.10086.cn/callme/getimage?k=AFEZZ27CVqwPUv1SFe0PCg%3d%3d&amp;img=2&amp;t=3&amp;s=fetion" alt="终端公司1" title="终端公司1"></a>终端公司1</span>
+
+                    <p class="zxkf_hover_line">系统客服邮箱:951449465\@qq.com</p>
+                    <span>服务时间</span>
+                    <span>星期一至星期日</span>
+                    <span>9：00-22：00</span>
+                </div>
+            </div>
+            <a href="/person/web/cartList" class="right ml5" id="cart"></a>
+            <div class="top_hb right">
+            	我的和包
+                <ul class="top_ycc">
+                	<li>已买到的商品</li>
+                    <li>我的优惠券</li>
+                </ul>
+            </div>
+             <a href="/person/web/addStore" class="right ml5">商家平台</a>
+            <a href="/person/web/order" class="ce4393c right mr10">我的订单</a>
+            <a href="/web/jfindex" class="ce4393c right mr10">积分商城</a>
+            <a href="/web/index" class="ce4393c right mr10">返回首页</a>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    init();
+    function init() {
+        $.get("/web/session", function(data){
+            if (data.code == 0) {
+                $("#username").html(data.username);
+                $("#cart").html('购物车('+data.cartCount+')');
+                $("#notLogin").hide();
+                $("#Login").show();
+            } else {
+                $("#cart").html('购物车');
+                $("#Login").hide();
+                $("#notLogin").show();
+            }
+        });
+    }
+</script>

@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org"      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>ZSCAT电子交易平台</title>
+    <link href="/web/css/public.css" rel="stylesheet" type="text/css"/>
+    <link href="/web/css/css.css" rel="stylesheet" type="text/css"/>
+    <link href="/web/css/hbcss.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="/web/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/web/js/public.js"></script>
+</head>
+
+<body>
+<!--top 开始-->
+<div th:replace="web/include/top"></div>
+<!--top 结束-->
+<div class="content">
+    <!--和包导航 开始-->
+    <!--#include virtual="/include/hb_top.html"-->
+    <div th:replace="web/include/hb_top"></div>
+    <!--和包导航 结束-->
+
+    <div class="hb_mbx">
+        <a href="/web/index">主页</a> >注册
+    </div>
+    <div class="clear"></div>
+
+    <div class="hb_cont">
+        <!--左侧 开始-->
+        <div th:replace="web/include/hb_left"></div>
+        <!--#include virtual="/include/hb_left.html"-->
+        <!--左侧 结束-->
+        <!--右侧 开始-->
+        <form action="${ctxPath}/front/treg" id="reg-form">
+        <div class="hb_cont_r">
+            <div class="hb_r_top">
+                <p class="hb_r_top_tit">注册</p>
+                <lable class="mt30">
+                    <span>用户名：</span>
+                    <input name="username" id="username" type="text" placeholder="请输入账号" data-error="注册失败"/>
+                </lable>
+
+                <lable>
+                    <span>密码：</span>
+                    <input name="password" id="password" type="password" placeholder="请输入密码" />
+                </lable>
+
+                <lable>
+                    <span>确认新密码：</span>
+                    <input name="passwordRepeat" id="passwordRepeat" type="password" placeholder="请输入确认密码" />
+                </lable>
+
+                <a href="#" class="link ml150 mb20"  type="submit" name="reg-btn" id="reg-btn" value="注册">
+                    <span class="word_left"></span>
+                    <span class="word_cen">保存</span>
+                    <span class="word_right"></span>
+                </a>
+                <a href="#" class="link ml10">
+                    <span class="word_left"></span>
+                    <span class="word_cen">重置</span>
+                    <span class="word_right"></span>
+                </a>
+                <div class="clear"></div>
+            </div>
+
+            <div class="hb_r_table"></div>
+        </div>
+        </form>
+        <!--右侧 结束-->
+    </div>
+
+    <!--pay_helpcent 开始-->
+    <div th:replace="web/include/helpcent2"></div>
+    <!--pay_helpcent 开始-->
+
+    <!--foot 开始-->
+    <div th:replace="web/include/foot"></div>
+    <!--foot 结束-->
+    <script type="text/javascript" src="${ctxPath!}/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="${ctxPath!}/static/js/plugins/layer/layer.min.js"></script>
+    <script type="text/javascript" src="/validate/Validform_v5.3.2_min.js"></script>
+
+    <script>
+
+        jQuery(function ($) {
+            $("#reg-form").Validform({
+                btnSubmit: "#reg-btn",
+                ajaxPost: true,
+                beforeSubmit: function (curform) {
+                    $("#reg-btn").attr("disabled", "disabled").find("span").text("注册中…");
+                },
+                callback: function (data) {
+                    console.log(data);
+                    if (undefined != data.error) {
+                        $("#reg-btn").removeAttr("disabled").find("span").text("登 录");
+                        var obj = $("#reg-form input[data-error='" + data.error + "']");
+                        layer.tips(data.error, obj, {
+                            guide: 0,
+                            time: 4,
+                            style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
+                        });
+                    } else {
+                        window.location.href = "${ctxPath!}/front/index";
+                    }
+                },
+                tiptype: function (msg, o, cssctl) {
+                    if (!o.obj.is("form")) {
+                        if (o.type != 2) {
+                            layer.tips(msg, o.obj, {
+                                guide: 3,
+                                time: 4,
+                                style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
+                            });
+                        }
+                    }
+                },
+                tipSweep: true
+            });
+
+            $("#reg-form").keydown(function (e) {
+                var e = e || event,
+                    keycode = e.which || e.keyCode;
+                if (keycode == 13) {
+                    $("#reg-btn").trigger("click");
+                }
+            });
+
+        });
+    </script>
+</div>
+</body>
+</html>
