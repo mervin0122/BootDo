@@ -11,10 +11,11 @@
 						<form class="form-horizontal m-t" id="signupForm">
 							<input id="id" name="id" th:value="${notify.id}" type="hidden">
 							<input id="Ttype" name="Ttype" th:value="${notify.type}" type="hidden">
+							<input id="Tstatus" name="Tstatus" th:value="${notify.status}" type="hidden">
 							<div class="form-group">
 								<label class="col-sm-3 control-label">类型：</label>
 								<div class="col-sm-8">
-									<select data-placeholder="选择类别" name="type" id="type" 
+									<select data-placeholder="选择类别" name="type" id="type"
 										class="form-control chosen-select" tabindex="2"
 										style="width: 100%">
 										<option value="">选择类别</option>
@@ -43,7 +44,16 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">已经发布：</label>
+								<label class="col-sm-3 control-label">发布状态：</label>
+								<div class="col-sm-8">
+									<select data-placeholder="选择状态" name="status" id="status"
+											class="form-control chosen-selects" tabindex="2"
+											style="width: 100%">
+										<option value="1">发布</option>
+										<option value="0">草稿</option>
+									</select>
+								</div>
+								<!--<label class="col-sm-3 control-label">已经发布：</label>
 								<div class="switch  col-sm-1">
 									<div class="onoffswitch">
 										<input id="status" name="status" checked="" type="checkbox"
@@ -53,7 +63,7 @@
 											class="onoffswitch-switch"></span>
 										</label>
 									</div>
-								</div>
+								</div>-->
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">备注信息：</label>

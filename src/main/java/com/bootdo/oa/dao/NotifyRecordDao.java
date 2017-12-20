@@ -27,6 +27,8 @@ public interface NotifyRecordDao {
 
 	int update(NotifyRecordDO notifyRecord);
 
+	int updates(NotifyRecordDO notifyRecord);
+
 	int remove(Long id);
 
 	int batchRemove(Long[] ids);

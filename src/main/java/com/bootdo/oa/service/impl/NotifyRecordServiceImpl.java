@@ -41,6 +41,11 @@ public class NotifyRecordServiceImpl implements NotifyRecordService {
 	public int update(NotifyRecordDO notifyRecord){
 		return notifyRecordDao.update(notifyRecord);
 	}
+
+	@Override
+	public int updates(NotifyRecordDO notifyRecord){
+		return notifyRecordDao.updates(notifyRecord);
+	}
 	
 	@Override
 	public int remove(Long id){

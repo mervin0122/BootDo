@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.oa.domain.NotifyRecordDO;
+import com.bootdo.oa.service.NotifyRecordService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -24,7 +26,7 @@ import com.bootdo.common.utils.R;
 
 /**
  * 通知通告
- * 
+ *
  * @author chglee
  * @email 1992lcg@163.com
  * @date 2017-10-05 17:11:16
@@ -35,6 +37,9 @@ import com.bootdo.common.utils.R;
 public class NotifyController extends BaseController {
 	@Autowired
 	private NotifyService notifyService;
+
+	@Autowired
+	private NotifyRecordService notifyRecordService;
 
 	@GetMapping()
 	@RequiresPermissions("oa:notify:notify")
@@ -150,14 +155,19 @@ public class NotifyController extends BaseController {
 	PageUtils selfList(@RequestParam Map<String, Object> params) {
 		Query query = new Query(params);
 		query.put("userId", getUserId());
-		return notifyService.selfList(query);
+		return notifyService.selfLists(query);
 	}
-	
+
 	@GetMapping("/read/{id}")
-	@RequiresPermissions("oa:notify:edit")
+	@RequiresPermissions("oa:notify:read")
 	String read(@PathVariable("id") Long id, Model model) {
 		NotifyDO notify = notifyService.get(id);
 		model.addAttribute("notify", notify);
+		NotifyRecordDO notifyRecord=new NotifyRecordDO();
+		notifyRecord.setIsRead(1);
+		notifyRecord.setNotifyId(id);
+		notifyRecord.setUserId(getUserId());
+		notifyRecordService.updates(notifyRecord);
 		return "oa/notify/read";
 	}
 }

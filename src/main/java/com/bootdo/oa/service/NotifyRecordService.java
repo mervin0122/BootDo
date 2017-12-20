@@ -23,6 +23,8 @@ public interface NotifyRecordService {
 	int save(NotifyRecordDO notifyRecord);
 	
 	int update(NotifyRecordDO notifyRecord);
+
+	int updates(NotifyRecordDO notifyRecord);
 	
 	int remove(Long id);
 	

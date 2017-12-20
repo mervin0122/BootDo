@@ -62,8 +62,14 @@ function loadType(){
 			$(".chosen-select").chosen({
 				maxHeight : 200
 			});
+			$(".chosen-selects").chosen({
+				maxHeight : 200
+			});
 			$(".chosen-select").val($("#Ttype").val());
 			$(".chosen-select").trigger("chosen:updated");
+
+			$(".chosen-selects").val($("#Tstatus").val());
+			$(".chosen-selects").trigger("chosen:updated");
 			// 点击事件
 			$('.chosen-select').on('change', function(e, params) {
 				
