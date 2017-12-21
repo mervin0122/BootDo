@@ -156,8 +156,8 @@ public class FileController extends BaseController {
 	}
 
 	@ResponseBody
-	@PostMapping("/upload1")
-	R upload1(@RequestParam("files") MultipartFile file, HttpServletRequest request) {
+	@PostMapping("/upload")
+	R upload1(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
 		if ("test".equals(getUsername())) {
 			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
 		}
@@ -166,6 +166,7 @@ public class FileController extends BaseController {
 		FileDO sysFile = new FileDO(FileType.fileType(fileName), "/files/" + fileName, new Date());
 		try {
 			FileUtil.uploadFile(file.getBytes(), bootdoConfig.getUploadPath(), fileName);
+			sysFileService.save(sysFile);
 		} catch (Exception e) {
 			return R.error();
 		}
@@ -179,16 +180,19 @@ public class FileController extends BaseController {
 	 * @return
 	 */
 	@ResponseBody
-	@PostMapping("/upload")
-	PhotoResult upload(@RequestParam("files") MultipartFile file, HttpServletRequest request) {
+	@PostMapping("/upload1")
+	PhotoResult upload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
 		PhotoResult result = null;
+		FileDO sysFile=new FileDO();
 		//设置filename
 		// String filename = new Random().nextInt(10000)+file.getOriginalFilename();
 		try {
-			//File files = new File(System.getProperty("java.io.tmpdir") + System.getProperty("file.separator")+file.getOriginalFilename());
-			File files = new File("C:\\Users\\yyzc\\Pictures\\pic\\"+file.getOriginalFilename());
+			// 文件保存路径
+			//String realPath = photoUploadUtil.PICFILES_BASE_URL + "/" ;
+			//photoUploadUtil.createDirectory(Global.getUserfilesBaseDir() + realPath);
+			//File files = new File("/docs/img/"+file.getOriginalFilename());
+			File files = new File(System.getProperty("java.io.tmpdir") + System.getProperty("file.separator")+file.getOriginalFilename());
 			file.transferTo(files);
-
 			result = photoUploadUtil.uploadPhoto(files.getAbsolutePath(), file.getOriginalFilename());
 			return result;
 		} catch (IOException e) {

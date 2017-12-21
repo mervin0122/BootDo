@@ -8,9 +8,11 @@ import com.qiniu.storage.BucketManager;
 import com.qiniu.storage.Configuration;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.util.Auth;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.util.Calendar;
 
 /**
@@ -22,6 +24,9 @@ import java.util.Calendar;
  */
 @Component
 public class PhotoUploadUtil {
+
+    public static final String PICFILES_BASE_URL = "/picfiles/";
+
     //设置好账号的ACCESS_KEY和SECRET_KEY
     @Value("${qiniu.accessKey}")
     private String ACCESS_KEY;
@@ -98,4 +103,29 @@ public class PhotoUploadUtil {
         return result;
     }
 
+    /**
+     * 创建目录
+     * @param descDirName 目录名,包含路径
+     * @return 如果创建成功，则返回true，否则返回false
+     */
+    public static boolean createDirectory(String descDirName) {
+        String descDirNames = descDirName;
+        if (!descDirNames.endsWith(File.separator)) {
+            descDirNames = descDirNames + File.separator;
+        }
+        File descDir = new File(descDirNames);
+        if (descDir.exists()) {
+            System.out.println("目录 " + descDirNames + " 已存在!");
+            return false;
+        }
+        // 创建目录
+        if (descDir.mkdirs()) {
+            System.out.println("目录 " + descDirNames + " 创建成功!");
+            return true;
+        } else {
+            System.out.println("目录 " + descDirNames + " 创建失败!");
+            return false;
+        }
+
+    }
 }
