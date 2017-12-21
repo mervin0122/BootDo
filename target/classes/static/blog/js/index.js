@@ -114,8 +114,11 @@ $(".archive-list-link").on('click',function () {
 })
 /*文章分类点击事件*/
 $(".category-list-link").on('click',function () {
+    //alert($(this).data("id"));
     var categoryId = $(this).data("id");
     var loadPager = {page:1,start:0,limit:10};
+    //alert(categoryId);
+
     $.ajax({
         type: 'GET',
         url: '/blog/pager/categories/' + categoryId,
@@ -132,6 +135,7 @@ $(".category-list-link").on('click',function () {
 $("#main-article").on('click','.article-category-link',function () {
     var categoryId = $(this).data("id");
     var loadPager = {page:1,start:0,limit:10};
+    alert(categoryId);
     $.ajax({
         type: 'GET',
         url: '/blog/pager/categories/' + categoryId,

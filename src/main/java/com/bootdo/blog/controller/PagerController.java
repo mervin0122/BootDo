@@ -45,8 +45,9 @@ public class PagerController {
      * @return
      */
     @RequestMapping("/pager/categories/{categoryId}")
-    public Pager loadCategoryPager(Pager pager,@PathVariable Integer categoryId){
-        pagerService.loadCategoryPager(pager,categoryId);
+    public Pager loadCategoryPager(Pager pager,@PathVariable String categoryId){
+        Integer id=Integer.parseInt(categoryId);
+        pagerService.loadCategoryPager(pager,id);
         return pager;
     }
 
