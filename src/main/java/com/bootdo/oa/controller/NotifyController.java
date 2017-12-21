@@ -142,7 +142,7 @@ public class NotifyController extends BaseController {
 		params.put("limit", 3);
 		Query query = new Query(params);
 		query.put("userId", getUserId());
-		return notifyService.selfList(query);
+		return notifyService.selfLists(query);
 	}
 
 	@GetMapping("/selfNotify")
@@ -155,7 +155,7 @@ public class NotifyController extends BaseController {
 	PageUtils selfList(@RequestParam Map<String, Object> params) {
 		Query query = new Query(params);
 		query.put("userId", getUserId());
-		return notifyService.selfLists(query);
+		return notifyService.selfList(query);
 	}
 
 	@GetMapping("/read/{id}")

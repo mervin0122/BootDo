@@ -47,7 +47,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -356,7 +355,7 @@ public class OkShopController {
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     @ResponseBody
-    public String uploadFileHandlerStore(@RequestParam("file") MultipartFile file,
+    public String uploadFileHandlerStore(@RequestParam("files") MultipartFile file,
                                      HttpServletRequest request) throws IOException {
         return fileUpload(file, request,"upload/store/");
     }
@@ -364,12 +363,12 @@ public class OkShopController {
 
     @RequestMapping(value = "/fileUpload1", method = RequestMethod.POST)
     @ResponseBody
-    public String uploadFileHandlerGoods(@RequestParam("file") MultipartFile file,
+    public String uploadFileHandlerGoods(@RequestParam("files") MultipartFile file,
                                     HttpServletRequest request) throws IOException {
         return fileUpload(file, request,"upload/project");
     }
 
-    private String fileUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request,String path) throws IOException {
+    private String fileUpload(@RequestParam("files") MultipartFile file, HttpServletRequest request, String path) throws IOException {
         if (!file.isEmpty()) {
             InputStream in = null;
             OutputStream out = null;

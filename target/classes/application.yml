@@ -38,4 +38,5 @@ qiniu:
   accessKey: AMJ_CEvgX1eUYtSwC1ioo_WnmR73ufqYYmwrrPDV
   secretKey: 1iUDYRKdibiVP-WZLrGoErtdWWCqYWXjKUbQtAYQ
   bucketName:  j5shop
-  basePath: http://p0bt2oaom.bkt.clouddn.com/
+  #basePath: http://p0bt2oaom.bkt.clouddn.com/
+  basePath: http://localhost/

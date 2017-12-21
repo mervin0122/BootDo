@@ -19,8 +19,6 @@ import com.bootdo.shop.domain.TFloorDO;
 import com.bootdo.shop.domain.TGoodSorderDO;
 import com.bootdo.shop.domain.TGoodsClassDO;
 import com.bootdo.shop.domain.TGoodsDO;
-import com.bootdo.shop.domain.TMemberDO;
-import com.bootdo.shop.domain.TOrderDO;
 import com.bootdo.shop.domain.TStoreDO;
 import com.bootdo.shop.service.AddressService;
 import com.bootdo.shop.service.ArticleService;
@@ -61,11 +59,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.*;
 
@@ -650,7 +646,7 @@ public class IndexController{
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     @ResponseBody
-    public String uploadFileHandlerStore(@RequestParam("file") MultipartFile file,
+    public String uploadFileHandlerStore(@RequestParam("files") MultipartFile file,
                                          HttpServletRequest request) throws IOException {
         return fileUpload(file, request,"upload/store/");
     }
@@ -658,12 +654,12 @@ public class IndexController{
 
     @RequestMapping(value = "/fileUpload1", method = RequestMethod.POST)
     @ResponseBody
-    public String uploadFileHandlerGoods(@RequestParam("file") MultipartFile file,
+    public String uploadFileHandlerGoods(@RequestParam("files") MultipartFile file,
                                          HttpServletRequest request) throws IOException {
         return fileUpload(file, request,"upload/project");
     }
 
-    private String fileUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request,String path) throws IOException {
+    private String fileUpload(@RequestParam("files") MultipartFile file, HttpServletRequest request, String path) throws IOException {
         if (!file.isEmpty()) {
             InputStream in = null;
             OutputStream out = null;

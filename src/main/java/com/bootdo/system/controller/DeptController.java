@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.utils.Query;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.codehaus.groovy.ast.expr.PrefixExpression;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +48,9 @@ public class DeptController extends BaseController {
 	@ResponseBody
 	@GetMapping("/list")
 	@RequiresPermissions("system:sysDept:sysDept")
-	public List<DeptDO> list() {
-		Map<String, Object> query = new HashMap<>();
+	public List<DeptDO> list(@RequestParam Map<String, Object> params) {
+		//Map<String, Object> query = new HashMap<>();
+		Query query = new Query(params);
 		List<DeptDO> sysDeptList = sysDeptService.list(query);
 		return sysDeptList;
 	}

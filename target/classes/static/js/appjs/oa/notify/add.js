@@ -50,10 +50,12 @@ function validateRule() {
 }
 function loadType(){
 	var html = "";
+	//var htmls ='';
 	$.ajax({
 		url : '/common/sysDict/list/oa_notify_type',
 		success : function(data) {
 			//加载数据
+			//htmls += '<option value="0">发布</option><option value="1">草稿</option>'
 			for (var i = 0; i < data.length; i++) {
 				html += '<option value="' + data[i].value + '">' + data[i].name + '</option>'
 			}
@@ -61,6 +63,11 @@ function loadType(){
 			$(".chosen-select").chosen({
 				maxHeight : 200
 			});
+		/*	$(".chosen-selects").append(htmls);*/
+			$(".chosen-selects").chosen({
+				maxHeight : 200
+			});
+
 			//点击事件
 			$('.chosen-select').on('change', function(e, params) {
 				console.log(params.selected);
@@ -71,6 +78,15 @@ function loadType(){
 				}
 				$('#exampleTable').bootstrapTable('refresh', opt);
 			});
+			/*$('.chosen-selects').on('change', function(e, params) {
+				console.log(params.selected);
+				var opts = {
+					query : {
+						status : params.selected,
+					}
+				}
+				$('#exampleTable').bootstrapTable('refresh', opts);
+			});*/
 		}
 	});
 }

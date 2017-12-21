@@ -116,5 +116,17 @@ public class NotifyServiceImpl implements NotifyService {
 		PageUtils page = new PageUtils(rows, notifyDao.countDTO(map));
 		return page;
 	}
+	@Override
+	public PageUtils selfLists(Map<String, Object> map) {
+		map.put("isRead","0");
+		List<NotifyDTO> rows = notifyDao.listDTO(map);
+		for (NotifyDTO notifyDTO : rows) {
+			notifyDTO.setBefore(DateUtils.getTimeBefore(notifyDTO.getUpdateDate()));
+			notifyDTO.setSender(userDao.get(notifyDTO.getCreateBy()).getName());
+		}
+		map.put("status","1");
+		PageUtils page = new PageUtils(rows, notifyDao.countDTO(map));
+		return page;
+	}
 
 }

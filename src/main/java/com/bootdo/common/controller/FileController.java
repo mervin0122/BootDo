@@ -157,7 +157,7 @@ public class FileController extends BaseController {
 
 	@ResponseBody
 	@PostMapping("/upload1")
-	R upload1(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+	R upload1(@RequestParam("files") MultipartFile file, HttpServletRequest request) {
 		if ("test".equals(getUsername())) {
 			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
 		}
@@ -180,12 +180,13 @@ public class FileController extends BaseController {
 	 */
 	@ResponseBody
 	@PostMapping("/upload")
-	PhotoResult upload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+	PhotoResult upload(@RequestParam("files") MultipartFile file, HttpServletRequest request) {
 		PhotoResult result = null;
 		//设置filename
 		// String filename = new Random().nextInt(10000)+file.getOriginalFilename();
 		try {
-			File files = new File(System.getProperty("java.io.tmpdir") + System.getProperty("file.separator")+file.getOriginalFilename());
+			//File files = new File(System.getProperty("java.io.tmpdir") + System.getProperty("file.separator")+file.getOriginalFilename());
+			File files = new File("C:\\Users\\yyzc\\Pictures\\pic\\"+file.getOriginalFilename());
 			file.transferTo(files);
 
 			result = photoUploadUtil.uploadPhoto(files.getAbsolutePath(), file.getOriginalFilename());

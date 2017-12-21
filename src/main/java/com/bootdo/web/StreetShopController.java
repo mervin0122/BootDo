@@ -54,7 +54,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -65,7 +64,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * <p>
@@ -672,7 +670,7 @@ public class StreetShopController {
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     @ResponseBody
-    public String uploadFileHandlerStore(@RequestParam("file") MultipartFile file,
+    public String uploadFileHandlerStore(@RequestParam("files") MultipartFile file,
                                      HttpServletRequest request) throws IOException {
         return fileUpload(file, request,"upload/store/");
     }
@@ -680,12 +678,12 @@ public class StreetShopController {
 
     @RequestMapping(value = "/fileUpload1", method = RequestMethod.POST)
     @ResponseBody
-    public String uploadFileHandlerGoods(@RequestParam("file") MultipartFile file,
+    public String uploadFileHandlerGoods(@RequestParam("files") MultipartFile file,
                                     HttpServletRequest request) throws IOException {
         return fileUpload(file, request,"upload/project");
     }
 
-    private String fileUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request,String path) throws IOException {
+    private String fileUpload(@RequestParam("files") MultipartFile file, HttpServletRequest request, String path) throws IOException {
         if (!file.isEmpty()) {
             InputStream in = null;
             OutputStream out = null;
