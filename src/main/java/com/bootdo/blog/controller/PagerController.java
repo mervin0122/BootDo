@@ -1,15 +1,18 @@
 package com.bootdo.blog.controller;
 
+import com.bootdo.blog.domain.ArticleCustom;
 import com.bootdo.blog.service.CategoryService;
 import com.bootdo.blog.service.PagerService;
 import com.bootdo.blog.service.TagService;
 import com.bootdo.blog.domain.Pager;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Do
@@ -27,7 +30,7 @@ public class PagerController {
     @Resource
     private TagService tagService;
     @Resource
-    CategoryService categoryService;
+     CategoryService categoryService;
     /**
      * 初始化文章分页信息
      * @return
@@ -38,6 +41,17 @@ public class PagerController {
         return pager;
     }
 
+    /**
+     * 初始化时间的文章分页信息
+     * @param pager 分页对象
+     * @param createTime 分类id
+     * @return
+     */
+    @RequestMapping("/pager/createTime/{createTime}")
+    public Pager loadCreateTimesPager(Pager pager,@PathVariable String createTime){
+        categoryService.loadArticleByArchive(createTime,pager);
+        return pager;
+    }
     /**
      * 初始化当前分类id的文章分页信息
      * @param pager 分页对象

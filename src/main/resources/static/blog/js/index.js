@@ -62,6 +62,8 @@ function  loadList(type,id) {
     var url = "";
     if (type == "article"){
         url = '/blog/'+type+'/load';
+    }else if (type == "createTime"){
+        url = '/blog/categories/'+type+'/load'+id;
     }
     else{
         url = '/blog/'+type+'/load/'+id;
@@ -76,8 +78,8 @@ function  loadList(type,id) {
             //初始化文章
             /*分享初始化*/
             $(".socialShare").socialShare({
-                content: "EumJi在IT,生活,音乐方面的分享",
-                url:"www.eumji025.com/",
+                content: "IT,生活,音乐方面的分享",
+                url:"http://blog.csdn.net/u012615705",
                 title:$("#article-title").text(),
                 summary:'Eumji个人博客分享,欢迎指教',
                 pic:'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
@@ -104,20 +106,32 @@ $("#main-article").on('click','.article-tag-link',function () {
 
 /*文章归档点击事件*/
 $(".archive-list-link").on('click',function () {
-    var createTime = $(this).data("id");
-    var count  = $(this).next().text();
+    //var createTime = $(this).data("id");
+    var createTime = $(this).attr('id');
+  /*  var count  = $(this).next().text();
     pager.totalCount = count;
     pager.totalPageNum = Math.floor(count/pager.limit)+1;
     pager.page = 1;
     $("#pagination").data("type","createTime");
-    initPage(createTime);
+    initPage(createTime);*/
+    var loadPager = {page:1,start:0,limit:10};
+
+    $.ajax({
+        type: 'GET',
+        url: '/blog/pager/createTime/' + createTime,
+        data: loadPager,
+        success: function (data) {
+            pager = data;
+            $("#pagination").data("type","createTime");
+            initPage(createTime);
+        }
+    });
 })
 /*文章分类点击事件*/
 $(".category-list-link").on('click',function () {
-    //alert($(this).data("id"));
-    var categoryId = $(this).data("id");
+   // var categoryId =$(this).data("id");
+    var categoryId = $(this).attr('id');
     var loadPager = {page:1,start:0,limit:10};
-    //alert(categoryId);
 
     $.ajax({
         type: 'GET',
@@ -135,7 +149,6 @@ $(".category-list-link").on('click',function () {
 $("#main-article").on('click','.article-category-link',function () {
     var categoryId = $(this).data("id");
     var loadPager = {page:1,start:0,limit:10};
-    alert(categoryId);
     $.ajax({
         type: 'GET',
         url: '/blog/pager/categories/' + categoryId,

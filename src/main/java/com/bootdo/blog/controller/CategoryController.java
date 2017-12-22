@@ -42,7 +42,22 @@ public class CategoryController {
         }
         return "blog/part/categorySummary";
     }
-
+    /**
+     * 根据时间获取文章分页信息
+     * @param pager 分页对象
+     * @param createTime 时间
+     * @return
+     */
+    @RequestMapping("/createTime/load/{createTime}")
+    public String loadCreateTimePager(Model model, Pager pager, @PathVariable String createTime){
+        List<ArticleCustom> articleList= categoryService.loadArticleByArchive(createTime,pager);
+        if (!articleList.isEmpty()){
+            model.addAttribute("articleList",articleList);
+            model.addAttribute("pager",pager);
+            model.addAttribute("categoryName",articleList.get(0).getCategoryName());
+        }
+        return "blog/part/categorySummary";
+    }
     /**
      * 跳转到分类的页面 暂时停用
      * @param model

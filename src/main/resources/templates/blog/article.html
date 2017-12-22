@@ -87,6 +87,31 @@
             }
         }
 
+        /* textarea 自适应父容器大小 */
+      /*  .contents {
+            height: auto;
+            width: 100%; !*自动适应父布局宽度*!
+            overflow: hidden;
+            word-break: break-all;
+            !*在ie中解决断行问题(防止自动变为在一行显示，主要解决ie兼容问题，ie8中当设宽度为100%时，文本域类容超过一行时，当我们双击文本内容就会自动变为一行显示，所以只能用ie的专有断行属性“word-break或word-wrap”控制其断行)*!
+        }*/
+        .contents {
+            width: 1140px;
+            min-height: 600px;
+            max-height: 300000px;
+            _height: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 3px;
+            outline: 0;
+            border: 0px solid #a0b3d6;
+          /*  font-size: 12px;*/
+            word-wrap: break-word;
+            overflow-x: hidden;
+            overflow-y: auto;
+            _overflow-y: visible;
+        }
+
     </style>
 </head>
 <body>
@@ -122,7 +147,7 @@
                             <span id="article-title" th:text="${article.title}"></span>
                         </h1>
 
-
+                        <hr>
 
                         <div class="article-meta">
 
@@ -148,19 +173,21 @@
                             </div>
                         </div>
 
-
+                        <hr>
                     </header>
 
 
                     <div class="article-entry" itemprop="articleBody" lg-uid="lg0">
                         <div id="article-content">
-                            <textarea id="append-test" style="display:none;" th:utext="${article.content}"></textarea>
+                         <!--   style="display:none;"-->
+                            <textarea id="append-test"   class="contents" contenteditable="true" th:utext="${article.content}"></textarea>
+                           <!-- <div id="append-test"   class="list-block-gw list-newest-w" contenteditable="true" th:text="${article.content}"></div>-->
                         </div>
 
                     </div>
                     <footer class="article-footer">
                         <div id="socialShare" class="socialShare active" th:data-content="${article.description}"
-                             th:data-title="${article.title}" th:data-url="'/article/details/'+${article.id}" th:data-desc="${article.description}"></
+                             th:data-title="${article.title}" th:data-url="'/article/details/'+${article.id}" th:data-desc="${article.description}"></div>
                     </footer>
                 </div>
 

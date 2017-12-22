@@ -7,8 +7,8 @@
     <div class="widget">
         <ul class="archive-list">
             <li class="archive-list-item" th:each="archive : ${archiveList}" style="cursor: pointer">
-                <!-- th:onclick="'loadarchive('+${archive.id}+')'" -->
-                <a class="archive-list-link" th:data-id="${archive.createTime}" th:text="${archive.createTime}"></a>
+               <!--  th:onclick="'loadarchive('+${archive.id}+')'" -->
+                <a class="archive-list-link" th:id="${archive.createTime}" th:text="${archive.createTime}"></a>
                 <span class="archive-list-count" th:text="${archive.count}"></span>
             </li>
         </ul>
