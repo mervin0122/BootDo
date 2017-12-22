@@ -23,11 +23,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/blog/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="116" column="8" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
+            <state relative-caret-position="618">
+              <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application-pro.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application-pro.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="head.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/part/head.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="72" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="busuamzi.pure.mini.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/blog/js/busuamzi.pure.mini.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aboutMe.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/aboutMe.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="9" column="68" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -36,83 +76,39 @@
       <file leaf-file-name="article.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/article.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1031">
-              <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+            <state relative-caret-position="181">
+              <caret line="10" column="68" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/service/CategoryService.java">
+      <file leaf-file-name="base-of-me.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/part/base-of-me.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="41" column="23" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="23" />
+            <state relative-caret-position="261">
+              <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArticleMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/blog/ArticleMapper.xml">
+      <file leaf-file-name="share.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/blog/js/share.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="150" column="36" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="36" />
-              <folding>
-                <element signature="e#5410#5414#0" expanded="true" />
-                <marker date="1512192607539" expanded="true" signature="951:997" ph="select count... article" />
-                <marker date="1512192607539" expanded="true" signature="1091:1337" ph="select artic... article" />
-                <marker date="1512192607539" expanded="true" signature="1457:1505" ph="select * fro... articletag" />
-                <marker date="1512192607539" expanded="true" signature="1612:1935" ph="select artic... article" />
-                <marker date="1512192607539" expanded="true" signature="2034:2376" ph="select artic... article" />
-                <marker date="1512192607539" expanded="true" signature="2249:2313" ph="select DISTI... articletag" />
-                <marker date="1512192607539" expanded="true" signature="2463:2492" ph="select count... article" />
-                <marker date="1512192607539" expanded="true" signature="2627:3450" ph="select artic... article" />
-                <marker date="1512192607539" expanded="true" signature="2889:2944" ph="/*2017年5yue1... " />
-                <marker date="1512192607539" expanded="true" signature="3523:3577" ph="update artic... " />
-                <marker date="1512192607539" expanded="true" signature="3647:3799" ph="insert into article... " />
-                <marker date="1512192607539" expanded="true" signature="4020:4091" ph="SELECT ##{art... " />
-                <marker date="1512192607539" expanded="true" signature="4049:4090" ph="select tagNa... tag" />
-                <marker date="1512192607539" expanded="true" signature="4199:4245" ph="select count... article" />
-                <marker date="1512192607539" expanded="true" signature="4365:4441" ph="select id,ti... article" />
-                <marker date="1512192607539" expanded="true" signature="4513:4669" ph="update artic... " />
-                <marker date="1512192607539" expanded="true" signature="4732:4785" ph="delete from " />
-                <marker date="1512192607539" expanded="true" signature="4857:4893" ph="delete from " />
-                <marker date="1512192607539" expanded="true" signature="5001:5221" ph="select artic... article" />
-                <marker date="1512192607539" expanded="true" signature="5364:5496" ph="select id,ti... article" />
-                <marker date="1512192607539" expanded="true" signature="5416:5463" ph="select creat... article" />
-                <marker date="1512192607539" expanded="true" signature="5637:5770" ph="select id,ti... article" />
-                <marker date="1512192607539" expanded="true" signature="5689:5736" ph="select creat... article" />
-                <marker date="1512192607539" expanded="true" signature="5847:5906" ph="update artic... " />
-                <marker date="1512192607539" expanded="true" signature="6004:6249" ph="select artic... article" />
-                <marker date="1512192607539" expanded="true" signature="6348:6388" ph="select id fr... article" />
-                <marker date="1512192607539" expanded="true" signature="6578:6763" ph="select id,ti... article" />
-                <marker date="1512192607539" expanded="true" signature="6843:6894" ph="select id,ti... article" />
-                <marker date="1512192607539" expanded="true" signature="7019:7166" ph="select DATE_... " />
-                <marker date="1512192607539" expanded="true" signature="7270:7623" ph="select artic... article" />
-                <marker date="1512192607539" expanded="true" signature="7700:7770" ph="update artic... " />
-              </folding>
+            <state relative-caret-position="265">
+              <caret line="208" column="13" selection-start-line="208" selection-start-column="13" selection-end-line="208" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/blog/CategoryMapper.xml">
+      <file leaf-file-name="blogindex.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blogindex.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-              <folding>
-                <marker date="1512192143428" expanded="true" signature="272:302" ph="select count... category" />
-                <marker date="1512192143428" expanded="true" signature="479:897" ph="SELECT t1.id... category" />
-                <marker date="1512192143428" expanded="true" signature="646:820" ph="SELECT DISTI... article" />
-                <marker date="1512192143428" expanded="true" signature="1004:1072" ph="SELECT id,ca... category" />
-                <marker date="1512192143428" expanded="true" signature="1172:1463" ph="SELECT id,ca... category" />
-                <marker date="1512192143428" expanded="true" signature="1786:1882" ph="insert into category... " />
-                <marker date="1512192143428" expanded="true" signature="1954:2144" ph="update categ... " />
-                <marker date="1512192143428" expanded="true" signature="2268:2314" ph="select id,ca... category" />
-                <marker date="1512192143428" expanded="true" signature="2412:2489" ph="select count... article" />
-                <marker date="1512192143428" expanded="true" signature="2550:2595" ph="delete from " />
-              </folding>
+            <state relative-caret-position="181">
+              <caret line="10" column="68" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,18 +116,8 @@
       <file leaf-file-name="CategoryController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/controller/CategoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-22">
+            <state relative-caret-position="-88">
               <caret line="19" column="33" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PagerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/controller/PagerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -233,10 +219,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/doc/url" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/oa/notify/add.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/oa/notify/edit.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/appjs/oa/notify/add.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/appjs/oa/notify/edit.js" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/oa/NotifyMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/oa/NotifyRecordMapper.xml" />
@@ -263,27 +245,31 @@
         <option value="$PROJECT_DIR$/src/main/java/com/bootdo/common/controller/FileController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bootdo/common/utils/FileType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bootdo/blog/controller/BlogController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/blog/aboutMe.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/login.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/index/main.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/part/footer.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/blog/part/head.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/part/header.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/part/base-of-me.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/blogindex.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/blogindex.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/blog/js/category.js" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/part/friend-link.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/part/search-info.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/popular.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/part/articleSummary.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/blog/js/share.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/blog/article.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/part/classification.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/blog/part/article-archive.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bootdo/blog/controller/PagerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bootdo/blog/controller/CategoryController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bootdo/blog/service/impl/PagerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bootdo/blog/service/PagerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bootdo/blog/controller/PagerController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/blog/js/index.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/blog/js/article-content.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/blog/js/share.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/blogindex.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/blog/aboutMe.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/blog/article.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/blog/part/head.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/blog/js/busuamzi.pure.mini.js" />
       </list>
     </option>
   </component>
@@ -1590,7 +1576,7 @@
       <workItem from="1512535059602" duration="66598000" />
       <workItem from="1513212646326" duration="13481000" />
       <workItem from="1513816190077" duration="23358000" />
-      <workItem from="1513902477416" duration="19242000" />
+      <workItem from="1513902477416" duration="20342000" />
     </task>
     <task id="LOCAL-00001" summary="wap">
       <created>1508921882748</created>
@@ -1631,11 +1617,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="537166000" />
+    <option name="totallyTimeSpent" value="538266000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922733" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1654,11 +1640,11 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21699266" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16461366" sideWeight="0.4339019" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3594625" sideWeight="0.4339019" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33482644" sideWeight="0.80916846" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30011198" sideWeight="0.80916846" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1755,45 +1741,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/part/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="36" column="80" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/popular.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="30" column="68" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="68" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#p#0;n#div#1;n#div#0;n#article#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/articleDesc.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="42" column="70" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/blog/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="1054" column="1" selection-start-line="1054" selection-start-column="1" selection-end-line="1054" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/bg.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/img/success.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1844,14 +1791,6 @@
           <folding>
             <element signature="n#style#0;n#textarea#0;n#div#1;n#div#7;n#div#0;n#div#0;n#div#0;n#form#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/blog/js/share.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1907,14 +1846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/part/head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="57" column="64" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/part/articleSummary.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
@@ -1948,35 +1879,6 @@
         <state relative-caret-position="217">
           <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blogindex.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/blog/js/article-content.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/blog/PagerMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1512191704199" expanded="true" signature="306:383" ph="select count... article" />
-            <marker date="1512191704199" expanded="true" signature="456:587" ph="select count... articletag" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2038,14 +1940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/service/PagerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/domain/Pager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -2066,14 +1960,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/service/impl/CategoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -2138,30 +2024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/service/CategoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="41" column="23" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/controller/CategoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/article.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1031">
-          <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/lib/springcloud/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -2170,18 +2032,141 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/service/CategoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="41" column="44" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/service/impl/CategoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="92" column="5" selection-start-line="88" selection-start-column="2" selection-end-line="92" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/blog/PagerMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="32" />
+          <folding>
+            <marker date="1512191704199" expanded="true" signature="306:383" ph="select count... article" />
+            <marker date="1512191704199" expanded="true" signature="456:587" ph="select count... articletag" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/service/impl/PagerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="46" column="68" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/service/PagerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="701">
+          <caret line="33" column="69" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/controller/PagerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state relative-caret-position="178">
+          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bootdo/blog/controller/CategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-88">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/blog/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="116" column="8" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
+        <state relative-caret-position="618">
+          <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-pro.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="38" column="14" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/blog/js/article-content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/blog/js/share.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="208" column="13" selection-start-line="208" selection-start-column="13" selection-end-line="208" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blogindex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="10" column="68" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/aboutMe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="9" column="68" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/article.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="10" column="68" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/part/head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="72" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/blog/js/busuamzi.pure.mini.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/blog/part/base-of-me.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
           <folding />
         </state>
       </provider>

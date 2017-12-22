@@ -30,4 +30,6 @@ public interface PagerService {
      * @param tagId
      */
     void loadTagPager(Pager pager, Integer tagId);
+
+    public void loadArticleByArchive(String createTime, Pager pager);
 }

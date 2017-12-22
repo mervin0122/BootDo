@@ -49,7 +49,7 @@ public class PagerController {
      */
     @RequestMapping("/pager/createTime/{createTime}")
     public Pager loadCreateTimesPager(Pager pager,@PathVariable String createTime){
-        categoryService.loadArticleByArchive(createTime,pager);
+        pagerService.loadArticleByArchive(createTime,pager);
         return pager;
     }
     /**

@@ -3,11 +3,13 @@ package com.bootdo.blog.service.impl;
 
 import com.bootdo.blog.dao.ArticleMapper;
 import com.bootdo.blog.dao.PagerMapper;
+import com.bootdo.blog.domain.ArticleCustom;
 import com.bootdo.blog.service.PagerService;
 import com.bootdo.blog.domain.Pager;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Do
@@ -38,6 +40,12 @@ public class PagerServiceImpl implements PagerService {
     @Override
     public void loadTagPager(Pager pager, Integer tagId) {
         int count = pagerMapper.loadTagPager(tagId);
+        pager.setTotalCount(count);
+    }
+
+    @Override
+    public void loadArticleByArchive(String createTime, Pager pager) {
+        int count= articleMapper.loadArticleByArchive(pager,createTime).size();
         pager.setTotalCount(count);
     }
 }

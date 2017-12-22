@@ -63,7 +63,7 @@ function  loadList(type,id) {
     if (type == "article"){
         url = '/blog/'+type+'/load';
     }else if (type == "createTime"){
-        url = '/blog/categories/'+type+'/load'+id;
+        url = '/blog/categories/'+type+'/load/'+id;
     }
     else{
         url = '/blog/'+type+'/load/'+id;
@@ -81,7 +81,7 @@ function  loadList(type,id) {
                 content: "IT,生活,音乐方面的分享",
                 url:"http://blog.csdn.net/u012615705",
                 title:$("#article-title").text(),
-                summary:'Eumji个人博客分享,欢迎指教',
+                summary:'个人博客分享',
                 pic:'http://of8rkrh1w.bkt.clouddn.com/2017/4/21/touxiang.jpg'
             });
             $('#loader-wrapper .load_title').remove();
