@@ -1,8 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" lang="zh">
-<head th:include="blog/part/head"></head>
+<head th:include="blog/part/head">
+    <meta charset="utf-8">
+    <title>热门文章</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/blog/css/load.css">
+</head>
 
 <body>
 <div id="container">
@@ -15,12 +18,13 @@
             <div class="inner profile-inner" th:replace="blog/part/base-of-me :: base_of_me"></div>
             <!--友情链接-->
             <div class="inner profile-inner" th:replace="blog/part/friend-link :: friend_link"></div>
-            <!--微信公众号信息-->
-            <div class="inner profile-inner" th:replace="blog/part/wechat-info :: wechat_info"></div>
+           <!-- &lt;!&ndash;微信公众号信息&ndash;&gt;
+            <div class="inner profile-inner" th:replace="blog/part/wechat-info :: wechat_info"></div>-->
         </aside>
 
         <section id="main">
             <article th:each="article : ${articleList}" th:id="'/article/details/'+${article.id}" class="article article-type-post" itemscope itemprop="blogPost">
+
                 <div class="article-inner">
 
 
@@ -74,15 +78,17 @@
                     </footer>
                 </div>
             </article>
+
         </section>
 
         <aside id="sidebar">
 
             <!--每日一言-->
             <div class="widget-wrap" th:replace="blog/part/aphorism :: aphorism"></div>
-            <!--文章分类-->
-            <div class="widget-wrap" th:replace="blog/part/classification ::classification"></div>
-
+         <!--   &lt;!&ndash;文章分类&ndash;&gt;
+            <div class="widget-wrap" th:replace="blog/part/classification ::classification"></div>-->
+            <!--标签云-->
+          <!--  <div class="widget-wrap" th:replace="blog/part/article-archive :: article-archive"></div>-->
             <div class="widget-wrap" th:replace="blog/part/label-info :: label-info"></div>
 
             <div id="toTop" class="fa fa-angle-up"></div>
@@ -90,11 +96,14 @@
 
     </div>
     <footer id="footer" th:replace="blog/part/footer :: footer"></footer>
-
     <script src="/blog/vendor/jquery/2.1.3/jquery.min.js"></script>
-    <script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
     <script src="/blog/js/share.js"></script>
     <script src="/blog/js/jquery.pagination.js"></script>
+
+
+
 </div>
 
 </body>

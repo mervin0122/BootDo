@@ -64,15 +64,8 @@
         order by createTime desc limit #{pager.start},#{pager.limit}
     </select>
 
-    <!--更新文章状态-->
-    <update id="updateStatue">
-        update article set status = #{status} where id = #{id}
-    </update>
 
-    <!--保存文章-->
-    <insert id="saveArticle">
-        insert into article(id,categoryId, title, content, description, createTime) values(#{id},#{categoryId},#{title},#{content},#{description},#{createTime})
-    </insert>
+
     <!--保存文章标签-->
     <insert id="saveArticleTag">
         INSERT into articletag(articleId, tagId, tagName)
@@ -84,24 +77,12 @@
     <select id="checkExist" resultType="int">
         select count(id) from article where id = #{id}
     </select>
-    <!--通过id查找文章-->
-    <select id="getArticleById" resultType="com.bootdo.blog.domain.Article">
-        select id,title,description,content,categoryId from article where id = #{id}
-    </select>
 
-    <!--更新文章-->
-    <update id="updateArticle">
-        update article set title = #{title},description = #{description},content = #{content},updateTime = #{updateTime},categoryId = #{categoryId} where id = #{id}
-    </update>
     
     <delete id="deleteArticleTag">
         delete from articletag where articleId = #{articleId}
     </delete>
 
-    <!--删除文章-->
-    <delete id="deleteArticle">
-        delete from article where id = #{id}
-    </delete>
     <!--通过id查找 博文的详细信息-->
     <select id="getArticleCustomById" resultMap="article">
         select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId = category.id and article.id = #{id}
@@ -156,4 +137,72 @@
       update article set categoryId = 99999 where categoryId = #{categoryId}
     </update>
 
+    <select id="list"  resultType="com.bootdo.blog.domain.Article">
+        select article.id as `id`,`categoryId`,`categoryName`,`aliasName`,`title`,`content`,`description`,`status`,`author`,`createTime`,`updateTime`,`showCount` from article,category
+        <where>
+          <!--  <if test="cid != null and cid != ''"> and cid = #{cid} </if>
+            <if test="title != null and title != ''"> and title = #{title} </if>  status=1 and-->
+            article.categoryId = category.id
+            <if test="title != null and title != ''"> and title like CONCAT('%', #{title}, '%') </if>
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by createTime desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="counts" resultType="int">
+        select count(*) from article,category
+        <where>
+            <!--  <if test="cid != null and cid != ''"> and cid = #{cid} </if>
+           <if test="title != null and title != ''"> and title = #{title} </if>  status=1 and -->
+           article.categoryId = category.id
+            <if test="title != null and title != ''"> and title like CONCAT('%', #{title}, '%') </if>
+        </where>
+    </select>
+
+    <!--保存文章-->
+    <insert id="saveArticle"  parameterType="com.bootdo.blog.domain.Article" useGeneratedKeys="true" keyProperty="id">
+        insert into article(categoryId, title, content, description, createTime) values(#{categoryId},#{title},#{content},#{description},#{createTime})
+    </insert>
+
+    <!--通过id查找文章-->
+    <select id="getArticleById" resultType="com.bootdo.blog.domain.Article">
+        select id,title,description,content,categoryId from article where id = #{id}
+    </select>
+    <!--更新文章状态-->
+    <update id="updateStatue" parameterType="com.bootdo.blog.domain.Article">
+        update article set status = #{status} where id = #{id}
+    </update>
+
+    <!--更新文章-->
+    <update id="updateArticle" parameterType="com.bootdo.blog.domain.Article">
+        update article
+        <set>
+            <if test="title != null">`title` = #{title}, </if>
+            <if test="description != null">`description` = #{description}, </if>
+            <if test="content != null">`content` = #{content}, </if>
+            <if test="updateTime != null">`updateTime` = #{updateTime}, </if>
+            <if test="categoryId != null">`content` = #{categoryId} </if>
+        </set>
+        where id = #{id}
+    </update>
+    <!--删除文章-->
+    <delete id="deleteArticle">
+        delete from article where id = #{id}
+    </delete>
+
+    <delete id="batchRemove">
+        delete from article where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

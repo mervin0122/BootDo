@@ -23,6 +23,8 @@
                 count(id) articleCount
             FROM
                 article
+            WHERE
+               STATUS=1
             GROUP BY
                 categoryId
         ) t2 ON t1.id = t2.id

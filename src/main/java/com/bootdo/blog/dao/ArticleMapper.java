@@ -35,9 +35,9 @@ public interface ArticleMapper {
 
     List<Article> loadArticle(Map<String, Object> param);
 
-    void updateStatue(@Param("id") Integer id, @Param("status") int status);
+    int updateStatue(@Param("id") Integer id, @Param("status") int status);
 
-    void saveArticle(Article article);
+    int saveArticle(Article article);
 
     void saveArticleTag(@Param("articleId") Integer articleId, @Param("tags") int[] tags);
 
@@ -45,11 +45,13 @@ public interface ArticleMapper {
 
     Article getArticleById(Integer id);
 
-    void updateArticle(Article article);
+    int updateArticle(Article article);
 
     void deleteArticleTag(Integer articleId);
 
-    void deleteArticle(Integer id);
+    int deleteArticle(Integer id);
+
+    int batchRemove(Long[] ids);
 
     ArticleCustom getArticleCustomById(Integer id);
 
@@ -84,4 +86,8 @@ public interface ArticleMapper {
     List<ArticleCustom> loadArticleByArchive(@Param("pager") Pager pager, @Param("createTime") String createTime);
 
     void updateCategoryId(Integer categoryId);
+
+    List<Article> list(Map<String,Object> map);
+
+    int counts(Map<String,Object> map);
 }

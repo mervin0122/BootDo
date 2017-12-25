@@ -137,7 +137,7 @@ public class BContentController extends BaseController {
 	@RequiresPermissions("blog:bContent:batchRemove")
 	@PostMapping("/batchRemove")
 	@ResponseBody
-	public R remove(@RequestParam("ids[]") Long[] cids) {
+	public R remove(@RequestParam("ids") Long[] cids) {
 		if ("test".equals(getUsername())) {
 			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
 		}

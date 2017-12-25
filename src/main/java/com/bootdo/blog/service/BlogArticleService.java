@@ -41,7 +41,7 @@ public interface BlogArticleService {
 
     void updateArticle(Article article, int[] tags);
 
-    void deleteArticle(Integer id);
+    int deleteArticle(Integer id);
 
     ArticleCustom getArticleCustomById(Integer articleId);
 

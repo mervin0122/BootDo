@@ -22,7 +22,7 @@ import java.util.Random;
  * Created by GeneratorFx on 2017-04-11.
  */
 @Service
-@Transactional(rollbackFor = Exception.class)
+@Transactional
 public class BlogArticleServiceImpl implements BlogArticleService {
 
     @Resource
@@ -96,8 +96,8 @@ public class BlogArticleServiceImpl implements BlogArticleService {
     }
 
     @Override
-    public void deleteArticle(Integer id) {
-        articleMapper.deleteArticle(id);
+    public int deleteArticle(Integer id) {
+       return articleMapper.deleteArticle(id);
     }
 
     @Override
