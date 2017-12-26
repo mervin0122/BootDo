@@ -83,9 +83,13 @@
         delete from articletag where articleId = #{articleId}
     </delete>
 
-    <!--通过id查找 博文的详细信息-->
+    <!--通过id查找 发布后的博文的详细信息-->
     <select id="getArticleCustomById" resultMap="article">
         select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId = category.id and article.id = #{id}
+    </select>
+    <!--通过id查找（发布和未发布的） 博文的详细信息-->
+    <select id="getAArticleCustomById" resultMap="article">
+        select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where  article.categoryId = category.id and article.id = #{id}
     </select>
 
     <!--获取上一篇文章信息  大于当前时间且最靠近当前时间的第一篇 -->
@@ -126,7 +130,7 @@
     </select>
     <!--获取文章的时间归档列表 -->
     <select id="articleArchiveList" resultType="java.util.Map">
-        select DATE_FORMAT(createTime,'%Y年%m月') createTime,count(id) count from article  group by DATE_FORMAT(createTime,'%Y年%m月') ORDER BY createTime desc
+        select DATE_FORMAT(createTime,'%Y年%m月') createTime,count(id) count from article WHERE status=1 group by DATE_FORMAT(createTime,'%Y年%m月') ORDER BY createTime desc
     </select>
     <!--按时间归档加载文章-->
     <select id="loadArticleByArchive" resultMap="article">
@@ -170,12 +174,12 @@
 
     <!--保存文章-->
     <insert id="saveArticle"  parameterType="com.bootdo.blog.domain.Article" useGeneratedKeys="true" keyProperty="id">
-        insert into article(categoryId, title, content, description, createTime) values(#{categoryId},#{title},#{content},#{description},#{createTime})
+        insert into article(categoryId, title, content, description, createTime,author,status) values(#{categoryId},#{title},#{content},#{description},#{createTime},#{author},#{status})
     </insert>
 
     <!--通过id查找文章-->
     <select id="getArticleById" resultType="com.bootdo.blog.domain.Article">
-        select id,title,description,content,categoryId from article where id = #{id}
+        select id,title,description,content,categoryId,author from article where id = #{id}
     </select>
     <!--更新文章状态-->
     <update id="updateStatue" parameterType="com.bootdo.blog.domain.Article">
@@ -190,7 +194,7 @@
             <if test="description != null">`description` = #{description}, </if>
             <if test="content != null">`content` = #{content}, </if>
             <if test="updateTime != null">`updateTime` = #{updateTime}, </if>
-            <if test="categoryId != null">`content` = #{categoryId} </if>
+            <if test="categoryId != null">`categoryId` = #{categoryId} </if>
         </set>
         where id = #{id}
     </update>

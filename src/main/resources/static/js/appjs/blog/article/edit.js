@@ -22,13 +22,12 @@ $.validator.setDefaults({
 });
 function save(status) {
 	$("#status").val(status);
-
 	var content_sn = $("#content_sn").summernote('code');
 	$("#content").val(content_sn);
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/blog/bContent/save",
+		url : "/blog/article/save",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -52,18 +51,19 @@ function validateRule() {
 	var icon = "<i class='fa fa-times-circle'></i> ";
 	$("#signupForm").validate({
 		rules : {
-			name : {
-				required : true
-			}
+			title : "required",
+			author : "required",
+			content : "required",
+			description : "required"
 		},
 		messages : {
-			name : {
-				required : icon + "请输入姓名"
-			}
+			title : "请填写文章标题",
+			author : "请填写文章作者",
+			content : "请填写文章内容",
+			description : "请填写文章简介"
 		}
-	})
+	});
 }
-
 function returnList() {
 	var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
 	parent.layer.close(index);

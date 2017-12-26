@@ -8,11 +8,17 @@ import com.bootdo.blog.domain.ArticleCustom;
 import com.bootdo.blog.domain.Category;
 import com.bootdo.blog.domain.CategoryCustom;
 import com.bootdo.blog.domain.Pager;
+import com.bootdo.common.domain.Tree;
+import com.bootdo.common.utils.BuildTree;
+import com.bootdo.shop.domain.TGoodsClassDO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
 * Created by GeneratorFx on 2017-04-11.

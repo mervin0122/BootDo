@@ -4,6 +4,7 @@ package com.bootdo.blog.controller;
 import com.bootdo.blog.domain.Article;
 import com.bootdo.blog.service.ArticlesService;
 import com.bootdo.blog.service.BlogArticleService;
+import com.bootdo.blog.service.CategoryService;
 import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
@@ -31,7 +32,8 @@ public class ArticlesController extends BaseController {
     @Resource
     private BlogArticleService blogArticleService;
 
-
+    @Resource
+    CategoryService categoryService;
 
     @GetMapping()
     @RequiresPermissions("blog:article:article")
@@ -51,11 +53,12 @@ public class ArticlesController extends BaseController {
     }
     @GetMapping("/add")
     @RequiresPermissions("blog:article:add")
-    String add() {
+    String add(Model model) {
+        model.addAttribute("categoriesList",categoryService.getCategoryList());
         return "blog/article/add";
     }
 
-    @GetMapping("/edit/{cid}")
+    @GetMapping("/edit/{id}")
     @RequiresPermissions("blog:article:edit")
     String edit(@PathVariable("id") Integer id, Model model) {
         Article article = blogArticleService.getArticleById(id);

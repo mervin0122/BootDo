@@ -87,6 +87,7 @@ public class BlogArticleServiceImpl implements BlogArticleService {
         return articleMapper.getArticleById(id);
     }
 
+
     @Override
     public void updateArticle(Article article, int[] tags) {
         article.setUpdateTime(new Date());
@@ -104,7 +105,10 @@ public class BlogArticleServiceImpl implements BlogArticleService {
     public ArticleCustom getArticleCustomById(Integer articleId) {
         return articleMapper.getArticleCustomById(articleId);
     }
-
+    @Override
+    public ArticleCustom getAArticleCustomById(Integer articleId) {
+        return articleMapper.getAArticleCustomById(articleId);
+    }
     @Override
     public Article getLastArticle(Integer articleId) {
         return articleMapper.getLastArticle(articleId);

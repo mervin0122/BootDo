@@ -5,6 +5,7 @@ import com.bootdo.blog.domain.ArticleCustom;
 import com.bootdo.blog.domain.Category;
 import com.bootdo.blog.domain.CategoryCustom;
 import com.bootdo.blog.domain.Pager;
+import com.bootdo.common.domain.Tree;
 
 import java.util.List;
 
@@ -44,4 +45,5 @@ public interface CategoryService {
     int getArticleCountByCategoryId(Integer categoryId);
 
     boolean deleteCategoryById(Integer categoryId);
+
 }

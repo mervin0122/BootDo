@@ -45,6 +45,8 @@ public interface BlogArticleService {
 
     ArticleCustom getArticleCustomById(Integer articleId);
 
+    ArticleCustom getAArticleCustomById(Integer articleId);
+
     /**
      * 获取上一篇文章信息
      * @param articleId

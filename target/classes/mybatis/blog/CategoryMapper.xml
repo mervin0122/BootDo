@@ -65,7 +65,7 @@
 
     <!--获取所有的分类列表-->
     <select id="getCategoryList" resultType="com.bootdo.blog.domain.Category">
-        select id,categoryName,aliasName from category
+        select id,categoryName,aliasName,sort from category ORDER BY sort
     </select>
 
     <!--获取某个分类的文章数量-->

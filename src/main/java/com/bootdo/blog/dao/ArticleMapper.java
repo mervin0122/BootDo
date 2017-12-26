@@ -45,6 +45,7 @@ public interface ArticleMapper {
 
     Article getArticleById(Integer id);
 
+
     int updateArticle(Article article);
 
     void deleteArticleTag(Integer articleId);
@@ -54,6 +55,8 @@ public interface ArticleMapper {
     int batchRemove(Long[] ids);
 
     ArticleCustom getArticleCustomById(Integer id);
+
+    ArticleCustom getAArticleCustomById(Integer id);
 
     /**
      * 获取上一篇文章

@@ -1,16 +1,22 @@
 package com.bootdo.blog.controller;
 
+import com.bootdo.blog.domain.Category;
 import com.bootdo.blog.service.CategoryService;
 import com.bootdo.blog.service.PartnerService;
 import com.bootdo.blog.domain.ArticleCustom;
 import com.bootdo.blog.domain.Pager;
 import com.bootdo.blog.domain.Partner;
+import com.bootdo.common.domain.Tree;
+import com.bootdo.shop.domain.TGoodsClassDO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**

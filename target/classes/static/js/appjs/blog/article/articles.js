@@ -87,11 +87,6 @@ function load() {
 								field : 'updateTime',
 								title : '最近修改时间'
 							    },
-								/*{
-									visible : false,
-									field : 'categoryId',
-									title : '分类ID'
-								},*/
 								{
 									field : 'showCount',
 									title : '浏览量',
@@ -127,16 +122,6 @@ function load() {
 											var f = '<a class="btn btn-danger btn-sm '+s_status_h+'" href="#" title="隐藏"  mce_href="#" onclick="updateStatus(\''
 												+ row.id + '\',\'0\')">隐藏</a> ';
 										}
-										/*var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
-										 + row.id
-										 + '\')"><i class="fa fa-edit"></i></a> ';
-										 var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
-										 + row.id
-										 + '\')"><i class="fa fa-remove"></i></a> ';
-										 var f = '<a class="btn btn-success btn-sm" href="#" title="预览"  mce_href="#" onclick="preview(\''
-												+ row.id
-												+ '\')"><i class="fa fa-rocket"></i></a> ';
-										return e + d +f;*/
 										return e + d+f ;
 									}
 								} ]
@@ -237,7 +222,7 @@ function updateStatus(id,status) {
 
 }
 function preview(id) {
-	window.open("/blog/article/details/"+id);
+	window.open("/blog/article/detail/"+id);
 	//window.location.href="/blog/open/post/"+id;
 }
 function batchRemove() {

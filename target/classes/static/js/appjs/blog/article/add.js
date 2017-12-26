@@ -25,7 +25,7 @@ function save(status) {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/blog/bContent/save",
+		url : "/blog/article/save",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -35,7 +35,7 @@ function save(status) {
 			if (r.code == 0) {
 				parent.layer.msg(r.msg);
 				parent.reLoad();
-				$("#cid").val(r.cid);
+				$("#id").val(r.id);
 
 			} else {
 				parent.layer.alert(r.msg)
@@ -49,12 +49,14 @@ function validateRule() {
 		rules : {
 			title : "required",
 			author : "required",
-			content : "required"
+			content : "required",
+			description : "required"
 		},
 		messages : {
 			title : "请填写文章标题",
 			author : "请填写文章作者",
-			content : "请填写文章内容"
+			content : "请填写文章内容",
+			description : "请填写文章简介"
 		}
 	});
 }
@@ -62,4 +64,17 @@ function validateRule() {
 function returnList() {
 	var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
 	parent.layer.close(index);
+}
+
+var openCategory = function(){
+	layer.open({
+		type:2,
+		title:"选择类别",
+		area : [ '300px', '450px' ],
+		content:"/blog/categories/treeView"
+	})
+}
+function loadCategory( deptId,deptName){
+	$("#categoryId").val(deptId);
+	$("#categoryName").val(deptName);
 }

@@ -51,7 +51,7 @@ public class BlogArticleController {
         return "blog/part/articleSummary";
     }
 
-    /**
+    /**发布后的文章才显示
      * 加载文章
      * 包括总标签数
      * 总文章数量
@@ -69,7 +69,36 @@ public class BlogArticleController {
         blogArticleService.addArticleCount(articleId);
         int articleCount = blogArticleService.getArticleCount();
         int tagCount = tagService.getTagCount();
-        ArticleCustom articleCustom = blogArticleService.getArticleCustomById(articleId);
+        ArticleCustom articleCustom = blogArticleService.getArticleCustomById(articleId);//发布后的文章才显示
+        model.addAttribute("lastArticle",lastArticle);
+        model.addAttribute("nextArticle",nextArticle);
+        model.addAttribute("article",articleCustom);
+        model.addAttribute("categoryCount",categoryList.size());
+        model.addAttribute("articleCount",articleCount);
+        model.addAttribute("tagCount",tagCount);
+        model.addAttribute("categoryList",categoryList);
+        model.addAttribute("partnerList",partnerList);
+        return "blog/article";
+    }
+    /**未发布和发布后的文章都显示
+     * 加载文章
+     * 包括总标签数
+     * 总文章数量
+     * 分类及每个分类文章数量
+     * 友链集合
+     *
+     * @return
+     */
+    @RequestMapping("/detail/{articleId}")
+    public String loadAArticle(@PathVariable Integer articleId, Model model){
+        List<Partner> partnerList = partnerService.findAll();
+        List<CategoryCustom> categoryList = categoryService.initCategoryList();
+        Article lastArticle = blogArticleService.getLastArticle(articleId);
+        Article nextArticle = blogArticleService.getNextArticle(articleId);
+        blogArticleService.addArticleCount(articleId);
+        int articleCount = blogArticleService.getArticleCount();
+        int tagCount = tagService.getTagCount();
+        ArticleCustom articleCustom = blogArticleService.getAArticleCustomById(articleId);//未发布和发布后的文章都显示
         model.addAttribute("lastArticle",lastArticle);
         model.addAttribute("nextArticle",nextArticle);
         model.addAttribute("article",articleCustom);
