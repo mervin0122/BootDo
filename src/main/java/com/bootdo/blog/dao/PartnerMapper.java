@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * Created by GeneratorFx on 2017-04-10.
@@ -16,6 +17,7 @@ public interface PartnerMapper {
 
 List<Partner> findAll();
 
+    int count();
 
     void savePartner(Partner partner);
 

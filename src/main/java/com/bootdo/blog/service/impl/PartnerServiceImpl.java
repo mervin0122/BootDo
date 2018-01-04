@@ -28,6 +28,11 @@ public class PartnerServiceImpl implements PartnerService {
     }
 
     @Override
+    public int count() {
+        return partnerMapper.count();
+    }
+
+    @Override
     public void savePartner(Partner partner) {
         partnerMapper.savePartner(partner);
     }

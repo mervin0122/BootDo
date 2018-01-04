@@ -178,12 +178,14 @@
 
 
                     <div class="article-entry" itemprop="articleBody" lg-uid="lg0">
-                        <div id="article-content">
+                        <div id="article-content"  class="note-editable panel-body"  contenteditable="true" >
+                            <div id="append-test" th:utext="${article.content}"></div>
                          <!--   style="display:none;"-->
-                            <textarea id="append-test"   class="contents" contenteditable="true" th:utext="${article.content}"></textarea>
+                           <!-- <div id="append-test" class="summernote" th:text="${article.content}"></div>-->
+                         <!--   <textarea id="append-test"   class="contents" contenteditable="true" th:utext="${article.content}"></textarea>-->
                            <!-- <div id="append-test"   class="list-block-gw list-newest-w" contenteditable="true" th:text="${article.content}"></div>-->
                         </div>
-
+                     <br>
                     </div>
                     <footer class="article-footer">
                         <div id="socialShare" class="socialShare active" th:data-content="${article.description}"

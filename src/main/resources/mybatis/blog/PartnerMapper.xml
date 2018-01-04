@@ -7,6 +7,9 @@
    <select id="findAll" resultType="com.bootdo.blog.domain.Partner">
        select * from partner
    </select>
+    <select id="count" resultType="int">
+        select count(*) from partner
+    </select>
     <!--获取一条-->
    <select id="getPartnerById" resultType="com.bootdo.blog.domain.Partner">
        select id,siteName,siteDesc,siteUrl,sort from partner where id = #{id}

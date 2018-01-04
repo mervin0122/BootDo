@@ -11,7 +11,7 @@ import java.util.List;
 public interface PartnerService {
 
     List<Partner> findAll();
-
+    int count();
     void savePartner(Partner partner);
 
     /**

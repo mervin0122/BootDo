@@ -3,6 +3,7 @@ package com.bootdo.blog.domain;
 import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 友链实体类
@@ -25,6 +26,10 @@ public class Partner implements Serializable {
     private String siteDesc; //友链描述
 
     private Integer sort;  //排序
+
+    private Integer status;  //状态
+
+    private Date createTime;    //创建时间
 
     public Integer getId() {
         return id;
@@ -66,6 +71,22 @@ public class Partner implements Serializable {
         this.sort = sort;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
         return "Partner{" +
@@ -74,6 +95,8 @@ public class Partner implements Serializable {
                 ", siteUrl='" + siteUrl + '\'' +
                 ", siteDesc='" + siteDesc + '\'' +
                 ", sort=" + sort +
+                ", status='" + status + '\'' +
+                ", createTime=" + createTime +
                 '}';
     }
 }
