@@ -9,6 +9,7 @@ import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
 import com.bootdo.common.utils.R;
+import org.apache.commons.collections.map.HashedMap;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,15 +55,20 @@ public class ArticlesController extends BaseController {
     @GetMapping("/add")
     @RequiresPermissions("blog:article:add")
     String add(Model model) {
-        model.addAttribute("categoriesList",categoryService.getCategoryList());
+        Map<String, Object> params=new HashedMap();
+        params.put("status","1");
+        model.addAttribute("categoriesList",categoryService.getCategoryList(params));
         return "blog/article/add";
     }
 
     @GetMapping("/edit/{id}")
     @RequiresPermissions("blog:article:edit")
     String edit(@PathVariable("id") Integer id, Model model) {
+        Map<String, Object> params=new HashedMap();
+        params.put("status","1");
         Article article = blogArticleService.getArticleById(id);
         model.addAttribute("article", article);
+        model.addAttribute("categoriesList",categoryService.getCategoryList(params));
         return "blog/article/edit";
     }
     /**

@@ -15,11 +15,11 @@ import java.util.Map;
 public interface PartnerMapper {
 
 
-List<Partner> findAll();
+    List<Partner> findAll(Map<String, Object> params);
 
-    int count();
+    int count(Map<String, Object> params);
 
-    void savePartner(Partner partner);
+    int savePartner(Partner partner);
 
     /**
      * 分页查询好友列表
@@ -31,9 +31,13 @@ List<Partner> findAll();
 
     Partner getPartnerById(Integer id);
 
-    void deletePartner(Integer id);
+    int deletePartner(Integer id);
 
-    void updatePartner(Partner partner);
+    int updatePartner(Partner partner);
 
     int initPage(Pager pager);
+
+    int batchRemove(Long[] ids);
+
+    int updateState(@Param("id") Integer id, @Param("status") int status);
 }

@@ -36,11 +36,22 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-group">
+							<!--<div class="form-group">
 								<label class="col-sm-1 control-label">类型：</label>
 								<div class="col-sm-11">
 									<input th:value="${article.categoryId}" id="categoryId"
 										   name="categoryId" class="form-control" type="text">
+								</div>
+							</div>-->
+							<div class="form-group">
+								<label class="col-sm-1 control-label">类别：</label>
+								<div class="col-sm-11">
+									<select data-placeholder="所属类别" name="categoryId" id="categoryId"
+											class="form-control chosen-select" tabindex="3"
+											style="width: 100%" th:field="*{article.categoryId}">
+										<option th:value="${categories.id}" th:each="categories:${categoriesList}"
+												th:text="${categories.categoryName}">选择类别</option>
+									</select>
 								</div>
 							</div>
 							<div class="form-group">

@@ -24,7 +24,7 @@
     <!--分页获取文章-->
     <select id="getArticleList" resultMap="article">
 
-        select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId = category.id order by createTime desc limit #{start},#{limit}
+        select article.id,categoryId,categoryName,aliasName,title,content,description,article.status,author,article.createTime,updateTime,showCount from article,category where article.status=1 and article.categoryId = category.id order by createTime desc limit #{start},#{limit}
     </select>
     <!--通过文章id获取tag列表-->
     <select id="getTag" resultType="com.bootdo.blog.domain.ArticleTag">
@@ -32,12 +32,12 @@
     </select>
     <!--通过分类获取所有的文章-->
     <select id="loadArticleByCategory" resultMap="article">
-         select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId=category.id and  categoryId=#{categoryId} and article.categoryId = category.id order by createTime desc limit #{pager.start},#{pager.limit}
+         select article.id,categoryId,categoryName,aliasName,title,content,description,article.status,author,article.createTime,updateTime,showCount from article,category where article.status=1 and  article.categoryId=category.id and  categoryId=#{categoryId} and article.categoryId = category.id order by createTime desc limit #{pager.start},#{pager.limit}
     </select>
 
     <!--通过tag加载文章-->
     <select id="loadArticleByTag" resultMap="article">
-       select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId=category.id and article.id in (select DISTINCT articleId from articletag where tagId = #{tagId} ) order by createTime desc limit #{pager.start},#{pager.limit}
+       select article.id,categoryId,categoryName,aliasName,title,content,description,article.status,author,article.createTime,updateTime,showCount from article,category where article.status=1 and article.categoryId=category.id and article.id in (select DISTINCT articleId from articletag where tagId = #{tagId} ) order by createTime desc limit #{pager.start},#{pager.limit}
 
     </select>
     <!--获取所有的文章数量-->
@@ -46,7 +46,7 @@
     </select>
     <!--条件查询文章-->
     <select id="loadArticle" resultType="com.bootdo.blog.domain.Article" parameterType="map">
-        select article.id,title,categoryId,categoryName,status,createTime from article join category on article.categoryId=category.id where 1=1
+        select article.id,title,categoryId,categoryName,article.status,article.createTime from article join category on article.categoryId=category.id where 1=1
         <if test="categoryId != null and categoryId != ''">
             and categoryId = #{categoryId}
         </if>
@@ -85,11 +85,11 @@
 
     <!--通过id查找 发布后的博文的详细信息-->
     <select id="getArticleCustomById" resultMap="article">
-        select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId = category.id and article.id = #{id}
+        select article.id,categoryId,categoryName,aliasName,title,content,description,article.status,author,article.createTime,updateTime,showCount from article,category where article.status=1 and article.categoryId = category.id and article.id = #{id}
     </select>
     <!--通过id查找（发布和未发布的） 博文的详细信息-->
     <select id="getAArticleCustomById" resultMap="article">
-        select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where  article.categoryId = category.id and article.id = #{id}
+        select article.id,categoryId,categoryName,aliasName,title,content,description,article.status,author,article.createTime,updateTime,showCount from article,category where  article.categoryId = category.id and article.id = #{id}
     </select>
 
     <!--获取上一篇文章信息  大于当前时间且最靠近当前时间的第一篇 -->
@@ -109,8 +109,8 @@
     <!--最受欢迎的十篇文章-->
     <select id="popularArticle" resultMap="article">
 
-       select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount
-       from article,category where status=1 and article.categoryId = category.id order by article.showCount desc limit 10
+       select article.id,categoryId,categoryName,aliasName,title,content,description,article.status,author,article.createTime,updateTime,showCount
+       from article,category where article.status=1 and article.categoryId = category.id order by article.showCount desc limit 10
 
     </select>
 
@@ -130,11 +130,18 @@
     </select>
     <!--获取文章的时间归档列表 -->
     <select id="articleArchiveList" resultType="java.util.Map">
-        select DATE_FORMAT(createTime,'%Y年%m月') createTime,count(id) count from article WHERE status=1 group by DATE_FORMAT(createTime,'%Y年%m月') ORDER BY createTime desc
+      select DATE_FORMAT(article.createTime,'%Y年%m月') createTime,count(article.id) count from article left join category on article.categoryId=category.id WHERE article.status=1
+      and category.status=1 group by DATE_FORMAT(article.createTime,'%Y年%m月') ORDER BY article.createTime desc
     </select>
-    <!--按时间归档加载文章-->
+    <!--
+      SELECT DATE_FORMAT(article.createTime,'%Y年%m月') createTime,COUNT(article.id) COUNT FROM article LEFT JOIN category ON article.categoryId=category.id  WHERE article.status=1
+       AND  category.status=1 GROUP BY DATE_FORMAT(article.createTime,'%Y年%m月') ORDER BY article.createTime DESC
+     select DATE_FORMAT(createTime,'%Y年%m月') createTime,count(id) count from article WHERE article.status=1
+ group by DATE_FORMAT(createTime,'%Y年%m月') ORDER BY createTime desc-->
+<!--按时间归档加载文章-->
     <select id="loadArticleByArchive" resultMap="article">
-         select article.id,categoryId,categoryName,aliasName,title,content,description,status,author,createTime,updateTime,showCount from article,category where status=1 and article.categoryId=category.id and  DATE_FORMAT(article.createTime,'%Y年%m月')=#{createTime} and article.categoryId = category.id order by createTime desc limit #{pager.start},#{pager.limit}
+         select article.id,categoryId,categoryName,aliasName,title,content,description,article.status,author,article.createTime,updateTime,showCount
+          from article,category where article.status=1 and category.status=1 and article.categoryId=category.id and  DATE_FORMAT(article.createTime,'%Y年%m月')=#{createTime} and article.categoryId = category.id order by createTime desc limit #{pager.start},#{pager.limit}
     </select>
 
     <update id="updateCategoryId" parameterType="int">
@@ -142,7 +149,7 @@
     </update>
 
     <select id="list"  resultType="com.bootdo.blog.domain.Article">
-        select article.id as `id`,`categoryId`,`categoryName`,`aliasName`,`title`,`content`,`description`,`status`,`author`,`createTime`,`updateTime`,`showCount` from article,category
+        select article.id as `id`,`categoryId`,`categoryName`,`aliasName`,`title`,`content`,`description`,article.status as `status`,`author`,article.createTime as `createTime`,`updateTime`,`showCount` from article,category
         <where>
           <!--  <if test="cid != null and cid != ''"> and cid = #{cid} </if>
             <if test="title != null and title != ''"> and title = #{title} </if>  status=1 and-->

@@ -2,83 +2,137 @@ package com.bootdo.blog.controller;
 
 import com.bootdo.blog.domain.Category;
 import com.bootdo.blog.service.CategoryService;
-import com.bootdo.blog.service.PartnerService;
-import com.bootdo.blog.domain.ArticleCustom;
-import com.bootdo.blog.domain.Pager;
-import com.bootdo.blog.domain.Partner;
-import com.bootdo.common.domain.Tree;
-import com.bootdo.shop.domain.TGoodsClassDO;
+import com.bootdo.common.controller.BaseController;
+import com.bootdo.common.utils.PageUtils;
+import com.bootdo.common.utils.Query;
+import com.bootdo.common.utils.R;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by GeneratorFx on 2017-04-11.
  */
 @Controller
-@RequestMapping("/blog/categories")
-public class CategoryController {
+@RequestMapping("/blog/category")
+public class CategoryController extends BaseController {
 
     @Resource
     CategoryService categoryService;
-    @Resource
-    PartnerService  partnerService;
+    @GetMapping()
+    @RequiresPermissions("blog:category:category")
+    String category() {
+        return "blog/category/category";
+    }
 
+    @ResponseBody
+    @GetMapping("/list")
+    @RequiresPermissions("blog:category:category")
+    public PageUtils list(@RequestParam Map<String, Object> params) {
+        Query query = new Query(params);
+        List<Category> partnerList = categoryService.getCategoryList(query);
+        int total = categoryService.count(params);
+        PageUtils pageUtils = new PageUtils(partnerList, total);
+        return pageUtils;
+    }
+    @GetMapping("/add")
+    @RequiresPermissions("blog:category:add")
+    String add() {
+        return "blog/category/add";
+    }
+
+    @GetMapping("/edit/{id}")
+    @RequiresPermissions("blog:category:edit")
+    String edit(@PathVariable("id") Integer id, Model model) {
+        Category category = categoryService.getCategoryById(id);
+        model.addAttribute("category", category);
+        return "blog/category/edit";
+    }
     /**
-     * 获取某个标签的分页文章
-     * @param model
-     * @param pager
-     * @param categoryId
-     * @return
+     * 保存
      */
-    @RequestMapping("/load/{categoryId}")
-    public String loadArticleByCategory(Model model, Pager pager, @PathVariable Integer categoryId){
-        List<ArticleCustom> articleList = categoryService.loadArticleByCategory(pager,categoryId);
-        if (!articleList.isEmpty()){
-            model.addAttribute("articleList",articleList);
-            model.addAttribute("pager",pager);
-            model.addAttribute("categoryName",articleList.get(0).getCategoryName());
+    @ResponseBody
+    @RequiresPermissions("blog:category:add")
+    @PostMapping("/save")
+    public R save(Category category) {
+        if ("test".equals(getUsername())) {
+            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
         }
-        return "blog/part/categorySummary";
-    }
-    /**
-     * 根据时间获取文章分页信息
-     * @param pager 分页对象
-     * @param createTime 时间
-     * @return
-     */
-    @RequestMapping("/createTime/load/{createTime}")
-    public String loadCreateTimePager(Model model, Pager pager, @PathVariable String createTime){
-        List<ArticleCustom> articleList= categoryService.loadArticleByArchive(createTime,pager);
-        if (!articleList.isEmpty()){
-            model.addAttribute("articleList",articleList);
-            model.addAttribute("pager",pager);
-            model.addAttribute("categoryName",articleList.get(0).getCategoryName());
+        category.setCreateTime(new Date());
+        int count;
+        if (category.getId() == null || category.getId().equals("")) {
+            count = categoryService.saveCategory(category);
+        } else {
+            count = categoryService.updateCategory(category);
         }
-        return "blog/part/categorySummary";
+        if (count > 0) {
+            return R.ok().put("id", category.getId());
+        }
+        return R.error();
+    }
+
+    /**
+     * 修改
+     */
+    @RequiresPermissions("blog:category:edit")
+    @RequestMapping("/update")
+    public R update(@RequestBody Category category) {
+        if ("test".equals(getUsername())) {
+            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+        }
+        categoryService.updateCategory(category);
+        return R.ok();
+    }
+
+    /**
+     * 删除
+     */
+    @RequiresPermissions("blog:category:remove")
+    @PostMapping("/remove")
+    @ResponseBody
+    public R remove(Integer id) {
+        if ("test".equals(getUsername())) {
+            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+        }
+        if (categoryService.deleteCategory(id)> 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
+
+    /**
+     * 批量删除
+     */
+    @RequiresPermissions("blog:category:batchRemove")
+    @PostMapping("/batchRemove")
+    @ResponseBody
+    public R remove(@RequestParam("ids[]") Long[] cids) {
+        if ("test".equals(getUsername())) {
+            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+        }
+        categoryService.batchRemove(cids);
+        return R.ok();
     }
     /**
-     * 跳转到分类的页面 暂时停用
-     * @param model
-     * @param categoryId
-     * @return
+     * 修改状态
      */
-    @Deprecated
-    @RequestMapping("/details/{categoryId}")
-    public String categoryPage(Model model, @PathVariable Integer categoryId){
-        List<Partner> partnerList = partnerService.findAll();
-        model.addAttribute("partnerList",partnerList);
-        model.addAttribute("categoryId",categoryId);
-        return "blog/category";
+    @RequiresPermissions("blog:category:status")
+    @PostMapping("/status")
+    @ResponseBody
+    public R status(Integer id,int status) {
+        if ("test".equals(getUsername())) {
+            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+        }
+        if (categoryService.updateState(id,status) > 0) {
+            return R.ok();
+        }
+        return R.error();
     }
-
-
 
 }

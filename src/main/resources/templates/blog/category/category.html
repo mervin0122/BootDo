@@ -11,13 +11,13 @@
 					<div id="exampleToolbar" role="group">
 						<div class="form-group col-sm-6">
 							<input id="searchName" type="text" class="form-control"
-								placeholder="站点名">
+								placeholder="模糊查询">
 						</div>
 						<button  class="btn btn-success" onclick="reLoad()">查询</button>
-						<button shiro:hasPermission="blog:partner:add" type="button" class="btn  btn-primary" onclick="add()">
+						<button shiro:hasPermission="blog:category:add" type="button" class="btn  btn-primary" onclick="add()">
 							<i class="fa fa-plus" aria-hidden="true"></i>添加
 						</button>
-						<button shiro:hasPermission="blog:partner:batchRemove" type="button" class="btn  btn-danger"
+						<button shiro:hasPermission="blog:category:batchRemove" type="button" class="btn  btn-danger"
 							onclick="batchRemove()">
 							<i class="fa fa-trash" aria-hidden="true"></i>删除
 						</button>
@@ -34,17 +34,17 @@
 				var s_remove_h = 'hidden';
 			</script>
 		</div>
-		<div shiro:hasPermission="blog:partner:edit">
+		<div shiro:hasPermission="blog:category:edit">
 			<script type="text/javascript">
 				s_edit_h = '';
 			</script>
 		</div>
-		<div shiro:hasPermission="blog:partner:remove">
+		<div shiro:hasPermission="blog:category:remove">
 			<script type="text/javascript">
 				var s_remove_h = '';
 			</script>
 		</div>
-		<div shiro:hasPermission="blog:partner:status">
+		<div shiro:hasPermission="blog:category:status">
 			<script type="text/javascript">
 				var s_status_h = '';
 			</script>
@@ -52,6 +52,6 @@
 	</div>
 	<div th:include="include :: footer"></div>
 	<script type="text/javascript"
-		src="/js/appjs/blog/partner/partner.js"></script>
+		src="/js/appjs/blog/category/category.js"></script>
 </body>
 </html>

@@ -8,6 +8,7 @@ import com.bootdo.blog.service.TagService;
 
 import com.bootdo.blog.domain.*;
 import com.bootdo.utils.ResultInfo;
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by GeneratorFx on 2017-04-11.
@@ -62,7 +64,9 @@ public class BlogArticleController {
      */
     @RequestMapping("/details/{articleId}")
     public String loadArticle(@PathVariable Integer articleId, Model model){
-        List<Partner> partnerList = partnerService.findAll();
+        Map<String, Object> params=new HashedMap();
+        params.put("status","1");
+        List<Partner> partnerList = partnerService.findAll(params);
         List<CategoryCustom> categoryList = categoryService.initCategoryList();
         Article lastArticle = blogArticleService.getLastArticle(articleId);
         Article nextArticle = blogArticleService.getNextArticle(articleId);
@@ -91,7 +95,9 @@ public class BlogArticleController {
      */
     @RequestMapping("/detail/{articleId}")
     public String loadAArticle(@PathVariable Integer articleId, Model model){
-        List<Partner> partnerList = partnerService.findAll();
+        Map<String, Object> params=new HashedMap();
+        params.put("status","1");
+        List<Partner> partnerList = partnerService.findAll(params);
         List<CategoryCustom> categoryList = categoryService.initCategoryList();
         Article lastArticle = blogArticleService.getLastArticle(articleId);
         Article nextArticle = blogArticleService.getNextArticle(articleId);

@@ -28,16 +28,17 @@
             GROUP BY
                 categoryId
         ) t2 ON t1.id = t2.id
+         WHERE t1.status=1
         ORDER BY
             articleCount DESC
         </select>
 
     <select id="getCategoryById" resultType="com.bootdo.blog.domain.Category">
-        SELECT id,categoryName,aliasName,sort FROM category where id = #{id}
+        SELECT id,categoryName,aliasName,sort,createTime,status FROM category where id = #{id}
     </select>
 
     <select id="loadCategory" resultType="com.bootdo.blog.domain.Category">
-        SELECT id,categoryName,aliasName,sort from category
+        SELECT id,categoryName,aliasName,sort,createTime,status from category
         <if test="categoryName != null and categoryName != ''">
             WHERE categoryName like concat('%',#{categoryName},'%') or aliasName like concat('%',#{categoryName},'%')
         </if>
@@ -50,24 +51,46 @@
             and id != #{id}
         </if>
    </select>
-    <!--保存一个分类-->
-    <insert id="saveCategory">
-        insert into category(categoryName, aliasName, sort) values(#{categoryName},#{aliasName},#{sort})
+    <!--保存分类-->
+    <insert id="saveCategory" useGeneratedKeys="true" keyProperty="id">
+        insert into category(categoryName, aliasName, sort,createTime,status) values(#{categoryName},#{aliasName},#{sort},#{createTime},#{status})
     </insert>
     <!--更新分类-->
     <update id="updateCategory">
-        update category set categoryName = #{categoryName},aliasName = #{aliasName}
-        <if test="sort != null and sort != ''">
-            ,sort = #{sort}
-        </if>
+        update category
+        <set>
+            <if test="categoryName != null">`categoryName` = #{categoryName}, </if>
+            <if test="aliasName != null">`aliasName` = #{aliasName}, </if>
+            <if test="sort != null">`sort` = #{sort}, </if>
+            <if test="status != null">`status` = #{status} </if>
+        </set>
+
         where id = #{id}
     </update>
 
-    <!--获取所有的分类列表-->
+    <!--获取分类列表-->
     <select id="getCategoryList" resultType="com.bootdo.blog.domain.Category">
-        select id,categoryName,aliasName,sort from category ORDER BY sort
+        select * from category
+        <where>
+            <if test="status != null and status != ''">and status = #{status}</if>
+            <if test="categoryName != null and categoryName != ''">
+                categoryName like concat('%',#{categoryName},'%') or aliasName like concat('%',#{categoryName},'%')
+            </if>
+        </where>
+        order by sort
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
     </select>
-
+    <select id="count" resultType="int">
+        select count(*) from category
+        <where>
+            <if test="status != null and status != ''">and status = #{status}</if>
+            <if test="categoryName != null and categoryName != ''">
+                categoryName like concat('%',#{categoryName},'%') or aliasName like concat('%',#{categoryName},'%')
+            </if>
+        </where>
+    </select>
     <!--获取某个分类的文章数量-->
     <select id="ArticleCatePage" resultType="int">
         select count(id) from article where categoryId = #{categoryId} and status = 1
@@ -76,5 +99,21 @@
     <delete id="deleteCategoryById">
         delete from category where id = #{categoryId}
     </delete>
+
+    <delete id="deleteCategory">
+        delete from category where id = #{id}
+    </delete>
+
+    <!--批量删除分类-->
+    <delete id="batchRemove">
+        delete from category where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <!--更新分类状态-->
+    <update id="updateState" parameterType="com.bootdo.blog.domain.Category">
+        update category set status = #{status} where id = #{id}
+    </update>
 </mapper>
 

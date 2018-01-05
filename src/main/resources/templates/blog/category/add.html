@@ -11,31 +11,24 @@
 				<div class="ibox float-e-margins">
 					<div class="ibox-content">
 						<div class="col-sm-12">
-							<h4>友情链接</h4>
+							<h4>文章类别</h4>
 							<br>
 						</div>
 						<form class="form-horizontal m-t" id="signupForm" style="text-align: center">
 							<input id="id" name="id" type="hidden">
 							<div class="form-group">
-								<label class="col-sm-1 control-label">站点名称：</label>
+								<label class="col-sm-1 control-label">分类名称：</label>
 								<div class="col-sm-11">
-									<input id="siteName" name="siteName" class="form-control" type="text">
+									<input id="categoryName" name="categoryName" class="form-control" type="text">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-1 control-label">站点地址：</label>
+								<label class="col-sm-1 control-label">分类别名：</label>
 								<div class="col-sm-11">
-									<input id="siteUrl" name="siteUrl" class="form-control"
+									<input id="aliasName" name="aliasName" class="form-control"
 										   type="text">
 								</div>
 							</div>
-							<div class="form-group">
-								<label class="col-sm-1 control-label">站点描述：</label>
-								<div class="col-sm-11">
-									<input id="siteDesc" name="siteDesc" class="form-control" type="text">
-								</div>
-							</div>
-
 							<div class="form-group">
 								<label class="col-sm-1 control-label">排序：</label>
 								<div class="col-sm-11">
@@ -61,7 +54,7 @@
 	</div>
 	<div th:include="include::footer"></div>
 
-	<script type="text/javascript" src="/js/appjs/blog/partner/add.js">
+	<script type="text/javascript" src="/js/appjs/blog/category/add.js">
 	</script>
 </body>
 </html>

@@ -7,6 +7,7 @@ import com.bootdo.blog.service.TagService;
 import com.bootdo.blog.domain.ArticleCustom;
 import com.bootdo.blog.domain.CategoryCustom;
 import com.bootdo.blog.domain.Partner;
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +45,9 @@ public class  PageController {
      */
     @RequestMapping("")
     public String home(Model model){
-        List<Partner> partnerList = partnerService.findAll();
+        Map<String, Object> params=new HashedMap();
+        params.put("status","1");
+        List<Partner> partnerList = partnerService.findAll(params);
         List<CategoryCustom> categoryList = categoryService.initCategoryList();
         int articleCount = blogArticleService.getArticleCount();
         List<Map> archiveList = blogArticleService.articleArchiveList();
@@ -84,7 +87,9 @@ public class  PageController {
 
     @RequestMapping("/about/me")
     public String aboutMe(Model model){
-        List<Partner> partnerList = partnerService.findAll();
+        Map<String, Object> params=new HashedMap();
+        params.put("status","1");
+        List<Partner> partnerList = partnerService.findAll(params);
         List<CategoryCustom> categoryList = categoryService.initCategoryList();
         int articleCount = blogArticleService.getArticleCount();
         int tagCount = tagService.getTagCount();
@@ -98,7 +103,9 @@ public class  PageController {
 
     @RequestMapping("/popular")
     public String popularArticle(Model model){
-        List<Partner> partnerList = partnerService.findAll();
+        Map<String, Object> params=new HashedMap();
+        params.put("status","1");
+        List<Partner> partnerList = partnerService.findAll(params);
         List<CategoryCustom> categoryList = categoryService.initCategoryList();
         int articleCount = blogArticleService.getArticleCount();
         List<ArticleCustom> articleList = blogArticleService.popularArticle();

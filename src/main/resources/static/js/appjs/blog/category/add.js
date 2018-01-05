@@ -23,7 +23,7 @@ function save(status) {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/blog/partner/save",
+		url : "/blog/category/save",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -46,15 +46,13 @@ function validateRule() {
 	var icon = "<i class='fa fa-times-circle'></i> ";
 	$("#signupForm").validate({
 		rules : {
-			siteName : "required",
-			siteUrl : "required",
-			siteDesc : "required",
+			categoryName : "required",
+			aliasName : "required",
 			sort : "required"
 		},
 		messages : {
-			siteName : "请填写站点名称",
-			siteUrl : "请填写站点地址",
-			siteDesc : "请填写站点描述",
+			categoryName : "请填写分类名称",
+			aliasName : "请填写分类别名",
 			sort : "请填写排序"
 		}
 	});

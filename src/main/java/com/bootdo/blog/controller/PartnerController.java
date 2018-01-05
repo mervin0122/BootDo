@@ -31,14 +31,6 @@ public class PartnerController extends BaseController {
     @Resource
     private PartnerService partnerService;
 
-    @Resource
-    private ArticlesService articlesService;
-
-    @Resource
-    private BlogArticleService blogArticleService;
-
-    @Resource
-    CategoryService categoryService;
 
     @GetMapping()
     @RequiresPermissions("blog:partner:partner")
@@ -51,25 +43,23 @@ public class PartnerController extends BaseController {
     @RequiresPermissions("blog:partner:partner")
     public PageUtils list(@RequestParam Map<String, Object> params) {
         Query query = new Query(params);
-        List<Partner> partnerList = partnerService.findAll();
-        //List<Article> articleList = articlesService.list(query);
-        int total = partnerService.count();
+        List<Partner> partnerList = partnerService.findAll(query);
+        int total = partnerService.count(params);
         PageUtils pageUtils = new PageUtils(partnerList, total);
         return pageUtils;
     }
     @GetMapping("/add")
     @RequiresPermissions("blog:partner:add")
-    String add(Model model) {
-        model.addAttribute("categoriesList",categoryService.getCategoryList());
-        return "blog/article/add";
+    String add() {
+        return "blog/partner/add";
     }
 
     @GetMapping("/edit/{id}")
     @RequiresPermissions("blog:partner:edit")
     String edit(@PathVariable("id") Integer id, Model model) {
-        Article article = blogArticleService.getArticleById(id);
-        model.addAttribute("article", article);
-        return "blog/article/edit";
+        Partner partner = partnerService.getPartnerById(id);
+        model.addAttribute("partner", partner);
+        return "blog/partner/edit";
     }
     /**
      * 保存
@@ -77,23 +67,19 @@ public class PartnerController extends BaseController {
     @ResponseBody
     @RequiresPermissions("blog:partner:add")
     @PostMapping("/save")
-    public R save(Article article) {
+    public R save(Partner partner) {
         if ("test".equals(getUsername())) {
             return R.error(1, "演示系统不允许修改,完整体验请部署程序");
         }
-        if (article.getShowCount() == null) {
-            article.setShowCount(0);
-        }
-        article.setCreateTime(new Date());
-        article.setUpdateTime(new Date());
+        partner.setCreateTime(new Date());
         int count;
-        if (article.getId() == null || article.getId().equals("")) {
-            count = articlesService.saveArticle(article);
+        if (partner.getId() == null || partner.getId().equals("")) {
+            count = partnerService.savePartner(partner);
         } else {
-            count = articlesService.updateArticle(article);
+            count = partnerService.updatePartner(partner);
         }
         if (count > 0) {
-            return R.ok().put("id", article.getId());
+            return R.ok().put("id", partner.getId());
         }
         return R.error();
     }
@@ -103,12 +89,11 @@ public class PartnerController extends BaseController {
      */
     @RequiresPermissions("blog:partner:edit")
     @RequestMapping("/update")
-    public R update(@RequestBody Article article) {
+    public R update(@RequestBody Partner partner) {
         if ("test".equals(getUsername())) {
             return R.error(1, "演示系统不允许修改,完整体验请部署程序");
         }
-        article.setUpdateTime(new Date());
-        articlesService.updateArticle(article);
+        partnerService.updatePartner(partner);
         return R.ok();
     }
 
@@ -122,7 +107,7 @@ public class PartnerController extends BaseController {
         if ("test".equals(getUsername())) {
             return R.error(1, "演示系统不允许修改,完整体验请部署程序");
         }
-        if (articlesService.deleteArticle(id) > 0) {
+        if (partnerService.deletePartner(id)> 0) {
             return R.ok();
         }
         return R.error();
@@ -138,9 +123,23 @@ public class PartnerController extends BaseController {
         if ("test".equals(getUsername())) {
             return R.error(1, "演示系统不允许修改,完整体验请部署程序");
         }
-        articlesService.batchRemove(cids);
+        partnerService.batchRemove(cids);
         return R.ok();
     }
-
+    /**
+     * 修改状态
+     */
+    @RequiresPermissions("blog:partner:status")
+    @PostMapping("/status")
+    @ResponseBody
+    public R status(Integer id,int status) {
+        if ("test".equals(getUsername())) {
+            return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+        }
+        if (partnerService.updateState(id,status) > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
 
 }

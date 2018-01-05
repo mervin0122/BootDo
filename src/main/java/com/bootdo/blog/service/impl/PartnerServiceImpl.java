@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by GeneratorFx on 2017-04-10.
@@ -23,18 +24,18 @@ public class PartnerServiceImpl implements PartnerService {
 
 
     @Override
-    public List<Partner> findAll() {
-        return partnerMapper.findAll();
+    public List<Partner> findAll(Map<String,Object> map) {
+        return partnerMapper.findAll(map);
     }
 
     @Override
-    public int count() {
-        return partnerMapper.count();
+    public int count(Map<String,Object> map) {
+        return partnerMapper.count(map);
     }
 
     @Override
-    public void savePartner(Partner partner) {
-        partnerMapper.savePartner(partner);
+    public int savePartner(Partner partner) {
+        return partnerMapper.savePartner(partner);
     }
 
     @Override
@@ -49,13 +50,13 @@ public class PartnerServiceImpl implements PartnerService {
     }
 
     @Override
-    public void deletePartner(Integer id) {
-        partnerMapper.deletePartner(id);
+    public int deletePartner(Integer id) {
+        return partnerMapper.deletePartner(id);
     }
 
     @Override
-    public void updatePartner(Partner partner) {
-        partnerMapper.updatePartner(partner);
+    public int updatePartner(Partner partner) {
+        return  partnerMapper.updatePartner(partner);
     }
 
     @Override
@@ -63,5 +64,15 @@ public class PartnerServiceImpl implements PartnerService {
         int count = partnerMapper.initPage(pager);
         pager.setTotalCount(count);
     }
+    @Override
+    public int batchRemove(Long[] ids){
+        return  partnerMapper.batchRemove(ids);
+    }
+
+    public int updateState(Integer id, int status){
+        return   partnerMapper.updateState(id,status);
+    }
+
+
 
 }

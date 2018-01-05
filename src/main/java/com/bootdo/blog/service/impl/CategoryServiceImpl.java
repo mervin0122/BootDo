@@ -66,13 +66,13 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void saveCategory(Category category) {
-        categoryMapper.saveCategory(category);
+    public int saveCategory(Category category) {
+        return  categoryMapper.saveCategory(category);
     }
 
     @Override
-    public void updateCategory(Category category) {
-        categoryMapper.updateCategory(category);
+    public int updateCategory(Category category) {
+      return   categoryMapper.updateCategory(category);
     }
 
     @Override
@@ -82,9 +82,15 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> getCategoryList() {
-        return categoryMapper.getCategoryList();
+    public List<Category> getCategoryList(Map<String, Object> params) {
+        return categoryMapper.getCategoryList(params);
     }
+
+    @Override
+    public  int count(Map<String, Object> params) {
+        return categoryMapper.count(params);
+    }
+
 
     @Override
     public void ArticleCatePage(Pager pager, int categoryId) {
@@ -109,5 +115,17 @@ public class CategoryServiceImpl implements CategoryService {
         articleMapper.updateCategoryId(categoryId);
         return true;
     }
+    @Override
+    public int deleteCategory(Integer id) {
+        return categoryMapper.deleteCategory(id);
+    }
 
+    @Override
+    public int batchRemove(Long[] ids){
+        return  categoryMapper.batchRemove(ids);
+    }
+
+    public int updateState(Integer id, int status){
+        return   categoryMapper.updateState(id,status);
+    }
 }

@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * Created by GeneratorFx on 2017-04-11.
@@ -28,14 +29,15 @@ public interface CategoryMapper {
 
     int checkExist(Category category);
 
-    void saveCategory(Category category);
+    int saveCategory(Category category);
 
-    void updateCategory(Category category);
+    int updateCategory(Category category);
 
     int initPage(Pager pager);
 
-    List<Category> getCategoryList();
+    List<Category> getCategoryList(Map<String, Object> params);
 
+    int count(Map<String, Object> params);
     /**
      * 获取当前id的文章数量
      *
@@ -45,4 +47,8 @@ public interface CategoryMapper {
     int ArticleCatePage(int categoryId);
 
     void deleteCategoryById(Integer categoryId);
+
+    int deleteCategory(Integer id);
+    int batchRemove(Long[] ids);
+    int updateState(@Param("id") Integer id, @Param("status") int status);
 }

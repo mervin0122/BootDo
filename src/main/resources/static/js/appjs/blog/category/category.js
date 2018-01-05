@@ -1,4 +1,4 @@
-var prefix = "/blog/partner"
+var prefix = "/blog/category"
 $(function() {
 	load();
 });
@@ -34,7 +34,7 @@ function load() {
 								// 说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
 								limit : params.limit,
 								offset : params.offset,
-								siteName:$('#searchName').val(),
+								categoryName:$('#searchName').val(),
 							// username:$('#searchName').val()
 							};
 						},
@@ -54,19 +54,12 @@ function load() {
 									title : ''
 								},
 							    {
-								   field : 'siteName',
-								  title : '站点名'
+								   field : 'categoryName',
+								  title : '分类名称'
 							    },
-								{
-									field : 'siteUrl',
-									title : '站点地址',
-                                    formatter:function (value,row,index) {
-                                        return '<a href="'+row.siteUrl+'" target="_blank">'+row.siteUrl+'</a>';
-                                    }
-                                },
 							    {
-								field : 'siteDesc',
-								title : '站点描述'
+								field : 'aliasName',
+								title : '分类别名'
 							    },
 								{
 									field : 'sort',
@@ -196,7 +189,7 @@ function batchRemove() {
 	function updateStatus(id,status) {
 
 		if (status=="0"){
-			layer.confirm('确定要隐藏该链接吗？', {
+			layer.confirm('确定要隐藏该类别吗？', {
 				btn : [ '确定', '取消' ]
 			},function() {
 				$.ajax({
@@ -217,7 +210,7 @@ function batchRemove() {
 				});
 			})
 		}else if (status=="1"){
-			layer.confirm('确定要显示该链接吗？', {
+			layer.confirm('确定要显示该类别吗？', {
 				btn : [ '确定', '取消' ]
 			},function() {
 				$.ajax({

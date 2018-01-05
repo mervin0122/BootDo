@@ -21,13 +21,11 @@ $.validator.setDefaults({
 	}
 });
 function save(status) {
-	$("#status").val(status);
-	var content_sn = $("#content_sn").summernote('code');
-	$("#content").val(content_sn);
+	//$("#status").val(status);
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/blog/article/save",
+		url : "/blog/partner/save",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -52,16 +50,16 @@ function validateRule() {
 	var icon = "<i class='fa fa-times-circle'></i> ";
 	$("#signupForm").validate({
 		rules : {
-			title : "required",
-			author : "required",
-			content : "required",
-			description : "required"
+			siteName : "required",
+			siteUrl : "required",
+			siteDesc : "required",
+			sort : "required"
 		},
 		messages : {
-			title : "请填写文章标题",
-			author : "请填写文章作者",
-			content : "请填写文章内容",
-			description : "请填写文章简介"
+			siteName : "请填写站点名称",
+			siteUrl : "请填写站点地址",
+			siteDesc : "请填写站点描述",
+			sort : "请填写排序"
 		}
 	});
 }
