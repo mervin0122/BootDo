@@ -12,10 +12,10 @@
         <aside id="profile">
             <!--个人基础信息-->
             <div class="inner profile-inner" th:replace="blog/part/base-of-me :: base_of_me"></div>
-            <!--友情链接-->
-            <div class="inner profile-inner" th:replace="blog/part/friend-link :: friend_link"></div>
+            <!--每日一言-->
+            <div class="widget-wrap" th:replace="blog/part/aphorism :: aphorism"></div>
             <!--微信公众号信息-->
-            <div class="inner profile-inner" th:replace="blog/part/wechat-info :: wechat_info"></div>
+            <!--<div class="inner profile-inner" th:replace="blog/part/wechat-info :: wechat_info"></div>-->
         </aside>
 
         <section id="main">
@@ -23,8 +23,9 @@
         </section>
 
         <aside id="sidebar">
-            <!--每日一言-->
-            <div class="widget-wrap" th:replace="blog/part/aphorism :: aphorism"></div>
+
+            <!--友情链接-->
+            <div class="inner profile-inner" th:replace="blog/part/friend-link :: friend_link"></div>
             <!--文章分类-->
             <div class="widget-wrap" th:replace="blog/part/classification ::classification"></div>
 
