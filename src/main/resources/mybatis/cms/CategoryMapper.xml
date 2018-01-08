@@ -15,7 +15,7 @@
 		  		  <if test="image != null and image != ''"> and image = #{image} </if>
 		  		  <if test="keywords != null and keywords != ''"> and keywords = #{keywords} </if>
 		  		  <if test="module != null and module != ''"> and module = #{module} </if>
-		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="name != null and name != ''"> and name like concat('%',#{name},'%')  </if>
 		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
 		  		  <if test="grade != null and grade != ''"> and grade = #{grade} </if>
 		  		  <if test="isshow != null and isshow != ''"> and isShow = #{isshow} </if>

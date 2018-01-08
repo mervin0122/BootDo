@@ -25,11 +25,14 @@ var load = function() {
 									valign : 'middle',
 									width : '50px'
 								},
-								{
-									title : '名称',
-									field : 'name'
-								},
-
+						    	{
+								title : '名称',
+								field : 'name'
+							    },
+							    {
+								title : '排序',
+								field : 'orderNum'
+						    	},
 								{
 									title : '图标',
 									field : 'icon',

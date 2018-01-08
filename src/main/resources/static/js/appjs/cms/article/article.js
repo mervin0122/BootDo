@@ -12,7 +12,7 @@ function load() {
 						url : prefix + "/list", // 服务器数据的加载地址
 					//	showRefresh : true,
 					//	showToggle : true,
-					//	showColumns : true,
+						showColumns : true,
 						iconSize : 'outline',
 						toolbar : '#exampleToolbar',
 						striped : true, // 设置为true会有隔行变色效果
@@ -26,14 +26,14 @@ function load() {
 						pageSize : 10, // 如果设置了分页，每页数据条数
 						pageNumber : 1, // 如果设置了分布，首页页码
 						//search : true, // 是否显示搜索框
-						showColumns : false, // 是否显示内容下拉框（选择显示的列）
+						showColumns : true, // 是否显示内容下拉框（选择显示的列）
 						sidePagination : "server", // 设置在哪里进行分页，可选值为"client" 或者 "server"
 						queryParams : function(params) {
 							return {
 								//说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
 								limit: params.limit,
-								offset:params.offset
-					           // name:$('#searchName').val(),
+								offset:params.offset,
+					            title:$('#searchName').val()
 					           // username:$('#searchName').val()
 							};
 						},
@@ -47,7 +47,7 @@ function load() {
 								{
 									checkbox : true
 								},
-																{
+								{
 									field : 'id', 
 									title : '' 
 								},
@@ -56,42 +56,76 @@ function load() {
                                 field : 'title',
                                 title : '标题'
                             },
-																{
+							{
 									field : 'model', 
-									title : '板块'
+									title : '板块',
+								formatter : function(value, row, index) {
+									if (value == 'news') {
+										return '新闻模块';
+									} else if (value == 'case') {
+										return '客户案例';
+									}else if (value == 'product') {
+										return '产品模块';;
+									}else if (value == 'solutions') {
+										return '解决方案模块';
+									}else if (value == 'service') {
+										return '服务中心模块';
+									}else if (value == 'recruit') {
+										return '招贤纳什';
+									}else if (value == 'aboutus') {
+										return '关于我们';
+									}
+								}
 								},
+							{
+								field : 'remark',
+								title : '描述'
+							},
+							{
+								visible : false,
+								field : 'content',
+								title : '内容'
+							},
+							{
+								visible : false,
+								field : 'htmlid',
+								title : 'htmlId'
+							},
 
-																{
+								{
 									field : 'hits', 
-									title : '点击量' 
+									title : '点击量',
+									visible : false
 								},
-																{
+								{
+									visible : false,
 									field : 'htmlid', 
 									title : 'htmlId' 
 								},
-																{
+								{
 									field : 'img', 
 									title : '图片' 
 								},
 
-																{
+								{
 									field : 'weight', 
 									title : '权重' 
 								},
-																{
+								{
+									visible : false,
 									field : 'typeid', 
 									title : '类型'
 								},
 
-																{
+								{
 									field : 'typename', 
 									title : '类型'
 								},
-																{
+								{
 									field : 'siteid', 
 									title : '站点'
 								},
-																{
+								{
 									title : '操作',
 									field : 'id',
 									align : 'center',
@@ -114,7 +148,7 @@ function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
 function add() {
-	layer.open({
+	var addPage =layer.open({
 		type : 2,
 		title : '增加',
 		maxmin : true,
@@ -122,9 +156,10 @@ function add() {
 		area : [ '800px', '520px' ],
 		content : prefix + '/add' // iframe的url
 	});
+	layer.full(addPage);
 }
 function edit(id) {
-	layer.open({
+	var editPage =layer.open({
 		type : 2,
 		title : '编辑',
 		maxmin : true,
@@ -132,6 +167,7 @@ function edit(id) {
 		area : [ '800px', '520px' ],
 		content : prefix + '/edit/' + id // iframe的url
 	});
+	layer.full(editPage);
 }
 function remove(id) {
 	layer.confirm('确定要删除选中的记录？', {

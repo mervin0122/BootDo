@@ -10,25 +10,25 @@
 					<div class="ibox-content">
 						<form class="form-horizontal m-t" id="signupForm">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">标题：</label>
-								<div class="col-sm-8">
+								<label class="col-sm-1 control-label">标题：</label>
+								<div class="col-sm-11">
 									<input id="title" name="title" class="form-control" type="text">
 								</div>
 							</div>
 
-														<div class="form-group">
-								<label class="col-sm-3 control-label">url：</label>
-								<div class="col-sm-8">
+							<div class="form-group">
+								<label class="col-sm-1 control-label">url：</label>
+								<div class="col-sm-11">
 									<input id="htmlid" name="htmlid" class="form-control" type="text">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">图片：</label>
-								<div class="col-sm-8">
+								<label class="col-sm-1 control-label">图片：</label>
+								<div class="col-sm-11">
 									<input id="img" name="img" class="form-control" type="hidden" />
 									<input id="img1" name="img1" class="form-control" type="hidden" />
 									<input id="img2" name="img2" class="form-control" type="hidden" />
-									<img width="155px" height="120px" id="img4"  /><img id="img5"  width="155px" height="120px"/><img width="155px" height="120px" id="img6"  />
+									<img width="140px" height="120px" id="img4"  /><img id="img5"  width="140" height="120px"/><img width="140" height="120px" id="img6"  />
 									<button type="button" class="layui-btn" id="file">
 										<i class="fa fa-cloud"></i>上传图片
 									</button>
@@ -40,23 +40,28 @@
 									</button>
 								</div>
 							</div>
-														<div class="form-group">	
-								<label class="col-sm-3 control-label">关键字：</label>
-								<div class="col-sm-8">
+							<div class="form-group">
+								<label class="col-sm-1 control-label">关键字：</label>
+								<div class="col-sm-11">
 									<input id="keywords" name="keywords" class="form-control" type="text">
 								</div>
 							</div>
-
 							<div class="form-group">
-								<label class="col-sm-3 control-label">权重：</label>
-								<div class="col-sm-8">
+								<label class="col-sm-1 control-label">描述：</label>
+								<div class="col-sm-11">
+									<input id="remark" name="remark" class="form-control" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-1 control-label">权重：</label>
+								<div class="col-sm-11">
 									<input id="weight" name="weight" class="form-control" type="text">
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label class="col-sm-3 control-label">类型：</label>
-								<div class="col-sm-8">
+								<label class="col-sm-1 control-label">类型：</label>
+								<div class="col-sm-11">
 									<select data-placeholder="选择类型" name="typeid" id="typeid"
 											class="form-control chosen-select" tabindex="2"
 											style="width: 100%">
@@ -66,22 +71,20 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">板块：</label>
-								<div class="col-sm-8">
+								<label class="col-sm-1 control-label">板块：</label>
+								<div class="col-sm-11">
 									<select data-placeholder="选择板块" name="model" id="model"
 											class="form-control chosen-select" tabindex="2"
 											style="width: 100%">
 										<option value="">选择板块</option>
-										<option th:value="${model.name}" th:each="model:${modelList}" th:text="${model.value}">选择品牌</option>
+										<option th:value="${model.value}" th:each="model:${modelList}" th:text="${model.name}">选择品牌</option>
 									</select>
 								</div>
 							</div>
 
-
-
 							<div class="form-group">
-								<label class="col-sm-3 control-label">站点：</label>
-								<div class="col-sm-8">
+								<label class="col-sm-1 control-label">站点：</label>
+								<div class="col-sm-11">
 									<select data-placeholder="选择站点" name="siteid" id="siteid"
 											class="form-control chosen-select" tabindex="2"
 											style="width: 100%">
@@ -99,10 +102,9 @@
 									</div>
 								</div>
 							</div>
-
-
-																					<div class="form-group">
-								<div class="col-sm-8 col-sm-offset-3">
+                          <div class="form-group">
+								<div class="col-sm-3 col-sm-offset-9">
+									<a class="btn btn-default waves-effect waves-light" onclick="returnList()">返回列表</a>
 									<button type="submit" class="btn btn-primary">提交</button>
 								</div>
 							</div>

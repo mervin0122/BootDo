@@ -1,14 +1,12 @@
 package com.bootdo.cms.controller;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.bootdo.cms.service.CmsCategoryService;
 import com.bootdo.cms.service.LinkService;
 import com.bootdo.cms.service.SiteService;
 import com.bootdo.common.domain.DictDO;
+import com.bootdo.common.service.DictService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +42,8 @@ public class CmsArticleController {
 	private CmsCategoryService cmsCategoryService;
 	@Autowired
 	private SiteService siteService;
+	@Autowired
+	private DictService sysDictService;
 	
 	@GetMapping()
 	@RequiresPermissions("cms:article:article")
@@ -68,7 +68,7 @@ public class CmsArticleController {
 	String add(Model model){
 		model.addAttribute("typeList",cmsCategoryService.list(null));
 		model.addAttribute("siteList",siteService.list(null));
-		List<DictDO> modelList = new ArrayList<>();
+	/*	List<DictDO> modelList = new ArrayList<>();
 		DictDO dictDO = new DictDO("news","新闻模块");
 		DictDO dictDO1 = new DictDO("case","客户案例");
 		DictDO dictDO2 = new DictDO("product","产品模块");
@@ -78,9 +78,11 @@ public class CmsArticleController {
 		DictDO dictDO6 = new DictDO("aboutus","关于我们");
 		modelList.add(dictDO);modelList.add(dictDO1);modelList.add(dictDO2);
 		modelList.add(dictDO3);modelList.add(dictDO4);modelList.add(dictDO5);
-		modelList.add(dictDO6);
+		modelList.add(dictDO6);*/
+		Map<String, Object> map = new HashMap<>();
+		map.put("type", "model_type");
+		List<DictDO> modelList = sysDictService.list(map);
 		model.addAttribute("modelList",modelList);
-
 		return "cms/article/add";
 	}
 

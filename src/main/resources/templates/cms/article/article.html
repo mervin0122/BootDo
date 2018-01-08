@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 <body class="gray-bg">
@@ -7,6 +8,22 @@
 		<div class="col-sm-12">
 			<div class="ibox">
 				<div class="ibox-body">
+
+					<div id="exampleToolbar" role="group">
+						<div class="form-group col-sm-6">
+							<input id="searchName" type="text" class="form-control"
+								   placeholder="模糊查询">
+						</div>
+						<button  class="btn btn-success" onclick="reLoad()">查询</button>
+						<button shiro:hasPermission="cms:article:add" type="button" class="btn  btn-primary" onclick="add()">
+							<i class="fa fa-plus" aria-hidden="true"></i>添加
+						</button>
+						<button shiro:hasPermission="cms:article:batchRemove" type="button" class="btn  btn-danger"
+								onclick="batchRemove()">
+							<i class="fa fa-trash" aria-hidden="true"></i>删除
+						</button>
+					</div>
+				<!--
 					<div class="fixed-table-toolbar">
 						<div class="columns pull-left">
 							<button shiro:hasPermission="cms:article:add" type="button" class="btn  btn-primary" onclick="add()">
@@ -24,7 +41,7 @@
 							<input id="searchName" type="text" class="form-control"
 								placeholder="">
 						</div>
-					</div>
+					</div>-->
 					<table id="exampleTable" data-mobile-responsive="true">
 					</table>
 				</div>

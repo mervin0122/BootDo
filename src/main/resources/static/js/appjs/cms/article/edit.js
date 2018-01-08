@@ -1,5 +1,9 @@
 $().ready(function() {
 	validateRule();
+
+	var content = $("#content").val();
+
+	$('#content_sn').summernote('code', content);
 });
 
 $.validator.setDefaults({
@@ -8,6 +12,8 @@ $.validator.setDefaults({
 	}
 });
 function update() {
+	var content_sn = $("#content_sn").summernote('code');
+	$("#content").val(content_sn);
 	$.ajax({
 		cache : true,
 		type : "POST",
@@ -47,3 +53,8 @@ function validateRule() {
 		}
 	})
 }
+function returnList() {
+	var index = parent.layer.getFrameIndex(window.name); // 获取窗口索引
+	parent.layer.close(index);
+}
+

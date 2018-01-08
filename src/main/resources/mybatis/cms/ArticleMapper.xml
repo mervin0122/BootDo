@@ -19,7 +19,7 @@
 		  		  <if test="htmlid != null and htmlid != ''"> and htmlid = #{htmlid} </if>
 		  		  <if test="img != null and img != ''"> and img = #{img} </if>
 		  		  <if test="keywords != null and keywords != ''"> and keywords = #{keywords} </if>
-		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="title != null and title != ''">  and title like concat('%',#{title},'%') or remark like concat('%',#{title},'%') or content like concat('%',#{title},'%')</if>
 		  		  <if test="weight != null and weight != ''"> and weight = #{weight} </if>
 		  		  <if test="typeid != null and typeid != ''"> and typeid = #{typeid} </if>
 		  		  <if test="delflag != null and delflag != ''"> and delFlag = #{delflag} </if>
@@ -53,7 +53,7 @@
 		  		  <if test="htmlid != null and htmlid != ''"> and htmlid = #{htmlid} </if>
 		  		  <if test="img != null and img != ''"> and img = #{img} </if>
 		  		  <if test="keywords != null and keywords != ''"> and keywords = #{keywords} </if>
-		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+			      <if test="title != null and title != ''">  and title like concat('%',#{title},'%') or remark like concat('%',#{title},'%') or content like concat('%',#{title},'%')</if>
 		  		  <if test="weight != null and weight != ''"> and weight = #{weight} </if>
 		  		  <if test="typeid != null and typeid != ''"> and typeid = #{typeid} </if>
 		  		  <if test="delflag != null and delflag != ''"> and delFlag = #{delflag} </if>

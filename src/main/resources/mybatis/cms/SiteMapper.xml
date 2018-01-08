@@ -17,7 +17,7 @@
 		  		  <if test="logo != null and logo != ''"> and logo = #{logo} </if>
 		  		  <if test="name != null and name != ''"> and name = #{name} </if>
 		  		  <if test="theme != null and theme != ''"> and theme = #{theme} </if>
-		  		  <if test="title != null and title != ''"> and title = #{title} </if>
+		  		  <if test="title != null and title != ''"> and title like concat('%',#{title},'%') </if>
 		  		</where>
         <choose>
             <when test="sort != null and sort.trim() != ''">
