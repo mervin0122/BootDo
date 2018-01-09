@@ -17,6 +17,17 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<label class="col-sm-1 control-label">图片：</label>
+								<div class="col-sm-11">
+									<img width="140px" height="120px" id="img4"   th:src="${article.img}"/>
+									<input id="img" name="img" th:value="${article.img}" class="form-control" type="text" type="hidden">
+									<button type="button" class="layui-btn" id="file">
+										<i class="fa fa-cloud"></i>上传图片
+									</button>
+								</div>
+							</div>
+
+							<div class="form-group">
 								<label class="col-sm-1 control-label">关键字：</label>
 								<div class="col-sm-11">
 									<input id="keywords" name="keywords" th:value="${article.keywords}" class="form-control" type="text">
@@ -28,12 +39,7 @@
 									<input id="remark" name="remark" th:value="${article.remark}" class="form-control" type="text">
 								</div>
 							</div>
-							<div class="form-group">	
-								<label class="col-sm-1 control-label">板块：</label>
-								<div class="col-sm-11">
-									<input id="model" name="model" th:value="${article.model}" class="form-control" type="text">
-								</div>
-							</div>
+
 
 
 						<!--	<div class="form-group">
@@ -61,12 +67,6 @@
 									<input id="htmlid" name="htmlid" th:value="${article.htmlid}" class="form-control" type="text">
 								</div>
 							</div>-->
-							<div class="form-group">
-								<label class="col-sm-1 control-label">图片：</label>
-								<div class="col-sm-11">
-									<input id="img" name="img" th:value="${article.img}" class="form-control" type="text">
-								</div>
-							</div>
 
 							<div class="form-group">
 								<label class="col-sm-1 control-label">权重：</label>
@@ -104,11 +104,42 @@
 									<input id="typename" name="typename" th:value="${article.typename}" class="form-control" type="text">
 								</div>
 							</div>-->
+
+							<div class="form-group">
+								<label class="col-sm-1 control-label">类型：</label>
+								<div class="col-sm-11">
+									<select data-placeholder="选择类型" name="typeid" id="typeid"
+											class="form-control chosen-select" tabindex="2"
+											style="width: 100%" th:field="*{article.typeid}">
+										<option th:value="${type1.id}" th:each="type1:${typeList}" th:text="${type1.name}">选择类型</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-1 control-label">板块：</label>
+								<div class="col-sm-11">
+									<select data-placeholder="选择板块" name="model" id="model"
+											class="form-control chosen-select" tabindex="2"
+											style="width: 100%" th:field="*{article.model}">
+										<option th:value="${model.value}" th:each="model:${modelList}" th:text="${model.name}">选择板块</option>
+									</select>
+								</div>
+								<!--<div class="col-sm-11">
+									<input id="model" name="model" th:value="${article.model}" class="form-control" type="text">
+								</div>-->
+							</div>
 							<div class="form-group">
 								<label class="col-sm-1 control-label">站点：</label>
 								<div class="col-sm-11">
-									<input id="siteid" name="siteid" th:value="${article.siteid}" class="form-control" type="text">
+									<select data-placeholder="选择站点" name="siteid" id="siteid"
+											class="form-control chosen-select" tabindex="2"
+											style="width: 100%" th:field="*{article.siteid}">
+										<option th:value="${site.id}" th:each="site:${siteList}" th:text="${site.name}">选择站点</option>
+									</select>
 								</div>
+								<!--<div class="col-sm-11">
+									<input id="siteid" name="siteid" th:value="${article.siteid}" class="form-control" type="text">
+								</div>-->
 							</div>
 							<div class="form-group">
 								<input id="content" name="content" type="hidden" th:value="${article.content}">
@@ -134,6 +165,27 @@
 	</div>
 	<div th:include="include::footer"></div>
 	<script type="text/javascript" src="/js/appjs/cms/article/edit.js">
+	</script>
+	<script>
+		layui.use('upload', function() {
+			var upload = layui.upload;
+			//执行实例
+			var uploadInst = upload.render({
+				elem : '#file', //绑定元素
+				url : '/common/sysFile/upload', //上传接口
+				size : 1000,
+				accept : 'file',
+				done : function(r) {
+					var fileName = r.fileName;
+					alert(fileName);
+					$("#img").val(fileName);
+					$("#img4").attr("src",fileName);
+				},
+				error : function(r) {
+					layer.msg(r.msg);
+				}
+			});
+		});
 	</script>
 </body>
 </html>

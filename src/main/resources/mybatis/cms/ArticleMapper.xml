@@ -8,7 +8,10 @@
 	</select>
 
 	<select id="list" resultType="com.bootdo.cms.domain.CmsArticleDO">
-		select `id`,`model`,`content`,`createDate`,`remark`,`hits`,`htmlid`,`img`,`keywords`,`title`,`weight`,`typeid`,`delFlag`,`createby`,`moreimage`,`typename`,`siteid` from cms_article
+		<!--select `id`,`model`,`content`,`createDate`,`remark`,`hits`,`htmlid`,`img`,`keywords`,`title`,`weight`,`typeid`,`delFlag`,`createby`,`moreimage`,`typename`,`siteid` from cms_article-->
+		SELECT t1.`id`,t1.`model`,t1.`content`,t1.`createDate`,t1.`remark`,t1.`hits`,t1.`htmlid`,t1.`img`,t1.`keywords`,t1.`title`,t1.`weight`,t1.`typeid`,t1.`delFlag`,
+		t1.`createby`,t1.`moreimage`,t1.`typename`,t1.`siteid` ,t2.`name` AS cname,t3.`name` AS sname
+		FROM cms_article t1 LEFT JOIN cms_category t2 ON t2.`id`=t1.`typeid` LEFT  JOIN cms_site t3 ON t3.`id`=t1.`siteid`
         <where>  
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
 		  		  <if test="model != null and model != ''"> and model = #{model} </if>

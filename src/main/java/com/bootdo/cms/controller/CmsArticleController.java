@@ -91,6 +91,13 @@ public class CmsArticleController {
 	String edit(@PathVariable("id") Long id,Model model){
 		CmsArticleDO article = cmsArticleService.get(id);
 		model.addAttribute("article", article);
+
+		model.addAttribute("typeList",cmsCategoryService.list(null));
+		model.addAttribute("siteList",siteService.list(null));
+		Map<String, Object> map = new HashMap<>();
+		map.put("type", "model_type");
+		List<DictDO> modelList = sysDictService.list(map);
+		model.addAttribute("modelList",modelList);
 	    return "cms/article/edit";
 	}
 	

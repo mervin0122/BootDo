@@ -52,6 +52,11 @@ public class CmsArticleDO implements Serializable {
 	private String typename;
 	//
 	private Long siteid;
+	//分类名称
+	private String cname;
+	//站点名称
+	private String sname;
+
 	public String getImg1() {
 		return img1;
 	}
@@ -272,5 +277,21 @@ public class CmsArticleDO implements Serializable {
 	 */
 	public Long getSiteid() {
 		return siteid;
+	}
+
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+
+	public String getSname() {
+		return sname;
+	}
+
+	public void setSname(String sname) {
+		this.sname = sname;
 	}
 }

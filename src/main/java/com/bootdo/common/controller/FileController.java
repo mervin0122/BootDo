@@ -9,7 +9,7 @@ import java.util.Map;
 
 import com.bootdo.common.utils.PhotoResult;
 import com.bootdo.common.utils.PhotoUploadUtil;
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -51,12 +51,11 @@ function load() {
 									field : 'id', 
 									title : '' 
 								},
-
-                            {
+                                {
                                 field : 'title',
                                 title : '标题'
-                            },
-							{
+                                },
+							    {
 									field : 'model', 
 									title : '板块',
 								formatter : function(value, row, index) {
@@ -86,45 +85,44 @@ function load() {
 								field : 'content',
 								title : '内容'
 							},
-							{
+							/*{
 								visible : false,
 								field : 'htmlid',
 								title : 'htmlId'
-							},
-
+							},*/
 								{
 									field : 'hits', 
 									title : '点击量',
 									visible : false
 								},
-								{
+							/*	{
 									visible : false,
 									field : 'htmlid', 
 									title : 'htmlId' 
-								},
+								},*/
 								{
 									field : 'img', 
 									title : '图片' 
 								},
+								{
 
-								{
-									field : 'weight', 
-									title : '权重' 
-								},
-								{
-									visible : false,
-									field : 'typeid', 
+									field : 'cname',
 									title : '类型'
 								},
 
-								{
+							/*	{
+									visible : false,
 									field : 'typename', 
 									title : '类型'
-								},
+								},*/
 								{
-									field : 'siteid', 
+									field : 'sname',
 									title : '站点'
 								},
+						     	{
+								field : 'weight',
+								title : '权重'
+						    	},
 								{
 									title : '操作',
 									field : 'id',
