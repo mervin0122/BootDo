@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <title>解决方案</title>
+  <title>文章分享</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport"
         content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0,user-scalable=no">
@@ -15,32 +15,29 @@
   <link rel="stylesheet" href="/cms/css/style.css"/>
 </head>
 <body>
+
 <div th:replace="cms/layout/mallHeader"></div>
 <div class="toppic">
 	<div class="am-container-1">
 	 <div class="toppic-title left">
 			<i class="am-icon-lightbulb-o toppic-title-i"></i>
-			<span class="toppic-title-span">解决方案</span>
-			<p>Solutions</p>
+			<span class="toppic-title-span">文章分享</span>
+			<p>Article Share</p>
 		</div>
-		<div class="right toppic-progress">
+		<!--<div class="right toppic-progress">
 			<span><a href="index.html" class="w-white">首页</a></span>
 			<i class=" am-icon-arrow-circle-right w-white"></i>
 			<span><a href="solutions.html" class="w-white">解决方案</a></span>
-		</div>
+		</div>-->
 	</div>
 </div>
-
-		
-
-  
    <div data-am-widget="tabs"class="am-tabs am-tabs-d2 ">
 
       <ul class="am-tabs-nav am-cf solutions-tabs-ul ">
-         <li class="am-active solutions-tabs-ul-li1"><a href="[data-tab-panel-0]" ><i class=" am-icon-desktop"></i><span>网站解决方案</span></a></li>
-          <li class="solutions-tabs-ul-li2"><a href="[data-tab-panel-1]"><i class=" am-icon-mobile-phone mobile-phone"></i><span>app解决方案</span></a></li>
-          <li class="solutions-tabs-ul-li3"><a href="[data-tab-panel-2]" ><i class=" am-icon-desktop"></i><span>h5解决方案</span></a></li>
-          <li class="solutions-tabs-ul-li4"><a href="[data-tab-panel-3]"><i class=" am-icon-mobile-phone mobile-phone"></i><span>小程序解决方案</span></a></li>
+         <li class="am-active solutions-tabs-ul-li1"><a href="[data-tab-panel-0]" ><i class=" am-icon-desktop"></i><span>技术创新</span></a></li>
+          <li class="solutions-tabs-ul-li2"><a href="[data-tab-panel-1]"><i class=" am-icon-mobile-phone mobile-phone"></i><span>宣传文章</span></a></li>
+          <li class="solutions-tabs-ul-li3"><a href="[data-tab-panel-2]" ><i class=" am-icon-desktop"></i><span>生活点滴</span></a></li>
+          <li class="solutions-tabs-ul-li4"><a href="[data-tab-panel-3]"><i class=" am-icon-mobile-phone mobile-phone"></i><span>Literature</span></a></li>
       </ul>
 
       <div class="am-tabs-bd solutions-tabs-content ">
@@ -52,8 +49,8 @@
             			<img th:src="@{${goods.img}}" />
             		</div>
             		<div class="am-u-sm-12 am-u-md-12 am-u-lg-9 solution-tabs-words">
-            			<h5 th:text="${goods.title}">优悦解决方案</h5>
-            			<p th:utext="${goods.content}">华天公路货运管理系统是华天软件为物流货运企业全力打造的一套物流网络信息化的实在营运解决方案，通过６年的不断积累，汲取数十家物流企业的实战经验，以客户为中心，以业务为纽带，为车辆调度，仓库管理，装车发货，分拣中心，卸货提货，运单跟踪，</p>
+            			<h5 th:text="${goods.title}"></h5>
+            			<p th:utext="${goods.remark}"></p>
             		</div>
             		</a>
             	</li>
@@ -70,8 +67,8 @@
 							 <img th:src="@{${goods1.img}}" />
 						 </div>
 						 <div class="am-u-sm-12 am-u-md-12 am-u-lg-9 solution-tabs-words">
-							 <h5 th:text="${goods1.title}">优悦解决方案</h5>
-							 <p th:utext="${goods1.content}">华天公路货运管理系统是华天软件为物流货运企业全力打造的一套物流网络信息化的实在营运解决方案，通过６年的不断积累，汲取数十家物流企业的实战经验，以客户为中心，以业务为纽带，为车辆调度，仓库管理，装车发货，分拣中心，卸货提货，运单跟踪，</p>
+							 <h5 th:text="${goods1.title}"></h5>
+							 <p th:utext="${goods1.remark}"></p>
 						 </div>
 					 </a>
 				 </li>
@@ -86,8 +83,8 @@
 							<img th:src="@{${goods2.img}}" />
 						</div>
 						<div class="am-u-sm-12 am-u-md-12 am-u-lg-9 solution-tabs-words">
-							<h5 th:text="${goods2.title}">优悦解决方案</h5>
-							<p th:utext="${goods2.content}">华天公路货运管理系统是华天软件为物流货运企业全力打造的一套物流网络信息化的实在营运解决方案，通过６年的不断积累，汲取数十家物流企业的实战经验，以客户为中心，以业务为纽带，为车辆调度，仓库管理，装车发货，分拣中心，卸货提货，运单跟踪，</p>
+							<h5 th:text="${goods2.title}"></h5>
+							<p th:utext="${goods2.remark}"></p>
 						</div>
 					</a>
 				</li>
@@ -101,8 +98,8 @@
 							<img th:src="@{${goods3.img}}" />
 						</div>
 						<div class="am-u-sm-12 am-u-md-12 am-u-lg-9 solution-tabs-words">
-							<h5 th:text="${goods3.title}">优悦解决方案</h5>
-							<p th:utext="${goods3.content}">华天公路货运管理系统是华天软件为物流货运企业全力打造的一套物流网络信息化的实在营运解决方案，通过６年的不断积累，汲取数十家物流企业的实战经验，以客户为中心，以业务为纽带，为车辆调度，仓库管理，装车发货，分拣中心，卸货提货，运单跟踪，</p>
+							<h5 th:text="${goods3.title}"></h5>
+							<p th:utext="${goods3.remark}"></p>
 						</div>
 					</a>
 				</li>

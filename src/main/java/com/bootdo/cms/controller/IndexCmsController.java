@@ -1,31 +1,17 @@
 package com.bootdo.cms.controller;
 
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
 import com.bootdo.cms.domain.CmsArticleDO;
-import com.bootdo.cms.service.CmsArticleService;
-
-import com.bootdo.cms.service.CmsCategoryService;
-import com.bootdo.cms.service.CommentService;
-import com.bootdo.cms.service.LinkService;
-import com.bootdo.cms.service.SiteService;
-import com.bootdo.common.utils.Query;
-import com.bootdo.shop.domain.FavoriteDO;
-import com.bootdo.shop.domain.TGoodsDO;
+import com.bootdo.cms.service.*;
 import com.bootdo.shop.service.BannerService;
-import com.bootdo.system.domain.UserDO;
-import com.bootdo.wap.MemberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -66,7 +52,7 @@ public class IndexCmsController {
 		ModelAndView mav=new ModelAndView();
 		Map<String, Object> map = new HashMap<>();
 		map.put("limit",8);
-		map.put("model","case");
+		map.put("model","show");
 		List<CmsArticleDO> articles =  cmsArticleService.list(map);
 		mav.addObject("articles",articles);
 		map.put("model","news");
@@ -84,7 +70,7 @@ public class IndexCmsController {
 	}
 
 	/**
-	 * 客户案例
+	 * 系统展示(客户案例)
 	 * @return
 	 * @throws Exception
 	 */
@@ -92,7 +78,7 @@ public class IndexCmsController {
 	public ModelAndView case1()throws Exception{
 		ModelAndView mav=new ModelAndView();
 		Map<String, Object> map = new HashMap<>();
-		map.put("model","case");
+		map.put("model","show");
 		map.put("limit",8);
 		List<CmsArticleDO> articles =  cmsArticleService.list(map);
 		mav.addObject("articles",articles);
@@ -107,7 +93,7 @@ public class IndexCmsController {
 	 */
 	@RequestMapping("/goodsDetail/{id}")
 	public String goodsDetail(@PathVariable Long id, Model model) {
-model.addAttribute("goods",cmsArticleService.get(id));
+     model.addAttribute("goods",cmsArticleService.get(id));
 		return "cms/case-inform";
 	}
 	/**
@@ -136,7 +122,7 @@ model.addAttribute("goods",cmsArticleService.get(id));
 		return "cms/solutions-inform";
 	}
 	/**
-	 * 解决方案
+	 * 文章分享（解决方案）
 	 * @return
 	 * @throws Exception
 	 */
@@ -144,7 +130,7 @@ model.addAttribute("goods",cmsArticleService.get(id));
 	public ModelAndView solutions()throws Exception{
 		ModelAndView mav=new ModelAndView();
 		Map<String, Object> map = new HashMap<>();
-		map.put("model","solutions");
+		map.put("model","share");
 		map.put("limit",8);
 		map.put("typeid",1);//网站
 		List<CmsArticleDO> articles =  cmsArticleService.list(map);
@@ -180,7 +166,7 @@ model.addAttribute("goods",cmsArticleService.get(id));
 	public ModelAndView servicecenter()throws Exception{
 		ModelAndView mav=new ModelAndView();
 		Map<String, Object> map = new HashMap<>();
-		map.put("model","service");
+		map.put("model","framework");
 		map.put("limit",8);
 		List<CmsArticleDO> articles =  cmsArticleService.list(map);
 		mav.addObject("articles",articles);

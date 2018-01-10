@@ -60,15 +60,15 @@ function load() {
 									title : '板块',
 								formatter : function(value, row, index) {
 									if (value == 'news') {
-										return '新闻模块';
-									} else if (value == 'case') {
-										return '客户案例';
+										return '新闻动态';
+									} else if (value == 'show') {
+										return '系统展示';
 									}else if (value == 'product') {
-										return '产品模块';;
-									}else if (value == 'solutions') {
-										return '解决方案模块';
-									}else if (value == 'service') {
-										return '服务中心模块';
+										return '产品展示';;
+									}else if (value == 'share') {
+										return '文章分享';
+									}else if (value == 'framework') {
+										return '技术框架';
 									}else if (value == 'recruit') {
 										return '招贤纳什';
 									}else if (value == 'aboutus') {

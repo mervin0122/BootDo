@@ -36,30 +36,30 @@
         <div class="part-title">
             <a href="solutions.html">
                 <i class="am-icon-lightbulb-o part-title-i"></i>
-                <span class="part-title-span">解决方案</span>
-                <p>Solutions</p>
+                <span class="part-title-span">文章分享</span>
+              <!--  <p>Article Share</p>-->
             </a>
         </div>
         <ul class="am-g part-content solutions-content">
             <li class="am-u-sm-6 am-u-md-3 am-u-lg-3">
                 <i class="am-icon-safari solution-circle"></i>
-                <span class="solutions-title">网站、移动网站</span>
-                <p class="solutions-way">微信公众号开发移动网站微信公众号开发</p>
+                <span class="solutions-title">技术创新</span>
+                <p class="solutions-way">技术分享与技术创新</p>
             </li>
             <li class="am-u-sm-6 am-u-md-3 am-u-lg-3">
                 <i class="am-icon-magic solution-circle"></i>
-                <span class="solutions-title">网站、移动网站</span>
-                <p class="solutions-way">移动网站微信公众号开发移动网站微信公众号开发,解决方案</p>
+                <span class="solutions-title">宣传文章</span>
+                <p class="solutions-way">用于提供优秀的宣传内容</p>
             </li>
             <li class="am-u-sm-6 am-u-md-3 am-u-lg-3">
                 <i class="am-icon-phone solution-circle"></i>
-                <span class="solutions-title">网站、移动网站</span>
-                <p class="solutions-way">移动网站微信公众号开发移动网站微信公众号开发</p>
+                <span class="solutions-title">生活点滴</span>
+                <p class="solutions-way">吐槽人生、感悟世界</p>
             </li>
             <li class="am-u-sm-6 am-u-md-3 am-u-lg-3">
                 <i class="am-icon-hacker-news solution-circle"></i>
-                <span class="solutions-title">网站、移动网站</span>
-                <p class="solutions-way">网站、移动网站微信公众号开发移动网站微信公众号开发,解决方案</p>
+                <span class="solutions-title">Literature</span>
+                <p class="solutions-way">Share Outside The Literature</p>
             </li>
 
         </ul>
@@ -71,26 +71,24 @@
         <div class="part-title">
             <a href="customer-case.html">
                 <i class=" am-icon-briefcase part-title-i"></i>
-                <span class="part-title-span">客户案例</span>
-                <p>Customer Case</p>
+                <span class="part-title-span">系统展示</span>
+              <!--  <p>System Show</p>-->
             </a>
         </div>
 
 
-        <ul data-am-widget="gallery" class=" am-avg-sm-1
-  am-avg-md-4 am-avg-lg-4 am-gallery-bordered customer-case-content">
+        <ul data-am-widget="gallery" class="am-avg-sm-1 am-avg-md-3 am-avg-lg-3 am-gallery-bordered customer-case-content">
             <li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3" th:each="goods:${articles}">
                 <div class="am-gallery-item case-img1">
                     <a th:href="@{'/cms/web/goodsDetail/'+${goods.id}}">
-                        <img width="228px" height="228px" th:src="@{${goods.img}}"/>
-
+                        <img width="200px" height="200px" th:src="@{${goods.img}} "/>
                     </a>
                 </div>
                 <div class="case-li-mengban">
                     <div class=" case-word">
-                        <h3 class="am-gallery-title" th:text="${goods.title}">响应式商城</h3>
-                        <p>2015-06-11</p>
-                        <a th:href="@{'/cms/web/goods'}"><span><i class="am-icon-eye"></i>查看更多</span></a>
+                        <h3 class="am-gallery-title" th:text="${goods.title}">系统展示图片</h3>
+                        <!--<p th:utext="${goods.createDate}"></p>-->
+                        <a th:href="@{'/cms/web/goodsDetail/'+${goods.id}}"><span><i class="am-icon-eye"></i>查看更多</span></a>
                     </div>
                 </div>
             </li>
@@ -98,11 +96,11 @@
 
         </ul>
         <div class="lan-bott">
-            <div class="left"><span>全方位解决方案,为您轻松解决不同问题</span>
-                <p>A full range of solutions for you to solve different problems</p>
+            <div class="left"><span>系统展示包括网站首页、博客首页、后台管理系统。全方位解决方案,为您轻松解决不同问题</span>
+                <p>System includes Webstite、Blog、Management System。A full range of solutions for you to solve different problems</p>
             </div>
             <div class="right">
-                <a href="customer-case.html">
+                <a href="/cms/web/case">
                     <span class="see-more">查看更多<i class="am-icon-angle-double-right"></i></span>
                 </a>
             </div>
@@ -122,7 +120,7 @@
                 <a href="news.html">
                     <i class="am-icon-newspaper-o part-title-i"></i>
                     <span class="part-title-span">新闻动态</span>
-                    <p>zscat News</p>
+                 <!--   <p>Blog News</p>-->
                 </a>
             </div>
             <div class="news-content ">
@@ -153,7 +151,7 @@
 </div>
 <div class="three-reason">
 			<div class="part-title three-reason-title">
-			<span class="part-title-span w-white">选择恒望的三大理由</span>
+			<span class="part-title-span w-white">选择我们的三大理由</span>
 			<p class="w-white">Why Choose Hengwang</p>
 			
 		</div>
