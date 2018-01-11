@@ -87,6 +87,7 @@
                 <div class="case-li-mengban">
                     <div class=" case-word">
                         <h3 class="am-gallery-title" th:text="${goods.title}">系统展示图片</h3>
+                        <div th:text="${#dates.format(goods.createdate, 'yyyy-MM-dd HH:mm')}"></div>
                         <!--<p th:utext="${goods.createDate}"></p>-->
                         <a th:href="@{'/cms/web/goodsDetail/'+${goods.id}}"><span><i class="am-icon-eye"></i>查看更多</span></a>
                     </div>
@@ -133,9 +134,9 @@
                                 </div>
                             </div>
                             <div class=" am-u-sm-12 am-u-md-12 am-u-lg-7">
-                                <span class="news-right-title" th:text="${new1.title}">关于召开年会的通知</span>
-                                <p class="news-right-time" th:text="${new1.createdate}">2015-06-11</p>
-                                <p class="news-right-words" th:text="${new1.remark}">互联网，又称网际网路或音译因特网、英特网，是网络与网络之间所串连成的庞大网络网络与网络之...</p>
+                                <span class="news-right-title" th:text="${new1.title}"></span>
+                                <p class="news-right-time" th:text="${#dates.format(new1.createdate, 'yyyy-MM-dd HH:mm')}"></p>
+                                <p class="news-right-words" th:text="${new1.remark}"></p>
                                 <a th:href="@{'/cms/web/news'}"><span class="see-more2">查看更多<i class="am-icon-angle-double-right"></i></span></a>
                             </div>
                             <div class="clear"></div>
@@ -151,22 +152,22 @@
 </div>
 <div class="three-reason">
 			<div class="part-title three-reason-title">
-			<span class="part-title-span w-white">选择我们的三大理由</span>
-			<p class="w-white">Why Choose Hengwang</p>
+			<span class="part-title-span w-white">系统组成的三大模块</span>
+			<p class="w-white">System Model</p>
 			
 		</div>
 			<ul class="am-g part-content three-reason-content">
 			  <li class="am-u-sm-4 am-u-md-4 am-u-lg-4">
 			  	<div class="three-reason-img1 "></div>
-			  	<p class="reason-title w-white">规模优势<br/>Scale advantage</p>
+			  	<p class="reason-title w-white">后台管理<br/>Management System</p>
 			  </li>
 			  <li class="am-u-sm-4 am-u-md-4 am-u-lg-4">
 			  	<div class="three-reason-img2 "></div>
-			  	<p class="reason-title w-white ">领先技术<br/>Leading technology</p>
+			  	<p class="reason-title w-white ">博客管理<br/>Webstite</p>
 			  </li>
 			  <li class="am-u-sm-4 am-u-md-4 am-u-lg-4">
 			  	<div class="three-reason-img3 "></div>
-			  	<p class="reason-title w-white">整合能力<br/>Integration capability</p>
+			  	<p class="reason-title w-white">个人网站<br/>Blog</p>
 			  </li>
 		</ul>
 		</div>
@@ -174,8 +175,8 @@
     <div class="customer  am-container-1">
         <div class="part-title">
             <i class="am-icon-users part-title-i"></i>
-            <span class="part-title-span">服务客户</span>
-            <p>Serve Customers</p>
+            <span class="part-title-span">友情链接</span>
+            <p>Friend-Link</p>
         </div>
 
         <div class="am-slider am-slider-default am-slider-carousel part-all"

@@ -46,11 +46,12 @@
             	<li class="am-u-sm-12 am-u-md-6 am-u-lg-12" th:each="goods:${articles}">
             		<a th:href="@{'/cms/web/solutionsDetail/'+${goods.id}}">
             		<div class="am-u-sm-12 am-u-md-12 am-u-lg-3 solution-tabs-img">
-            			<img th:src="@{${goods.img}}" />
+            			<img th:src="@{${goods.img}}" height="195px" width="250px"/>
             		</div>
             		<div class="am-u-sm-12 am-u-md-12 am-u-lg-9 solution-tabs-words">
             			<h5 th:text="${goods.title}"></h5>
-            			<p th:utext="${goods.remark}"></p>
+						<p th:text="${goods.remark}"></p>
+						&nbsp;<span class="see-more2">查看更多<i class="am-icon-angle-double-right"></i></span>
             		</div>
             		</a>
             	</li>
@@ -64,11 +65,12 @@
 				 <li class="am-u-sm-12 am-u-md-6 am-u-lg-12" th:each="goods1:${articles1}">
 					 <a th:href="@{'/cms/web/solutionsDetail/'+${goods1.id}}">
 						 <div class="am-u-sm-12 am-u-md-12 am-u-lg-3 solution-tabs-img">
-							 <img th:src="@{${goods1.img}}" />
+							 <img th:src="@{${goods1.img}}" height="195px" width="250px"/>
 						 </div>
 						 <div class="am-u-sm-12 am-u-md-12 am-u-lg-9 solution-tabs-words">
 							 <h5 th:text="${goods1.title}"></h5>
-							 <p th:utext="${goods1.remark}"></p>
+							 <p th:text="${goods1.remark}"></p>
+							 &nbsp;<span class="see-more2">查看更多<i class="am-icon-angle-double-right"></i></span>
 						 </div>
 					 </a>
 				 </li>
@@ -80,11 +82,12 @@
 				<li class="am-u-sm-12 am-u-md-6 am-u-lg-12" th:each="goods2:${articles2}">
 					<a th:href="@{'/cms/web/solutionsDetail/'+${goods2.id}}">
 						<div class="am-u-sm-12 am-u-md-12 am-u-lg-3 solution-tabs-img">
-							<img th:src="@{${goods2.img}}" />
+							<img th:src="@{${goods2.img}}" height="195px" width="250px"/>
 						</div>
 						<div class="am-u-sm-12 am-u-md-12 am-u-lg-9 solution-tabs-words">
 							<h5 th:text="${goods2.title}"></h5>
-							<p th:utext="${goods2.remark}"></p>
+							<p th:text="${goods2.remark}"></p>
+							&nbsp;<span class="see-more2">查看更多<i class="am-icon-angle-double-right"></i></span>
 						</div>
 					</a>
 				</li>
@@ -95,11 +98,12 @@
 				<li class="am-u-sm-12 am-u-md-6 am-u-lg-12" th:each="goods3:${articles3}">
 					<a th:href="@{'/cms/web/solutionsDetail/'+${goods3.id}}">
 						<div class="am-u-sm-12 am-u-md-12 am-u-lg-3 solution-tabs-img">
-							<img th:src="@{${goods3.img}}" />
+							<img th:src="@{${goods3.img}}" height="195px" width="250px"/>
 						</div>
 						<div class="am-u-sm-12 am-u-md-12 am-u-lg-9 solution-tabs-words">
 							<h5 th:text="${goods3.title}"></h5>
-							<p th:utext="${goods3.remark}"></p>
+							<p th:text="${goods3.remark}"></p>
+							&nbsp;<span class="see-more2">查看更多<i class="am-icon-angle-double-right"></i></span>
 						</div>
 					</a>
 				</li>

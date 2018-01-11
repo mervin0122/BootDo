@@ -158,7 +158,7 @@ public class IndexCmsController {
 
 
 	/**
-	 * 服务中心
+	 * 技术框架(服务中心)
 	 * @return
 	 * @throws Exception
 	 */

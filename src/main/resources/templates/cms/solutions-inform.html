@@ -20,7 +20,7 @@
 	<div class="am-container-1">
 	 <div class="toppic-title left">
 			<i class="am-icon-lightbulb-o toppic-title-i"></i>
-			<span class="toppic-title-span">方案详情</span>
+			<span class="toppic-title-span">文章详情</span>
 			<p>Information</p>
 		</div>
 		<!--<div class="right toppic-progress">
@@ -34,6 +34,7 @@
 <div class="am-container-1">
 	<div class="words-title margin-t30">
 		<i class="am-icon-file-text file-text"></i><span th:text="${goods.title}"></span>
+		<div th:text="${#dates.format(goods.createdate, 'yyyy-MM-dd HH:mm')}"></div>
 	</div>
 </div>
 		
