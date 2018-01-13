@@ -51,15 +51,16 @@ public class IndexCmsController {
 	public ModelAndView index()throws Exception{
 		ModelAndView mav=new ModelAndView();
 		Map<String, Object> map = new HashMap<>();
-		map.put("limit",8);
+		map.put("limit",4);
 		map.put("model","show");
 		List<CmsArticleDO> articles =  cmsArticleService.list(map);
 		mav.addObject("articles",articles);
 		map.put("model","news");
+		map.put("offset",1);
 		List<CmsArticleDO> news =  cmsArticleService.list(map);
 		mav.addObject("news",news);
 		map.clear();
-		map.put("limit",10);
+		map.put("limit",8);
 		mav.addObject("links",linkService.list(map));
 		map.clear();
 		map.put("limit", 3);
@@ -74,7 +75,7 @@ public class IndexCmsController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/case")
+	@RequestMapping("/customer-case")
 	public ModelAndView case1()throws Exception{
 		ModelAndView mav=new ModelAndView();
 		Map<String, Object> map = new HashMap<>();

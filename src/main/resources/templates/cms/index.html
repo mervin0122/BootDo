@@ -81,7 +81,7 @@
             <li class="case-li am-u-sm-6 am-u-md-6 am-u-lg-3" th:each="goods:${articles}">
                 <div class="am-gallery-item case-img1">
                     <a th:href="@{'/cms/web/goodsDetail/'+${goods.id}}">
-                        <img width="200px" height="200px" th:src="@{${goods.img}} "/>
+                        <img  th:src="@{${goods.img}} " width="200px" height="200px"/>
                     </a>
                 </div>
                 <div class="case-li-mengban">

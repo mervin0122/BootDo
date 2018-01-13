@@ -30,8 +30,8 @@
 		</div>-->
 	</div>
 </div>
-
-
+<br>
+<!--
 	
 <div class="am-container-1 news-content-all">
     <div class=" am-container-1">
@@ -50,20 +50,22 @@
                 </li>
             </ul>
         </div>
-    </div>
-<!--<div class="left am-u-sm-12 am-u-md-8 am-u-lg-9 ">
+    </div>-->
+<div class="left am-u-sm-12 am-u-md-8 am-u-lg-9 ">
 	  <ul class="news-ul">
-	  	<li class="am-u-sm-12 am-u-md-6 am-u-lg-4 " th:each="goods:${articles}">
+	  	<li class="am-u-sm-12 am-u-md-12 am-u-lg-12 " th:each="goods:${articles}">
 	  		<a th:href="@{'/cms/web/newsDetail/'+${goods.id}}">
-	  		<div class="news-ul-liall">
-	  		  	<img class="news-ul-liimg" th:src="@{${goods.img}}"/>
+	  		<div class="am-u-lg-4 am-u-md-4 am-u-sm-4 news-ul-liall">
+	  		  	<img class="news-ul-liimg" th:src="@{${goods.img}}" height="165px" width="220px"/>
 	  		  <div class="inform-list">
 		  		  	<div class="inform-list-date" th:text="${#dates.format(goods.createdate, 'yyyy-MM-dd HH:mm')}"><i class="am-icon-arrow-circle-right"></i></div>
 		  		  	<div class="inform-list-label" th:text="${goods.title}"><i class="am-icon-arrow-circle-right"></i></div>
-		  		  	<div class="inform-list-numb" th:text="'点击次数：'+${goods.hits}"><i class="am-icon-arrow-circle-right"></i></div>
-	  		  </div>		  
+		  		  	<!--<div class="inform-list-numb" th:text="'点击次数：'+${goods.hits}"><i class="am-icon-arrow-circle-right"></i></div>-->
+	  		  </div>
+            </div>
+                <div class="am-u-lg-8 am-u-md-8 am-u-sm-8 service-content">
 	  		  <span th:text="${goods.title}"></span>
-	  		  <p th:utext="${goods.content}"></p>
+	  		  <p th:utext="${goods.remark}"></p>
 	  	    <span class="see-more3">查看更多<i class="am-icon-angle-double-right"></i></span>
 	  	  </div>
 	  	  </a>
@@ -77,9 +79,26 @@
 				  <li><a href="#">下一页</a></li>
 				   <li ><a href="#">&raquo;</a></li>
 				</ul>	  
-</div>	-->
-
+</div>
 <div class="left am-u-sm-12 am-u-md-4 am-u-lg-3">
+    <div class="hot-title"><i class="am-icon-thumbs-o-up"></i>热门新闻 / Hot 	News</div>
+    <section data-am-widget="accordion" class="am-accordion am-accordion-gapped" data-am-accordion='{  }' th:each="goods:${articles}">
+        <dl class="am-accordion-item">
+            <dt class="am-accordion-title" th:text="${goods.title}">
+            </dt>
+            <dd class="am-accordion-bd am-collapse ">
+                <a th:href="@{'/cms/web/newsDetail/'+${goods.id}}">
+                <div class="am-accordion-content" th:utext="${goods.remark}">
+                </div>
+                </a>
+            </dd>
+
+        </dl>
+
+    </section>
+
+</div>
+<!--<div class="left am-u-sm-12 am-u-md-4 am-u-lg-3">
 	
 	<section data-am-widget="accordion" class="am-accordion am-accordion-gapped" data-am-accordion='{  }'>
 		<div class="hot-title"><i class="am-icon-thumbs-o-up"></i>热门新闻 / Hot 	News</div>
@@ -88,7 +107,7 @@
           用户体验制作当中的一些可视化信息
         </dt>
         <dd class="am-accordion-bd am-collapse am-in">
-          <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+          &lt;!&ndash; 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 &ndash;&gt;
           <div class="am-accordion-content">
             英特网，是网络与网络之间所串连成的庞大网络网又称网际网路或音译因特网、英特网，是网络与网络之间所串连成的庞大网络网络与网络之
           </div>
@@ -99,7 +118,7 @@
           可视化信息
         </dt>
         <dd class="am-accordion-bd am-collapse ">
-          <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+          &lt;!&ndash; 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 &ndash;&gt;
           <div class="am-accordion-content">
             英特网，是网络与网络之间所串连成的庞大网络网所串连成的庞大网络网
           </div>
@@ -110,7 +129,7 @@
           响应式购物商城
         </dt>
         <dd class="am-accordion-bd am-collapse ">
-          <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+          &lt;!&ndash; 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 &ndash;&gt;
           <div class="am-accordion-content">
             英特网，是网络与网络之间所串连成的庞大网络网所串连成的庞大网络网
           </div>
@@ -121,7 +140,7 @@
           可视化信息
         </dt>
         <dd class="am-accordion-bd am-collapse ">
-          <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+          &lt;!&ndash; 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 &ndash;&gt;
           <div class="am-accordion-content">
             英特网，是网络与网络之间所串连成的庞大网络网所串连成的庞大网络网
           </div>
@@ -132,7 +151,7 @@
           响应式购物商城
         </dt>
         <dd class="am-accordion-bd am-collapse ">
-          <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+          &lt;!&ndash; 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 &ndash;&gt;
           <div class="am-accordion-content">
             英特网，是网络与网络之间所串连成的庞大网络网所串连成的庞大网络网
           </div>
@@ -141,7 +160,7 @@
       
   </section>
 	
-</div>
+</div>-->
 
 <div class="clear"></div>
 </div>
