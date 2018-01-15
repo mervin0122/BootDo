@@ -1,6 +1,7 @@
 package com.bootdo.cms.controller;
 
 
+import com.bootdo.cms.domain.CategoryDO;
 import com.bootdo.cms.domain.CmsArticleDO;
 import com.bootdo.cms.service.*;
 import com.bootdo.shop.service.BannerService;
@@ -234,6 +235,21 @@ public class IndexCmsController {
 		mav.addObject("articles",articles);
 
 		mav.setViewName("cms/recruit");
+		return mav;
+	}
+	/**
+	 * 请求mallHeader.html
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/mallHeader")
+	public ModelAndView mallHeader()throws Exception{
+		ModelAndView mav=new ModelAndView();
+		Map<String, Object> map = new HashMap<>();
+		map.put("limit",10);
+		map.put("grade","1");
+		List<CategoryDO> categoryList = cmsCategoryService.list(map);
+		mav.addObject("categories",categoryList);
 		return mav;
 	}
 //	@RequestMapping("/index/ajax/bna")

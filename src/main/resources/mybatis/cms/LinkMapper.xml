@@ -4,18 +4,18 @@
 <mapper namespace="com.bootdo.cms.dao.LinkDao">
 
 	<select id="get" resultType="com.bootdo.cms.domain.LinkDO">
-		select `id`,`color`,`href`,`image`,`title`,`weight`,`weightDate`,`CATEGORY_ID` from cms_link where id = #{value}
+		select `id`,`color`,`href`,`image`,`title`,`order`,`weightDate`,`CATEGORY_ID` from cms_link where id = #{value}
 	</select>
 
 	<select id="list" resultType="com.bootdo.cms.domain.LinkDO">
-		select `id`,`color`,`href`,`image`,`title`,`weight`,`weightDate`,`CATEGORY_ID` from cms_link
+		select `id`,`color`,`href`,`image`,`title`,`order`,`weightDate`,`CATEGORY_ID` from cms_link
         <where>  
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
 		  		  <if test="color != null and color != ''"> and color = #{color} </if>
 		  		  <if test="href != null and href != ''"> and href = #{href} </if>
 		  		  <if test="image != null and image != ''"> and image = #{image} </if>
 		  		  <if test="title != null and title != ''"> and title = #{title} </if>
-		  		  <if test="weight != null and weight != ''"> and weight = #{weight} </if>
+		  		  <if test="order != null and order != ''"> and order = #{order} </if>
 		  		  <if test="weightdate != null and weightdate != ''"> and weightDate = #{weightdate} </if>
 		  		  <if test="categoryId != null and categoryId != ''"> and CATEGORY_ID = #{categoryId} </if>
 		  		</where>
@@ -24,7 +24,7 @@
                 order by ${sort} ${order}
             </when>
 			<otherwise>
-                order by id desc
+                order by 'order' asc
 			</otherwise>
         </choose>
 		<if test="offset != null and limit != null">
@@ -39,8 +39,8 @@
 		  		  <if test="color != null and color != ''"> and color = #{color} </if>
 		  		  <if test="href != null and href != ''"> and href = #{href} </if>
 		  		  <if test="image != null and image != ''"> and image = #{image} </if>
-		  		  <if test="title != null and title != ''"> and title = #{title} </if>
-		  		  <if test="weight != null and weight != ''"> and weight = #{weight} </if>
+		  		  <if test="title != null and title != ''"> and title  like concat('%',#{title},'%')</if>
+		  		  <if test="order != null and order != ''"> and order = #{order} </if>
 		  		  <if test="weightdate != null and weightdate != ''"> and weightDate = #{weightdate} </if>
 		  		  <if test="categoryId != null and categoryId != ''"> and CATEGORY_ID = #{categoryId} </if>
 		  		</where>
@@ -53,7 +53,7 @@
 			`href`, 
 			`image`, 
 			`title`, 
-			`weight`, 
+			`order`,
 			`weightDate`, 
 			`CATEGORY_ID`
 		)
@@ -63,7 +63,7 @@
 			#{href}, 
 			#{image}, 
 			#{title}, 
-			#{weight}, 
+			#{order},
 			#{weightdate}, 
 			#{categoryId}
 		)
@@ -76,7 +76,7 @@
 			<if test="href != null">`href` = #{href}, </if>
 			<if test="image != null">`image` = #{image}, </if>
 			<if test="title != null">`title` = #{title}, </if>
-			<if test="weight != null">`weight` = #{weight}, </if>
+			<if test="order != null">`order` = #{order}, </if>
 			<if test="weightdate != null">`weightDate` = #{weightdate}, </if>
 			<if test="categoryId != null">`CATEGORY_ID` = #{categoryId}</if>
 		</set>

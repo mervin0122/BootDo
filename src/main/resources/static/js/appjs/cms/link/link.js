@@ -32,8 +32,8 @@ function load() {
 							return {
 								//说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
 								limit: params.limit,
-								offset:params.offset
-					           // name:$('#searchName').val(),
+								offset:params.offset,
+					            title:$('#searchName').val()
 					           // username:$('#searchName').val()
 							};
 						},
@@ -47,39 +47,41 @@ function load() {
 								{
 									checkbox : true
 								},
-																{
+								{
 									field : 'id', 
-									title : '' 
+									title : 'ID'
 								},
-																{
+							   {
+								field : 'title',
+								title : '标题'
+							    },
+							   {
+								field : 'order',
+								title : '排序'
+							    },
+								{
 									field : 'color', 
 									title : '颜色' 
 								},
-																{
+								{
 									field : 'href', 
 									title : '链接' 
 								},
-																{
+								{
+									visible : false,
 									field : 'image', 
 									title : '图片' 
 								},
-																{
-									field : 'title', 
-									title : '标题' 
-								},
-																{
-									field : 'weight', 
-									title : '权重' 
-								},
-																{
+
+								{
 									field : 'weightdate', 
-									title : '' 
+									title : '创建时间'
 								},
-																{
+							/*	{
 									field : 'categoryId', 
 									title : '' 
-								},
-																{
+								},*/
+								{
 									title : '操作',
 									field : 'id',
 									align : 'center',

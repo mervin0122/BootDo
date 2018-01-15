@@ -1,5 +1,6 @@
 package com.bootdo.cms.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -74,6 +75,7 @@ public class CmsLinkController {
 	@PostMapping("/save")
 	@RequiresPermissions("cms:link:add")
 	public R save( LinkDO link){
+		link.setWeightdate(new Date());
 		if(linkService.save(link)>0){
 			return R.ok();
 		}

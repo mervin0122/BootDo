@@ -2,12 +2,26 @@ $().ready(function() {
 	validateRule();
 });
 
+var isshow="1";
+$(function() {
+	$("#onoffswitch").on('click', function(){
+		clickSwitch()
+	});
+	var clickSwitch = function() {
+		if ($("#onoffswitch").is(':checked')) {
+			isshow="1";
+		} else {
+			isshow="0";
+		}
+	};
+});
 $.validator.setDefaults({
 	submitHandler : function() {
-		save();
+		save(isshow);
 	}
 });
-function save() {
+function save(isshow) {
+	/*$("#isshow").val(isshow);*/
 	$.ajax({
 		cache : true,
 		type : "POST",
@@ -36,14 +50,12 @@ function validateRule() {
 	var icon = "<i class='fa fa-times-circle'></i> ";
 	$("#signupForm").validate({
 		rules : {
-			name : {
-				required : true
-			}
+			name : "required",
+			grade: "required"
 		},
 		messages : {
-			name : {
-				required : icon + "请输入姓名"
-			}
+			title : "请填写名称",
+			grade : "请填写级别"
 		}
 	})
 }

@@ -25,8 +25,8 @@ public class LinkDO implements Serializable {
 	private String image;
 	//标题
 	private String title;
-	//权重
-	private Integer weight;
+	//排序
+	private Integer order;
 	//
 	private Date weightdate;
 	//
@@ -93,16 +93,16 @@ public class LinkDO implements Serializable {
 		return title;
 	}
 	/**
-	 * 设置：权重
+	 * 设置：排序
 	 */
-	public void setWeight(Integer weight) {
-		this.weight = weight;
+	public void setOrder(Integer order) {
+		this.order = order;
 	}
 	/**
 	 * 获取：权重
 	 */
-	public Integer getWeight() {
-		return weight;
+	public Integer getOrder() {
+		return order;
 	}
 	/**
 	 * 设置：

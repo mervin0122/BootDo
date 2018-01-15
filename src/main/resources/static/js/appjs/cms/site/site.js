@@ -47,39 +47,41 @@ function load() {
 								{
 									checkbox : true
 								},
-																{
+								{
 									field : 'id', 
 									title : '' 
-								},
-																{
+							 	},
+							   {
+								field : 'title',
+								title : '标题'
+							   },
+						  	   {
+								field : 'name',
+								title : '别名'
+							   },
+							   {
+								field : 'theme',
+								title : '主题'
+							    },
+							    {
+								field : 'keywords',
+								title : '关键字'
+							    },
+							    {
+								field : 'description',
+								title : '描述'
+							    },
+								{
+									visible : false,
 									field : 'copyright', 
 									title : '版权' 
 								},
-																{
-									field : 'description', 
-									title : '描述' 
-								},
-																{
-									field : 'keywords', 
-									title : '关键字' 
-								},
-																{
+								{
+									visible : false,
 									field : 'logo', 
 									title : 'logo' 
 								},
-																{
-									field : 'name', 
-									title : '名称' 
-								},
-																{
-									field : 'theme', 
-									title : '主题' 
-								},
-																{
-									field : 'title', 
-									title : '标题' 
-								},
-																{
+                                {
 									title : '操作',
 									field : 'id',
 									align : 'center',

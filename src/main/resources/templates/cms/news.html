@@ -51,7 +51,7 @@
             </ul>
         </div>
     </div>-->
-<div class="left am-u-sm-12 am-u-md-8 am-u-lg-9 ">
+<div class="right am-u-sm-12 am-u-md-9 am-u-lg-9 ">
 	  <ul class="news-ul">
 	  	<li class="am-u-sm-12 am-u-md-12 am-u-lg-12 " th:each="goods:${articles}">
 	  		<a th:href="@{'/cms/web/newsDetail/'+${goods.id}}">
@@ -76,11 +76,15 @@
 	  	 <li ><a href="#">&laquo;</a></li>
 				  <li><a href="#">上一页</a></li> 
 				  <li><a class="current-page">1</a></li>
+                  <li><a href="#">2</a></li>
+              	  <li><a href="#">3</a></li>
+             	  <li><a href="#">4</a></li>
+            	  <li><a href="#">5</a></li>
 				  <li><a href="#">下一页</a></li>
 				   <li ><a href="#">&raquo;</a></li>
-				</ul>	  
+		</ul>
 </div>
-<div class="left am-u-sm-12 am-u-md-4 am-u-lg-3">
+<div class="left am-u-sm-12 am-u-md-3 am-u-lg-3">
     <div class="hot-title"><i class="am-icon-thumbs-o-up"></i>热门新闻 / Hot 	News</div>
     <section data-am-widget="accordion" class="am-accordion am-accordion-gapped" data-am-accordion='{  }' th:each="goods:${articles}">
         <dl class="am-accordion-item">

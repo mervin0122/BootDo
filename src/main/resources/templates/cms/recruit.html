@@ -37,7 +37,7 @@
 	    	<div class="product-content" th:if="${iterStat.odd}">
 				<div class="left am-u-sm-12 am-u-md-6 am-u-lg-6 recruit-left">
 					<div class="product-show-title">
-						<span th:text="${goods.title}">JAVA软件开发工程师</span>
+						<span th:text="${goods.title}"></span>
 					</div>
 					<div class="product-show-content">
 						<div class="product-add" th:utext="${goods.content}">
@@ -59,7 +59,7 @@
 				 <div class="right am-u-sm-12 am-u-md-6 am-u-lg-6 recruit-right">
 
 					 <div class="product-show-title">
-						 <span th:text="${goods.title}">软件测试人员</span>
+						 <span th:text="${goods.title}"></span>
 					 </div>
 
 					 <div class="product-show-content">
@@ -78,7 +78,8 @@
 
   
    
-<div class=" gray-li">		
+<!--
+<div class=" gray-li">
 <div class="am-container-1">
 	<div class="part-title part-title-mar">
 			<i class="am-icon-users part-title-i"></i>
@@ -120,6 +121,7 @@
       </div>
   </div>
   </div>
+-->
 
 <div th:replace="cms/layout/mallFooter"></div>
 

@@ -4,6 +4,7 @@ $(function() {
 	load();
 });
 
+
 function load() {
 	$('#exampleTable')
 			.bootstrapTable(
@@ -47,73 +48,92 @@ function load() {
 								{
 									checkbox : true
 								},
-																{
-									field : 'id', 
+								{
+									field : 'id',
 									title : '' 
 								},
-																{
-									field : 'description', 
-									title : '描述' 
-								},
-																{
+							    {
+								field : 'name',
+								title : '名称'
+							    },
+								{
+									visible : false,
 									field : 'image', 
 									title : '图片' 
 								},
-																{
+								{
 									field : 'keywords', 
 									title : '关键字' 
 								},
-																{
+								{
 									field : 'module', 
 									title : '模块' 
 								},
-																{
-									field : 'name', 
-									title : '名称' 
-								},
-																{
+						    	{
+								visible : false,
+								field : 'description',
+								title : '描述'
+							    },
+							/*	{
+									visible : false,
 									field : 'parentId', 
 									title : '' 
-								},
-																{
+								},*/
+								{
 									field : 'grade', 
 									title : '级别' 
 								},
-																{
+								{
 									field : 'isshow', 
-									title : '是否展示' 
+									title : '是否显示',
+									align : 'center',
+									formatter : function(value, row, index) {
+										if (value == '0') {
+											return '<span class="label label-danger">否</span>';
+										} else if (value == '1') {
+											return '<span class="label label-primary">是</span>';
+										}
+									}
 								},
-																{
+								{
 									field : 'orderno', 
-									title : '' 
+									title : '排序'
 								},
-																{
+								/*{
 									field : 'siteId', 
 									title : '网址' 
-								},
-																{
+								},*/
+								{
 									field : 'url', 
 									title : '链接' 
 								},
-																{
+								/*{
 									field : 'parentIds', 
 									title : '' 
-								},
-																{
+								},*/
+
+							    {
 									title : '操作',
 									field : 'id',
 									align : 'center',
 									formatter : function(value, row, index) {
 										var e = '<a class="btn btn-primary btn-sm '+s_edit_h+'" href="#" mce_href="#" title="编辑" onclick="edit(\''
 												+ row.id
-												+ '\')"><i class="fa fa-edit"></i></a> ';
+												+ '\')">编辑</a> ';
 										var d = '<a class="btn btn-warning btn-sm '+s_remove_h+'" href="#" title="删除"  mce_href="#" onclick="remove(\''
 												+ row.id
-												+ '\')"><i class="fa fa-remove"></i></a> ';
-										var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
+												+ '\')">删除</a> ';
+										/*var f = '<a class="btn btn-success btn-sm" href="#" title="备用"  mce_href="#" onclick="resetPwd(\''
 												+ row.id
-												+ '\')"><i class="fa fa-key"></i></a> ';
-										return e + d ;
+												+ '\')"><i class="fa fa-key"></i></a> ';*/
+										if (row.isshow == '0') {
+											var f = '<a class="btn btn-success btn-sm '+s_show_h+'" href="#" title="显示"  mce_href="#" onclick="updateShow(\''
+												+ row.id + '\',\'1\')">显示</a> ';
+										} else if (row.isshow == '1') {
+											var f = '<a class="btn btn-danger btn-sm '+s_show_h+'" href="#" title="隐藏"  mce_href="#" onclick="updateShow(\''
+												+ row.id + '\',\'0\')">隐藏</a> ';
+										}
+										return e + d+f ;
 									}
 								} ]
 					});
@@ -162,7 +182,53 @@ function remove(id) {
 		});
 	})
 }
+function updateShow(id,show) {
 
+	if (show=="0"){
+		layer.confirm('确定要隐藏该分类吗？', {
+			btn : [ '确定', '取消' ]
+		},function() {
+			$.ajax({
+				url : prefix + "/update",
+				type : "post",
+				data : {
+					'id' : id,
+					'isshow':show
+				},
+				success : function(r) {
+					if (r.code == 0) {
+						layer.msg(r.msg);
+						reLoad();
+					} else {
+						layer.msg(r.msg);
+					}
+				}
+			});
+		})
+	}else if (show=="1"){
+		layer.confirm('确定要显示该分类吗？', {
+			btn : [ '确定', '取消' ]
+		},function() {
+			$.ajax({
+				url : prefix + "/update",
+				type : "post",
+				data : {
+					'id' : id,
+					'isshow':show
+				},
+				success : function(r) {
+					if (r.code == 0) {
+						layer.msg(r.msg);
+						reLoad();
+					} else {
+						layer.msg(r.msg);
+					}
+				}
+			});
+		})
+	}
+
+}
 function resetPwd(id) {
 }
 function batchRemove() {
