@@ -2,6 +2,8 @@ package com.bootdo.system.controller;
 
 import java.util.List;
 
+import com.bootdo.common.domain.FileDO;
+import com.bootdo.common.service.FileService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.LogoutAware;
@@ -31,7 +33,8 @@ public class LoginController extends BaseController {
 
 	@Autowired
 	MenuService menuService;
-
+	@Autowired
+	FileService fileService;
 	@GetMapping({ "/", "" })
 	String welcome(Model model) {
 		return "redirect:/blog";
@@ -44,6 +47,17 @@ public class LoginController extends BaseController {
 		model.addAttribute("menus", menus);
 		model.addAttribute("name", getUser().getName());
 		logger.info(getUser().getName());
+		FileDO fileDO = fileService.get(getUser().getPicId());
+		if(fileDO!=null&&fileDO.getUrl()!=null){
+			if(fileService.isExist(fileDO.getUrl())){
+				model.addAttribute("picUrl",fileDO.getUrl());
+			}else {
+				model.addAttribute("picUrl","/img/photo_s.jpg");
+			}
+		}else {
+			model.addAttribute("picUrl","/img/photo_s.jpg");
+		}
+		model.addAttribute("username", getUser().getUsername());
 		return "index_v1";
 	}
 

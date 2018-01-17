@@ -1,5 +1,7 @@
 package com.bootdo.system.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -56,7 +58,23 @@ public class UserDO implements Serializable {
 	private List<Long> roleIds;
 	private String token;
 
-
+	//性别
+	private Long sex;
+	//出身日期
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date birth;
+	//图片ID
+	private Long picId;
+	//现居住地
+	private String liveAddress;
+	//爱好
+	private String hobby;
+	//省份
+	private String province;
+	//所在城市
+	private String city;
+	//所在地区
+	private String district;
 
 	public String getToken() {
 		return token;
@@ -290,5 +308,69 @@ public class UserDO implements Serializable {
 	 */
 	public String getWxAvatar() {
 		return wxAvatar;
+	}
+
+	public Long getSex() {
+		return sex;
+	}
+
+	public void setSex(Long sex) {
+		this.sex = sex;
+	}
+
+	public Date getBirth() {
+		return birth;
+	}
+
+	public void setBirth(Date birth) {
+		this.birth = birth;
+	}
+
+	public Long getPicId() {
+		return picId;
+	}
+
+	public void setPicId(Long picId) {
+		this.picId = picId;
+	}
+
+	public String getLiveAddress() {
+		return liveAddress;
+	}
+
+	public void setLiveAddress(String liveAddress) {
+		this.liveAddress = liveAddress;
+	}
+
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
 	}
 }

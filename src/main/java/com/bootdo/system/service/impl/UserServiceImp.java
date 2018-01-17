@@ -1,12 +1,14 @@
 package com.bootdo.system.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.util.*;
 
-import com.bootdo.common.utils.RedisLink;
+import com.bootdo.common.config.BootdoConfig;
+import com.bootdo.common.domain.FileDO;
+import com.bootdo.common.service.FileService;
+import com.bootdo.common.utils.*;
+import com.bootdo.system.vo.UserVO;
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.result.WxMpOAuth2AccessToken;
@@ -19,7 +21,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bootdo.common.domain.Tree;
-import com.bootdo.common.utils.BuildTree;
 import com.bootdo.system.dao.DeptDao;
 import com.bootdo.system.dao.UserDao;
 import com.bootdo.system.dao.UserRoleDao;
@@ -27,8 +28,10 @@ import com.bootdo.system.domain.DeptDO;
 import com.bootdo.system.domain.UserDO;
 import com.bootdo.system.domain.UserRoleDO;
 import com.bootdo.system.service.UserService;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 
 @Transactional
 @Service
@@ -41,7 +44,10 @@ public class UserServiceImp implements UserService {
 	DeptDao deptMapper;
 	@Resource
 	WxMpService wxMpService;
-
+	@Autowired
+	private FileService sysFileService;
+	@Autowired
+	private BootdoConfig bootdoConfig;
 	@Resource
 	private RedisLink redisLink;
 	private static final Logger logger = LoggerFactory.getLogger(UserService.class);
@@ -127,12 +133,36 @@ public class UserServiceImp implements UserService {
 	public Set<String> listRoles(Long userId) {
 		return null;
 	}
-
 	@Override
+	public int resetPwd(UserVO userVO, UserDO userDO) throws Exception {
+		if(Objects.equals(userVO.getUserDO().getUserId(),userDO.getUserId())){
+			if(Objects.equals(MD5Utils.encrypt(userDO.getUsername(),userVO.getPwdOld()),userDO.getPassword())){
+				userDO.setPassword(MD5Utils.encrypt(userDO.getUsername(),userVO.getPwdNew()));
+				return userMapper.update(userDO);
+			}else{
+				throw new Exception("输入的旧密码有误！");
+			}
+		}else{
+			throw new Exception("你修改的不是你登录的账号！");
+		}
+	}
+	@Override
+	public int adminResetPwd(UserVO userVO) throws Exception {
+		UserDO userDO =get(userVO.getUserDO().getUserId());
+		if("admin".equals(userDO.getUsername())){
+			throw new Exception("超级管理员的账号不允许直接重置！");
+		}
+		userDO.setPassword(MD5Utils.encrypt(userDO.getUsername(), userVO.getPwdNew()));
+		return userMapper.update(userDO);
+
+
+	}
+
+/*	@Override
 	public int resetPwd(UserDO user) {
 		int r = userMapper.update(user);
 		return r;
-	}
+	}*/
 
 	@Transactional
 	@Override
@@ -235,5 +265,50 @@ public class UserServiceImp implements UserService {
 			return list.get(0);
 		}
 		return null;
+	}
+	@Override
+	public int updatePersonal(UserDO userDO) {
+		return userMapper.update(userDO);
+	}
+
+	@Override
+	public Map<String, Object> updatePersonalImg(MultipartFile file, String avatar_data, Long userId) throws Exception {
+		String fileName = file.getOriginalFilename();
+		fileName = FileUtil.RenameToUUID(fileName);
+		FileDO sysFile = new FileDO(FileType.fileType(fileName), "/files/" + fileName, new Date());
+		//获取图片后缀
+		String prefix = fileName.substring((fileName.lastIndexOf(".")+1));
+		String[] str=avatar_data.split(",");
+		//获取截取的x坐标
+		int x = (int)Math.floor(Double.parseDouble(str[0].split(":")[1]));
+		//获取截取的y坐标
+		int y = (int)Math.floor(Double.parseDouble(str[1].split(":")[1]));
+		//获取截取的高度
+		int h = (int)Math.floor(Double.parseDouble(str[2].split(":")[1]));
+		//获取截取的宽度
+		int w = (int)Math.floor(Double.parseDouble(str[3].split(":")[1]));
+		//获取旋转的角度
+		int r = Integer.parseInt(str[4].split(":")[1].replaceAll("}", ""));
+		try {
+			BufferedImage cutImage = ImageUtils.cutImage(file,x,y,w,h,prefix);
+			BufferedImage rotateImage = ImageUtils.rotateImage(cutImage, r);
+			ByteArrayOutputStream out = new ByteArrayOutputStream();
+			boolean flag = ImageIO.write(rotateImage, prefix, out);
+			//转换后存入数据库
+			byte[] b = out.toByteArray();
+			FileUtil.uploadFile(b, bootdoConfig.getUploadPath(), fileName);
+		} catch (Exception e) {
+			throw  new Exception("图片裁剪错误！！");
+		}
+		Map<String, Object> result = new HashMap<>();
+		if(sysFileService.save(sysFile)>0){
+			UserDO userDO = new UserDO();
+			userDO.setUserId(userId);
+			userDO.setPicId(sysFile.getId());
+			if(userMapper.update(userDO)>0){
+				result.put("url",sysFile.getUrl());
+			}
+		}
+		return result;
 	}
 }

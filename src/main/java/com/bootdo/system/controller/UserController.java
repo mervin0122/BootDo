@@ -1,8 +1,13 @@
 package com.bootdo.system.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.config.Constant;
+import com.bootdo.common.service.DictService;
+import com.bootdo.system.vo.UserVO;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.codehaus.groovy.ast.expr.PrefixExpression;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +32,7 @@ import com.bootdo.system.domain.RoleDO;
 import com.bootdo.system.domain.UserDO;
 import com.bootdo.system.service.RoleService;
 import com.bootdo.system.service.UserService;
+import org.springframework.web.multipart.MultipartFile;
 
 @RequestMapping("/sys/user")
 @Controller
@@ -36,7 +42,8 @@ public class UserController extends BaseController {
 	UserService userService;
 	@Autowired
 	RoleService roleService;
-
+	@Autowired
+	DictService dictService;
 	@RequiresPermissions("sys:user:user")
 	@GetMapping("")
 	String user(Model model) {
@@ -102,7 +109,19 @@ public class UserController extends BaseController {
 		}
 		return R.error();
 	}
-
+	@RequiresPermissions("sys:user:edit")
+	@Log("更新用户")
+	@PostMapping("/updatePeronal")
+	@ResponseBody
+	R updatePeronal(UserDO user) {
+		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
+		if (userService.updatePersonal(user) > 0) {
+			return R.ok();
+		}
+		return R.error();
+	}
 	@RequiresPermissions("sys:user:remove")
 	@Log("删除用户")
 	@PostMapping("/remove")
@@ -149,7 +168,7 @@ public class UserController extends BaseController {
 		return prefix + "/reset_pwd";
 	}
 
-	@Log("提交更改用户密码")
+	/*@Log("提交更改用户密码")
 	@PostMapping("/resetPwd")
 	@ResponseBody
 	R resetPwd(UserDO user) {
@@ -161,8 +180,38 @@ public class UserController extends BaseController {
 			return R.ok();
 		}
 		return R.error();
+	}*/
+	@Log("提交更改用户密码")
+	@PostMapping("/resetPwd")
+	@ResponseBody
+	R resetPwd(UserVO userVO) {
+		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
+		try{
+			userService.resetPwd(userVO,getUser());
+			return R.ok();
+		}catch (Exception e){
+			return R.error(1,e.getMessage());
+		}
+
 	}
-	
+	@RequiresPermissions("sys:user:resetPwd")
+	@Log("admin提交更改用户密码")
+	@PostMapping("/adminResetPwd")
+	@ResponseBody
+	R adminResetPwd(UserVO userVO) {
+		if (Constant.DEMO_ACCOUNT.equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
+		try{
+			userService.adminResetPwd(userVO);
+			return R.ok();
+		}catch (Exception e){
+			return R.error(1,e.getMessage());
+		}
+
+	}
 	@GetMapping("/tree")
 	@ResponseBody
 	public Tree<DeptDO> tree() {
@@ -176,4 +225,30 @@ public class UserController extends BaseController {
 		return  prefix + "/userTree";
 	}
 
+	@GetMapping("/personal")
+	String personal(Model model) {
+		UserDO userDO  = userService.get(getUserId());
+		model.addAttribute("user",userDO);
+		model.addAttribute("hobbyList",dictService.getHobbyList(userDO));
+		model.addAttribute("sexList",dictService.getSexList());
+		return prefix + "/personal";
+	}
+	@ResponseBody
+	@PostMapping("/uploadImg")
+	R uploadImg(@RequestParam("avatar_file") MultipartFile file, String avatar_data, HttpServletRequest request) {
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
+		Map<String, Object> result = new HashMap<>();
+		try {
+			result = userService.updatePersonalImg(file, avatar_data, getUserId());
+		} catch (Exception e) {
+			return R.error("更新图像失败！");
+		}
+		if(result!=null && result.size()>0){
+			return R.ok(result);
+		}else {
+			return R.error("更新图像失败！");
+		}
+	}
 }

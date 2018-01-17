@@ -1,6 +1,9 @@
 package com.bootdo.oa.service.impl;
 
+import com.bootdo.system.domain.UserDO;
+import com.bootdo.system.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,6 +12,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import com.bootdo.common.service.DictService;
 import com.bootdo.common.utils.DateUtils;
@@ -31,10 +37,14 @@ public class NotifyServiceImpl implements NotifyService {
 	private UserDao userDao;
 	@Autowired
 	private DictService dictService;
-
+	@Autowired
+	private SessionService sessionService;
+	@Autowired
+	private SimpMessagingTemplate template;
 	@Override
 	public NotifyDO get(Long id) {
 		NotifyDO rDo =  notifyDao.get(id);
+		rDo.setType(dictService.getName("oa_notify_type", rDo.getType()));
 		return rDo;
 	}
 
@@ -52,7 +62,7 @@ public class NotifyServiceImpl implements NotifyService {
 		return notifyDao.count(map);
 	}
 
-	@Transactional
+	/*@Transactional
 	@Override
 	public int save(NotifyDO notify) {
 		notify.setUpdateDate(new Date());
@@ -71,6 +81,40 @@ public class NotifyServiceImpl implements NotifyService {
 		recordDao.batchSave(records);
 		return r;
 
+	}*/
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int save(NotifyDO notify) {
+		notify.setUpdateDate(new Date());
+		int r = notifyDao.save(notify);
+		// 保存到接受者列表中
+		Long[] userIds = notify.getUserIds();
+		Long notifyId = notify.getId();
+		List<NotifyRecordDO> records = new ArrayList<>();
+		for (Long userId : userIds) {
+			NotifyRecordDO record = new NotifyRecordDO();
+			record.setNotifyId(notifyId);
+			record.setUserId(userId);
+			record.setIsRead(0);
+			records.add(record);
+		}
+		recordDao.batchSave(records);
+		//给在线用户发送通知
+		ThreadPoolExecutor executor = new ThreadPoolExecutor(1,1,0, TimeUnit.MILLISECONDS,new LinkedBlockingDeque<>());
+		executor.execute(new Runnable() {
+			@Override
+			public void run() {
+				for (UserDO userDO : sessionService.listOnlineUser()) {
+					for (Long userId : userIds) {
+						if (userId.equals(userDO.getUserId())) {
+							template.convertAndSendToUser(userDO.toString(), "/queue/notifications", "新消息：" + notify.getTitle());
+						}
+					}
+				}
+			}
+		});
+		executor.shutdown();
+		return r;
 	}
 
 	@Override

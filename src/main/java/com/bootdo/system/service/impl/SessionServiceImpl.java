@@ -64,5 +64,22 @@ public class SessionServiceImpl implements SessionService {
 		}
 		return list;
 	}
-
+	@Override
+	public List<UserDO> listOnlineUser() {
+		List<UserDO> list = new ArrayList<>();
+		UserDO userDO;
+		Collection<Session> sessions = sessionDAO.getActiveSessions();
+		for (Session session : sessions) {
+			SimplePrincipalCollection principalCollection = new SimplePrincipalCollection();
+			if (session.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY) == null) {
+				continue;
+			} else {
+				principalCollection = (SimplePrincipalCollection) session
+						.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY);
+				userDO = (UserDO) principalCollection.getPrimaryPrincipal();
+				list.add(userDO);
+			}
+		}
+		return list;
+	}
 }
