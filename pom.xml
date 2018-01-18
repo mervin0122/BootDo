@@ -25,6 +25,9 @@
 		<mybatisplus-spring-boot-starter.version>1.0.4</mybatisplus-spring-boot-starter.version>
 		<velocity.version>1.7</velocity.version>
 		<jsoup.version>1.9.2</jsoup.version>
+		<tomcat.version>7.0.57</tomcat.version>
+
+
 	</properties>
 
 	<dependencies>
@@ -48,18 +51,18 @@
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 		<!--web -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+		</dependency>-->
 		<!--如果要部署到自己的tomcat中，这一项配置必不可少，否则生成的war文件将无法执行。 如果不用部署到自己的Tomcat中，这一个依赖可以去掉-->
-	<!--	<dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
-		</dependency>-->
-		<!--	&lt;!&ndash;在用maven 编译，打包过程中回出现javax.servlet找不到的情况，所以需要在这里配置&ndash;&gt;
-            <dependency>
+		</dependency>
+			<!--在用maven 编译，打包过程中回出现javax.servlet找不到的情况，所以需要在这里配置-->
+            <!--<dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>3.0.1</version>
