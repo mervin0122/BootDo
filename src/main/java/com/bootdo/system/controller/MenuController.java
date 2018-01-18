@@ -34,7 +34,7 @@ public class MenuController extends BaseController {
 		return prefix+"/menu";
 	}
 
-	@RequiresPermissions("sys:menu:menu")
+	@RequiresPermissions("sys:menu:menulist")
 	@RequestMapping("/list")
 	@ResponseBody
 	List<MenuDO> list() {

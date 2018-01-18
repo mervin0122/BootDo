@@ -32,7 +32,7 @@ public class RoleController extends BaseController {
 		return prefix + "/role";
 	}
 
-	@RequiresPermissions("sys:role:role")
+	@RequiresPermissions("sys:role:rolelist")
 	@GetMapping("/list")
 	@ResponseBody()
 	List<RoleDO> list() {

@@ -3,6 +3,7 @@ package com.bootdo.cms.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.controller.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -31,7 +32,7 @@ import com.bootdo.common.utils.R;
  
 @Controller
 @RequestMapping("/cms/comment")
-public class CmsCommentController {
+public class CmsCommentController extends BaseController {
 	@Autowired
 	private CommentService commentService;
 	
@@ -43,7 +44,7 @@ public class CmsCommentController {
 	
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("cms:comment:comment")
+	@RequiresPermissions("cms:comment:commentlist")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
@@ -74,6 +75,9 @@ public class CmsCommentController {
 	@PostMapping("/save")
 	@RequiresPermissions("cms:comment:add")
 	public R save( CommentDO comment){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		if(commentService.save(comment)>0){
 			return R.ok();
 		}
@@ -86,6 +90,9 @@ public class CmsCommentController {
 	@RequestMapping("/update")
 	@RequiresPermissions("cms:comment:edit")
 	public R update( CommentDO comment){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		commentService.update(comment);
 		return R.ok();
 	}
@@ -97,6 +104,9 @@ public class CmsCommentController {
 	@ResponseBody
 	@RequiresPermissions("cms:comment:remove")
 	public R remove( Long id){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		if(commentService.remove(id)>0){
 		return R.ok();
 		}
@@ -110,6 +120,9 @@ public class CmsCommentController {
 	@ResponseBody
 	@RequiresPermissions("cms:comment:batchRemove")
 	public R remove(@RequestParam("ids[]") Long[] ids){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		commentService.batchRemove(ids);
 		return R.ok();
 	}

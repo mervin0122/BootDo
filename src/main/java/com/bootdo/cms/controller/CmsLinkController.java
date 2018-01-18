@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.controller.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -32,7 +33,7 @@ import com.bootdo.common.utils.R;
  
 @Controller
 @RequestMapping("/cms/link")
-public class CmsLinkController {
+public class CmsLinkController extends BaseController {
 	@Autowired
 	private LinkService linkService;
 	
@@ -44,7 +45,7 @@ public class CmsLinkController {
 	
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("cms:link:link")
+	@RequiresPermissions("cms:link:linklist")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
@@ -75,6 +76,9 @@ public class CmsLinkController {
 	@PostMapping("/save")
 	@RequiresPermissions("cms:link:add")
 	public R save( LinkDO link){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		link.setWeightdate(new Date());
 		if(linkService.save(link)>0){
 			return R.ok();
@@ -88,6 +92,9 @@ public class CmsLinkController {
 	@RequestMapping("/update")
 	@RequiresPermissions("cms:link:edit")
 	public R update( LinkDO link){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		linkService.update(link);
 		return R.ok();
 	}
@@ -99,6 +106,9 @@ public class CmsLinkController {
 	@ResponseBody
 	@RequiresPermissions("cms:link:remove")
 	public R remove( Long id){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		if(linkService.remove(id)>0){
 		return R.ok();
 		}
@@ -112,6 +122,9 @@ public class CmsLinkController {
 	@ResponseBody
 	@RequiresPermissions("cms:link:batchRemove")
 	public R remove(@RequestParam("ids[]") Long[] ids){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		linkService.batchRemove(ids);
 		return R.ok();
 	}

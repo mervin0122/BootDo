@@ -47,7 +47,7 @@ public class DeptController extends BaseController {
 
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("system:sysDept:sysDept")
+	@RequiresPermissions("system:sysDept:sysDeptlist")
 	public List<DeptDO> list(@RequestParam Map<String, Object> params) {
 		//Map<String, Object> query = new HashMap<>();
 		Query query = new Query(params);

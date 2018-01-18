@@ -1,5 +1,6 @@
 package com.bootdo.system.service.impl;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,7 +60,9 @@ public class DeptServiceImpl implements DeptService {
 	@Override
 	public Tree<DeptDO> getTree() {
 		List<Tree<DeptDO>> trees = new ArrayList<Tree<DeptDO>>();
-		List<DeptDO> SysDepts = sysDeptMapper.list(new HashMap<String,Object>());
+		Map<String,Object> map=new  HashMap<String,Object>();
+		map.put("delFlag","1");
+		List<DeptDO> SysDepts = sysDeptMapper.list(map);
 		for (DeptDO SysDept : SysDepts) {
 			Tree<DeptDO> tree = new Tree<DeptDO>();
 			tree.setId(SysDept.getDeptId().toString());

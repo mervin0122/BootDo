@@ -8,7 +8,7 @@
 	</select>
 
 	<select id="list" resultType="com.bootdo.system.domain.UserDO">
-		select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`balance`,`storeid`,`jifen`,`img`,`wx_open_id`,`wx_unionid`,`wx_avatar` from sys_user
+		select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district`,`balance`,`storeid`,`jifen`,`img`,`wx_open_id`,`wx_unionid`,`wx_avatar` from sys_user
 		<where>
 			<if test="userId != null and userId != ''"> and user_id = #{userId} </if>
 			<if test="username != null and username != ''"> and username = #{username} </if>

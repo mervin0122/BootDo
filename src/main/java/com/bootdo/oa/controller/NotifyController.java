@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.domain.DictDO;
+import com.bootdo.common.service.DictService;
 import com.bootdo.oa.domain.NotifyRecordDO;
 import com.bootdo.oa.service.NotifyRecordService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -40,7 +42,8 @@ public class NotifyController extends BaseController {
 
 	@Autowired
 	private NotifyRecordService notifyRecordService;
-
+	@Autowired
+	private DictService dictService;
 	@GetMapping()
 	@RequiresPermissions("oa:notify:notify")
 	String Notify() {
@@ -49,7 +52,7 @@ public class NotifyController extends BaseController {
 
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("oa:notify:notify")
+	@RequiresPermissions("oa:notify:notifylist")
 	public PageUtils list(@RequestParam Map<String, Object> params) {
 		// 查询列表数据
 		Query query = new Query(params);
@@ -69,6 +72,14 @@ public class NotifyController extends BaseController {
 	@RequiresPermissions("oa:notify:edit")
 	String edit(@PathVariable("id") Long id, Model model) {
 		NotifyDO notify = notifyService.get(id);
+		List<DictDO> dictDOS = dictService.listByType("oa_notify_type");
+		String type = notify.getType();
+		for (DictDO dictDO:dictDOS){
+			if(type.equals(dictDO.getValue())){
+				dictDO.setRemarks("checked");
+			}
+		}
+		model.addAttribute("oaNotifyTypes",dictDOS);
 		model.addAttribute("notify", notify);
 		return "oa/notify/edit";
 	}
@@ -152,6 +163,7 @@ public class NotifyController extends BaseController {
 
 	@ResponseBody
 	@GetMapping("/selfList")
+	@RequiresPermissions("oa.notify.selfNotifylist")
 	PageUtils selfList(@RequestParam Map<String, Object> params) {
 		Query query = new Query(params);
 		query.put("userId", getUserId());

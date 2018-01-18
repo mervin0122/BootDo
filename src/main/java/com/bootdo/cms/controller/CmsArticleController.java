@@ -4,6 +4,7 @@ import com.bootdo.cms.domain.CmsArticleDO;
 import com.bootdo.cms.service.CmsArticleService;
 import com.bootdo.cms.service.CmsCategoryService;
 import com.bootdo.cms.service.SiteService;
+import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.domain.DictDO;
 import com.bootdo.common.service.DictService;
 import com.bootdo.common.utils.PageUtils;
@@ -31,7 +32,7 @@ import java.util.Map;
  
 @Controller
 @RequestMapping("/cms/article")
-public class CmsArticleController {
+public class CmsArticleController extends BaseController {
 	@Autowired
 	private CmsArticleService cmsArticleService;
 	@Autowired
@@ -49,7 +50,7 @@ public class CmsArticleController {
 	
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("cms:article:article")
+	@RequiresPermissions("cms:article:articlelist")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
@@ -104,6 +105,9 @@ public class CmsArticleController {
 	@PostMapping("/save")
 	@RequiresPermissions("cms:article:add")
 	public R save( CmsArticleDO article){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		article.setCreatedate(new Date());
 		String imgMore = article.getImg();
 		if (StringUtils.isEmpty(article.getRemark())) {
@@ -129,6 +133,9 @@ public class CmsArticleController {
 	@RequestMapping("/update")
 	@RequiresPermissions("cms:article:edit")
 	public R update( CmsArticleDO article){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		cmsArticleService.update(article);
 		return R.ok();
 	}
@@ -140,6 +147,9 @@ public class CmsArticleController {
 	@ResponseBody
 	@RequiresPermissions("cms:article:remove")
 	public R remove( Long id){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		if(cmsArticleService.remove(id)>0){
 		return R.ok();
 		}
@@ -153,6 +163,9 @@ public class CmsArticleController {
 	@ResponseBody
 	@RequiresPermissions("cms:article:batchRemove")
 	public R remove(@RequestParam("ids[]") Long[] ids){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		cmsArticleService.batchRemove(ids);
 		return R.ok();
 	}

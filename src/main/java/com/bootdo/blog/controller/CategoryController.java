@@ -33,7 +33,7 @@ public class CategoryController extends BaseController {
 
     @ResponseBody
     @GetMapping("/list")
-    @RequiresPermissions("blog:category:category")
+    @RequiresPermissions("blog:category:categorylist")
     public PageUtils list(@RequestParam Map<String, Object> params) {
         Query query = new Query(params);
         List<Category> partnerList = categoryService.getCategoryList(query);

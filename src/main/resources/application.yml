@@ -1,7 +1,14 @@
 server:
-  port: 80
-  tomcat:
+ # context-path: /myboot
+    session-timeout: 1800
+    tomcat:
+        max-threads: 1000
+        min-spare-threads: 30
+    port: 80
     uri-encoding: utf-8
+security:
+  basic:
+    enabled: false
 spring:
   thymeleaf:
     mode: LEGACYHTML5
@@ -24,13 +31,13 @@ mybatis:
   mapper-locations: mybatis/**/*Mapper.xml
   typeAliasesPackage: com.bootdo.**.domain
 
-wechat:
-  miniapp:
-    appid: wx15d4269d3210863d
-    secret: d60d341206e2d07f8c4c2bb29580b0c6
-    token: weixin
-    aesKey: 111
-    msgDataFormat: JSON
+##wechat:
+##  miniapp:
+ ##   appid: wx15d4269d3210863d
+ ##   secret: d60d341206e2d07f8c4c2bb29580b0c6
+ ##   token: weixin
+ ##   aesKey: 111
+  ##  msgDataFormat: JSON
 ##七牛云的key
 
 qiniu:
@@ -38,4 +45,3 @@ qiniu:
   secretKey: 1iUDYRKdibiVP-WZLrGoErtdWWCqYWXjKUbQtAYQ
   bucketName:  j5shop
   basePath: http://p0bt2oaom.bkt.clouddn.com/
-  #basePath: http://localhost/

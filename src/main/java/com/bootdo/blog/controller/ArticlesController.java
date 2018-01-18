@@ -44,7 +44,7 @@ public class ArticlesController extends BaseController {
 
     @ResponseBody
     @GetMapping("/list")
-    @RequiresPermissions("blog:article:article")
+    @RequiresPermissions("blog:article:articlelist")
     public PageUtils list(@RequestParam Map<String, Object> params) {
         Query query = new Query(params);
         List<Article> articleList = articlesService.list(query);

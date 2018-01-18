@@ -3,6 +3,7 @@ package com.bootdo.cms.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.controller.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -31,7 +32,7 @@ import com.bootdo.common.utils.R;
  
 @Controller
 @RequestMapping("/cms/site")
-public class CmsSiteController {
+public class CmsSiteController extends BaseController {
 	@Autowired
 	private SiteService siteService;
 	
@@ -43,7 +44,7 @@ public class CmsSiteController {
 	
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("cms:site:site")
+	@RequiresPermissions("cms:site:sitelist")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
@@ -74,6 +75,9 @@ public class CmsSiteController {
 	@PostMapping("/save")
 	@RequiresPermissions("cms:site:add")
 	public R save( SiteDO site){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		if(siteService.save(site)>0){
 			return R.ok();
 		}
@@ -86,6 +90,9 @@ public class CmsSiteController {
 	@RequestMapping("/update")
 	@RequiresPermissions("cms:site:edit")
 	public R update( SiteDO site){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		siteService.update(site);
 		return R.ok();
 	}
@@ -97,6 +104,9 @@ public class CmsSiteController {
 	@ResponseBody
 	@RequiresPermissions("cms:site:remove")
 	public R remove( Long id){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		if(siteService.remove(id)>0){
 		return R.ok();
 		}
@@ -110,6 +120,9 @@ public class CmsSiteController {
 	@ResponseBody
 	@RequiresPermissions("cms:site:batchRemove")
 	public R remove(@RequestParam("ids[]") Long[] ids){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		siteService.batchRemove(ids);
 		return R.ok();
 	}

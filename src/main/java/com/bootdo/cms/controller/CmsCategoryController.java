@@ -3,6 +3,7 @@ package com.bootdo.cms.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.controller.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -30,7 +31,7 @@ import com.bootdo.common.utils.R;
  
 @Controller
 @RequestMapping("/cms/category")
-public class CmsCategoryController {
+public class CmsCategoryController extends BaseController {
 	@Autowired
 	private CmsCategoryService cmsCategoryService;
 	
@@ -42,7 +43,7 @@ public class CmsCategoryController {
 	
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("cms:category:category")
+	@RequiresPermissions("cms:category:categorylist")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
         Query query = new Query(params);
@@ -73,6 +74,9 @@ public class CmsCategoryController {
 	@PostMapping("/save")
 	@RequiresPermissions("cms:category:add")
 	public R save( CategoryDO category){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		if(cmsCategoryService.save(category)>0){
 			return R.ok();
 		}
@@ -85,6 +89,9 @@ public class CmsCategoryController {
 	@RequestMapping("/update")
 	@RequiresPermissions("cms:category:edit")
 	public R update( CategoryDO category){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		cmsCategoryService.update(category);
 		return R.ok();
 	}
@@ -96,6 +103,9 @@ public class CmsCategoryController {
 	@ResponseBody
 	@RequiresPermissions("cms:category:remove")
 	public R remove( Long id){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		if(cmsCategoryService.remove(id)>0){
 		return R.ok();
 		}
@@ -109,6 +119,9 @@ public class CmsCategoryController {
 	@ResponseBody
 	@RequiresPermissions("cms:category:batchRemove")
 	public R remove(@RequestParam("ids[]") Long[] ids){
+		if ("test".equals(getUsername())) {
+			return R.error(1, "演示系统不允许修改,完整体验请部署程序");
+		}
 		cmsCategoryService.batchRemove(ids);
 		return R.ok();
 	}

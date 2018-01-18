@@ -40,7 +40,7 @@ public class PartnerController extends BaseController {
 
     @ResponseBody
     @GetMapping("/list")
-    @RequiresPermissions("blog:partner:partner")
+    @RequiresPermissions("blog:partner:partnerlist")
     public PageUtils list(@RequestParam Map<String, Object> params) {
         Query query = new Query(params);
         List<Partner> partnerList = partnerService.findAll(query);
