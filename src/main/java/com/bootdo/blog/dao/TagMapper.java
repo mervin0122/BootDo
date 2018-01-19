@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Do
@@ -21,13 +22,13 @@ public interface TagMapper {
 
     Tag getTagById(Integer id);
 
-    List<Tag> loadTagList(@Param("pager") Pager pager, @Param("tagName") String tagName);
+    List<Tag> loadTagList(Map<String, Object> params);
 
-    void saveTag(Tag tag);
+    int saveTag(Tag tag);
 
     int checkExist(Tag tag);
 
-    void updateTag(Tag tag);
+    int updateTag(Tag tag);
 
     int initPage(Pager pager);
 
@@ -39,4 +40,7 @@ public interface TagMapper {
      * @param tagId
      */
     int articleTagPage(int tagId);
+    int deleteTag(Integer id);
+    int batchRemove(Long[] ids);
+    int count(Map<String, Object> params);
 }

@@ -20,6 +20,12 @@
         </if>
         limit #{pager.start},#{pager.limit}
     </select>
+    <select id="count" resultType="int">
+        select count(*) from tag
+        <if test="tagName != null and tagName != ''">
+            where tagName like concat('%',#{tagName},'%') or aliasName like concat('%',#{tagName},'%')
+        </if>
+    </select>
 
     <insert id="saveTag">
         insert into tag(tagName, aliasName) VALUES (#{tagName},#{aliasName})
@@ -48,4 +54,16 @@
     <select id="articleTagPage" resultType="int">
        select count(DISTINCT article.id) from articletag join article on articleId = article.id and article.status = 1 where tagId = #{tagId}
     </select>
+
+    <delete id="deleteTag">
+        delete from tag where id = #{id}
+    </delete>
+
+    <!--批量删除分类-->
+    <delete id="batchRemove">
+        delete from tag where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

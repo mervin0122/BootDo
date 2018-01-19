@@ -5,6 +5,7 @@ import com.bootdo.blog.domain.Pager;
 import com.bootdo.blog.domain.Tag;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Do
@@ -26,13 +27,13 @@ public interface TagService {
 
     Tag getTagById(Integer id);
 
-    List<Tag> loadTagList(Pager pager, String tagName);
+    List<Tag> loadTagList(Map<String, Object> params);
 
-    void saveTag(Tag tag);
+    int saveTag(Tag tag);
 
     boolean checkExist(Tag tag);
 
-    void updateTag(Tag tag);
+    int updateTag(Tag tag);
 
     void initPage(Pager pager);
 
@@ -44,4 +45,7 @@ public interface TagService {
      * @param tagId
      */
     void ArticleTagPage(Pager pager, int tagId);
+    int deleteTag(Integer id);
+    int batchRemove(Long[] ids);
+    int count(Map<String, Object> params);
 }

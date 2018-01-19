@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Do
@@ -41,14 +42,13 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public List<Tag> loadTagList(Pager pager, String tagName) {
-        pager.setStart(pager.getStart());
-        return tagMapper.loadTagList(pager,tagName);
+    public List<Tag> loadTagList(Map<String, Object> params) {
+        return tagMapper.loadTagList(params);
     }
 
     @Override
-    public void saveTag(Tag tag) {
-        tagMapper.saveTag(tag);
+    public int saveTag(Tag tag) {
+     return    tagMapper.saveTag(tag);
     }
 
     @Override
@@ -61,8 +61,8 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public void updateTag(Tag tag) {
-        tagMapper.updateTag(tag);
+    public int updateTag(Tag tag) {
+        return  tagMapper.updateTag(tag);
     }
 
     @Override
@@ -86,5 +86,19 @@ public class TagServiceImpl implements TagService {
     public void ArticleTagPage(Pager pager, int tagId) {
         int count =  tagMapper.articleTagPage(tagId);
         pager.setTotalCount(count);
+    }
+    @Override
+    public int deleteTag(Integer id) {
+        return tagMapper.deleteTag(id);
+    }
+
+    @Override
+    public int batchRemove(Long[] ids){
+        return  tagMapper.batchRemove(ids);
+    }
+
+    @Override
+    public  int count(Map<String, Object> params) {
+        return tagMapper.count(params);
     }
 }

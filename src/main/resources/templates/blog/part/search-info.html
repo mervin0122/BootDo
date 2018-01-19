@@ -8,14 +8,13 @@
     <section class="ins-section">
         <header class="ins-section-header">文章</header>
         <div class="ins-selectable ins-search-item" th:each="article : ${articleList}">
-            <a th:href="'/blog/article/details/'+${article.id}" >
-            <header>
-               <!-- th:data-url="'/blog/article/details/'+${article.id}"-->
+                <a th:href="'/blog/article/details/'+${article.id}" >
+                    <div>
                 <i class="fa fa-file" th:text="${article.title}"></i>
                <!-- <a th:href="'/blog/article/details/'+${article.id}" th:text="${article.title}"></a>-->
-            </header>
                 <p class="ins-search-preview" th:text="${article.description}"></p>
-            </a>
+                    </div>
+                </a>
         </div>
     </section>
 </body>
