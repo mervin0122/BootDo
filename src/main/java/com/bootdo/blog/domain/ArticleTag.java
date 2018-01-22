@@ -15,25 +15,25 @@ import java.io.Serializable;
 @Alias("articleTag")
 public class ArticleTag implements Serializable {
 
-private Integer articleId;  //文章id
+private String articleId;  //文章id
 
-private Integer tagId;  //标签id
+private String tagId;  //标签id
 
 private String tagName;  //标签名
 
-    public Integer getArticleId() {
+    public String getArticleId() {
         return articleId;
     }
 
-    public void setArticleId(Integer articleId) {
+    public void setArticleId(String articleId) {
         this.articleId = articleId;
     }
 
-    public Integer getTagId() {
+    public String getTagId() {
         return tagId;
     }
 
-    public void setTagId(Integer tagId) {
+    public void setTagId(String tagId) {
         this.tagId = tagId;
     }
 

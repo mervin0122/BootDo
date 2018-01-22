@@ -21,6 +21,8 @@ public class Tag implements Serializable {
 
     private String aliasName;  //别名
 
+    private  String remarks;
+
     public Integer getId() {
         return id;
     }
@@ -43,6 +45,14 @@ public class Tag implements Serializable {
 
     public void setAliasName(String aliasName) {
         this.aliasName = aliasName;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 
     @Override

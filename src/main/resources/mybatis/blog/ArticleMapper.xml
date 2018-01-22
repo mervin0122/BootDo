@@ -27,7 +27,7 @@
         select article.id,categoryId,categoryName,aliasName,title,content,description,article.status,author,article.createTime,updateTime,showCount from article,category where article.status=1 and article.categoryId = category.id order by createTime desc limit #{start},#{limit}
     </select>
     <!--通过文章id获取tag列表-->
-    <select id="getTag" resultType="com.bootdo.blog.domain.ArticleTag">
+    <select id="getTag" parameterType="map" resultType="com.bootdo.blog.domain.ArticleTag">
         select * from articletag where articleId = #{id}
     </select>
     <!--通过分类获取所有的文章-->

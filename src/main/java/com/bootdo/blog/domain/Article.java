@@ -38,6 +38,8 @@ public class Article implements Serializable {
 
     private Integer showCount;  //浏览数
 
+    private String tagId;
+
     public Integer getId() {
         return id;
     }
@@ -125,6 +127,14 @@ public class Article implements Serializable {
 
     public void setShowCount(Integer showCount) {
         this.showCount = showCount;
+    }
+
+    public String getTagId() {
+        return tagId;
+    }
+
+    public void setTagId(String tagId) {
+        this.tagId = tagId;
     }
 
     @Override

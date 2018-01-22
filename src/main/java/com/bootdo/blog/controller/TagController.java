@@ -59,7 +59,7 @@ public class TagController  extends BaseController {
     String edit(@PathVariable("id") Integer id, Model model) {
         Tag tag = tagService.getTagById(id);
         model.addAttribute("tag", tag);
-        return "blog/category/edit";
+        return "blog/tag/edit";
     }
     /**
      * 保存

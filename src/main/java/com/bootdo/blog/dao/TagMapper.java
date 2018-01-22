@@ -1,5 +1,6 @@
 package com.bootdo.blog.dao;
 
+import com.bootdo.blog.domain.ArticleTag;
 import com.bootdo.blog.domain.Pager;
 import com.bootdo.blog.domain.Tag;
 import org.apache.ibatis.annotations.Mapper;
@@ -43,4 +44,7 @@ public interface TagMapper {
     int deleteTag(Integer id);
     int batchRemove(Long[] ids);
     int count(Map<String, Object> params);
+    int saveArtitleTag(List list);
+    int deleteArtitleTag(Integer id);
+
 }

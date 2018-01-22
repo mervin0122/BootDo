@@ -3,6 +3,7 @@ package com.bootdo.blog.dao;
 
 import com.bootdo.blog.domain.Article;
 import com.bootdo.blog.domain.ArticleCustom;
+import com.bootdo.blog.domain.ArticleTag;
 import com.bootdo.blog.domain.Pager;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -15,6 +16,8 @@ import java.util.Map;
 */
 @Mapper
 public interface ArticleMapper {
+
+    List<ArticleTag> getTag(Map<String, Object> param);
 
     int getArticleCount();
 

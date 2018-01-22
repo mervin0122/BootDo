@@ -1,6 +1,7 @@
 package com.bootdo.blog.service;
 
 import com.bootdo.blog.domain.ArticleCustom;
+import com.bootdo.blog.domain.ArticleTag;
 import com.bootdo.blog.domain.Pager;
 import com.bootdo.blog.domain.Tag;
 
@@ -48,4 +49,6 @@ public interface TagService {
     int deleteTag(Integer id);
     int batchRemove(Long[] ids);
     int count(Map<String, Object> params);
+    int saveArtitleTag(ArticleTag at);
+    int deleteArtitleTag(Integer id);
 }

@@ -12,23 +12,49 @@
         select id,tagName,aliasName from tag where id = #{id}
     </select>
 
+    <select id="tagList" resultType="com.bootdo.blog.domain.Tag">
+        select id,tagName,aliasName from tag order by id desc
+
+    </select>
+
     <!--分页条件查询标签列表 2017年5月19日 修复条件查询错误 原因条件语句写成了恒等式 aliasName like aliasName-->
     <select id="loadTagList" resultType="com.bootdo.blog.domain.Tag">
         select id,tagName,aliasName from tag
+        <where>
         <if test="tagName != null and tagName != ''">
-            where tagName like concat('%',#{tagName},'%') or aliasName like concat('%',#{tagName},'%')
+             tagName like concat('%',#{tagName},'%') or aliasName like concat('%',#{tagName},'%')
         </if>
-        limit #{pager.start},#{pager.limit}
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
     </select>
     <select id="count" resultType="int">
         select count(*) from tag
+        <where>
         <if test="tagName != null and tagName != ''">
-            where tagName like concat('%',#{tagName},'%') or aliasName like concat('%',#{tagName},'%')
+             tagName like concat('%',#{tagName},'%') or aliasName like concat('%',#{tagName},'%')
         </if>
+        </where>
     </select>
 
     <insert id="saveTag">
         insert into tag(tagName, aliasName) VALUES (#{tagName},#{aliasName})
+    </insert>
+
+    <insert id="saveArtitleTag"  parameterType="java.util.List">
+        insert into articletag(articleId,tagId,tagName) VALUES
+        <foreach collection ="list" item="articleTag" index= "index" separator =",">
+        (#{articleTag.articleId},#{articleTag.tagId},#{articleTag.tagName})
+        </foreach >
     </insert>
 
     <select id="checkExist" resultType="int">
@@ -65,5 +91,9 @@
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
         </foreach>
+    </delete>
+
+    <delete id="deleteArtitleTag">
+        delete from articletag where articleId = #{id}
     </delete>
 </mapper>

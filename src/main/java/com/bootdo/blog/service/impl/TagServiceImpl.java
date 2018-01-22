@@ -3,15 +3,19 @@ package com.bootdo.blog.service.impl;
 
 import com.bootdo.blog.dao.ArticleMapper;
 import com.bootdo.blog.dao.TagMapper;
+import com.bootdo.blog.domain.ArticleTag;
 import com.bootdo.blog.service.TagService;
 import com.bootdo.blog.domain.ArticleCustom;
 import com.bootdo.blog.domain.Pager;
 import com.bootdo.blog.domain.Tag;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author Do
@@ -43,7 +47,20 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public List<Tag> loadTagList(Map<String, Object> params) {
-        return tagMapper.loadTagList(params);
+        List<Tag> tagList=  tagMapper.loadTagList(params);
+        List<ArticleTag> atList=articleMapper.getTag(params);
+        if (atList.size()>0){
+            for (ArticleTag at : atList) {
+                for (Tag tag : tagList) {
+                    if (!Objects.equals(at.getTagId().toString(),tag.getId().toString())) {
+                        continue;
+                    }
+                    tag.setRemarks("true");
+                    break;
+                }
+            }
+        }
+        return tagList;
     }
 
     @Override
@@ -100,5 +117,26 @@ public class TagServiceImpl implements TagService {
     @Override
     public  int count(Map<String, Object> params) {
         return tagMapper.count(params);
+    }
+
+    @Override
+    public int saveArtitleTag(ArticleTag at) {
+        List<ArticleTag> list=new ArrayList();
+      if (StringUtils.isNotEmpty(at.getTagId())){
+          String[] str = at.getTagId().split(",");
+          for (int i = 0; i < str.length; i++) {
+
+              ArticleTag articleTag=new ArticleTag();
+              articleTag.setTagId(str[i]);
+              articleTag.setArticleId(at.getArticleId());
+              articleTag.setTagName(tagMapper.getTagById(Integer.parseInt(str[i])).getTagName());
+              list.add(articleTag);
+          }
+      }
+          return tagMapper.saveArtitleTag(list);
+    }
+    @Override
+    public int deleteArtitleTag(Integer id){
+        return tagMapper.deleteArtitleTag(id);
     }
 }

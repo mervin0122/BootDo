@@ -2,9 +2,11 @@ package com.bootdo.blog.controller;
 
 
 import com.bootdo.blog.domain.Article;
+import com.bootdo.blog.domain.ArticleTag;
 import com.bootdo.blog.service.ArticlesService;
 import com.bootdo.blog.service.BlogArticleService;
 import com.bootdo.blog.service.CategoryService;
+import com.bootdo.blog.service.TagService;
 import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
@@ -36,6 +38,9 @@ public class ArticlesController extends BaseController {
     @Resource
     CategoryService categoryService;
 
+    @Resource
+    private TagService tagService;
+
     @GetMapping()
     @RequiresPermissions("blog:article:article")
     String article() {
@@ -58,6 +63,7 @@ public class ArticlesController extends BaseController {
         Map<String, Object> params=new HashedMap();
         params.put("status","1");
         model.addAttribute("categoriesList",categoryService.getCategoryList(params));
+        model.addAttribute("tagList",tagService.loadTagList(params));
         return "blog/article/add";
     }
 
@@ -69,6 +75,8 @@ public class ArticlesController extends BaseController {
         Article article = blogArticleService.getArticleById(id);
         model.addAttribute("article", article);
         model.addAttribute("categoriesList",categoryService.getCategoryList(params));
+        params.put("id",id);
+        model.addAttribute("tagList",tagService.loadTagList(params));
         return "blog/article/edit";
     }
     /**
@@ -93,6 +101,11 @@ public class ArticlesController extends BaseController {
             count = articlesService.updateArticle(article);
         }
         if (count > 0) {
+            tagService.deleteArtitleTag(article.getId());//删除标签
+            ArticleTag at=new ArticleTag();
+            at.setArticleId(article.getId().toString());
+            at.setTagId(article.getTagId());
+            tagService.saveArtitleTag(at);
             return R.ok().put("id", article.getId());
         }
         return R.error();
