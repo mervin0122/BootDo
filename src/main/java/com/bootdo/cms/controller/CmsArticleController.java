@@ -4,6 +4,7 @@ import com.bootdo.cms.domain.CmsArticleDO;
 import com.bootdo.cms.service.CmsArticleService;
 import com.bootdo.cms.service.CmsCategoryService;
 import com.bootdo.cms.service.SiteService;
+import com.bootdo.common.annotation.Log;
 import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.domain.DictDO;
 import com.bootdo.common.service.DictService;
@@ -59,7 +60,7 @@ public class CmsArticleController extends BaseController {
 		PageUtils pageUtils = new PageUtils(articleList, total);
 		return pageUtils;
 	}
-	
+	@Log("新增网站文章")
 	@GetMapping("/add")
 	@RequiresPermissions("cms:article:add")
 	String add(Model model){
@@ -82,7 +83,7 @@ public class CmsArticleController extends BaseController {
 		model.addAttribute("modelList",modelList);
 		return "cms/article/add";
 	}
-
+	@Log("编辑网站文章")
 	@GetMapping("/edit/{id}")
 	@RequiresPermissions("cms:article:edit")
 	String edit(@PathVariable("id") Long id,Model model){
@@ -101,6 +102,7 @@ public class CmsArticleController extends BaseController {
 	/**
 	 * 保存
 	 */
+	@Log("保存网站文章")
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("cms:article:add")
@@ -129,6 +131,7 @@ public class CmsArticleController extends BaseController {
 	/**
 	 * 修改
 	 */
+	@Log("更新网站文章")
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("cms:article:edit")
@@ -143,6 +146,7 @@ public class CmsArticleController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("删除网站文章")
 	@PostMapping( "/remove")
 	@ResponseBody
 	@RequiresPermissions("cms:article:remove")
@@ -157,8 +161,9 @@ public class CmsArticleController extends BaseController {
 	}
 	
 	/**
-	 * 删除
+	 * 批量删除
 	 */
+	@Log("批量删除网站文章")
 	@PostMapping( "/batchRemove")
 	@ResponseBody
 	@RequiresPermissions("cms:article:batchRemove")

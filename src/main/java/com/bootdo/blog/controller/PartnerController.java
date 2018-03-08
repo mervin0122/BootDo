@@ -7,6 +7,7 @@ import com.bootdo.blog.service.ArticlesService;
 import com.bootdo.blog.service.BlogArticleService;
 import com.bootdo.blog.service.CategoryService;
 import com.bootdo.blog.service.PartnerService;
+import com.bootdo.common.annotation.Log;
 import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
@@ -48,12 +49,14 @@ public class PartnerController extends BaseController {
         PageUtils pageUtils = new PageUtils(partnerList, total);
         return pageUtils;
     }
+    @Log("新增博客友情链接")
     @GetMapping("/add")
     @RequiresPermissions("blog:partner:add")
     String add() {
         return "blog/partner/add";
     }
 
+    @Log("编辑博客友情链接")
     @GetMapping("/edit/{id}")
     @RequiresPermissions("blog:partner:edit")
     String edit(@PathVariable("id") Integer id, Model model) {
@@ -64,6 +67,7 @@ public class PartnerController extends BaseController {
     /**
      * 保存
      */
+    @Log("保存博客友情链接")
     @ResponseBody
     @RequiresPermissions("blog:partner:add")
     @PostMapping("/save")
@@ -87,6 +91,7 @@ public class PartnerController extends BaseController {
     /**
      * 修改
      */
+    @Log("更新博客友情链接")
     @RequiresPermissions("blog:partner:edit")
     @RequestMapping("/update")
     public R update(@RequestBody Partner partner) {
@@ -100,6 +105,7 @@ public class PartnerController extends BaseController {
     /**
      * 删除
      */
+    @Log("删除博客友情链接")
     @RequiresPermissions("blog:partner:remove")
     @PostMapping("/remove")
     @ResponseBody
@@ -116,6 +122,7 @@ public class PartnerController extends BaseController {
     /**
      * 批量删除
      */
+    @Log("批量删除博客友情链接")
     @RequiresPermissions("blog:partner:batchRemove")
     @PostMapping("/batchRemove")
     @ResponseBody
@@ -129,6 +136,7 @@ public class PartnerController extends BaseController {
     /**
      * 修改状态
      */
+    @Log("修改博客友情链接状态")
     @RequiresPermissions("blog:partner:status")
     @PostMapping("/status")
     @ResponseBody

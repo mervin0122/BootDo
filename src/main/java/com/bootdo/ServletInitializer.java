@@ -1,7 +1,9 @@
 
 package com.bootdo;
 
-/*
+
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 public class ServletInitializer extends SpringBootServletInitializer{
     @Override
@@ -9,5 +11,4 @@ public class ServletInitializer extends SpringBootServletInitializer{
         return application.sources(BootdoApplication.class);
     }
 }
-*/
 

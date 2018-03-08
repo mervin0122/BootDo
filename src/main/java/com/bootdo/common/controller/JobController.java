@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bootdo.common.annotation.Log;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -52,12 +53,13 @@ public class JobController extends BaseController{
 		PageUtils pageUtils = new PageUtils(taskScheduleJobList, total);
 		return pageUtils;
 	}
-
+	@Log("添加任务")
 	@GetMapping("/add")
 	String add() {
 		return "common/taskScheduleJob/add";
 	}
 
+	@Log("编辑任务")
 	@GetMapping("/edit/{id}")
 	String edit(@PathVariable("id") Long id, Model model) {
 		TaskDO taskScheduleJob = taskScheduleJobService.get(id);
@@ -77,6 +79,7 @@ public class JobController extends BaseController{
 	/**
 	 * 保存
 	 */
+	@Log("保存任务")
 	@ResponseBody
 	@PostMapping("/save")
 	public R save(TaskDO taskScheduleJob) {
@@ -92,6 +95,7 @@ public class JobController extends BaseController{
 	/**
 	 * 修改
 	 */
+	@Log("更新任务")
 	@RequestMapping("/update")
 	public R update(@RequestBody TaskDO taskScheduleJob) {
 		if ("test".equals(getUsername())) {
@@ -105,6 +109,7 @@ public class JobController extends BaseController{
 	/**
 	 * 删除
 	 */
+	@Log("删除任务")
 	@PostMapping("/remove")
 	@ResponseBody
 	public R remove(Long id) {
@@ -120,6 +125,7 @@ public class JobController extends BaseController{
 	/**
 	 * 删除
 	 */
+	@Log("批量删除任务")
 	@PostMapping("/batchRemove")
 	@ResponseBody
 	public R remove(@RequestParam("ids[]") Long[] ids) {
@@ -131,6 +137,7 @@ public class JobController extends BaseController{
 		return R.ok();
 	}
 
+	@Log("改变任务状态")
 	@PostMapping(value = "/changeJobStatus")
 	@ResponseBody
 	public R changeJobStatus(Long id,String cmd ) {

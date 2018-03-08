@@ -3,6 +3,7 @@ package com.bootdo.cms.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.annotation.Log;
 import com.bootdo.common.controller.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,13 +53,13 @@ public class CmsCategoryController extends BaseController {
 		PageUtils pageUtils = new PageUtils(categoryList, total);
 		return pageUtils;
 	}
-	
+	@Log("新增网站文章")
 	@GetMapping("/add")
 	@RequiresPermissions("cms:category:add")
 	String add(){
 	    return "cms/category/add";
 	}
-
+	@Log("编辑网站文章")
 	@GetMapping("/edit/{id}")
 	@RequiresPermissions("cms:category:edit")
 	String edit(@PathVariable("id") Long id,Model model){
@@ -70,6 +71,7 @@ public class CmsCategoryController extends BaseController {
 	/**
 	 * 保存
 	 */
+	@Log("保存网站分类")
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("cms:category:add")
@@ -85,6 +87,7 @@ public class CmsCategoryController extends BaseController {
 	/**
 	 * 修改
 	 */
+	@Log("更新网站分类")
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("cms:category:edit")
@@ -99,6 +102,7 @@ public class CmsCategoryController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("删除网站分类")
 	@PostMapping( "/remove")
 	@ResponseBody
 	@RequiresPermissions("cms:category:remove")
@@ -113,8 +117,9 @@ public class CmsCategoryController extends BaseController {
 	}
 	
 	/**
-	 * 删除
+	 *批量 删除
 	 */
+	@Log("批量删除网站分类")
 	@PostMapping( "/batchRemove")
 	@ResponseBody
 	@RequiresPermissions("cms:category:batchRemove")

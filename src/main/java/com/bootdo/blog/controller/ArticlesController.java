@@ -7,6 +7,7 @@ import com.bootdo.blog.service.ArticlesService;
 import com.bootdo.blog.service.BlogArticleService;
 import com.bootdo.blog.service.CategoryService;
 import com.bootdo.blog.service.TagService;
+import com.bootdo.common.annotation.Log;
 import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
@@ -57,6 +58,7 @@ public class ArticlesController extends BaseController {
         PageUtils pageUtils = new PageUtils(articleList, total);
         return pageUtils;
     }
+    @Log("添加博客文章")
     @GetMapping("/add")
     @RequiresPermissions("blog:article:add")
     String add(Model model) {
@@ -66,7 +68,7 @@ public class ArticlesController extends BaseController {
         model.addAttribute("tagList",tagService.loadTagList(params));
         return "blog/article/add";
     }
-
+    @Log("编辑博客文章")
     @GetMapping("/edit/{id}")
     @RequiresPermissions("blog:article:edit")
     String edit(@PathVariable("id") Integer id, Model model) {
@@ -82,6 +84,7 @@ public class ArticlesController extends BaseController {
     /**
      * 保存
      */
+    @Log("保存博客文章")
     @ResponseBody
     @RequiresPermissions("blog:article:add")
     @PostMapping("/save")
@@ -114,6 +117,7 @@ public class ArticlesController extends BaseController {
     /**
      * 修改
      */
+    @Log("更新博客文章")
     @RequiresPermissions("blog:article:edit")
     @RequestMapping("/update")
     public R update(@RequestBody Article article) {
@@ -128,6 +132,7 @@ public class ArticlesController extends BaseController {
     /**
      * 删除
      */
+    @Log("删除博客文章")
     @RequiresPermissions("blog:article:remove")
     @PostMapping("/remove")
     @ResponseBody
@@ -144,6 +149,7 @@ public class ArticlesController extends BaseController {
     /**
      * 批量删除
      */
+    @Log("批量删除博客文章")
     @RequiresPermissions("blog:article:batchRemove")
     @PostMapping("/batchRemove")
     @ResponseBody
@@ -157,6 +163,7 @@ public class ArticlesController extends BaseController {
     /**
      * 修改状态
      */
+    @Log("修改博客文章状态")
     @RequiresPermissions("blog:article:status")
     @PostMapping("/status")
     @ResponseBody

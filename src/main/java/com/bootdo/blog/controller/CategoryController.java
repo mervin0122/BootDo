@@ -2,6 +2,7 @@ package com.bootdo.blog.controller;
 
 import com.bootdo.blog.domain.Category;
 import com.bootdo.blog.service.CategoryService;
+import com.bootdo.common.annotation.Log;
 import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
@@ -16,9 +17,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by GeneratorFx on 2017-04-11.
- */
+
 @Controller
 @RequestMapping("/blog/category")
 public class CategoryController extends BaseController {
@@ -41,12 +40,13 @@ public class CategoryController extends BaseController {
         PageUtils pageUtils = new PageUtils(partnerList, total);
         return pageUtils;
     }
+    @Log("新增博客文章分类")
     @GetMapping("/add")
     @RequiresPermissions("blog:category:add")
     String add() {
         return "blog/category/add";
     }
-
+    @Log("编辑博客文章分类")
     @GetMapping("/edit/{id}")
     @RequiresPermissions("blog:category:edit")
     String edit(@PathVariable("id") Integer id, Model model) {
@@ -57,6 +57,7 @@ public class CategoryController extends BaseController {
     /**
      * 保存
      */
+    @Log("保存博客文章分类")
     @ResponseBody
     @RequiresPermissions("blog:category:add")
     @PostMapping("/save")
@@ -80,6 +81,7 @@ public class CategoryController extends BaseController {
     /**
      * 修改
      */
+    @Log("更新博客文章分类")
     @RequiresPermissions("blog:category:edit")
     @RequestMapping("/update")
     public R update(@RequestBody Category category) {
@@ -93,6 +95,7 @@ public class CategoryController extends BaseController {
     /**
      * 删除
      */
+    @Log("删除博客文章分类")
     @RequiresPermissions("blog:category:remove")
     @PostMapping("/remove")
     @ResponseBody
@@ -109,6 +112,7 @@ public class CategoryController extends BaseController {
     /**
      * 批量删除
      */
+    @Log("批量删除博客文章分类")
     @RequiresPermissions("blog:category:batchRemove")
     @PostMapping("/batchRemove")
     @ResponseBody
@@ -122,6 +126,7 @@ public class CategoryController extends BaseController {
     /**
      * 修改状态
      */
+    @Log("修改博客文章分类状态")
     @RequiresPermissions("blog:category:status")
     @PostMapping("/status")
     @ResponseBody

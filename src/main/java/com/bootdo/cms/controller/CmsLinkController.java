@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.annotation.Log;
 import com.bootdo.common.controller.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,13 +55,13 @@ public class CmsLinkController extends BaseController {
 		PageUtils pageUtils = new PageUtils(linkList, total);
 		return pageUtils;
 	}
-	
+	@Log("新增网站文章")
 	@GetMapping("/add")
 	@RequiresPermissions("cms:link:add")
 	String add(){
 	    return "cms/link/add";
 	}
-
+	@Log("编辑网站文章")
 	@GetMapping("/edit/{id}")
 	@RequiresPermissions("cms:link:edit")
 	String edit(@PathVariable("id") Long id,Model model){
@@ -72,6 +73,7 @@ public class CmsLinkController extends BaseController {
 	/**
 	 * 保存
 	 */
+	@Log("保存网站友链")
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("cms:link:add")
@@ -88,6 +90,7 @@ public class CmsLinkController extends BaseController {
 	/**
 	 * 修改
 	 */
+	@Log("更新网站友链")
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("cms:link:edit")
@@ -102,6 +105,7 @@ public class CmsLinkController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("删除网站友链")
 	@PostMapping( "/remove")
 	@ResponseBody
 	@RequiresPermissions("cms:link:remove")
@@ -116,8 +120,9 @@ public class CmsLinkController extends BaseController {
 	}
 	
 	/**
-	 * 删除
+	 * 批量删除
 	 */
+	@Log("批量删除网站友链")
 	@PostMapping( "/batchRemove")
 	@ResponseBody
 	@RequiresPermissions("cms:link:batchRemove")

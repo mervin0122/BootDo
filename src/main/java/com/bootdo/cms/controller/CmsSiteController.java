@@ -3,6 +3,7 @@ package com.bootdo.cms.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.annotation.Log;
 import com.bootdo.common.controller.BaseController;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,13 +54,13 @@ public class CmsSiteController extends BaseController {
 		PageUtils pageUtils = new PageUtils(siteList, total);
 		return pageUtils;
 	}
-	
+	@Log("新增网站文章")
 	@GetMapping("/add")
 	@RequiresPermissions("cms:site:add")
 	String add(){
 	    return "cms/site/add";
 	}
-
+	@Log("编辑网站文章")
 	@GetMapping("/edit/{id}")
 	@RequiresPermissions("cms:site:edit")
 	String edit(@PathVariable("id") Long id,Model model){
@@ -71,6 +72,7 @@ public class CmsSiteController extends BaseController {
 	/**
 	 * 保存
 	 */
+	@Log("保存网站站点")
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("cms:site:add")
@@ -86,6 +88,7 @@ public class CmsSiteController extends BaseController {
 	/**
 	 * 修改
 	 */
+	@Log("更新网站站点")
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("cms:site:edit")
@@ -100,6 +103,7 @@ public class CmsSiteController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("删除网站站点")
 	@PostMapping( "/remove")
 	@ResponseBody
 	@RequiresPermissions("cms:site:remove")
@@ -114,8 +118,9 @@ public class CmsSiteController extends BaseController {
 	}
 	
 	/**
-	 * 删除
+	 * 批量删除
 	 */
+	@Log("批量删除网站站点")
 	@PostMapping( "/batchRemove")
 	@ResponseBody
 	@RequiresPermissions("cms:site:batchRemove")

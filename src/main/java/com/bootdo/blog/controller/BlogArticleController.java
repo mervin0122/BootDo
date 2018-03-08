@@ -19,9 +19,7 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by GeneratorFx on 2017-04-11.
- */
+
 @Controller
 @RequestMapping("/blog/article")
 public class BlogArticleController {
@@ -48,7 +46,6 @@ public class BlogArticleController {
     @RequestMapping("/load")
     public String loadArticle(Pager<Article> pager, Model model){
         List<ArticleCustom> articleList = blogArticleService.articleList(pager);
-        System.out.println(articleList);
         model.addAttribute("articleList",articleList);
         return "blog/part/articleSummary";
     }

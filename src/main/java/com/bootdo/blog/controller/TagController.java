@@ -5,6 +5,7 @@ import com.bootdo.blog.domain.Tag;
 import com.bootdo.blog.service.TagService;
 import com.bootdo.blog.domain.ArticleCustom;
 import com.bootdo.blog.domain.Pager;
+import com.bootdo.common.annotation.Log;
 import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
@@ -48,12 +49,13 @@ public class TagController  extends BaseController {
         PageUtils pageUtils = new PageUtils(partnerList, total);
         return pageUtils;
     }
+    @Log("新增博客标签")
     @GetMapping("/add")
     @RequiresPermissions("blog:tag:add")
     String add() {
         return "blog/tag/add";
     }
-
+    @Log("编辑博客标签")
     @GetMapping("/edit/{id}")
     @RequiresPermissions("blog:tag:edit")
     String edit(@PathVariable("id") Integer id, Model model) {
@@ -64,6 +66,7 @@ public class TagController  extends BaseController {
     /**
      * 保存
      */
+    @Log("保存博客标签")
     @ResponseBody
     @RequiresPermissions("blog:tag:add")
     @PostMapping("/save")
@@ -87,6 +90,7 @@ public class TagController  extends BaseController {
     /**
      * 修改
      */
+    @Log("更新博客标签")
     @RequiresPermissions("blog:tag:edit")
     @RequestMapping("/update")
     public R update(@RequestBody Tag tag) {
@@ -100,6 +104,7 @@ public class TagController  extends BaseController {
     /**
      * 删除
      */
+    @Log("删除博客标签")
     @RequiresPermissions("blog:tag:remove")
     @PostMapping("/remove")
     @ResponseBody
@@ -116,6 +121,7 @@ public class TagController  extends BaseController {
     /**
      * 批量删除
      */
+    @Log("批量删除博客标签")
     @RequiresPermissions("blog:tag:batchRemove")
     @PostMapping("/batchRemove")
     @ResponseBody

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.annotation.Log;
 import com.bootdo.common.domain.DictDO;
 import com.bootdo.common.service.DictService;
 import com.bootdo.oa.domain.NotifyRecordDO;
@@ -61,13 +62,14 @@ public class NotifyController extends BaseController {
 		PageUtils pageUtils = new PageUtils(notifyList, total);
 		return pageUtils;
 	}
-
+	@Log("添加通知")
 	@GetMapping("/add")
 	@RequiresPermissions("oa:notify:add")
 	String add() {
 		return "oa/notify/add";
 	}
 
+	@Log("编辑通知")
 	@GetMapping("/edit/{id}")
 	@RequiresPermissions("oa:notify:edit")
 	String edit(@PathVariable("id") Long id, Model model) {
@@ -87,6 +89,7 @@ public class NotifyController extends BaseController {
 	/**
 	 * 保存
 	 */
+	@Log("保存通知")
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("oa:notify:add")
@@ -104,6 +107,7 @@ public class NotifyController extends BaseController {
 	/**
 	 * 修改
 	 */
+	@Log("更新通知")
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("oa:notify:edit")
@@ -118,6 +122,7 @@ public class NotifyController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("删除通知")
 	@PostMapping("/remove")
 	@ResponseBody
 	@RequiresPermissions("oa:notify:remove")
@@ -134,6 +139,7 @@ public class NotifyController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("批量删除通知")
 	@PostMapping("/batchRemove")
 	@ResponseBody
 	@RequiresPermissions("oa:notify:batchRemove")
@@ -170,6 +176,7 @@ public class NotifyController extends BaseController {
 		return notifyService.selfList(query);
 	}
 
+	@Log("查看通知消息")
 	@GetMapping("/read/{id}")
 	@RequiresPermissions("oa:notify:read")
 	String read(@PathVariable("id") Long id, Model model) {

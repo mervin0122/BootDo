@@ -80,7 +80,7 @@ public class LoginController extends BaseController {
 			return R.error("用户或密码错误");
 		}
 	}
-
+	@Log("退出登录")
 	@GetMapping("/logout")
 	String logout() {
 		ShiroUtils.logout();

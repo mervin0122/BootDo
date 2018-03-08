@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.annotation.Log;
 import com.bootdo.common.utils.Query;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.codehaus.groovy.ast.expr.PrefixExpression;
@@ -54,7 +55,7 @@ public class DeptController extends BaseController {
 		List<DeptDO> sysDeptList = sysDeptService.list(query);
 		return sysDeptList;
 	}
-
+	@Log("添加部门")
 	@GetMapping("/add/{pId}")
 	@RequiresPermissions("system:sysDept:add")
 	String add(@PathVariable("pId") Long pId, Model model) {
@@ -66,7 +67,7 @@ public class DeptController extends BaseController {
 		}
 		return  prefix + "/add";
 	}
-
+	@Log("编辑部门")
 	@GetMapping("/edit/{deptId}")
 	@RequiresPermissions("system:sysDept:edit")
 	String edit(@PathVariable("deptId") Long deptId, Model model) {
@@ -78,6 +79,7 @@ public class DeptController extends BaseController {
 	/**
 	 * 保存
 	 */
+	@Log("保存部门")
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("system:sysDept:add")
@@ -94,6 +96,7 @@ public class DeptController extends BaseController {
 	/**
 	 * 修改
 	 */
+	@Log("更新部门")
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("system:sysDept:edit")
@@ -110,6 +113,7 @@ public class DeptController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("删除部门")
 	@PostMapping("/remove")
 	@ResponseBody
 	@RequiresPermissions("system:sysDept:remove")
@@ -126,6 +130,7 @@ public class DeptController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("批量删除部门")
 	@PostMapping("/batchRemove")
 	@ResponseBody
 	@RequiresPermissions("system:sysDept:batchRemove")

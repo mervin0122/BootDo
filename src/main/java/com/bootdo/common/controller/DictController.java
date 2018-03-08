@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.annotation.Log;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -54,12 +55,14 @@ public class DictController extends BaseController {
 		return pageUtils;
 	}
 
+	@Log("添加字典")
 	@GetMapping("/add")
 	@RequiresPermissions("common:sysDict:add")
 	String add() {
 		return "common/sysDict/add";
 	}
 
+	@Log("编辑字典")
 	@GetMapping("/edit/{id}")
 	@RequiresPermissions("common:sysDict:edit")
 	String edit(@PathVariable("id") Long id, Model model) {
@@ -71,6 +74,7 @@ public class DictController extends BaseController {
 	/**
 	 * 保存
 	 */
+	@Log("保存字典")
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("common:sysDict:add")
@@ -87,6 +91,7 @@ public class DictController extends BaseController {
 	/**
 	 * 修改
 	 */
+	@Log("修改字典")
 	@ResponseBody
 	@RequestMapping("/update")
 	@RequiresPermissions("common:sysDict:edit")
@@ -101,6 +106,7 @@ public class DictController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("删除字典")
 	@PostMapping("/remove")
 	@ResponseBody
 	@RequiresPermissions("common:sysDict:remove")
@@ -117,6 +123,7 @@ public class DictController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("批量删除字典")
 	@PostMapping("/batchRemove")
 	@ResponseBody
 	@RequiresPermissions("common:sysDict:batchRemove")
@@ -135,6 +142,7 @@ public class DictController extends BaseController {
 	};
 
 	// 类别已经指定增加
+	@Log("添加类别已经指定字典")
 	@GetMapping("/add/{type}/{description}")
 	@RequiresPermissions("common:sysDict:add")
 	String addD(Model model, @PathVariable("type") String type, @PathVariable("description") String description) {

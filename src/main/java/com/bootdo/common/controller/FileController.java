@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.bootdo.common.annotation.Log;
 import com.bootdo.common.utils.PhotoResult;
 import com.bootdo.common.utils.PhotoUploadUtil;
 import javax.servlet.http.HttpServletRequest;
@@ -71,12 +72,14 @@ public class FileController extends BaseController {
 		return pageUtils;
 	}
 
+	@Log("添加文件")
 	@GetMapping("/add")
 	// @RequiresPermissions("common:bComments")
 	String add() {
 		return "common/sysFile/add";
 	}
 
+	@Log("编辑文件")
 	@GetMapping("/edit")
 	// @RequiresPermissions("common:bComments")
 	String edit(Long id, Model model) {
@@ -98,6 +101,7 @@ public class FileController extends BaseController {
 	/**
 	 * 保存
 	 */
+	@Log("保存文件")
 	@ResponseBody
 	@PostMapping("/save")
 	@RequiresPermissions("common:save")
@@ -111,6 +115,7 @@ public class FileController extends BaseController {
 	/**
 	 * 修改
 	 */
+	@Log("更新文件")
 	@RequestMapping("/update")
 	@RequiresPermissions("common:update")
 	public R update(@RequestBody FileDO sysFile) {
@@ -122,6 +127,7 @@ public class FileController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("删除文件")
 	@PostMapping("/remove")
 	@ResponseBody
 	// @RequiresPermissions("common:remove")
@@ -144,6 +150,7 @@ public class FileController extends BaseController {
 	/**
 	 * 删除
 	 */
+	@Log("批量删除文件")
 	@PostMapping("/batchRemove")
 	@ResponseBody
 	@RequiresPermissions("common:remove")
@@ -155,6 +162,7 @@ public class FileController extends BaseController {
 		return R.ok();
 	}
 
+	@Log("上传文件")
 	@ResponseBody
 	@PostMapping("/upload")
 	R upload1(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
